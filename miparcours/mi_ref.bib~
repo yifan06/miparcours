@@ -1,0 +1,472 @@
+%% image interpretation
+% ontology
+@article{town2006ontological,
+  title={Ontological inference for image and video analysis},
+  author={Town, Christopher},
+  journal={Machine Vision and Applications},
+  volume={17},
+  number={2},
+  pages={94--115},
+  year={2006},
+  publisher={Springer}
+}
+@inproceedings{alexander1986knowledge,
+  title={Knowledge Level Engineering Ontological Analysis.},
+  author={Alexander, James H and Freiling, Michael J and Shulman, Sheryl and Staley, Jeffery and Rehfuss, Steven and Messick, Steven},
+  booktitle={Proceedings of the 5th National Conference on Artificial Intelligence (AAAI)},
+  pages={963--968},
+  year={1986}
+}
+@article{mccarthy1980circumscription,
+  title={Circumscription—a form of nonmonotonic reasoning},
+  author={McCarthy, John},
+  journal={Artificial Intelligence},
+  volume={13},
+  number={1},
+  pages={27--39}
+  year={1980}
+}
+
+@article{studer1998knowledge,
+  title={Knowledge engineering: principles and methods},
+  author={Studer, Rudi and Benjamins, V Richard and Fensel, Dieter},
+  journal={Data \& knowledge engineering},
+  volume={25},
+  number={1},
+  pages={161--197},
+  year={1998},
+  publisher={Elsevier}
+}
+@inproceedings{bannour2011towards,
+  title={Towards ontologies for image interpretation and annotation},
+  author={Bannour, Hichem and Hudelot, C{\'e}line},
+  booktitle={Procedding of 9th International Workshop on Content-Based Multimedia Indexing (CBMI)},
+  pages={211--216},
+  year={2011},
+  organization={IEEE}
+}
+
+@incollection{tsotsos1992image,
+  title={Image understanding},
+  author={Tsotsos, John K.},
+  booktitle={Encyclopedia of Artificial Intelligence. John Wiley},
+  pages={641--663},
+  year={1992},
+  publisher={John Wiley \& Sons}
+}
+% logic approach
+@article{neumann2008scene,
+  title={On scene interpretation with Description Logics},
+  author={Neumann, Bernd and M{\"o}ller, Ralf},
+  journal={Image and Vision Computing},
+  volume={26},
+  number={1},
+  pages={82--101},
+  year={2008},
+  publisher={Elsevier}
+}
+
+@incollection{tran2008event,
+  title={Event modeling and recognition using markov logic networks},
+  author={Tran, Son D. and Davis, Larry S.},
+  booktitle={Computer Vision--ECCV 2008},
+  pages={610-623},
+  year={2008},
+  publisher={Springer}
+}
+@InProceedings{Espinosa07multimedia,
+  author = {Espinosa Peraldi, Sofia and  Kaya, Atila and Melzer, Sylvia  and M\"oller, Ralf and Wessel, Michael},
+  booktitle = {Proceedings of the 20th International Workshop on Description Logics (DL)},
+  title = {Multimedia Interpretation as Abduction},
+  pages={323-330},
+  year = {2007}
+}
+@article{atif2014explanatory,
+  title={Explanatory reasoning for image understanding using formal concept analysis and Description Logics},
+  author={Atif, Jamal and Hudelot, C{\'e}line and Bloch, Isabelle},
+  journal={ IEEE Transactions on Systems, Man, and Cybernetics: Systems},
+  volume={44},
+  number={5},
+  pages={552--570},
+  year={2014},
+  publisher={IEEE}
+}
+
+% bayesian method
+@incollection{Niko2009evidence,
+year={2009},
+booktitle={Machine Learning and Data Mining in Pattern Recognition},
+series={Lecture Notes in Computer Science},
+title={An Evidence-Driven Probabilistic Inference Framework for Semantic Image Understanding},
+publisher={Springer Berlin Heidelberg},
+author={Nikolopoulos, Spiros and Papadopoulos, Georgios Th. and Kompatsiaris, Ioannis and Patras, Ioannis},
+pages={525-539}
+}
+@article{Luo2005Bayesian,
+ author = {Luo, Jiebo and Savakis, Andreas E. and Singhal, Amit},
+ title = {A Bayesian network-based framework for semantic image understanding},
+ journal = {Pattern Recognition},
+ volume = {38},
+ year = {2005},
+ pages = {919-934},
+ publisher = {Elsevier Science Inc.},
+ keywords = {Bayesian networks, Domain knowledge, Low-level features, Semantic features, Semantic image understanding},
+} 
+
+@INPROCEEDINGS{Singhal2003proba, 
+author={Singhal, Amit and Luo, Jiebo and Zhu, Weiyu}, 
+booktitle={IEEE Computer Society Conference on Computer Vision and Pattern Recognition}, 
+title={Probabilistic spatial context models for scene content understanding}, 
+year={2003}, 
+volume={1}, 
+pages={235-241}, 
+keywords={Bayes methods;image classification;object detection;belief constraint;content-based image retrieval;foliage;grass;individual material detection algorithm;key semantic material type identification;material color;material texture;misclassification reduction;multimedia;probabilistic spatial context modeling;scene content determination;scene content understanding;sky;snow;spatial context-aware material detection system;water;Content based retrieval;Context modeling;Detectors;Humans;Image databases;Image recognition;Image retrieval;Layout;Object detection;Snow}, 
+}
+
+% image segmentation and recognition
+@article{nempont2013constraint,
+  title={A constraint propagation approach to structural model based image segmentation and recognition},
+  author={Nempont, Olivier and Atif, Jamal and Bloch, Isabelle},
+  journal={Information Sciences},
+  volume={246},
+  pages={1-27}
+  year={2013},
+  publisher={Elsevier}
+}
+@article{fouquier2012sequential,
+title = {Sequential model-based segmentation and recognition of image structures driven by visual features and spatial relations },
+author = {Fouquier, Geffroy and Atif, Jamal and Bloch, Isabelle},
+journal = {Computer Vision and Image Understanding},
+volume = {116},
+number = {1},
+pages = {146 - 165},
+year = {2012}
+
+}
+
+% image grammar
+@article{tu2014joint,
+  title={Joint video and text parsing for understanding events and answering queries},
+  author={Tu, Kewei and Meng, Meng and Lee, Mun Wai and Choe, Tae Eun and Zhu, Song-Chun},
+  journal={MultiMedia, IEEE},
+  volume={21},
+  number={2},
+  pages={42--70},
+  year={2014},
+  publisher={IEEE}
+}
+%{\textregistered}
+@article{zhu2006stochastic,
+  title={A Stochastic Grammar of Images},
+  author={Zhu, Song-Chun and Mumford, David},
+  journal={Foundations and Trends in Computer Graphics and Vision},
+  volume={2},
+  number={4},
+  pages={259-362},
+  year={2006}
+}
+@article{han2009bottom,
+  title={Bottom-up/top-down image parsing with attribute grammar},
+  author={Han, Feng and Zhu, Song-Chun},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={31},
+  number={1},
+  pages={59-73},
+  year={2009},
+  publisher={IEEE}
+}
+
+@article{wu2011numerical,
+  title={A numerical study of the bottom-up and top-down inference processes in and-or graphs},
+  author={Wu, Tianfu and Zhu, Song-Chun},
+  journal={International journal of computer vision},
+  volume={93},
+  number={2},
+  pages={226-252},
+  year={2011},
+  publisher={Springer}
+}
+
+% petri net knowledge representation and reasoning
+@article{ribaric2012model,
+  title={A model of fuzzy spatio-temporal knowledge representation and reasoning based on high-level Petri nets},
+  author={Ribaric, Slobodan and Hrkac, Tomislav},
+  journal={Information systems},
+  volume={37},
+  number={3},
+  pages={238--256},
+  year={2012},
+  publisher={Elsevier}
+}
+
+% qsr
+@article{freeman1975modelling,
+  title={The modelling of spatial relations},
+  author={Freeman, John},
+  journal={Computer Graphics and Image Processing},
+  volume={4},
+  number={2},
+  pages={156--171},
+  year={1975},
+  publisher={Elsevier}
+}
+@article{kuipers1978modeling,
+  title={Modeling Spatial Knowledge},
+  author={Kuipers, Benjamin},
+  journal={Cognitive Science},
+  volume={2},
+  number={2},
+  pages={129--153},
+  year={1978},
+  publisher={Wiley Online Library}
+}
+@article{freksa1991qualitative,
+  title={Qualitative spatial reasoning},
+  author={Freksa, Christian},
+  journal={Cognitive and Linguistic Aspects of Geographic Space},
+  number={63},
+  pages={361--372},
+  year={1991},
+  publisher={Kluwer}
+}
+
+% spatial logic
+@article{lutz2007tableau,
+  title={A tableau algorithm for description logics with concrete domains and general tboxes},
+  author={Lutz, Carsten and Mili{\v{c}}i{\'c}, Maja},
+  journal={Journal of Automated Reasoning},
+  volume={38},
+  number={1-3},
+  pages={227--259},
+  year={2007},
+  publisher={Springer}
+}
+@inproceedings{randell1992spatial,
+  title={A spatial logic based on regions and connection.},
+  author={Randell, David A and Cui, Zhan and Cohn, Anthony G},
+  booktitle={Proceedings of the Third International Conference on Principles of Knowledge Representation and Reasoning (KR)},
+  pages={165--176},
+  year={1992}
+}
+@article{Hudelot2008fuzzy,
+  title={Fuzzy spatial relation ontology for image interpretation},
+  author={Hudelot, C{\'e}line and Atif, Jamal and Bloch, Isabelle},
+  journal={Fuzzy Sets and Systems},
+  volume={159},
+  number={15},
+  pages={1929-1951},
+  year={2008},
+  publisher={Elsevier}
+}
+
+@inproceedings{hudelot2008spatial,
+  title={A spatial relation ontology using mathematical morphology and Description Logics for spatial reasoning},
+  author={Hudelot, C{\'e}line and Atif, Jamal and Bloch, I},
+  booktitle={ECAI 2008 Workshop on Spatial and Temporal Reasoning},
+  pages={21-25},
+  year={2008}
+}
+@article{cohn1997qualitative,
+  title={Qualitative spatial representation and reasoning with the region connection calculus},
+  author={Cohn, Anthony G and Bennett, Brandon and Gooday, John and Gotts, Nicholas Mark},
+  journal={GeoInformatica},
+  volume={1},
+  number={3},
+  pages={275--316},
+  year={1997},
+  publisher={Springer}
+}
+
+@TechReport{wessel2000obstacle,
+ author = {Wessel, Michael},
+ title = {Obstacles on the Way to Spatial Reasoning with Description Logics: Undecidability of $\mathcal{ALC_{RA^\ominus}}$},
+ institution = {University of Hamburg, Informatics Department (FBI-HH-M-297/00)},
+ year = {2000},
+ OPTkeywords = {}
+}
+@inproceedings{wessel00alcra,
+    author = {Michael Wessel and Volker Haarslev and Ralf Möller},
+    title = {$\mathcal{ALC_{RA}-ALC}$  with Role Axioms},
+    booktitle = {Proceedings of the 13th International Workshop on Description Logics (DL)},
+    year = {2000},
+    pages = {21--30}
+}
+
+% Description Logic
+@book{baader2003description,
+  title={The Description Logic handbook: theory, implementation, and applications},
+  author={Baader, Franz},
+  year={2003},
+  publisher={Cambridge university press}
+}
+@article{horrocks1999description,
+  title={A Description Logic with transitive and inverse roles and role hierarchies},
+  author={Horrocks, Ian and Sattler, Ulrike},
+  journal={Journal of logic and computation},
+  volume={9},
+  number={3},
+  pages={385--410},
+  year={1999},
+  publisher={Oxford Univ Press}
+}
+% tableaux method
+@article{baader2001overview,
+  title={An overview of tableau algorithms for Description Logics},
+  author={Baader, Franz. and Sattler, Ulrike},
+  journal={Studia Logica},
+  volume={69},
+  number={1},
+  pages={5--40},
+  year={2001},
+  publisher={Springer}
+}
+@article{nguyen2009efficient,
+  title={An efficient tableau prover using global caching for the Description Logic $\mathcal{ALC}$},
+  author={Nguyen, Linh Anh},
+  journal={Fundamenta Informaticae},
+  volume={93},
+  number={1},
+  pages={273--288},
+  year={2009},
+  publisher={IOS Press}
+}
+
+@incollection{gore2007exptime,
+  title={EXPTIME tableaux with global caching for Description Logics with transitive roles, inverse roles and role hierarchies},
+  author={Gor{\'e}, Rajeev and Nguyen, Linh Anh},
+  booktitle={Automated Reasoning with Analytic Tableaux and Related Methods},
+  pages={133--148},
+  year={2007},
+  publisher={Springer}
+}
+% abductive reasoning
+@PhdThesis{aliseda1997seeking,
+author = {Aliseda-Llera, Atocha},
+title = {Seeking explanations: abduction in logic, philosophy of science and artificial intelligence},
+school = {University of Amsterdam},
+year = {1997},
+}
+@InProceedings{elsenbroich2006case,
+  title={A case for abductive reasoning over ontologies},
+  author={Elsenbroich, Corinna and Kutz, Oliver and Sattler, Ulrike},
+  booktitle={OWL: Experiences and Directions},
+  volume={216},
+  pages={10--20},
+  year={2006}
+}
+@InProceedings{colucci2004uniform,
+  author       = {Colucci, Simona  and Di Noia, Tommaso and Di Sciascio, Eugenio and Donini, Francesco M. and Mongiello, Marina},
+  title        = {A uniform tableaux-based approach to concept abduction and contraction in $\mathcal{ALN}$},
+  booktitle    = {Proceedings of the 17th International Workshop on Description Logics (DL)},
+  volume={104},
+  pages={158--167},
+  year = {2004},
+}
+@inproceedings{di2009tableaux,
+  title={A tableaux-based calculus for abduction in expressive Description Logics: Preliminary results},
+  author={Di Noia, Tommaso and Di Sciascio, Eugenio and Donini, Francesco M.},
+  booktitle={Proceedings of 22nd International Workshop on Description Logics (DL)},
+  year={2009}
+}
+@INPROCEEDINGS{halland2014tbox,
+  author= {Ken Halland, Arina Britz, Szymon Klarman},
+   title = {TBox abduction in $\mathcal{ALC}$ using a DL tableau},
+  booktitle = {Proceedings of the 27th International Workshop on Description Logics (DL)},
+  year = {2014},
+  pages={556-566}
+}
+@incollection{gries2010probabilistic,
+  title={A probabilistic abduction engine for media interpretation based on ontologies},
+  author={Gries, Oliver and M{\"o}ller, Ralf and Nafissi, Anahita and Rosenfeld, Maurice and Sokolski, Kamil and Wessel, Michael},
+  booktitle={Web Reasoning and Rule Systems},
+  pages={182--194},
+  year={2010},
+  publisher={Springer}
+}
+
+@incollection{du2014tractable,
+  title={A tractable approach to aBox abduction over Description Logic ontologies.},
+  author={Jianfeng Du, Kewen Wang and Yi-Dong Shen.},
+  booktitle={28th AAAI Conference on Artificial Intelligence (AAAI-14)},
+  pages={1034-1040},
+  year={2014},
+  publisher={Springer}
+}
+@inproceedings{bienvenu08complexity,
+	Author = {Bienvenu, Meghyn},
+	Booktitle = {Proceedings of the Eleventh International Conference on Principles of Knowledge Representation and Reasoning (KR08)},
+	Title = {Complexity of Abduction in the $\mathcal{EL}$ Family of Lightweight Description Logics},
+	Year = {2008},
+	Pages = {220-230}
+}
+@article{klarman2011abox,
+  title={ABox abduction in the Description Logic $\mathcal{ALC}$},
+  author={Klarman, Szymon and Endriss, Ulle and Schlobach, Stefan},
+  journal={Journal of Automated Reasoning},
+  volume={46},
+  number={1},
+  pages={43--80},
+  year={2011},
+  publisher={Springer}
+}
+
+@inproceedings{du2011towards,
+  title={Towards practical ABox abduction in large {OWL} {DL} Ontologies.},
+  author={Du, Jianfeng and Qi, Guilin and Shen, Yi-Dong and Pan, Jeff Z.},
+  booktitle={Proceedings of the 25th AAAI Conference on Artificial Intelligence (AAAI-11)},
+  pages={1160-1165},
+  year={2011}
+}
+
+% qsr
+@inproceedings{egenhofer1991reasoning,
+  title={Reasoning about binary topological relations},
+  author={Egenhofer, Max J},
+  booktitle={Advances in Spatial Databases},
+  pages={141--160},
+  year={1991},
+  organization={Springer}
+}
+@incollection{moratz2003qualitative,
+  title={Qualitative spatial reasoning about relative position},
+  author={Moratz, Reinhard and Nebel, Bernhard and Freksa, Christian},
+  booktitle={Spatial Cognition III},
+  pages={385--400},
+  year={2003},
+  publisher={Springer}
+}
+@article{chen2013survey,
+     author = {Chen,Juan and Cohn,Anthony G. and Liu,Dayou and Wang,Shengsheng and Ouyang,Jihong and Yu,Qiangyuan},
+     title = {A survey of qualitative spatial representations},
+     journal = {The Knowledge Engineering Review},
+     volume = {FirstView},
+     month = {10},
+     year = {2013},
+     issn = {1469-8005},
+     pages = {1--31},
+     numpages = {31},
+     doi = {"10.1017/S0269888913000350"},
+     URL = {"http://journals.cambridge.org/article_S0269888913000350"},
+     leeds = {true},
+     webnote = {[pdf ]}
+}
+@article{Bloch2005fuzzy,
+title = {Fuzzy spatial relationships for image processing and interpretation: a review },
+author = {Bloch, Isabelle},
+journal = {Image and Vision Computing},
+volume = {23},
+number = {2},
+pages = {89 - 110},
+year = {2005}
+}
+@inbook{santos2012region,
+     title = {A region-based ontology of the brain ventricular system and its relation to schizophrenia},
+     author = {Paulo Santos and Rodolpho Freire and Danilo N. dos Santos and Carlos Thomaz and Paulo Sallet and Mario Louza and Anthony G. Cohn},
+     chapter = {7},
+     booktitle = { Qualitative Spatio-temporal Representation and Reasoning: Trends and Future Directions},
+     editor = {S M Hazarika},
+     pages = {256-273},
+     publisher = {IGI Global},
+     year = {2012},
+     leeds_file = {hazarika-santos.pdf}
+}

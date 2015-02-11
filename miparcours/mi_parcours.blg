@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mi_parcours.aux
+The style file: plain.bst
+Database file #1: mi_ref.bib
+I was expecting a `,' or a `}'---line 27 of file mi_ref.bib
+ :   
+ :   year={1980}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 143 of file mi_ref.bib
+ :   
+ :   year={2013},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--there's a number but no volume in freksa1991qualitative
+Warning--empty year in nempont2013constraint
+Warning--can't use both author and editor fields in santos2012region
+You've used 46 entries,
+            2118 wiz_defined-function locations,
+            786 strings with 12922 characters,
+and the built_in function-call counts, 17886 in all, are:
+= -- 1802
+> -- 734
+< -- 22
++ -- 309
+- -- 244
+* -- 1240
+:= -- 2791
+add.period$ -- 145
+call.type$ -- 46
+change.case$ -- 258
+chr.to.int$ -- 0
+cite$ -- 49
+duplicate$ -- 726
+empty$ -- 1450
+format.name$ -- 244
+if$ -- 3880
+int.to.chr$ -- 0
+int.to.str$ -- 46
+missing$ -- 46
+newline$ -- 233
+num.names$ -- 92
+pop$ -- 271
+preamble$ -- 1
+purify$ -- 214
+quote$ -- 0
+skip$ -- 546
+stack$ -- 0
+substring$ -- 1325
+swap$ -- 225
+text.length$ -- 22
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 180
+warning$ -- 3
+while$ -- 178
+width$ -- 48
+write$ -- 516
+(There were 2 error messages)

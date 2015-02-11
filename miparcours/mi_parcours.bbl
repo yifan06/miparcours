@@ -1,0 +1,289 @@
+\begin{thebibliography}{10}
+
+\bibitem{alexander1986knowledge}
+James~H Alexander, Michael~J Freiling, Sheryl Shulman, Jeffery Staley, Steven
+  Rehfuss, and Steven Messick.
+\newblock Knowledge level engineering ontological analysis.
+\newblock In {\em Proceedings of the 5th National Conference on Artificial
+  Intelligence (AAAI)}, pages 963--968, 1986.
+
+\bibitem{aliseda1997seeking}
+Atocha Aliseda-Llera.
+\newblock {\em Seeking explanations: abduction in logic, philosophy of science
+  and artificial intelligence}.
+\newblock PhD thesis, University of Amsterdam, 1997.
+
+\bibitem{atif2014explanatory}
+Jamal Atif, C{\'e}line Hudelot, and Isabelle Bloch.
+\newblock Explanatory reasoning for image understanding using formal concept
+  analysis and description logics.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics: Systems},
+  44(5):552--570, 2014.
+
+\bibitem{baader2003description}
+Franz Baader.
+\newblock {\em The Description Logic handbook: theory, implementation, and
+  applications}.
+\newblock Cambridge university press, 2003.
+
+\bibitem{baader2001overview}
+Franz. Baader and Ulrike Sattler.
+\newblock An overview of tableau algorithms for description logics.
+\newblock {\em Studia Logica}, 69(1):5--40, 2001.
+
+\bibitem{bannour2011towards}
+Hichem Bannour and C{\'e}line Hudelot.
+\newblock Towards ontologies for image interpretation and annotation.
+\newblock In {\em Procedding of 9th International Workshop on Content-Based
+  Multimedia Indexing (CBMI)}, pages 211--216. IEEE, 2011.
+
+\bibitem{bienvenu08complexity}
+Meghyn Bienvenu.
+\newblock Complexity of abduction in the $\mathcal{EL}$ family of lightweight
+  description logics.
+\newblock In {\em Proceedings of the Eleventh International Conference on
+  Principles of Knowledge Representation and Reasoning (KR08)}, pages 220--230,
+  2008.
+
+\bibitem{Bloch2005fuzzy}
+Isabelle Bloch.
+\newblock Fuzzy spatial relationships for image processing and interpretation:
+  a review.
+\newblock {\em Image and Vision Computing}, 23(2):89 -- 110, 2005.
+
+\bibitem{chen2013survey}
+Juan Chen, Anthony~G. Cohn, Dayou Liu, Shengsheng Wang, Jihong Ouyang, and
+  Qiangyuan Yu.
+\newblock A survey of qualitative spatial representations.
+\newblock {\em The Knowledge Engineering Review}, FirstView:1--31, 10 2013.
+
+\bibitem{cohn1997qualitative}
+Anthony~G Cohn, Brandon Bennett, John Gooday, and Nicholas~Mark Gotts.
+\newblock Qualitative spatial representation and reasoning with the region
+  connection calculus.
+\newblock {\em GeoInformatica}, 1(3):275--316, 1997.
+
+\bibitem{colucci2004uniform}
+Simona Colucci, Tommaso Di~Noia, Eugenio Di~Sciascio, Francesco~M. Donini, and
+  Marina Mongiello.
+\newblock A uniform tableaux-based approach to concept abduction and
+  contraction in $\mathcal{ALN}$.
+\newblock In {\em Proceedings of the 17th International Workshop on Description
+  Logics (DL)}, volume 104, pages 158--167, 2004.
+
+\bibitem{di2009tableaux}
+Tommaso Di~Noia, Eugenio Di~Sciascio, and Francesco~M. Donini.
+\newblock A tableaux-based calculus for abduction in expressive description
+  logics: Preliminary results.
+\newblock In {\em Proceedings of 22nd International Workshop on Description
+  Logics (DL)}, 2009.
+
+\bibitem{du2011towards}
+Jianfeng Du, Guilin Qi, Yi-Dong Shen, and Jeff~Z. Pan.
+\newblock Towards practical abox abduction in large {OWL} {DL} ontologies.
+\newblock In {\em Proceedings of the 25th AAAI Conference on Artificial
+  Intelligence (AAAI-11)}, pages 1160--1165, 2011.
+
+\bibitem{egenhofer1991reasoning}
+Max~J Egenhofer.
+\newblock Reasoning about binary topological relations.
+\newblock In {\em Advances in Spatial Databases}, pages 141--160. Springer,
+  1991.
+
+\bibitem{elsenbroich2006case}
+Corinna Elsenbroich, Oliver Kutz, and Ulrike Sattler.
+\newblock A case for abductive reasoning over ontologies.
+\newblock In {\em OWL: Experiences and Directions}, volume 216, pages 10--20,
+  2006.
+
+\bibitem{Espinosa07multimedia}
+Sofia Espinosa~Peraldi, Atila Kaya, Sylvia Melzer, Ralf M\"oller, and Michael
+  Wessel.
+\newblock Multimedia interpretation as abduction.
+\newblock In {\em Proceedings of the 20th International Workshop on Description
+  Logics (DL)}, pages 323--330, 2007.
+
+\bibitem{fouquier2012sequential}
+Geffroy Fouquier, Jamal Atif, and Isabelle Bloch.
+\newblock Sequential model-based segmentation and recognition of image
+  structures driven by visual features and spatial relations.
+\newblock {\em Computer Vision and Image Understanding}, 116(1):146 -- 165,
+  2012.
+
+\bibitem{freeman1975modelling}
+John Freeman.
+\newblock The modelling of spatial relations.
+\newblock {\em Computer Graphics and Image Processing}, 4(2):156--171, 1975.
+
+\bibitem{freksa1991qualitative}
+Christian Freksa.
+\newblock Qualitative spatial reasoning.
+\newblock {\em Cognitive and Linguistic Aspects of Geographic Space},
+  (63):361--372, 1991.
+
+\bibitem{gore2007exptime}
+Rajeev Gor{\'e} and Linh~Anh Nguyen.
+\newblock Exptime tableaux with global caching for description logics with
+  transitive roles, inverse roles and role hierarchies.
+\newblock In {\em Automated Reasoning with Analytic Tableaux and Related
+  Methods}, pages 133--148. Springer, 2007.
+
+\bibitem{gries2010probabilistic}
+Oliver Gries, Ralf M{\"o}ller, Anahita Nafissi, Maurice Rosenfeld, Kamil
+  Sokolski, and Michael Wessel.
+\newblock A probabilistic abduction engine for media interpretation based on
+  ontologies.
+\newblock In {\em Web Reasoning and Rule Systems}, pages 182--194. Springer,
+  2010.
+
+\bibitem{han2009bottom}
+Feng Han and Song-Chun Zhu.
+\newblock Bottom-up/top-down image parsing with attribute grammar.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  31(1):59--73, 2009.
+
+\bibitem{horrocks1999description}
+Ian Horrocks and Ulrike Sattler.
+\newblock A description logic with transitive and inverse roles and role
+  hierarchies.
+\newblock {\em Journal of logic and computation}, 9(3):385--410, 1999.
+
+\bibitem{Hudelot2008fuzzy}
+C{\'e}line Hudelot, Jamal Atif, and Isabelle Bloch.
+\newblock Fuzzy spatial relation ontology for image interpretation.
+\newblock {\em Fuzzy Sets and Systems}, 159(15):1929--1951, 2008.
+
+\bibitem{du2014tractable}
+Kewen~Wang Jianfeng~Du and Yi-Dong Shen.
+\newblock A tractable approach to abox abduction over description logic
+  ontologies.
+\newblock In {\em 28th AAAI Conference on Artificial Intelligence (AAAI-14)},
+  pages 1034--1040. Springer, 2014.
+
+\bibitem{halland2014tbox}
+Szymon~Klarman Ken~Halland, Arina~Britz.
+\newblock Tbox abduction in $\mathcal{ALC}$ using a dl tableau.
+\newblock In {\em Proceedings of the 27th International Workshop on Description
+  Logics (DL)}, pages 556--566, 2014.
+
+\bibitem{klarman2011abox}
+Szymon Klarman, Ulle Endriss, and Stefan Schlobach.
+\newblock Abox abduction in the description logic $\mathcal{ALC}$.
+\newblock {\em Journal of Automated Reasoning}, 46(1):43--80, 2011.
+
+\bibitem{kuipers1978modeling}
+Benjamin Kuipers.
+\newblock Modeling spatial knowledge.
+\newblock {\em Cognitive Science}, 2(2):129--153, 1978.
+
+\bibitem{Luo2005Bayesian}
+Jiebo Luo, Andreas~E. Savakis, and Amit Singhal.
+\newblock A bayesian network-based framework for semantic image understanding.
+\newblock {\em Pattern Recognition}, 38:919--934, 2005.
+
+\bibitem{lutz2007tableau}
+Carsten Lutz and Maja Mili{\v{c}}i{\'c}.
+\newblock A tableau algorithm for description logics with concrete domains and
+  general tboxes.
+\newblock {\em Journal of Automated Reasoning}, 38(1-3):227--259, 2007.
+
+\bibitem{nempont2013constraint}
+Olivier Nempont, Jamal Atif, and Isabelle Bloch.
+\newblock A constraint propagation approach to structural model based image
+  segmentation and recognition.
+\newblock {\em Information Sciences}, 246:1--27.
+
+\bibitem{neumann2008scene}
+Bernd Neumann and Ralf M{\"o}ller.
+\newblock On scene interpretation with description logics.
+\newblock {\em Image and Vision Computing}, 26(1):82--101, 2008.
+
+\bibitem{nguyen2009efficient}
+Linh~Anh Nguyen.
+\newblock An efficient tableau prover using global caching for the description
+  logic $\mathcal{ALC}$.
+\newblock {\em Fundamenta Informaticae}, 93(1):273--288, 2009.
+
+\bibitem{Niko2009evidence}
+Spiros Nikolopoulos, Georgios~Th. Papadopoulos, Ioannis Kompatsiaris, and
+  Ioannis Patras.
+\newblock An evidence-driven probabilistic inference framework for semantic
+  image understanding.
+\newblock In {\em Machine Learning and Data Mining in Pattern Recognition},
+  Lecture Notes in Computer Science, pages 525--539. Springer Berlin
+  Heidelberg, 2009.
+
+\bibitem{randell1992spatial}
+David~A Randell, Zhan Cui, and Anthony~G Cohn.
+\newblock A spatial logic based on regions and connection.
+\newblock In {\em Proceedings of the Third International Conference on
+  Principles of Knowledge Representation and Reasoning (KR)}, pages 165--176,
+  1992.
+
+\bibitem{santos2012region}
+Paulo Santos, Rodolpho Freire, Danilo~N. dos Santos, Carlos Thomaz, Paulo
+  Sallet, Mario Louza, and Anthony~G. Cohn.
+\newblock {\em A region-based ontology of the brain ventricular system and its
+  relation to schizophrenia}, chapter~7, pages 256--273.
+\newblock IGI Global, 2012.
+
+\bibitem{shanahan2005perception}
+Murray Shanahan.
+\newblock Perception as abduction: Turning sensor data into meaningful
+  representation.
+\newblock {\em Cognitive Science}, 29(1):103--134, 2005.
+
+\bibitem{Singhal2003proba}
+Amit Singhal, Jiebo Luo, and Weiyu Zhu.
+\newblock Probabilistic spatial context models for scene content understanding.
+\newblock In {\em IEEE Computer Society Conference on Computer Vision and
+  Pattern Recognition}, volume~1, pages 235--241, 2003.
+
+\bibitem{studer1998knowledge}
+Rudi Studer, V~Richard Benjamins, and Dieter Fensel.
+\newblock Knowledge engineering: principles and methods.
+\newblock {\em Data \& knowledge engineering}, 25(1):161--197, 1998.
+
+\bibitem{town2006ontological}
+Christopher Town.
+\newblock Ontological inference for image and video analysis.
+\newblock {\em Machine Vision and Applications}, 17(2):94--115, 2006.
+
+\bibitem{tsotsos1992image}
+John~K. Tsotsos.
+\newblock Image understanding.
+\newblock In {\em Encyclopedia of Artificial Intelligence. John Wiley}, pages
+  641--663. John Wiley \& Sons, 1992.
+
+\bibitem{tu2014joint}
+Kewei Tu, Meng Meng, Mun~Wai Lee, Tae~Eun Choe, and Song-Chun Zhu.
+\newblock Joint video and text parsing for understanding events and answering
+  queries.
+\newblock {\em MultiMedia, IEEE}, 21(2):42--70, 2014.
+
+\bibitem{wessel2000obstacle}
+Michael Wessel.
+\newblock Obstacles on the way to spatial reasoning with description logics:
+  Undecidability of $\mathcal{ALC_{RA^\ominus}}$.
+\newblock Technical report, University of Hamburg, Informatics Department
+  (FBI-HH-M-297/00), 2000.
+
+\bibitem{wessel00alcra}
+Michael Wessel, Volker Haarslev, and Ralf Möller.
+\newblock $\mathcal{ALC_{RA}-ALC}$ with role axioms.
+\newblock In {\em Proceedings of the 13th International Workshop on Description
+  Logics (DL)}, pages 21--30, 2000.
+
+\bibitem{wu2011numerical}
+Tianfu Wu and Song-Chun Zhu.
+\newblock A numerical study of the bottom-up and top-down inference processes
+  in and-or graphs.
+\newblock {\em International journal of computer vision}, 93(2):226--252, 2011.
+
+\bibitem{zhu2006stochastic}
+Song-Chun Zhu and David Mumford.
+\newblock A stochastic grammar of images.
+\newblock {\em Foundations and Trends in Computer Graphics and Vision},
+  2(4):259--362, 2006.
+
+\end{thebibliography}
