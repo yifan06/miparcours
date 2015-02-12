@@ -33,34 +33,37 @@
 
 \maketitle
 \section{Introduction}
- High-level semantics extraction of an image is an interesting research area for automatic image understanding in artificial intelligence.
- Many related fields like image annotation, activity recognition and  decision-support systems take advantages of semantic content.
- As advanced as AI has become, it still remains a big challenge for computers to accomplish complex understanding as humans.
+ High-level semantics extraction from an image is an interesting research area for automatic image understanding in artificial intelligence.
+ Many related fields like image annotation, activity recognition and  decision-support systems take advantage of semantic content.
+ As advanced as AI has become, it still remains a big challenge for computers to accomplish complex understanding tasks as humans do.
  %However, computers still have difficulties to accomplish complex understanding as humans.  
- Digital image itself is a numerical representation which does not contain the semantic information. 
+ Digital image itself is a numerical representation which does not represent explicitly semantic information. 
  Moreover, beyond a single object understanding based on low level features such as colors and forms, we focus on a complex description which relies on context information like spatial relations
- between diverse objects as well as prior knowledge of the application domain.
- For instance, a diagnostic problem is formed by giving an abstract description of a pathological brain volume in Figure.\ref{fig:patho_brain}. 
-  According to different anatomical prior knowledge of brain pathology, two possible descriptions could be given as follows:
+ between diverse objects as well as prior knowledge on the application domain.
+ For instance, in the context of medical applications, the understanding task can be formulated as giving an abstract description of a pathological brain volume, such as in Figure~\ref{fig:patho_brain}. 
+  According to different levels of anatomical prior knowledge on brain pathology, two possible descriptions could be given:
  \begin{itemize}
-  \item an abnormal structure is presented in the brain,
-  \item a peripheral non-enhanced tumor is presented in the right hemisphere.
+  \item an abnormal structure is present in the brain,
+  \item a peripheral non-enhanced tumor is present in the right hemisphere.
  \end{itemize}
 %  according to different prior knowledge of anatomic pathology of the  brain.
+%  The second explanation can only be inferred by an experienced doctor with background knowledge.
  In this thesis, a high-level interpretation is regarded as an explanation of what we have seen in the image.
- This process is an inference based on a prior knowledge to link the abstract description and the observed context of the scene.
+ This process is an inference based on  prior knowledge to link the abstract description and the observed context of the scene.
   \begin{figure}[h]
   \centering
    \includegraphics[scale=.2]{./figures/patho_brain.png}
-   \caption{\label{fig:patho_brain} A slice of a pathological brain volume.}
+   \caption{\label{fig:patho_brain} A slice of a pathological brain volume (MRI acquisition), where some structures are annotated.}
  \end{figure} 
 \subsection{Problem formulation}
-As the objective pointed out in the previous part, the aim is to extract high-level semantic information from a given image and translate it at a linguistic level.
-Concretely, we are interested in diagnostic problems of cerebral images with tumors. The high-level information corresponds to the presence of diverse types of pathologies
- in a brain image. To deal with this problem, prior knowledge at a linguistic level helps the decision making procedure since the semantics is not included in the image.
- In the context of this thesis, the decision process is modeled as an abductive reasoning~\cite{aliseda1997seeking} using a logical formalism.
+According to the objective pointed out in the previous part, the aim is to extract high-level semantic information from a given image and translate it at a linguistic level.
+Concretely, we are interested in the interpretation of cerebral images with tumors. The high-level information corresponds to the presence of diverse types of pathologies
+ as well as descriptions of brain structures and spatial relations among them in a brain image. 
+%  To deal with this problem, prior knowledge at a linguistic level helps the decision making procedure since the semantics is not included in the image.
+ In the context of this thesis, the decision process is modeled as an abductive reasoning~\cite{aliseda1997seeking} using a logical formalism, 
+ which is an inference mechanism from facts to explanations.
 The objective of this thesis is to build a generic logic based formalism as well as  to develop an appropriate reasoning process for image interpretation, 
- allowing to extract a set of suitable candidates as potential hypotheses of a given image and to select the ``best'' one by a defined criterion.  
+ allowing us to extract a set of suitable candidates as potential hypotheses for a given image and to select the ``best'' one by a defined criterion.  
 %  The knowledge representation is based on an ontology.
  In image interpretation, spatial relationships are important when objects of similar appearance are present in the image, especially in magnetic resonance imaging (MRI).
  Such relationships have then to be included in the representation and in the reasoning process.
@@ -74,7 +77,7 @@ The objective of this thesis is to build a generic logic based formalism as well
    \includegraphics[scale=.8]{./figures/intro_schema.pdf}
    \caption{\label{fig:intro_schema} A general schema of image interpretation task in the thesis.}
  \end{figure} 
-Figure.\ref{fig:intro_schema} shows major components of our framework in this thesis. The given image is translated into symbolic representations in terms of logical form at the beginning.
+Figure~\ref{fig:intro_schema} shows the major components of our framework in this thesis. The given image is translated into symbolic representations in terms of logical form at the beginning.
 The image can also serve as the concrete domain in both the knowledge base and the reasoning process. 
 Concrete domain is used as a real model to represent abstract terminologies in image space.
 A hypothesis of an description might be generated from the observation or the axioms in the knowledge base.
@@ -83,48 +86,48 @@ building a possible hypothesis within non-standard reasoning processes.
 
 To summarize the ongoing and future work, we need to answer the following questions:
 \begin{itemize}
- \item \textit{How to model knowledge and formalize an appropriate presentation in application domain? (Section.\ref{sec:pre})}
- \item \textit{How to connect image level representation and symbolic level representation? (Section.\ref{sec:qsr})}
- \item \textit{How to overcome the semantic gap between numerical representation and qualitative representation of spatial relationships? (Section.\ref{sec:qsr})}
- \item \textit{How to generate hypotheses to explain the observed scene? (Section.\ref{sec:abd} and Section.\ref{sec:persp})}
- \item \textit{How to define a criterion to choose a ``best'' explanation in our case? (Section.\ref{sec:abd} and Section.\ref{sec:persp})}
+ \item \textit{How to model knowledge and formalize an appropriate representation in a given application domain? (Section~\ref{sec:pre})}
+ \item \textit{How to connect image level representation and symbolic level representation? (Section~\ref{sec:qsr})}
+ \item \textit{How to overcome the semantic gap between numerical representation and qualitative representation of spatial relationships? (Section~\ref{sec:qsr})}
+ \item \textit{How to generate hypotheses to explain the observed scene? (Section~\ref{sec:abd} and Section~\ref{sec:persp})}
+ \item \textit{How to define a criterion to choose a ``best'' explanation in our case? (Section~\ref{sec:abd} and Section~\ref{sec:persp})}
 \end{itemize}
  %  The semantic gap is still an open problem in the field of image interpretation. 
 %  This is due to the different level between the numerical measurement in the image and qualitative representation in an expert knowledge.
 
  \subsection{Related work}
-Recognition of perceptual objects and scene understanding, which translate low level signal information into meaningful semantics information, belong to one of the fundamental abilities of human beings.
+Recognition of perceptual objects and scene understanding, which translate low level signal information into meaningful semantic information, belong to one of the fundamental abilities of human beings.
 Semantics is important in image analysis, for various tasks such as image annotation, event detection and diagnostic problems.
-In some specific domains, like medical imaging and remote sensing, image interpretation combines image processing with artificial intelligence techniques to derive a reasonable semantics.  
+In some specific domains, like medical imaging and remote sensing, image interpretation combines image processing with artificial intelligence techniques to derive reasonable semantics.  
 Prior knowledge is intensively used by experts who interpret visually an image. Evidently it should then also be used by machines to associate semantics with the image.  
-However, image interpretation still faces some difficulties, one of which is how to accurately associate perceptual data to appropriate concepts. Without an expert knowledge,
-such a link cannot be established. So we call this relation between visual perception and high-level linguistic expression \textit{semantic gap}.
+However, image interpretation still faces some difficulties, one of which is how to accurately associate perceptual data with appropriate concepts. Without an expert knowledge,
+such a link cannot be established. This relation between visual perception and high-level linguistic expression is called \textit{semantic gap}.
 
 
 As a high level process of exploiting semantic in the scene, image interpretation involves two levels:
 \begin{itemize}
- \item relating low level features to semantics (from pixels to semantic information)~\cite{Bloch2005fuzzy,Hudelot2008fuzzy,nempont2013constraint,fouquier2012sequential}.
- \item inferring the description of the image content (from semantics to explanation)~\cite{atif2014explanatory,Espinosa07multimedia}.
+ \item relating low level features to semantics (from pixels to semantic information)~\cite{Bloch2005fuzzy,fouquier2012sequential,Hudelot2008fuzzy,nempont2013constraint}.
+ \item inferring the description from the semantic image content (from semantics to explanation)~\cite{atif2014explanatory,Espinosa07multimedia}.
 \end{itemize}
 
 Roughly speaking, the first level describes what is happening while the second one describes how it is happening~\cite{tsotsos1992image}.
 The first level has been mainly studied in the field of multiple objects recognition. 
 Image interpretation maps regions or groups of regions onto labels corresponding to semantic concepts (e.g. labels of anatomical structures for medical images).
-Various approaches employ Bayesian network with a combination of semantics and probabilistic inference mechanisms~\cite{Luo2005Bayesian,Niko2009evidence,Singhal2003proba}.
+Various approaches employ Bayesian networks with a combination of semantics and probabilistic inference mechanisms~\cite{Luo2005Bayesian,Niko2009evidence,Singhal2003proba}.
 These techniques provide inference mechanisms by attempting to construct co-occurrence objects and contextual information with a probabilistic model for reasoning.
 
-Further, a hierarchical representation of knowledge base is proposed and so-called image grammar~\cite{tu2014joint,zhu2006stochastic}. The grammar is a structured knowledge represented by an And-Or graph.
+Further, a hierarchical representation of knowledge base is proposed, called image grammar~\cite{tu2014joint,zhu2006stochastic}. The grammar is a structured knowledge represented by an And-Or graph.
 In this graph, a global description of a scene is decomposed into parts, objects until primitive pixel patches from top to bottom.
 An And-node consists of a set of successive components and an Or-node is composed by alternative nodes.
-Meanwhile, a parsing method is proposed as inference within a probabilistic model in each node~\cite{han2009bottom,wu2011numerical}. 
+A parsing method is proposed as inference within a probabilistic model in each node~\cite{han2009bottom,wu2011numerical}. 
 
 The second level consists in reasoning at the language (knowledge) level.
 For the purpose of giving an adequate explanation, the second level is a logic-based reasoning to depict the image with a deep and abstract description from the point of view of an expert.
 There is not much work on image interpretation using logical knowledge representation and reasoning. 
-However, formal language based on logic formalism has a strong associated semantics for knowledge representation as well as reasoning processes. 
-An aggregation concept is proposed to represent a complex event or scene concerning occurrence objects, as well as spatial and temporal constraints configuration~\cite{Espinosa07multimedia}.
+However, formal language based on logic formalism has  strong associated semantics for knowledge representation as well as reasoning processes. 
+An aggregation concept is proposed in~\cite{Espinosa07multimedia} to represent a complex event or scene concerning occurrence objects, as well as spatial and temporal constraints configuration.
 According to these defined aggregation and specific rules, a high-level interpretation is able to be inferred~\cite{neumann2008scene}.
-In addition, the results using Bayesian network and image grammar are limited to defined descriptions.
+In addition, the results using Bayesian networks and image grammars are limited to defined descriptions.
 A complex description can also be generated when non-explicitly presented in the knowledge base~\cite{atif2014explanatory}.
 
 % Because the Bayesian network and image grammar method are  
@@ -594,15 +597,22 @@ In this section, we will introduce how abductive is applied in image interpretat
 
 % Useful words:
 %    Inference operation.
-
 % abduction is not a simple exploitation in knowledge base, but a task of adding new knowledge to acquire satisfied results. 
 \subsection{State of the art of abductive reasoning}
 Abductive reasoning is first proposed by Charles S. Peirce in philosophy.
 Afterwards, abductive is developed in artificial intelligence and cognitive science.
-\cite{aliseda1997seeking} gives a general overview of abduction in propositional logic and proposed tableaux methods for abduction.
-\cite{elsenbroich2006case} describes four types of abduction problems  in the case of description logics.
-The logical formalism of abduction
-$\Sigma \cup H \vDash O$
+Aliseda~\cite{aliseda1997seeking} gave a general overview of abduction in propositional logic and proposed tableaux methods for abduction.
+Further, in the context of Description Logics, four types of abduction problems  are described by Elisenbroich~\cite{elsenbroich2006case}.
+Let $\mathcal{L}$ be a DL, $\mathcal{K}=\{\mathcal{T},\mathcal{A}\}$ be a knowledge base in $\mathcal{L}$, $C,D$ two concepts in $\mathcal{L}$ and suppose that they are satisfiable
+with respect to  $\mathcal{K}$.
+The logical formalisms of abduction in DLs are represented as follows:
+\begin{itemize}
+ \item Concept abduction: given an observation concept $O$, a hypothesis is a concept $H$ such that $\mathcal{K}\vDash H \sqsubseteq O$.
+ \item TBox abduction: 
+ \item ABox abduction: let $S_a$ be a set of assertions as observation, a hypothesis is a set of $S_b$ of ABox assertion such that $\mathcal{K} \cup S_b\vDash \phi(a)$.
+ \item Knowledge base abduction:
+\end{itemize}
+
 
 \cite{neumann2008scene} use DL-safe rules( expressive but preserve decidability).
 \cite{shanahan2005perception} multimedia interpretation as abduction.

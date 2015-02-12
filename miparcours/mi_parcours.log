@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.11.12)  11 FEB 2015 15:20
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.11.12)  12 FEB 2015 18:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1271,7 +1271,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 File: ./figures/patho_brain.png Graphic file (type png)
 
 <use ./figures/patho_brain.png>
-Package pdftex.def Info: ./figures/patho_brain.png used on input line 54.
+Package pdftex.def Info: ./figures/patho_brain.png used on input line 55.
 (pdftex.def)             Requested size: 128.07622pt x 98.96799pt.
  [1
 
@@ -1281,170 +1281,105 @@ te ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.67 
+l.70 
       <./figures/patho_brain.png>]
 <./figures/intro_schema.pdf, id=116, 319.59409pt x 223.07616pt>
 File: ./figures/intro_schema.pdf Graphic file (type pdf)
 
 <use ./figures/intro_schema.pdf>
-Package pdftex.def Info: ./figures/intro_schema.pdf used on input line 74.
+Package pdftex.def Info: ./figures/intro_schema.pdf used on input line 77.
 (pdftex.def)             Requested size: 255.6756pt x 178.46117pt.
  [2pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.108 \end{itemize}
+l.111 \end{itemize}
                     <./figures/intro_schema.pdf>] [3]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 182.
-LaTeX Font Info:    Try loading font information for U+euf on input line 186.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 185.
+LaTeX Font Info:    Try loading font information for U+euf on input line 189.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 )
-Overfull \hbox (91.58202pt too wide) in paragraph at lines 215--236
+Overfull \hbox (91.58202pt too wide) in paragraph at lines 218--239
 [][]
  []
 
 [4] [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 451--451
+Underfull \hbox (badness 10000) in paragraph at lines 454--454
 []$\OML/cmm/m/it/10 ntpp$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--451
+Underfull \hbox (badness 10000) in paragraph at lines 454--454
 []$\OML/cmm/m/it/10 ntppi$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--451
+Underfull \hbox (badness 10000) in paragraph at lines 454--454
 []$\OML/cmm/m/it/10 tppi$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--452
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 []$\OML/cmm/m/it/10 dc$
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 452--452
+Underfull \hbox (badness 1701) in paragraph at lines 455--455
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 452--452
+Underfull \hbox (badness 1776) in paragraph at lines 455--455
 \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--452
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--452
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--452
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 \OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 452--452
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 452--453
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 453--453
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 453--453
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-[]$[]$
- []
-
-
-Overfull \hbox (0.56099pt too wide) in paragraph at lines 454--454
-[]$| 
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 454--454
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 454--454
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-[]$[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
-[]$
- []
-
-
 Underfull \hbox (badness 1701) in paragraph at lines 455--455
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 455--455
+Underfull \hbox (badness 1701) in paragraph at lines 455--456
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 455--455
+Underfull \hbox (badness 1701) in paragraph at lines 456--456
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--456
-[]$\OML/cmm/m/it/10 eq$
+Underfull \hbox (badness 1701) in paragraph at lines 456--456
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 457--457
-[]$\OML/cmm/m/it/10 ntpp$
+[]$[]$
+ []
+
+
+Overfull \hbox (0.56099pt too wide) in paragraph at lines 457--457
+[]$| 
  []
 
 
@@ -1473,6 +1408,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 457--457
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
+[]$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
+[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
+[]$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 458--458
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
 Underfull \hbox (badness 1701) in paragraph at lines 458--458
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
@@ -1484,37 +1439,12 @@ Underfull \hbox (badness 1701) in paragraph at lines 458--458
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 459--459
-[]$\OML/cmm/m/it/10 tpp$
+[]$\OML/cmm/m/it/10 eq$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
-[]$\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 459--459
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 459--459
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 459--459
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
-\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+[]$\OML/cmm/m/it/10 ntpp$
  []
 
 
@@ -1523,8 +1453,23 @@ Underfull \hbox (badness 1701) in paragraph at lines 460--460
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
-[]$\OML/cmm/m/it/10 ntppi$
+Underfull \hbox (badness 1776) in paragraph at lines 460--460
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
  []
 
 
@@ -1533,63 +1478,43 @@ Underfull \hbox (badness 1701) in paragraph at lines 461--461
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
+Underfull \hbox (badness 1701) in paragraph at lines 461--461
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--462
+[]$\OML/cmm/m/it/10 tpp$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--462
+[]$\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 462--462
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--462
 \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
-[]$\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+Underfull \hbox (badness 1701) in paragraph at lines 462--462
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
-[]$\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
+Underfull \hbox (badness 1776) in paragraph at lines 462--462
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
-\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
+Underfull \hbox (badness 10000) in paragraph at lines 462--462
 \OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
-\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--462
-[]$\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--462
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 462--462
-[]$\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 462--462
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 463--463
-[]$\OML/cmm/m/it/10 tppi$
  []
 
 
@@ -1598,23 +1523,18 @@ Underfull \hbox (badness 1701) in paragraph at lines 463--463
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 463--463
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
+[]$\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 464--464
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
 \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 463--463
-[]$\OML/cmm/m/it/10 ec$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 463--463
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 463--463
-[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
  []
 
 
@@ -1624,82 +1544,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 464--464
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 464--464
-[]$\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+[]$\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--465
-[]$\OML/cmm/m/it/10 op$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 465--465
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 465--465
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 465--465
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 465--465
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 465--465
-[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 465--465
-[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 466--466
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 466--466
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 466--466
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 466--466
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
 \OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
 \OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
+\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
+[]$\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
+[]$\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--466
+[]$\OML/cmm/m/it/10 tppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 466--466
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--466
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--466
+[]$\OML/cmm/m/it/10 ec$ \OT1/cmr/m/n/10 or
  []
 
 
@@ -1708,25 +1613,120 @@ Underfull \hbox (badness 10000) in paragraph at lines 466--466
  []
 
 
-Overfull \hbox (7.85449pt too wide) in paragraph at lines 449--470
+Underfull \hbox (badness 10000) in paragraph at lines 466--466
+[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
+[]$\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
+[]$\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--468
+[]$\OML/cmm/m/it/10 op$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 468--468
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--468
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 468--468
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--468
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--468
+[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--468
+[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 469--469
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 469--469
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 469--469
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 1776) in paragraph at lines 469--469
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
+\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
+\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Overfull \hbox (7.85449pt too wide) in paragraph at lines 452--473
 [][]
  []
 
-[8] [9] [10] [11] (./mi_parcours.bbl [12] [13])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 637.
- [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 637.
+[8] [9] [10] [11] (./mi_parcours.bbl [12] [13] [14])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 647.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 647.
  (./mi_parcours.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 637.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 637.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 647.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 647.
 Package rerunfilecheck Info: File `mi_parcours.out' has not changed.
 (rerunfilecheck)             Checksum: B39E36748F5AAD69237C77ED76C66AB1;1569.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 637.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 647.
  ) 
 Here is how much of TeX's memory you used:
- 23135 strings out of 493485
- 395606 string characters out of 3143525
- 526495 words of memory out of 3000000
+ 23136 strings out of 493485
+ 395613 string characters out of 3143525
+ 526550 words of memory out of 3000000
  25864 multiletter control sequences out of 15000+200000
  16472 words of font info for 66 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1747,10 +1747,10 @@ re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on mi_parcours.pdf (14 pages, 487778 bytes).
+Output written on mi_parcours.pdf (15 pages, 489186 bytes).
 PDF statistics:
- 449 PDF objects out of 1000 (max. 8388607)
- 394 compressed objects within 4 object streams
- 107 named destinations out of 1000 (max. 500000)
+ 453 PDF objects out of 1000 (max. 8388607)
+ 397 compressed objects within 4 object streams
+ 108 named destinations out of 1000 (max. 500000)
  207 words of extra memory for PDF output out of 10000 (max. 10000000)
 

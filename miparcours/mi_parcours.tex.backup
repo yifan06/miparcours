@@ -47,6 +47,7 @@
   \item a peripheral non-enhanced tumor is presented in the right hemisphere.
  \end{itemize}
 %  according to different prior knowledge of anatomic pathology of the  brain.
+ The second explanation can only be inferred by an experienced doctor with background knowledge.
  In this thesis, a high-level interpretation is regarded as an explanation of what we have seen in the image.
  This process is an inference based on a prior knowledge to link the abstract description and the observed context of the scene.
   \begin{figure}[h]
@@ -58,7 +59,7 @@
 As the objective pointed out in the previous part, the aim is to extract high-level semantic information from a given image and translate it at a linguistic level.
 Concretely, we are interested in diagnostic problems of cerebral images with tumors. The high-level information corresponds to the presence of diverse types of pathologies
  in a brain image. To deal with this problem, prior knowledge at a linguistic level helps the decision making procedure since the semantics is not included in the image.
- In the context of this thesis, the decision process is modeled as an abductive reasoning~\cite{aliseda1997seeking} using a logical formalism.
+ In the context of this thesis, the decision process is modeled as an abductive reasoning~\cite{aliseda1997seeking} using a logical formalism, which is an inference mechanism from facts to explanations.
 The objective of this thesis is to build a generic logic based formalism as well as  to develop an appropriate reasoning process for image interpretation, 
  allowing to extract a set of suitable candidates as potential hypotheses of a given image and to select the ``best'' one by a defined criterion.  
 %  The knowledge representation is based on an ontology.
@@ -576,8 +577,9 @@ A node $x$ is blocked if for some ancestor $y$, $y$ is blocked or $\mathcal{L}(y
 \end{mydef}
 
 \subsection{From image to symbolic representation}
-The work of the first year will be developed here. 
-I would like to present how to extract semantic information from images and to model spatial relations with a description logic using RBox.
+The transformation of representation from low-level numerical data to symbolic level is first phase of the framework.
+Concretely, objects and contextual information are extracted and represented within terminologies using an ABox.
+
 \subsection{Spatial reasoning using tableaux method}
 
 \section{Abductive reasoning}\label{sec:abd}
@@ -593,15 +595,21 @@ In this section, we will introduce how abductive is applied in image interpretat
 
 % Useful words:
 %    Inference operation.
-
 % abduction is not a simple exploitation in knowledge base, but a task of adding new knowledge to acquire satisfied results. 
 \subsection{State of the art of abductive reasoning}
 Abductive reasoning is first proposed by Charles S. Peirce in philosophy.
 Afterwards, abductive is developed in artificial intelligence and cognitive science.
-\cite{aliseda1997seeking} gives a general overview of abduction in propositional logic and proposed tableaux methods for abduction.
-\cite{elsenbroich2006case} describes four types of abduction problems  in the case of description logics.
-The logical formalism of abduction
-$\Sigma \cup H \vDash O$
+Aliseda~\cite{aliseda1997seeking} gave a general overview of abduction in propositional logic and proposed tableaux methods for abduction.
+Further, in the context of Description Logics, four types of abduction problems  are described by Elisenbroich~\cite{elsenbroich2006case}.
+Let $\mathcal{L}$ be a DL, $\mathcal{K}=\{\mathcal{T},\mathcal{A}\}$ be a knowledge base in $\mathcal{L}$ definition of knowledge base symbols
+The logical formalisms of abduction in DLs are represented as follows:
+\begin{itemize}
+ \item Concept abduction:
+ \item TBox abduction:
+ \item ABox abduction:
+ \item Knowledge base abduction:
+\end{itemize}
+
 
 \cite{neumann2008scene} use DL-safe rules( expressive but preserve decidability).
 \cite{shanahan2005perception} multimedia interpretation as abduction.
