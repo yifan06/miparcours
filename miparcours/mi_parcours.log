@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  12 FEB 2015 22:44
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  16 FEB 2015 19:05
 entering extended mode
  %&-line parsing enabled.
 **mi_parcours.tex
@@ -3290,7 +3290,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 46.
 
-<./figures/patho_brain.png, id=103, 640.3925pt x 494.84875pt>
+<./figures/patho_brain.png, id=127, 640.3925pt x 494.84875pt>
 File: ./figures/patho_brain.png Graphic file (type png)
 
 <use ./figures/patho_brain.png> [1
@@ -3306,7 +3306,7 @@ l.70
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/intro_schema.pdf): PDF inclus
 ion: found PDF version <1.5>, but at most version <1.4> allowed
-<./figures/intro_schema.pdf, id=119, 319.59409pt x 223.07616pt>
+<./figures/intro_schema.pdf, id=143, 319.59409pt x 223.07616pt>
 File: ./figures/intro_schema.pdf Graphic file (type pdf)
 
 <use ./figures/intro_schema.pdf> [2pdfTeX warning (ext4): destination with the 
@@ -3318,17 +3318,25 @@ l.110  \item i
               nferring the description from the semantic image content (from...
  <./figures/intro_schema.pdf>] [3]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 185.
-LaTeX Font Info:    Try loading font information for U+euf on input line 189.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 186.
+LaTeX Font Info:    Try loading font information for U+euf on input line 190.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 )
-Overfull \hbox (91.58202pt too wide) in paragraph at lines 218--239
+Overfull \hbox (86.8854pt too wide) in paragraph at lines 219--240
 [][]
  []
 
 [4] [5] [6] [7]
+Overfull \hbox (4.2484pt too wide) in paragraph at lines 435--449
+\OT1/cmr/m/n/10 tion is based on \OT1/cmr/m/it/10 Re-gion Con-nec-tion Cal-cu-l
+us \OT1/cmr/m/n/10 (RCC) [[]]. The col-lec-tion $\OMS/cmsy/m/n/10 f\OML/cmm/m/i
+t/10 dc;  []eq;  []po;  []ec;  []tpp;  []tppi;  []ntpp;  []ntppi\OMS/cmsy/m/n/1
+0 g$
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 454--454
 []$\OML/cmm/m/it/10 ntpp$
  []
@@ -3733,13 +3741,67 @@ Overfull \hbox (7.85449pt too wide) in paragraph at lines 452--473
 [][]
  []
 
-[8] [9] [10]
-Overfull \hbox (19.21284pt too wide) in paragraph at lines 600--624
+[8] [9]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 494.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 494.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 494.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 494.
+
+[10]
+
+LaTeX Warning: Reference `fig:sub_flowchart' on page 11 undefined on input line
+ 587.
+
+[11]
+
+LaTeX Warning: Reference `fig:cdlvl' on page 12 undefined on input line 646.
+
+
+LaTeX Warning: File `figures/LVr_CDr_histo_angle_53.pdf' not found on input lin
+e 667.
+
+
+! Package pdftex.def Error: File `figures/LVr_CDr_histo_angle_53.pdf' not found
+.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.667 ...=0.4]{figures/LVr_CDr_histo_angle_53.pdf}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:before_landscape' on page 12 undefined on input l
+ine 689.
+
+[12pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.715 
+      ] [13]
+Overfull \hbox (19.21284pt too wide) in paragraph at lines 824--848
 [][]
  []
 
-[11] [12]
-Overfull \hbox (19.49614pt too wide) in paragraph at lines 726--728
+[14] [15]
+Overfull \hbox (19.49614pt too wide) in paragraph at lines 950--952
 []\OT1/cmr/m/n/10 In this ex-am-ple, $\OML/cmm/m/it/10 O \OMS/cmsy/m/n/10 ^^Q 9
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 leftOf[] \OMS/cmsy/m/n/10 u \OML/cmm/m/it/10 
 closeTo[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :CNl \OMS/cmsy/m/n/10 u 9\OML/cmm/m/
@@ -3748,65 +3810,128 @@ it/10 isPartOf:Brain$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 H \OMS/cmsy/m/n/10
 re$\OT1/cmr/m/n/10 .
  []
 
-[13]
-Overfull \hbox (50.26093pt too wide) in paragraph at lines 758--759
+[16]
+Overfull \hbox (50.26093pt too wide) in paragraph at lines 982--983
  [] 
  []
 
 
-Overfull \hbox (50.26093pt too wide) in paragraph at lines 775--776
+Overfull \hbox (50.26093pt too wide) in paragraph at lines 999--1000
  [] 
  []
 
-[14]
-Overfull \hbox (50.26093pt too wide) in paragraph at lines 794--795
+[17]
+Overfull \hbox (50.26093pt too wide) in paragraph at lines 1018--1019
  [] 
  []
 
 
-Overfull \hbox (25.13376pt too wide) in paragraph at lines 808--809
+Overfull \hbox (25.13376pt too wide) in paragraph at lines 1032--1033
  [] 
  []
 
-[15]
-Overfull \hbox (80.92815pt too wide) in paragraph at lines 839--840
+[18]
+Overfull \hbox (80.92815pt too wide) in paragraph at lines 1063--1064
  [] 
  []
 
-[16] (./mi_parcours.bbl [17] [18] [19]) [20] (./mi_parcours.aux)
+[19] [20] [21]
+
+LaTeX Warning: Reference `smurf' on page 22 undefined on input line 1254.
+
+[22]
+
+LaTeX Warning: Reference `demorgan' on page 23 undefined on input line 1281.
+
+[23] [24pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.4}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1347 \begin{description}
+                          ]
+
+LaTeX Warning: Reference `exhaustive' on page 25 undefined on input line 1354.
+
+
+LaTeX Warning: Citation `bienvenu-kr08' on page 25 undefined on input line 1430
+.
+
+
+LaTeX Warning: Citation `bienvenu-kr08' on page 25 undefined on input line 1436
+.
+
+[25pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1441 \end{itemize}
+                    ]
+
+LaTeX Warning: Citation `bienvenu-kr08' on page 26 undefined on input line 1446
+.
+
+
+LaTeX Warning: Citation `DiNoia07' on page 26 undefined on input line 1463.
+
+
+LaTeX Warning: Citation `DiNoia07' on page 26 undefined on input line 1464.
+
+
+LaTeX Warning: Citation `jamal13' on page 26 undefined on input line 1493.
+
+[26]
+
+LaTeX Warning: Reference `C' on page 27 undefined on input line 1578.
+
+[27]
+
+LaTeX Warning: Citation `EKMRMW07' on page 28 undefined on input line 1588.
+
+
+LaTeX Warning: Reference `4smurf' on page 28 undefined on input line 1642.
+
+[28] [29] (./mi_parcours.bbl [30] [31]) [32] (./mi_parcours.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 20805 strings out of 495061
- 354401 string characters out of 1182621
- 446280 words of memory out of 3000000
- 23380 multiletter control sequences out of 15000+50000
- 16811 words of font info for 66 fonts, out of 3000000 for 9000
+ 21045 strings out of 495061
+ 358964 string characters out of 1182621
+ 450818 words of memory out of 3000000
+ 23562 multiletter control sequences out of 15000+50000
+ 17730 words of font info for 70 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 56i,16n,58p,420b,1583s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,20n,60p,726b,1898s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/publi
-c/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/
-texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/
-public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/publi
-c/amsfonts/euler/eufm10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/symbols/msam10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/sym
-bols/msbm10.pfb>
-Output written on mi_parcours.pdf (20 pages, 592758 bytes).
+xlive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
+texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texliv
+e/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on mi_parcours.pdf (32 pages, 707939 bytes).
 PDF statistics:
- 506 PDF objects out of 1000 (max. 8388607)
- 128 named destinations out of 1000 (max. 500000)
- 215 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 678 PDF objects out of 1000 (max. 8388607)
+ 181 named destinations out of 1000 (max. 500000)
+ 263 words of extra memory for PDF output out of 10000 (max. 10000000)
 

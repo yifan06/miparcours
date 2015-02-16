@@ -12,12 +12,16 @@ I was expecting a `,' or a `}'---line 143 of file mi_ref.bib
  :   year={2013},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "bienvenu-kr08"
+Warning--I didn't find a database entry for "DiNoia07"
+Warning--I didn't find a database entry for "jamal13"
+Warning--I didn't find a database entry for "EKMRMW07"
 Warning--there's a number but no volume in freksa1991qualitative
 Warning--empty year in nempont2013constraint
 Warning--can't use both author and editor fields in santos2012region
 You've used 46 entries,
             2118 wiz_defined-function locations,
-            786 strings with 12922 characters,
+            792 strings with 12805 characters,
 and the built_in function-call counts, 17886 in all, are:
 = -- 1802
 > -- 734

@@ -4,8 +4,8 @@
 James~H Alexander, Michael~J Freiling, Sheryl Shulman, Jeffery Staley, Steven
   Rehfuss, and Steven Messick.
 \newblock Knowledge level engineering ontological analysis.
-\newblock In {\em Proceedings of the 5th National Conference on Artificial
-  Intelligence (AAAI)}, pages 963--968, 1986.
+\newblock In {\em 5th National Conference on Artificial Intelligence (AAAI)},
+  pages 963--968, 1986.
 
 \bibitem{aliseda1997seeking}
 Atocha Aliseda-Llera.
@@ -41,9 +41,8 @@ Hichem Bannour and C{\'e}line Hudelot.
 Meghyn Bienvenu.
 \newblock Complexity of abduction in the $\mathcal{EL}$ family of lightweight
   description logics.
-\newblock In {\em Proceedings of the Eleventh International Conference on
-  Principles of Knowledge Representation and Reasoning (KR08)}, pages 220--230,
-  2008.
+\newblock In {\em 11th International Conference on Principles of Knowledge
+  Representation and Reasoning (KR08)}, pages 220--230, 2008.
 
 \bibitem{Bloch2005fuzzy}
 Isabelle Bloch.
@@ -68,21 +67,21 @@ Simona Colucci, Tommaso Di~Noia, Eugenio Di~Sciascio, Francesco~M. Donini, and
   Marina Mongiello.
 \newblock A uniform tableaux-based approach to concept abduction and
   contraction in $\mathcal{ALN}$.
-\newblock In {\em Proceedings of the 17th International Workshop on Description
-  Logics (DL)}, volume 104, pages 158--167, 2004.
+\newblock In {\em 17th International Workshop on Description Logics (DL)},
+  volume 104, pages 158--167, 2004.
 
 \bibitem{di2009tableaux}
 Tommaso Di~Noia, Eugenio Di~Sciascio, and Francesco~M. Donini.
 \newblock A tableaux-based calculus for abduction in expressive description
   logics: Preliminary results.
-\newblock In {\em Proceedings of 22nd International Workshop on Description
-  Logics (DL)}, 2009.
+\newblock In {\em 22nd International Workshop on Description Logics (DL)},
+  2009.
 
 \bibitem{du2011towards}
 Jianfeng Du, Guilin Qi, Yi-Dong Shen, and Jeff~Z. Pan.
 \newblock Towards practical abox abduction in large {OWL} {DL} ontologies.
-\newblock In {\em Proceedings of the 25th AAAI Conference on Artificial
-  Intelligence (AAAI-11)}, pages 1160--1165, 2011.
+\newblock In {\em 25th AAAI Conference on Artificial Intelligence (AAAI-11)},
+  pages 1160--1165, 2011.
 
 \bibitem{egenhofer1991reasoning}
 Max~J Egenhofer.
@@ -100,8 +99,8 @@ Corinna Elsenbroich, Oliver Kutz, and Ulrike Sattler.
 Sofia Espinosa~Peraldi, Atila Kaya, Sylvia Melzer, Ralf M\"oller, and Michael
   Wessel.
 \newblock Multimedia interpretation as abduction.
-\newblock In {\em Proceedings of the 20th International Workshop on Description
-  Logics (DL)}, pages 323--330, 2007.
+\newblock In {\em 20th International Workshop on Description Logics (DL)},
+  pages 323--330, 2007.
 
 \bibitem{fouquier2012sequential}
 Geffroy Fouquier, Jamal Atif, and Isabelle Bloch.
@@ -146,7 +145,7 @@ Feng Han and Song-Chun Zhu.
 Ian Horrocks and Ulrike Sattler.
 \newblock A description logic with transitive and inverse roles and role
   hierarchies.
-\newblock {\em Journal of logic and computation}, 9(3):385--410, 1999.
+\newblock {\em Journal of Logic and Computation}, 9(3):385--410, 1999.
 
 \bibitem{Hudelot2008fuzzy}
 C{\'e}line Hudelot, Jamal Atif, and Isabelle Bloch.
@@ -155,7 +154,7 @@ C{\'e}line Hudelot, Jamal Atif, and Isabelle Bloch.
 
 \bibitem{du2014tractable}
 Kewen~Wang Jianfeng~Du and Yi-Dong Shen.
-\newblock A tractable approach to abox abduction over description logic
+\newblock A tractable approach to {ABox} abduction over description logic
   ontologies.
 \newblock In {\em 28th AAAI Conference on Artificial Intelligence (AAAI-14)},
   pages 1034--1040. Springer, 2014.
@@ -163,8 +162,8 @@ Kewen~Wang Jianfeng~Du and Yi-Dong Shen.
 \bibitem{halland2014tbox}
 Szymon~Klarman Ken~Halland, Arina~Britz.
 \newblock Tbox abduction in $\mathcal{ALC}$ using a dl tableau.
-\newblock In {\em Proceedings of the 27th International Workshop on Description
-  Logics (DL)}, pages 556--566, 2014.
+\newblock In {\em 27th International Workshop on Description Logics (DL)},
+  pages 556--566, 2014.
 
 \bibitem{klarman2011abox}
 Szymon Klarman, Ulle Endriss, and Stefan Schlobach.
@@ -178,7 +177,8 @@ Benjamin Kuipers.
 
 \bibitem{Luo2005Bayesian}
 Jiebo Luo, Andreas~E. Savakis, and Amit Singhal.
-\newblock A bayesian network-based framework for semantic image understanding.
+\newblock A {B}ayesian network-based framework for semantic image
+  understanding.
 \newblock {\em Pattern Recognition}, 38:919--934, 2005.
 
 \bibitem{lutz2007tableau}
@@ -216,9 +216,8 @@ Spiros Nikolopoulos, Georgios~Th. Papadopoulos, Ioannis Kompatsiaris, and
 \bibitem{randell1992spatial}
 David~A Randell, Zhan Cui, and Anthony~G Cohn.
 \newblock A spatial logic based on regions and connection.
-\newblock In {\em Proceedings of the Third International Conference on
-  Principles of Knowledge Representation and Reasoning (KR)}, pages 165--176,
-  1992.
+\newblock In {\em 3rd International Conference on Principles of Knowledge
+  Representation and Reasoning (KR)}, pages 165--176, 1992.
 
 \bibitem{santos2012region}
 Paulo Santos, Rodolpho Freire, Danilo~N. dos Santos, Carlos Thomaz, Paulo
@@ -242,7 +241,7 @@ Amit Singhal, Jiebo Luo, and Weiyu Zhu.
 \bibitem{studer1998knowledge}
 Rudi Studer, V~Richard Benjamins, and Dieter Fensel.
 \newblock Knowledge engineering: principles and methods.
-\newblock {\em Data \& knowledge engineering}, 25(1):161--197, 1998.
+\newblock {\em Data \& Knowledge Engineering}, 25(1):161--197, 1998.
 
 \bibitem{town2006ontological}
 Christopher Town.
@@ -271,14 +270,14 @@ Michael Wessel.
 \bibitem{wessel00alcra}
 Michael Wessel, Volker Haarslev, and Ralf Möller.
 \newblock $\mathcal{ALC_{RA}-ALC}$ with role axioms.
-\newblock In {\em Proceedings of the 13th International Workshop on Description
-  Logics (DL)}, pages 21--30, 2000.
+\newblock In {\em 13th International Workshop on Description Logics (DL)},
+  pages 21--30, 2000.
 
 \bibitem{wu2011numerical}
 Tianfu Wu and Song-Chun Zhu.
 \newblock A numerical study of the bottom-up and top-down inference processes
   in and-or graphs.
-\newblock {\em International journal of computer vision}, 93(2):226--252, 2011.
+\newblock {\em International Journal of Computer Vision}, 93(2):226--252, 2011.
 
 \bibitem{zhu2006stochastic}
 Song-Chun Zhu and David Mumford.
