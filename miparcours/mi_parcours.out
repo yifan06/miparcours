@@ -21,7 +21,7 @@
 \BOOKMARK [1][-]{section.4}{Abductive reasoning}{}
 \BOOKMARK [2][-]{subsection.4.1}{State of the art of abductive reasoning}{section.4}
 \BOOKMARK [2][-]{subsection.4.2}{Abductive reasoning for image interpretation}{section.4}
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Fermeture de tableau \(ensemble minimal intersectant\)}{subsection.4.2}
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Tableau closure \(minimal hitting set\)}{subsection.4.2}
 \BOOKMARK [2][-]{subsection.4.3}{Minimality criteria}{section.4}
 \BOOKMARK [2][-]{subsection.4.4}{R\351sultats, \351valuation et discussion}{section.4}
 \BOOKMARK [3][-]{subsubsection.4.4.1}{Deux exemples d'abduction par la m\351thode par tableau adapt\351 propos\351e}{subsection.4.4}

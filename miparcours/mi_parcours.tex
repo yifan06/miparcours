@@ -17,6 +17,10 @@
 \newtheorem{mydef}{Definition}
 \newtheorem{exmp}{Example}
 
+\usepackage{algorithm2e}
+\usepackage{algorithmic}
+% \usepackage{algorithm}
+
 \usepackage{tikz}
 \usepackage{xytree}
 
@@ -1096,10 +1100,53 @@ The logical formalisms of abduction in DLs are represented as follows:
  \item Knowledge base abduction: let $\phi$ be a consistent set of an ABox or TBox assertions w.r.t $\mathcal{K}$. A solution of knowledge base abduction, considered 
  as a combination of TBox abduction and ABox abduction, is any finite set $S=\{\psi_i \mid i\leq n\}$ such that $ \mathcal{K} \cup S \vDash \phi$.
 \end{itemize}
-\cite{neumann2008scene} use DL-safe rules( expressive but preserve decidability).
-\cite{shanahan2005perception} multimedia interpretation as abduction.
-\cite{colucci2004uniform,di2009tableaux} adapted tableaux methods in Description Logics formalisms.
-\cite{aliseda1997seeking,elsenbroich2006case,colucci2004uniform,di2009tableaux,klarman2011abox,halland2014tbox,gries2010probabilistic,du2011towards,du2014tractable,bienvenu08complexity}
+
+An aggregation concept is proposed in~\cite{Espinosa07multimedia} to represent a complex event or scene concerning occurrence objects, as well as spatial and temporal constraints configuration.
+According to these defined aggregation and specific rules, a high-level interpretation is able to be inferred~\cite{neumann2008scene}.
+In addition, the results using Bayesian networks and image grammars are limited to defined descriptions.
+A complex description can also be generated when non-explicitly presented in the knowledge base~\cite{atif2014explanatory}.
+
+An image interpretation tasks is regarded as an abduction problem in \cite{atif2014explanatory,gries2010probabilistic,neumann2008scene,shanahan2005perception}.
+In \cite{neumann2008scene}, DL-safe rules are proposed to map high level concepts and occurrence objects in the scene and their relationships.
+The rules ensure the expressivity and preserve the decidability of the reasoning. However, only the concept defined in the rules can be inferred using 
+the formalism. In \cite{atif2014explanatory}, the image interpretation is formulated as a concept abduction problem.
+The DL is expressed in $\mathcal{EL}$. The knowledge base of is processed using formal concept analysis and the abductive reasoning is tackled
+by a recursive erosion on the lattice based representation. Under this way, not only the defined concepts but also the undefined complex concepts  
+can be inferred.
+% \cite{shanahan2005perception} multimedia interpretation as abduction.
+% \cite{gries2010probabilistic}
+
+
+% di2009tableaux
+Tableau method is firstly adapted in Description Logics formalisms for a market matchmaking problem~\cite{colucci2004uniform}.
+Colucci \textit{et al.} modeled this problem as a concept abduction in the DL $\mathcal{ALN}$ \cite{colucci2004uniform},
+where the observations are the demand and the supply is treated as the explanation for the meet of the request.
+Tableau method has also been studied by Halland \textit{et al.} in \cite{halland2014tbox} for a TBox abduction problem.
+For a TBox abduction problem, a TBox axiom in the form $\phi= C\sqsubseteq D$ is an explanation to enforce the entailment of the observation,
+which is also in the form of  a TBox subsumption form. Similar to the tableau method for the  concept abduction, if the disjunction
+two concepts $A_1$  and $\neg A_2$ can create a clash of the tableau, then $A_2 \sqsubseteq A_1$ is considered as a potential explanation.
+
+
+Klarman \textit{et al.}~\cite{klarman2011abox} present the tableau method for the ABox abduction in $\mathcal{ALC}$.
+This method integrates logic reasoning techniques of the first order. First, knowledge and observation are
+transformed into first-order logic. Then, a table in the context of the first-order logic is built and solutions
+are selected in the open branches. The results are transformed into logic description from the first-order logic in the end.
+In \cite{du2011towards,du2014tractable}, the authors also focus on ABox abduction problem. 
+Differs from the traditional work in~\cite{klarman2011abox}, \cite{du2014tractable} propose the explanation 
+with fresh individuals which are not suitable to use a traditional set inclusion minimality to choose a preferred explanation.
+In~\cite{du2014tractable}, Du \textit{et al.} introduced a tractable approach to ABox abduction, called the query abduction problem.
+This problem focuses on giving the explanations, which are new facts neither in the observation nor in the assertional knowledge, for an observation.
+The observation is represented by a boolean conjunctive query in the form $\exists x\Phi(x,c)$, where $\Phi(x,c)$ is a conjunction of concepts
+assertions and role assertions and $x$ represents a variable and $c$ represents an individual.
+However, the potential hypotheses are restricted as  atomic concepts and roles in the DL.
+
+% A TBox is cyclic if it contains the same concept in both sides of an axiom. For example, $ \ forall hasFriend. Happy \ sqsubseteq Happy $.
+% Otherwise the TBox is acyclic.
+% This approach works with a cyclic TBox. For observation $ Happy (john) $ (ie John is happy), there is an infinity of results. $ \ Forall hasFriend \\ Happy (john) $
+% $ \ forall hasFriend. \ forall hasFriend. Happy (john) $, etc. But a man can not be considered a friend of himself. In the context of the concept of abduction
+%   one can build a $ interpreting \ Delta ^ \ mathcal {I} = \ {x, y \} $, $ Happy ^ \ mathcal {I} = \ {x \} $ and $ \ forall hasFriend. Happy ^ \ mathcal {I} = \ {y \} $.
+%   The hypothesis $ \ forall hasFriend. Happy is considered a $ $ $ Happy explanation. In this paper, we use an acyclic TBox for the concept of abduction.
+
 
 We then move on the other aspect of abduction problem: the selection problem.
 As a set of syntactical candidates generated using tableau method, the selection relies on explicit restrictions for choosing the ``best'' explanation.
@@ -1111,10 +1158,16 @@ Though the desired candidates are selected, the solutions can be infinite.
 Therefore, minimality criteria is an important manner to find a preference among all the potential hypotheses.
 Bienvenu  discussed a set of basic minimality criteria for abductive reasoning in~\cite{bienvenu08complexity}.
 
-As introduced as above, tableau method is an effective way to find an explanation given the observation.
-In this work, we apply this general strategy to image interpretation task.
 
 \subsection{Abductive reasoning for image interpretation}
+As introduced as above, tableau method is an effective way to find an explanation given the observation.
+In this work, we apply this general strategy to image interpretation task as a concept abduction problem.
+An observed image is represented by an ABox, which is consistent with the knowledge base. 
+In the concept abduction problem, the observation concept is constructed on the basis of the individual that selected to be explained and
+contextual information in the ABox.
+The knowledge base is in the DL $\mathcal{ALC}$, but the explanations are generated in a restricted language.
+
+
 Tableau method has proven effective for tackling abductive reasoning problem. We then consider extending and automating this approach in image interpretation.
 Under this way, the work is divided into two parts: generation of hypotheses and selection of the ``best'' explanation using a minimality criterion.
 
@@ -1272,13 +1325,9 @@ D=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat \sqcap  \exists hasColor.Re
 
 In our approach to the construction of tables, n {\ oe} initial node consists of two complex concepts.
 One concept is satisfiable in $ \mathbf{T}(1) $. Here, the concept is emptied because it has not yet constraint.
-The other is not satisfiable concept in $ \mathbf{F} (1) $. Here is the negation of the conjunction of $ C_\mathcal{T}$ and $ \neg D$. Applying the first and third rules
-De Morgan (see section \ ref {} DeMorgan), the concept is written $\neg C_\mathcal{T} \sqcup D$.
- 
-Dans notre approche de la construction de tableaux, le n{\oe}ud initial consiste en deux concepts complexes. 
-L'un représente un concept satisfiable dans $\mathbf{T}(1)$. Ici, ce concept est vide, car on n'a pas encore de contrainte. 
-L'autre représente un concept non satisfiable dans $\mathbf{F}(1)$. Ici, c'est la négation de la conjonction de $C_\mathcal{T}$ et $\neg D$. En appliquant la première et la troisième règles 
-de De Morgan (voir section \ref{demorgan}), le concept s'écrit $ \neg C_\mathcal{T} \sqcup  D$.
+The other is not satisfiable concept in $ \mathbf{F} (1) $. Here is the negation of the conjunction of $ C_\mathcal{T}$ and $ \neg O$. Applying the first and third rules
+De Morgan (see section \ ref {} DeMorgan), the concept is written $\neg C_\mathcal{T} \sqcup O$.
+
 
 \begin{figure}
 \centering
@@ -1331,44 +1380,49 @@ $SmurfLeader\sqcap\exists hasOnTop.(Hat\sqcap \exists hasColor.Red)$, $SmurfLead
 % Nous pouvons choisir un ensemble $C$ des concepts dans ces ensembles lorsque $C\cap H_i \neq \emptyset$. L'ajout de la conjonction des concepts de $C$ dans $\mathbf{T}()$ peut générer des contradictions dans 
 % toutes les branches ouvertes ainsi le tableau est fermé. De ce fait, $C$ est une hypothèse potentielle.
 
-\subsubsection{Fermeture de tableau (ensemble minimal intersectant)}
-
-A ce stade, nous avons réalisé une procédure de construction de l'arbre de la méthode par tableau. Alors on a un ensemble de concepts pour chaque branche ouverte dans le tableau.
-Une hypothèse potentielle est la conjonction de ces concepts. Les concepts pris en compte peuvent fermer le tableau si au moins un concept est sélectionné dans chaque branche.
-Afin d'éviter la redondance, nous voulons prendre les ensembles minimaux intersectant pour la suite. La définition de l'ensemble intersectant est introduite ci-dessous.
-\begin{mydef}{(Ensemble intersectant)}
-(Hitting set en anglais). Soit un ensemble non vide:$\{ S_1,\dots,S_n\}$  et $T\subseteq \cup_{i=1}^{n} S_i$. $T$ est un ensemble intersectant pour $\{ S_1,\dots,S_n\}$
-si et seulement si  $T \cap S_i \neq \emptyset$ pour tous les $1\leq i\leq n$.
+\subsubsection{Tableau closure (minimal hitting set)}
+At this stage, we conducted a construction procedure of the tree model using  the tableau method. Then we have a set of concepts for each open branch in the tableau.
+One potential hypothesis is the combination of these concepts. Concepts considered can close the table if at least one concept is selected in each branch.
+To avoid redundancy, we want to take the minimum hitting set. The definition of hitting set is introduced below.
+% 
+% A ce stade, nous avons réalisé une procédure de construction de l'arbre de la méthode par tableau. Alors on a un ensemble de concepts pour chaque branche ouverte dans le tableau.
+% Une hypothèse potentielle est la conjonction de ces concepts. Les concepts pris en compte peuvent fermer le tableau si au moins un concept est sélectionné dans chaque branche.
+% Afin d'éviter la redondance, nous voulons prendre les ensembles minimaux intersectant pour la suite. La définition de l'ensemble intersectant est introduite ci-dessous.
+\begin{mydef}{(Hitting set)}
+ Let $\{ S_1,\dots,S_n\}$ be a collection of sets. A hitting set  $T$ is a subset $T\subseteq \cup_{i=1}^{n} S_i$ such that $T$ contains at least one element
+ of each set in the collection $T \cap S_i \neq \emptyset~(1\leq i\leq n)$.
 \end{mydef}
 
-
-Puis, il faut choisir les hypothèses informatives en vérifiant différentes propriétés.
-Dans notre situation, une explication est choisie si et seulement si les exigences  suivantes sont vérifiées:
+Such a minimal hitting set of concepts guarantees a syntactical hypothesis in the given DL. 
+To ensure the consistence and relevance of an explanation, following properties are required to be satisfied for each potential hypothesis.
+% Puis, il faut choisir les hypothèses informatives en vérifiant différentes propriétés.
+% Dans notre situation, une explication est choisie si et seulement si les exigences  suivantes sont vérifiées:
 \begin{description}
- \item[\textbf{Inférence}] $\mathcal{K}\vDash \mathcal{H} \sqsubseteq \mathcal{O}$
- \item[\textbf{Cohérence}] $\mathcal{K},\mathcal{H} $ sont cohérents.
- \item[\textbf{Explication}] $\mathcal{K},\nvDash \mathcal{O}, \mathcal{H}   \nvDash \mathcal{O}$
+ \item[\textbf{Relevant}] $\mathcal{K}\vDash \mathcal{H} \sqsubseteq \mathcal{O}$
+ \item[\textbf{Consistent}] $\mathcal{K},\mathcal{H} $ are consistent.
+ \item[\textbf{Explainable}] $\mathcal{K},\nvDash \mathcal{O}, \mathcal{H}   \nvDash \mathcal{O}$
 \end{description}
 \medskip
 
-Une approche exhaustive est proposée dans l'algorithme~\ref{exhaustive}:
+% Une approche exhaustive est proposée dans l'algorithme~\ref{exhaustive}:
+An exhaustive algorithm is proposed for selecting the minimal hitting set:
 
-% \begin{algorithm}[H]
-% \textbf{Entrée:} Une collection d'ensembles $\{S_1,\dots,S_n\}$\;
-% \textbf{Sortie:} Les ensembles intersectants cohérents (Hitting set) $\mathcal{H}$\;
-% Initialisation\:
-% $\mathcal{H}=\{\}$\;
-% Initialisation d'un arbre avec une racine.\;
-% \textbf{Pour~}( $i$ De 1 à $n$ )\textbf{~faire:}\\
-% ~~~~~~Etendre  les feuilles pour chaque élément de $S_i$  de  chaque feuille actuelle\;
-% ~~~~~~Calculer une hypothèse intermédiaire $H_{j}$ de chaque branche $j$: la conjonction de concepts dans la même branche\;
-% ~~~~~~Supprimer la branche $j$ si $H_{j}$ n'est pas cohérente par rapport à la base de connaissances\;
-% \textbf{Fin Pour}\\
-% Pour chaque branche $j$, ajouter l'hypothèse potentielle $H_{j}$: la conjonction de concepts dans la même branche dans $\mathcal{H}$\;
-% \textbf{return:} $\mathcal{H}$\;
-% \caption{Algorithme pour calculer les ensembles intersectants.}\label{exhaustive}
-% \end{algorithm}
-\medskip
+\begin{algorithm}[H]
+\textbf{Input:} A collection of sets $\{S_1,\dots,S_n\}$\;
+\textbf{Output:} A collection of hitting sets $\mathcal{H}$\;
+Initialization\:
+$\mathcal{H}=\{\}$\;
+Root initialization.\;
+\textbf{For~}( $i$ From 1 to $n$ )\textbf{~do:}\\
+~~~~~~Create a new leaf for every  $S_i$  in each branch\;
+~~~~~~An intermediate hypothesis $H_{j}$ is the conjunction of all the concepts in the same branch\;
+~~~~~~Delete the branch $j$ if $H_{j}$ is inconsistent w.r.t the TBox\;
+\textbf{End}\\
+The conjunction of all concepts in each branch $j$ represents a potential hypothesis $H_j$\;
+\textbf{return:} $\mathcal{H}$\;
+\caption{Exhaustive search algorithm of selecting hitting sets.}\label{exhaustive}
+\end{algorithm}
+
 
 \begin{figure}
 \centering
@@ -1384,22 +1438,28 @@ child { node  []{$\exists hasPart.Beard$}
 };
 
 \end{tikzpicture}
-\caption{L'arbre de la construction d'ensemble intersectant.\label{arbre}}
+\caption{Hitting set construction tree.\label{fig:hittingtree}}
 \end{figure}
-
-Nous illustrons cet algorithme par l'exemple du Schtroumpf. Notons que nous avons obtenu deux ensembles de concepts dans l'étape précédente.
-Appliquons cet algorithme, un arbre est initialisé avec une racine. Ensuite, nous construisons récursivement l'arbre en ajoutant les concepts
-d'un ensemble $H_i$ dans tous les feuilles de l'arbre. Ici, il y a deux niveaux dans cet arbre (dans la figure \ref{arbre}). Dans ce cas, toutes les
-hypothèses sont cohérentes avec TBox. Nous énumérons alors toutes les hypothèses potentielles:
+We illustrate the algorithm by the example of Smurf. Note that we got two sets of concepts in the previous step.
+Applying this algorithm, a tree is initialized with a empty root. Then we construct recursively the tree by adding all concepts
+in the set $h_i$ as new leaves (Figure \ref{fig:hittingtree}). In this case, all
+assumptions are consistent with TBox:
+% Nous illustrons cet algorithme par l'exemple du Schtroumpf. Notons que nous avons obtenu deux ensembles de concepts dans l'étape précédente.
+% Appliquons cet algorithme, un arbre est initialisé avec une racine. Ensuite, nous construisons récursivement l'arbre en ajoutant les concepts
+% d'un ensemble $H_i$ dans tous les feuilles de l'arbre. Ici, il y a deux niveaux dans cet arbre (dans la figure \ref{arbre}). Dans ce cas, toutes les
+% hypothèses sont cohérentes avec TBox. Nous énumérons alors toutes les hypothèses potentielles:
 $H=SmurfLeader$, $H=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat\sqcap\exists hasColor.Red)$, 
-$H=SmurfLeader\sqcap\exists hasOnTop.(Hat\sqcap \exists hasColor.Red)$, $H=SmurfLeader \sqcap \exists hasPart.Beard$. La deuxième hypothèse 
-est éliminée car $H=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat\sqcap\exists hasColor.Red)$ n'est pas une hypothèse explicative ($H\vDash \mathcal{O}$). 
+$H=SmurfLeader\sqcap\exists hasOnTop.(Hat\sqcap \exists hasColor.Red)$, $H=SmurfLeader \sqcap \exists hasPart.Beard$. 
+The second hypothesis is removed because $H=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat\sqcap\exists hasColor.Red)$ 
+is not a hypothesis explainable ($H\vDash \mathcal{O}$). 
 
-
-Les hypothèses obtenues dans cet algorithme sont cohérentes  et minimales syntaxiquement. Elles sont les conjonctions d'éléments tirés dans chaque branche ouverte.
-La cohérence est vérifiée par le service de raisonnement classique de LD.
-La minimalité syntaxique est prouvée par l'algorithme des ensembles minimaux intersectants.
-La minimalité sémantique doit être considérée afin de choisir la << meilleure >> explication dans notre situation.
+Assumptions obtained in this algorithm is consistent and minimal syntactically. 
+A preference explanation depends on a minimality criterion that will be presented in the next subsection.
+% Minimality semantics must be considered in order to choose the best << >> explanation in our situation.
+% Les hypothèses obtenues dans cet algorithme sont cohérentes  et minimales syntaxiquement. Elles sont les conjonctions d'éléments tirés dans chaque branche ouverte.
+% La cohérence est vérifiée par le service de raisonnement classique de LD.
+% La minimalité syntaxique est prouvée par l'algorithme des ensembles minimaux intersectants.
+% La minimalité sémantique doit être considérée afin de choisir la << meilleure >> explication dans notre situation.
 
 
 \subsection{Minimality criteria}
