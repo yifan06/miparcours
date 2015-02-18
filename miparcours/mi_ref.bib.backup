@@ -13,7 +13,7 @@
 @inproceedings{alexander1986knowledge,
   title={Knowledge Level Engineering Ontological Analysis.},
   author={Alexander, James H and Freiling, Michael J and Shulman, Sheryl and Staley, Jeffery and Rehfuss, Steven and Messick, Steven},
-  booktitle={Proceedings of the 5th National Conference on Artificial Intelligence (AAAI)},
+  booktitle={5th National Conference on Artificial Intelligence (AAAI)},
   pages={963--968},
   year={1986}
 }
@@ -30,7 +30,7 @@
 @article{studer1998knowledge,
   title={Knowledge engineering: principles and methods},
   author={Studer, Rudi and Benjamins, V Richard and Fensel, Dieter},
-  journal={Data \& knowledge engineering},
+  journal={Data \& Knowledge Engineering},
   volume={25},
   number={1},
   pages={161--197},
@@ -86,7 +86,7 @@
 }
 @InProceedings{Espinosa07multimedia,
   author = {Espinosa Peraldi, Sofia and  Kaya, Atila and Melzer, Sylvia  and M\"oller, Ralf and Wessel, Michael},
-  booktitle = {Proceedings of the 20th International Workshop on Description Logics (DL)},
+  booktitle = {20th International Workshop on Description Logics (DL)},
   title = {Multimedia Interpretation as Abduction},
   pages={323-330},
   year = {2007}
@@ -114,7 +114,7 @@ pages={525-539}
 }
 @article{Luo2005Bayesian,
  author = {Luo, Jiebo and Savakis, Andreas E. and Singhal, Amit},
- title = {A Bayesian network-based framework for semantic image understanding},
+ title = {A {B}ayesian network-based framework for semantic image understanding},
  journal = {Pattern Recognition},
  volume = {38},
  year = {2005},
@@ -189,7 +189,7 @@ year = {2012}
 @article{wu2011numerical,
   title={A numerical study of the bottom-up and top-down inference processes in and-or graphs},
   author={Wu, Tianfu and Zhu, Song-Chun},
-  journal={International journal of computer vision},
+  journal={International Journal of Computer Vision},
   volume={93},
   number={2},
   pages={226-252},
@@ -254,7 +254,7 @@ year = {2012}
 @inproceedings{randell1992spatial,
   title={A spatial logic based on regions and connection.},
   author={Randell, David A and Cui, Zhan and Cohn, Anthony G},
-  booktitle={Proceedings of the Third International Conference on Principles of Knowledge Representation and Reasoning (KR)},
+  booktitle={3rd International Conference on Principles of Knowledge Representation and Reasoning (KR)},
   pages={165--176},
   year={1992}
 }
@@ -297,7 +297,7 @@ year = {2012}
 @inproceedings{wessel00alcra,
     author = {Michael Wessel and Volker Haarslev and Ralf Möller},
     title = {$\mathcal{ALC_{RA}-ALC}$  with Role Axioms},
-    booktitle = {Proceedings of the 13th International Workshop on Description Logics (DL)},
+    booktitle = {13th International Workshop on Description Logics (DL)},
     year = {2000},
     pages = {21--30}
 }
@@ -312,7 +312,7 @@ year = {2012}
 @article{horrocks1999description,
   title={A Description Logic with transitive and inverse roles and role hierarchies},
   author={Horrocks, Ian and Sattler, Ulrike},
-  journal={Journal of logic and computation},
+  journal={Journal of Logic and Computation},
   volume={9},
   number={3},
   pages={385--410},
@@ -367,7 +367,7 @@ year = {1997},
 @InProceedings{colucci2004uniform,
   author       = {Colucci, Simona  and Di Noia, Tommaso and Di Sciascio, Eugenio and Donini, Francesco M. and Mongiello, Marina},
   title        = {A uniform tableaux-based approach to concept abduction and contraction in $\mathcal{ALN}$},
-  booktitle    = {Proceedings of the 17th International Workshop on Description Logics (DL)},
+  booktitle    = {17th International Workshop on Description Logics (DL)},
   volume={104},
   pages={158--167},
   year = {2004},
@@ -375,13 +375,13 @@ year = {1997},
 @inproceedings{di2009tableaux,
   title={A tableaux-based calculus for abduction in expressive Description Logics: Preliminary results},
   author={Di Noia, Tommaso and Di Sciascio, Eugenio and Donini, Francesco M.},
-  booktitle={Proceedings of 22nd International Workshop on Description Logics (DL)},
+  booktitle={22nd International Workshop on Description Logics (DL)},
   year={2009}
 }
 @INPROCEEDINGS{halland2014tbox,
   author= {Ken Halland, Arina Britz, Szymon Klarman},
    title = {TBox abduction in $\mathcal{ALC}$ using a DL tableau},
-  booktitle = {Proceedings of the 27th International Workshop on Description Logics (DL)},
+  booktitle = {27th International Workshop on Description Logics (DL)},
   year = {2014},
   pages={556-566}
 }
@@ -395,7 +395,7 @@ year = {1997},
 }
 
 @incollection{du2014tractable,
-  title={A tractable approach to aBox abduction over Description Logic ontologies.},
+  title={A tractable approach to {ABox} abduction over Description Logic ontologies.},
   author={Jianfeng Du, Kewen Wang and Yi-Dong Shen.},
   booktitle={28th AAAI Conference on Artificial Intelligence (AAAI-14)},
   pages={1034-1040},
@@ -404,7 +404,7 @@ year = {1997},
 }
 @inproceedings{bienvenu08complexity,
 	Author = {Bienvenu, Meghyn},
-	Booktitle = {Proceedings of the Eleventh International Conference on Principles of Knowledge Representation and Reasoning (KR08)},
+	Booktitle = {11th International Conference on Principles of Knowledge Representation and Reasoning (KR08)},
 	Title = {Complexity of Abduction in the $\mathcal{EL}$ Family of Lightweight Description Logics},
 	Year = {2008},
 	Pages = {220-230}
@@ -423,7 +423,7 @@ year = {1997},
 @inproceedings{du2011towards,
   title={Towards practical ABox abduction in large {OWL} {DL} Ontologies.},
   author={Du, Jianfeng and Qi, Guilin and Shen, Yi-Dong and Pan, Jeff Z.},
-  booktitle={Proceedings of the 25th AAAI Conference on Artificial Intelligence (AAAI-11)},
+  booktitle={25th AAAI Conference on Artificial Intelligence (AAAI-11)},
   pages={1160-1165},
   year={2011}
 }

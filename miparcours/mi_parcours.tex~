@@ -101,11 +101,13 @@ To summarize the ongoing and future work, we need to answer the following questi
 
  \subsection{Related work}
 Recognition of perceptual objects and scene understanding, which translate low level signal information into meaningful semantic information, belong to one of the fundamental abilities of human beings.
-Semantics is important in image analysis, for various tasks such as image annotation, event detection and diagnostic problems.
-In some specific domains, like medical imaging and remote sensing, image interpretation combines image processing with artificial intelligence techniques to derive reasonable semantics.  
+Semantics is important in image analysis, for various tasks such as image annotation~\cite{tousch2012semantic}, event detection~\cite{lavee2009understanding} and 
+diagnostic problems~\cite{atif2014explanatory,atif2007grafip}.
+In some specific domains, like medical imaging~\cite{atif2014explanatory,Bloch2005fuzzy,fouquier2012sequential,nempont2013constraint} and
+remote sensing~\cite{forestier2012knowledge,vanegas2010detection}, image interpretation combines image processing with artificial intelligence techniques to derive reasonable semantics.  
 Prior knowledge is intensively used by experts who interpret visually an image. Evidently it should then also be used by machines to associate semantics with the image.  
 However, image interpretation still faces some difficulties, one of which is how to accurately associate perceptual data with appropriate concepts. Without an expert knowledge,
-such a link cannot be established. This relation between visual perception and high-level linguistic expression is called \textit{semantic gap}.
+such a link cannot be established. This relation between visual perception and high-level linguistic expression is called \textit{semantic gap}~\cite{hudelot2008spatial}.
 
 
 As a high level process of exploiting semantic in the scene, image interpretation involves two levels:
@@ -133,6 +135,9 @@ An aggregation concept is proposed in~\cite{Espinosa07multimedia} to represent a
 According to these defined aggregation and specific rules, a high-level interpretation is able to be inferred~\cite{neumann2008scene}.
 In addition, the results using Bayesian networks and image grammars are limited to defined descriptions.
 A complex description can also be generated when non-explicitly presented in the knowledge base~\cite{atif2014explanatory}.
+At this level, a high-level semantics, required both background knowledge and contextual information, can be reasoned out from explicit observation in an image.
+The high-level semantics in terms of a complex description within an expressive logic formalism is still an open problem for image interpretation.
+In this thesis, we are interested in proposing an adapted logical formalism for the knowledge representation as well as a specific reasoning method for image interpretation inference.
 
 % Because the Bayesian network and image grammar method are  
 
@@ -217,6 +222,7 @@ An interpretation $\mathcal{I}=(\Delta^\mathcal{I},\cdot^\mathcal{I})$ provides 
  \item Every individual $a \in N_I$ is interpreted as an element in the set $\Delta^\mathcal{I}$, denoted as $a^\mathcal{I} \in \Delta^\mathcal{I}$.
 \end{itemize}
 The interpretation for concept expressions and axioms in the knowledge base are shown in Table~\ref{tab:interpretation}.
+Let $\varPhi$ be a set of axioms, an interpretation $\mathcal{I}$ is a \textit{model} of $\varPhi$ if $\varPhi$ holds (true) in the context of $\mathcal{I}$.
 \end{mydef}
  \begin{center}
  \begin{table}[H]
@@ -497,6 +503,7 @@ However, both of two representation ignore the influence of objects forms. The r
 
 \subsection{Qualitative spatial reasoning in $\mathcal{ALCHI_{R^+}}$}
 In this section, we give the logical formalism to represent qualitative spatial relationships as roles and  corresponding properties in terms of role axioms within a role box.
+Then, we illustrate how the qualitative spatial reasoning is developed using the logical formalism. 
 % As spatial relations are represented  by roles, a set of role axioms is exploited to model spatial relations.
 % In Scenario 1, only topological relations are considered for the spatial reasoning task. 
 % A collection (defined as RCC-8: $\{dc, ~eq,~po,~ec,~tpp,~tppi,~ntpp,~ntppi\}$)  is used as a set of disjoint exhaustive topological relations \cite{cohn1997qualitative}.
@@ -560,6 +567,104 @@ $\langle x,y \rangle \in u^\mathcal{I}$ implies $\langle x,y \rangle \notin v^\m
 \end{mydef}
 The knowledge base used for spatial reasoning in our framework is built with three blocks: terminologies (TBox), role axioms (RBox) and assertions (ABox)
 ($\mathcal{K}=\{\mathcal{T},\mathcal{R},\mathcal{A}\}$).
+
+A decidable DL language $\mathcal{ALCHI_{R_+}}$~\cite{horrocks1999description} is described in the following for the qualitative spatial reasoning, where the spatial relations are 
+represented by roles and the properties of these spatial relations can be represented by the axioms in the RBox.
+% 
+% \begin{mydef}[Interpretation]
+% An interpretation $\mathcal{I}=(\Delta^\mathcal{I},\cdot^\mathcal{I})$ provides the semantics of concepts and roles. $\Delta^\mathcal{I}$ is a non-empty set which indicates the entire
+% ``world" of the application domain. $\cdot^\mathcal{I}$ is an interpretation function which connects concept and individual symbols to $\Delta^\mathcal{I}$ and roles to $\Delta^\mathcal{I} \times \Delta^\mathcal{I}$.
+% \begin{itemize}
+%  \item Every concept $C\in N_C$ is interpreted as a subset of $\Delta^\mathcal{I}$, represented by $C^\mathcal{I}\subseteq \Delta^\mathcal{I}$.
+%  \item Every  role $r$ is interpreted as a subset of $\Delta^\mathcal{I}\times\Delta^\mathcal{I}$, denoted as $r^\mathcal{I}\subseteq \Delta^\mathcal{I}\times\Delta^\mathcal{I}$.
+%  \item Every individual $a \in N_I$ is interpreted as an element in the set $\Delta^\mathcal{I}$, denoted as $a^\mathcal{I} \in \Delta^\mathcal{I}$.
+% \end{itemize}
+% \end{mydef}
+% 
+
+The table of syntax and semantics of $\mathcal{ALCHI_{R_+}}$ is shown as follows:
+ \begin{center}
+ \begin{table}[H]
+    \begin{tabular}{|p{4cm} | p{2cm} | p{10cm}| }
+    \hline
+      Name & Syntax & Semantics \\ \hline
+    Top & $\top$ & $\Delta^\mathcal{I}$ \\
+    Bottom & $\bot$ & $\emptyset$ \\ 
+    Negation & $\neg C$ & $\Delta^\mathcal{I}\setminus C^\mathcal{I}$ \\ 
+    Conjunction & $C\sqcap D$ & $C^\mathcal{I}\cap D^\mathcal{I}$  \\  
+    Disjunction & $C\sqcup D$ &  $C^\mathcal{I}\cup D^\mathcal{I}$ \\  
+    Existential restriction & $\exists r.C$ & $\{x\in \Delta^\mathcal{I}~|~ \exists y\in \Delta^\mathcal{I}, \langle x,y\rangle \in r^\mathcal{I}~and~y\in C^\mathcal{I}\}$ \\ 
+    Universal restriction & $\forall r.C$ & $\{x\in \Delta^\mathcal{I}~|~ \forall~y\in \Delta^\mathcal{I}, \langle x,y\rangle \in r^\mathcal{I}~implies~y\in C^\mathcal{I}\}$ \\ \hline
+    Atomic role & $r$ & $r^\mathcal{I}\subseteq \Delta^\mathcal{I} \times \Delta^\mathcal{I}$\\
+    Inverse role & $r^-$ & $\{\langle x,y \rangle,~x\in \Delta^\mathcal{I},~y\in \Delta^\mathcal{I} | ~\langle y,x \rangle\in r^\mathcal{I}\}$\\ 
+    Role composition & $r_1\circ r_2$ & $\{\langle x,z\rangle, x\in \Delta^\mathcal{I},~z\in \Delta^\mathcal{I}| \exists y\in \Delta^\mathcal{I},\langle x,y \rangle\in r_1^\mathcal{I}~and~\langle y,z\rangle\in r_2^\mathcal{I}\}$\\
+    Role conjunction & $r_1\sqcap r_2$ & $r_1^\mathcal{I} \cap r_2^\mathcal{I}$ \\
+    Role disjunction & $r_1\sqcup r_2$ & $r_1^\mathcal{I} \cup r_2^\mathcal{I}$ \\
+    Role inclusion & $r_1\sqsubseteq r_2$ &  $r_1^\mathcal{I} \subseteq r_2^\mathcal{I}$\\
+    Role equivalence & $r_1\equiv r_2$ & $r_1^\mathcal{I} = r_2^\mathcal{I}$\\    \hline
+    Subsumption & $C\sqsubseteq D$ & $C^\mathcal{I}\subseteq D^\mathcal{I}$ for all $\mathcal{I}$\\
+    Concept Definition & $C\equiv D$ & $C^\mathcal{I}= D^\mathcal{I}$ for all $\mathcal{I}$\\ \hline
+    Concept assertion & $a:C$ & $a^\mathcal{I}\in C^\mathcal{I}$ \\
+    Role assertion & $(a,b):r$ & $(a^\mathcal{I},b^\mathcal{I})\in r^\mathcal{I}$ \\ \hline
+    \end{tabular}
+    \caption{Syntax and interpretations of $\mathcal{ALCHI_{R_+}}$.}
+    \label{tab:interpretation}
+\end{table}
+\end{center} 
+
+A tableaux method tries to check satisfiability of a concept $D$ by finding a model for $D$. The tableaux is constructed by applying a set of expansion rules. The model contains a set of 
+interpretation elements and associated concepts for each interpretation element. These concepts are restricted to subsets of subconcepts of $D$ ($sub(D)$). The subconcept of a concept $D$ is defined as
+follows:
+\begin{mydef}[Subconcept~\cite{horrocks1999description}]
+ A subconcept of a concept $D$ is the concept occurring in $D$. $sub(\cdot)$ is the set of all subconcepts:
+ \begin{align*}
+ sub(A)&=\{A\}~for~concept~names~A\in N_C\\
+ sub(C\sqcap E)&=\{C\sqcap E\}\cup sub(C)\cup sub(E)\\
+ sub(C\sqcup E)&=\{C\sqcup E\}\cup sub(C)\cup sub(E)\\
+ sub(\exists r.C)&=\{\exists r.C\}\cup sub(C)\\
+ sub(\forall r.C)&=\{\forall r.C\}\cup sub(C)
+ \end{align*}
+\end{mydef}
+
+For example, 
+ \begin{align*}
+ sub(\exists leftOf.CNl \sqcap \exists closeTo.CNl)=\{&\exists leftOf.CNl \sqcap \exists closeTo.CNl,\\
+ &\exists leftOf.CNl,\\
+ &\exists closeTo.CNl,\\
+ &CNl\}
+ \end{align*}
+ 
+\begin{mydef}[$\mathcal{ALCHI_{R+}}$ tableaux~\cite{horrocks1999description}]
+Let $D$ be an $\mathcal{ALCHI_{R+}}$ concept in negation normal form (NNF) and let $R_D$ be the set of roles in $\mathcal{ALCHI_{R+}}$, a tableau $T$ for $D$ is defined as a triple 
+$(\mathbf{S},\mathcal{L}, \mathcal{E})$, where $\mathbf{S}$ is a set of interpretation elements; 
+$\mathcal{L}$ relates each interpretation element to a set of concepts occurring in $D$ ($\mathcal{L}:\mathbf{S}\rightarrow\mathcal{P}(sub(D))$
+\footnote{$\mathcal{P}(sub(D))$ is the power set of $sub(D)$.}); 
+$\mathcal{E}$ relates each pair of interpretation elements to a set of roles in $R_D$  ($\mathcal{E}:\mathbf{S}\times\mathbf{S}\rightarrow \mathcal{P}(R_D)$). 
+
+The decision procedure to check the satisfiability of a given concept $D$ is based on constructing a model using the tableau method. 
+Let $x$ and $y$ be two interpretation elements in $\mathbf{S}$ ($x,~y\in \mathbf{S}$), $C,E$ be two concepts occurring in $D$ and $r\in R_D$.
+The model is constructed as a tree structure where each node corresponds to an element of interpretation $x\in \Delta^\mathcal{I}$.
+The node is labeled with a set of concepts $\mathcal{L}(x)$.
+The edge between the nodes $x$ and $y$ is labeled with corresponding roles $r\in\mathcal{E}(\langle x,y \rangle)$.
+The following conditions hold:
+\begin{enumerate}
+\item if $C\in \mathcal{L}(x)$, then $\neg C\notin\mathcal{L}(x)$.
+\item if $C\sqcap E\in \mathcal{L}(x)$, then $ C\in\mathcal{L}(x)$ and $ E\in\mathcal{L}(x)$.
+\item if $C\sqcup E\in \mathcal{L}(x)$, then $ C\in\mathcal{L}(x)$ or $ E\in\mathcal{L}(x)$.
+\item if $\exists r.C\in \mathcal{L}(x)$, then there exists some $y\in \mathbf{S}$  such that $r \in \mathcal{E}(\langle x,y\rangle)$ and $C\in\mathcal{L}(y)$.
+\item if $\forall r.C\in \mathcal{L}(x)$, then for all  $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$, $C\in\mathcal{L}(y)$.
+\item if $\forall r.C\in \mathcal{L}(x)$, for all $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$ and $r$ is a transitive role
+\footnote{When $r$ is a transitive role, a possible model can be imagined for $y$ (the successor of $x$ and $r\in\mathcal{E}(\langle x,y\rangle)$): 
+$y$ has a successor $z$, where $r\in\mathcal{E}(\langle y,z\rangle)$. In the RBox, the transitive role is defined as $r\circ r\sqsubseteq r$. If $\forall r.C\in \mathcal{L}(x)$, then 
+$\forall r\circ r.C\in \mathcal{L}(x)$. Therefore, for $x$ $r$-successor $y$, $\forall r.C\in \mathcal{L}(y)$.}, then $\forall r.C\in \mathcal{L}(y)$.
+% \item if $\forall r.C\in \mathcal{L}(x)$, for all $y \in \mathbf{S}$ such that $v \in \mathcal{E}(\langle x,y\rangle)$, $v\sqsubseteq r$ (or $v^-\sqsubseteq r^-$) and $v$ is a transitive role, then $\forall v.C\in \mathcal{L}(y)$.
+\item $r \in \mathcal{E}(\langle x,y\rangle)$ iff  $ r^-\in \mathcal{E}(\langle y,x\rangle)$.
+\item if $ r\in \mathcal{E}(\langle x,y\rangle)$ and $r\sqsubseteq v$ (or $r^-\sqsubseteq v^-$) then  $v \in \mathcal{E}(\langle x,y\rangle)$.
+\end{enumerate}
+
+\end{mydef}
+
+
 
 To ensure the termination of tableau construction, a mechanism for detecting cyclic expansions called \textit{blocking} is used.
 To define \textit{blocking}, we first introduce the term \textit{$r$-neighbor}.
@@ -811,92 +916,6 @@ This kind of knowledge representation provides a description of a domain as well
 
 
 \subsection{Spatial reasoning using tableaux method}
-\begin{mydef}[Interpretation]
-An interpretation $\mathcal{I}=(\Delta^\mathcal{I},\cdot^\mathcal{I})$ provides the semantics of concepts and roles. $\Delta^\mathcal{I}$ is a non-empty set which indicates the entire
-``world" of the application domain. $\cdot^\mathcal{I}$ is an interpretation function which connects concept and individual symbols to $\Delta^\mathcal{I}$ and roles to $\Delta^\mathcal{I} \times \Delta^\mathcal{I}$.
-\begin{itemize}
- \item Every concept $C\in N_C$ is interpreted as a subset of $\Delta^\mathcal{I}$, represented by $C^\mathcal{I}\subseteq \Delta^\mathcal{I}$.
- \item Every  role $r$ is interpreted as a subset of $\Delta^\mathcal{I}\times\Delta^\mathcal{I}$, denoted as $r^\mathcal{I}\subseteq \Delta^\mathcal{I}\times\Delta^\mathcal{I}$.
- \item Every individual $a \in N_I$ is interpreted as an element in the set $\Delta^\mathcal{I}$, denoted as $a^\mathcal{I} \in \Delta^\mathcal{I}$.
-\end{itemize}
-\end{mydef}
-
-
-The table of syntax and semantics of $\mathcal{ALCHI_{R_+}}$ is shown as follows:
- \begin{center}
- \begin{table}[H]
-    \begin{tabular}{|p{4cm} | p{2cm} | p{10cm}| }
-    \hline
-      Name & Syntax & Semantics \\ \hline
-    Top & $\top$ & $\Delta^\mathcal{I}$ \\
-    Bottom & $\bot$ & $\emptyset$ \\ 
-    Negation & $\neg C$ & $\Delta^\mathcal{I}\setminus C^\mathcal{I}$ \\ 
-    Conjunction & $C\sqcap D$ & $C^\mathcal{I}\cap D^\mathcal{I}$  \\  
-    Disjunction & $C\sqcup D$ &  $C^\mathcal{I}\cup D^\mathcal{I}$ \\  
-    Existential restriction & $\exists r.C$ & $\{x\in \Delta^\mathcal{I}~|~ \exists y\in \Delta^\mathcal{I}, \langle x,y\rangle \in r^\mathcal{I}~and~y\in C^\mathcal{I}\}$ \\ 
-    Universal restriction & $\forall r.C$ & $\{x\in \Delta^\mathcal{I}~|~ \forall~y\in \Delta^\mathcal{I}, \langle x,y\rangle \in r^\mathcal{I}~implies~y\in C^\mathcal{I}\}$ \\ \hline
-    Atomic role & $r$ & $r^\mathcal{I}\subseteq \Delta^\mathcal{I} \times \Delta^\mathcal{I}$\\
-    Inverse role & $r^-$ & $\{(x,y),~x\in \Delta^\mathcal{I},~y\in \Delta^\mathcal{I} | ~(y,x)\in r^\mathcal{I}\}$\\ 
-    Role composition & $r_1\circ r_2$ & $\{(x,z), x\in \Delta^\mathcal{I},~z\in \Delta^\mathcal{I}| \exists y\in \Delta^\mathcal{I},(x,y)\in r_1^\mathcal{I}~and~(y,z)\in r_2^\mathcal{I}\}$\\
-    Role conjunction & $r_1\sqcap r_2$ & $r_1^\mathcal{I} \cap r_2^\mathcal{I}$ \\
-    Role disjunction & $r_1\sqcup r_2$ & $r_1^\mathcal{I} \cup r_2^\mathcal{I}$ \\
-    Role inclusion & $r_1\sqsubseteq r_2$ &  $r_1^\mathcal{I} \subseteq r_2^\mathcal{I}$\\
-    Role equivalence & $r_1\equiv r_2$ & $r_1^\mathcal{I} = r_2^\mathcal{I}$\\    \hline
-    Subsumption & $C\sqsubseteq D$ & $C^\mathcal{I}\subseteq D^\mathcal{I}$ for all $\mathcal{I}$\\
-    Concept Definition & $C\equiv D$ & $C^\mathcal{I}= D^\mathcal{I}$ for all $\mathcal{I}$\\ \hline
-    Concept assertion & $a:C$ & $a^\mathcal{I}\in C^\mathcal{I}$ \\
-    Role assertion & $(a,b):r$ & $(a^\mathcal{I},b^\mathcal{I})\in r^\mathcal{I}$ \\ \hline
-    \end{tabular}
-    \caption{Syntax and interpretations of $\mathcal{ALCHI_{R_+}}$.}
-    \label{tab:interpretation}
-\end{table}
-\end{center} 
-A tableaux method tries to check satisfiability of a concept $D$ by finding a model for $D$. The tableaux is constructed by applying a set of expansion rules. The model contains a set of 
-interpretation elements and associated concepts for each interpretation element. These concepts are restricted to subsets of subconcepts of $D$ ($sub(D)$). The subconcept of a concept $D$ is defined as
-follows:
-\begin{mydef}[Subconcept~\cite{horrocks1999description}]
- A subconcept of a concept $D$ is the concept occurring in $D$. $sub(\cdot)$ is the set of all subconcepts:
- \begin{align*}
- sub(A)&=\{A\}~for~concept~names~A\in N_C\\
- sub(C\sqcap E)&=\{C\sqcap E\}\cup sub(C)\cup sub(E)\\
- sub(C\sqcup E)&=\{C\sqcup E\}\cup sub(C)\cup sub(E)\\
- sub(\exists r.C)&=\{\exists r.C\}\cup sub(C)\\
- sub(\forall r.C)&=\{\forall r.C\}\cup sub(C)
- \end{align*}
-
-\end{mydef}
-
-
-
-\begin{mydef}[$\mathcal{ALCHI_{R+}}$ tableaux~\cite{horrocks1999description}]
-Let $D$ be an $\mathcal{ALCHI_{R+}}$ concept in negation normal form (NNF) and let $R_D$ be the set of roles in $\mathcal{ALCHI_{R+}}$, a tableau $T$ for $D$ is defined as a triple 
-$(\mathbf{S},\mathcal{L}, \mathcal{E})$, where $\mathbf{S}$ is a set of interpretation elements; 
-$\mathcal{L}$ relates each interpretation element to a set of concepts occurring in $D$ ($\mathcal{L}:\mathbf{S}\rightarrow\mathcal{P}(sub(D))$
-\footnote{$\mathcal{P}(sub(D))$ is the power set of $sub(D)$.}); 
-$\mathcal{E}$ relates each pair of interpretation elements to a set of roles in $R_D$  ($\mathcal{E}:\mathbf{S}\times\mathbf{S}\rightarrow \mathcal{P}(R_D)$). 
-
-The decision procedure to check the satisfiability of a given concept $D$ is based on constructing a model using the tableau method. 
-Let $x$ and $y$ be two interpretation elements in $\mathbf{S}$ ($x,~y\in \mathbf{S}$), $C,E$ be two concepts occurring in $D$ and $r\in R_D$.
-The model is constructed as a tree structure where each node corresponds to an element of interpretation $x\in \Delta^\mathcal{I}$.
-The node is labeled with a set of concepts $\mathcal{L}(x)$.
-The edge between the nodes $x$ and $y$ is labeled with corresponding roles $r\in\mathcal{E}(\langle x,y \rangle)$.
-The following conditions hold:
-\begin{enumerate}
-\item if $C\in \mathcal{L}(x)$, then $\neg C\notin\mathcal{L}(x)$.
-\item if $C\sqcap E\in \mathcal{L}(x)$, then $ C\in\mathcal{L}(x)$ and $ E\in\mathcal{L}(x)$.
-\item if $C\sqcup E\in \mathcal{L}(x)$, then $ C\in\mathcal{L}(x)$ or $ E\in\mathcal{L}(x)$.
-\item if $\exists r.C\in \mathcal{L}(x)$, then there exists some $y\in \mathbf{S}$  such that $r \in \mathcal{E}(\langle x,y\rangle)$ and $C\in\mathcal{L}(y)$.
-\item if $\forall r.C\in \mathcal{L}(x)$, then for all  $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$, $C\in\mathcal{L}(y)$.
-\item if $\forall r.C\in \mathcal{L}(x)$, for all $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$ and $r$ is a transitive role
-\footnote{When $r$ is a transitive role, a possible model can be imagined for $y$ (the successor of $x$ and $r\in\mathcal{E}(\langle x,y\rangle)$): 
-$y$ has a successor $z$, where $r\in\mathcal{E}(\langle y,z\rangle)$. In the RBox, the transitive role is defined as $r\circ r\sqsubseteq r$. If $\forall r.C\in \mathcal{L}(x)$, then 
-$\forall r\circ r.C\in \mathcal{L}(x)$. Therefore, for $x$ $r$-successor $y$, $\forall r.C\in \mathcal{L}(y)$.}, then $\forall r.C\in \mathcal{L}(y)$.
-% \item if $\forall r.C\in \mathcal{L}(x)$, for all $y \in \mathbf{S}$ such that $v \in \mathcal{E}(\langle x,y\rangle)$, $v\sqsubseteq r$ (or $v^-\sqsubseteq r^-$) and $v$ is a transitive role, then $\forall v.C\in \mathcal{L}(y)$.
-\item $r \in \mathcal{E}(\langle x,y\rangle)$ iff  $ r^-\in \mathcal{E}(\langle y,x\rangle)$.
-\item if $ r\in \mathcal{E}(\langle x,y\rangle)$ and $r\sqsubseteq v$ (or $r^-\sqsubseteq v^-$) then  $v \in \mathcal{E}(\langle x,y\rangle)$.
-\end{enumerate}
-
-\end{mydef}
 \subsection{Example}
  The complete knowledge base is given as follows:
 \begin{align*}

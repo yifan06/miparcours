@@ -1,3 +1,42 @@
+%% general image interpretation
+@article{tousch2012semantic,
+  title={Semantic hierarchies for image annotation: A survey},
+  author={Tousch, Anne-Marie and Herbin, St{\'e}phane and Audibert, Jean-Yves},
+  journal={Pattern Recognition},
+  volume={45},
+  number={1},
+  pages={333--345},
+  year={2012},
+  publisher={Elsevier}
+}
+
+@article{lavee2009understanding,
+  title={Understanding video events: a survey of methods for automatic interpretation of semantic occurrences in video},
+  author={Lavee, Gal and Rivlin, Ehud and Rudzsky, Michael},
+  journal={IEEE Transactions on Systems, Man, and Cybernetics, Part C: Applications and Reviews},
+  volume={39},
+  number={5},
+  pages={489--504},
+  year={2009},
+  publisher={IEEE}
+}
+@article{forestier2012knowledge,
+  title={Knowledge-based region labeling for remote sensing image interpretation},
+  author={Forestier, Germain and Puissant, Anne and Wemmert, C{\'e}dric and Gan{\c{c}}arski, Pierre},
+  journal={Computers, Environment and Urban Systems},
+  volume={36},
+  number={5},
+  pages={470--480},
+  year={2012},
+  publisher={Elsevier}
+}
+@inproceedings{vanegas2010detection,
+  title={Detection of aligned objects for high resolution image understanding.},
+  author={Vanegas, Maria Carolina and Bloch, Isabelle and Inglada, Jordi},
+  booktitle={IGARSS},
+  pages={464--467},
+  year={2010}
+}
 %% image interpretation
 % ontology
 @article{town2006ontological,
@@ -30,7 +69,7 @@
 @article{studer1998knowledge,
   title={Knowledge engineering: principles and methods},
   author={Studer, Rudi and Benjamins, V Richard and Fensel, Dieter},
-  journal={Data & Knowledge Engineering},
+  journal={Data \& Knowledge Engineering},
   volume={25},
   number={1},
   pages={161--197},

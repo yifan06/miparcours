@@ -20,6 +20,14 @@ Jamal Atif, C{\'e}line Hudelot, and Isabelle Bloch.
 \newblock {\em IEEE Transactions on Systems, Man, and Cybernetics: Systems},
   44(5):552--570, 2014.
 
+\bibitem{atif2007grafip}
+Jamal Atif, C{\'e}line Hudelot, Olivier Nempont, Nathalie Richard,
+  B{\'e}n{\'e}dicte Batrancourt, E~Angelini, and Isabelle Bloch.
+\newblock Grafip: A framework for the representation of healthy and
+  pathological cerebral information.
+\newblock In {\em 4th IEEE International Symposium on Biomedical Imaging: From
+  Nano to Macro, 2007}, pages 205--208. IEEE, 2007.
+
 \bibitem{baader2003description}
 Franz Baader.
 \newblock {\em The Description Logic handbook: theory, implementation, and
@@ -70,13 +78,6 @@ Simona Colucci, Tommaso Di~Noia, Eugenio Di~Sciascio, Francesco~M. Donini, and
 \newblock In {\em 17th International Workshop on Description Logics (DL)},
   volume 104, pages 158--167, 2004.
 
-\bibitem{di2009tableaux}
-Tommaso Di~Noia, Eugenio Di~Sciascio, and Francesco~M. Donini.
-\newblock A tableaux-based calculus for abduction in expressive description
-  logics: Preliminary results.
-\newblock In {\em 22nd International Workshop on Description Logics (DL)},
-  2009.
-
 \bibitem{du2011towards}
 Jianfeng Du, Guilin Qi, Yi-Dong Shen, and Jeff~Z. Pan.
 \newblock Towards practical abox abduction in large {OWL} {DL} ontologies.
@@ -101,6 +102,13 @@ Sofia Espinosa~Peraldi, Atila Kaya, Sylvia Melzer, Ralf M\"oller, and Michael
 \newblock Multimedia interpretation as abduction.
 \newblock In {\em 20th International Workshop on Description Logics (DL)},
   pages 323--330, 2007.
+
+\bibitem{forestier2012knowledge}
+Germain Forestier, Anne Puissant, C{\'e}dric Wemmert, and Pierre
+  Gan{\c{c}}arski.
+\newblock Knowledge-based region labeling for remote sensing image
+  interpretation.
+\newblock {\em Computers, Environment and Urban Systems}, 36(5):470--480, 2012.
 
 \bibitem{fouquier2012sequential}
 Geffroy Fouquier, Jamal Atif, and Isabelle Bloch.
@@ -147,6 +155,13 @@ Ian Horrocks and Ulrike Sattler.
   hierarchies.
 \newblock {\em Journal of Logic and Computation}, 9(3):385--410, 1999.
 
+\bibitem{hudelot2008spatial}
+C{\'e}line Hudelot, Jamal Atif, and I~Bloch.
+\newblock A spatial relation ontology using mathematical morphology and
+  description logics for spatial reasoning.
+\newblock In {\em ECAI 2008 Workshop on Spatial and Temporal Reasoning}, pages
+  21--25, 2008.
+
 \bibitem{Hudelot2008fuzzy}
 C{\'e}line Hudelot, Jamal Atif, and Isabelle Bloch.
 \newblock Fuzzy spatial relation ontology for image interpretation.
@@ -174,6 +189,13 @@ Szymon Klarman, Ulle Endriss, and Stefan Schlobach.
 Benjamin Kuipers.
 \newblock Modeling spatial knowledge.
 \newblock {\em Cognitive Science}, 2(2):129--153, 1978.
+
+\bibitem{lavee2009understanding}
+Gal Lavee, Ehud Rivlin, and Michael Rudzsky.
+\newblock Understanding video events: a survey of methods for automatic
+  interpretation of semantic occurrences in video.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics, Part C:
+  Applications and Reviews}, 39(5):489--504, 2009.
 
 \bibitem{Luo2005Bayesian}
 Jiebo Luo, Andreas~E. Savakis, and Amit Singhal.
@@ -243,6 +265,11 @@ Rudi Studer, V~Richard Benjamins, and Dieter Fensel.
 \newblock Knowledge engineering: principles and methods.
 \newblock {\em Data \& Knowledge Engineering}, 25(1):161--197, 1998.
 
+\bibitem{tousch2012semantic}
+Anne-Marie Tousch, St{\'e}phane Herbin, and Jean-Yves Audibert.
+\newblock Semantic hierarchies for image annotation: A survey.
+\newblock {\em Pattern Recognition}, 45(1):333--345, 2012.
+
 \bibitem{town2006ontological}
 Christopher Town.
 \newblock Ontological inference for image and video analysis.
@@ -259,6 +286,11 @@ Kewei Tu, Meng Meng, Mun~Wai Lee, Tae~Eun Choe, and Song-Chun Zhu.
 \newblock Joint video and text parsing for understanding events and answering
   queries.
 \newblock {\em MultiMedia, IEEE}, 21(2):42--70, 2014.
+
+\bibitem{vanegas2010detection}
+Maria~Carolina Vanegas, Isabelle Bloch, and Jordi Inglada.
+\newblock Detection of aligned objects for high resolution image understanding.
+\newblock In {\em IGARSS}, pages 464--467, 2010.
 
 \bibitem{wessel2000obstacle}
 Michael Wessel.
