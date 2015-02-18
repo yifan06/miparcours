@@ -37,6 +37,13 @@
   pages={464--467},
   year={2010}
 }
+@inproceedings{atif2007grafip,
+  title={GRAFIP: A framework for the representation of healthy and pathological cerebral information},
+  author={Atif, Jamal and Hudelot, C{\'e}line and Nempont, Olivier and Richard, Nathalie and Batrancourt, B{\'e}n{\'e}dicte and Angelini, E and Bloch, Isabelle},
+  booktitle={ 4th IEEE International Symposium on Biomedical Imaging: From Nano to Macro},
+  pages={205--208},
+  year={2007}
+}
 %% image interpretation
 % ontology
 @article{town2006ontological,
@@ -79,10 +86,9 @@
 @inproceedings{bannour2011towards,
   title={Towards ontologies for image interpretation and annotation},
   author={Bannour, Hichem and Hudelot, C{\'e}line},
-  booktitle={Procedding of 9th International Workshop on Content-Based Multimedia Indexing (CBMI)},
+  booktitle={9th International Workshop on Content-Based Multimedia Indexing (CBMI)},
   pages={211--216},
-  year={2011},
-  organization={IEEE}
+  year={2011}
 }
 
 @incollection{tsotsos1992image,

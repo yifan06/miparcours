@@ -81,6 +81,7 @@ The objective of this thesis is to build a generic logic based formalism as well
    \includegraphics[scale=.8]{./figures/intro_schema.pdf}
    \caption{\label{fig:intro_schema} A general schema of image interpretation task in the thesis.}
  \end{figure} 
+ I will think about it and improve this part and the schema for the next version.
 Figure~\ref{fig:intro_schema} shows the major components of our framework in this thesis. The given image is translated into symbolic representations in terms of logical form at the beginning.
 The image can also serve as the concrete domain in both the knowledge base and the reasoning process. 
 Concrete domain is used as a real model to represent abstract terminologies in image space.
@@ -135,7 +136,9 @@ An aggregation concept is proposed in~\cite{Espinosa07multimedia} to represent a
 According to these defined aggregation and specific rules, a high-level interpretation is able to be inferred~\cite{neumann2008scene}.
 In addition, the results using Bayesian networks and image grammars are limited to defined descriptions.
 A complex description can also be generated when non-explicitly presented in the knowledge base~\cite{atif2014explanatory}.
-At this level, a high-level semantics, required both background knowledge and contextual information, can be reasoned from explicit observation
+At this level, a high-level semantics, required both background knowledge and contextual information, can be reasoned out from explicit observation in an image.
+The high-level semantics in terms of a complex description within an expressive logic formalism is still an open problem for image interpretation.
+In this thesis, we are interested in proposing an adapted logical formalism for the knowledge representation as well as a specific reasoning method for image interpretation inference.
 
 % Because the Bayesian network and image grammar method are  
 
@@ -220,6 +223,7 @@ An interpretation $\mathcal{I}=(\Delta^\mathcal{I},\cdot^\mathcal{I})$ provides 
  \item Every individual $a \in N_I$ is interpreted as an element in the set $\Delta^\mathcal{I}$, denoted as $a^\mathcal{I} \in \Delta^\mathcal{I}$.
 \end{itemize}
 The interpretation for concept expressions and axioms in the knowledge base are shown in Table~\ref{tab:interpretation}.
+Let $\varPhi$ be a set of axioms, an interpretation $\mathcal{I}$ is a \textit{model} of $\varPhi$ if $\varPhi$ holds (true) in the context of $\mathcal{I}$.
 \end{mydef}
  \begin{center}
  \begin{table}[H]
@@ -304,7 +308,7 @@ The rules of transformation are described as follows:
 \item $\neg(\forall r.C) ~\equiv~  \exists r.\neg C$
 \end{itemize}
 \end{mydef}
-
+For example, the negation normal form of the concept $\neg (BrainStructure\sqcap \exists leftOf.CNl)$ is $\neg BrainStructure \sqcup \forall leftOf.\neg CNl$.
 \begin{mydef}[A tableau for $\mathcal{ALC}$] \label{def:tableauALC}
 Let $D$ be an $\mathcal{ALC}$ concept in NNF and let $R_D$ be the set of roles in $\mathcal{ALC}$, a tableau $T$ for $D$ is defined as a triplet $(\mathbf{S},\mathcal{L}, \mathcal{E})$, 
 where $\mathbf{S}$ is a set of interpretation elements;
@@ -327,12 +331,11 @@ The following properties hold:
 \end{itemize}
 \end{mydef}
 
-
 To check the satisfiability of a concept $D$, the tableau method is initialized by a root node associated with an interpretation element $x$ and $D\in \mathcal{L}(x)$. 
 The tableau is expanded with new nodes for $\exists r.C$. The edge linking two nodes is  labeled with a role $r$. Each node is updated by 
 adding or removing elements in $\mathcal{L}(x)$ and  $\mathcal{E}(\langle x,y\rangle)$ according to following rules:
 \begin{itemize}
-\item[$\sqcap$-rule:] if $C_1\sqcap C_2\in \mathcal{L}(x)$, $x$ is not indirectly blocked and $\{C_1,C_2\}\nsubseteq \mathcal{L}(x)$, then $ \mathcal{L}(x)\rightarrow  \mathcal{L}(x)\cup \{C_1,C_2\}$.
+\item[$\sqcap$-rule:] if $C_1\sqcap C_2\in \mathcal{L}(x)$ and $\{C_1,C_2\}\nsubseteq \mathcal{L}(x)$, then $ \mathcal{L}(x)\rightarrow  \mathcal{L}(x)\cup \{C_1,C_2\}$.
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1cm, sibling distance=3cm}]
 \node [sibling distance=12cm] {$\mathcal{L}(x)=\{C_1\sqcap C_2\}$}
@@ -340,7 +343,7 @@ child { node []{$\mathcal{L}(x)=\{C_1\sqcap C_2,~C_1,~C_2\}$}
 };
 \end{tikzpicture} 
 \end{center}
-\item[$\sqcup$-rule:] if $C_1\sqcup C_2\in \mathcal{L}(x)$, $x$ is not indirectly blocked and $\{C_1,C_2\} \cap \mathcal{L}(x)\neq \emptyset$, then $ \mathcal{L}(x)\rightarrow 
+\item[$\sqcup$-rule:] if $C_1\sqcup C_2\in \mathcal{L}(x)$ and $\{C_1,C_2\} \cap \mathcal{L}(x)\neq \emptyset$, then $ \mathcal{L}(x)\rightarrow 
 \mathcal{L}(x)\cup \{C\}~for ~some ~C\in\{C_1,C_2\}$.
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1cm, sibling distance=5cm}]
@@ -349,7 +352,7 @@ child { node []{$\mathcal{L}(x)=\{C_1\sqcap C_2,~C_1,~C_2\}$}
 	      child{ node {$\mathcal{L}(x)=\{C_1\sqcup C_2,~C_2\}$}};
 \end{tikzpicture} 
 \end{center}
-\item[$\exists$-rule:]  if $\exists r.C\in \mathcal{L}(x)$, $x$ is not blocked and $x$ has no $r$-neighbor $y$ with $C\notin \mathcal{L}(y)$, then create a new node $y$ 
+\item[$\exists$-rule:]  if $\exists r.C\in \mathcal{L}(x)$ and there does not exist a $y$ such that $\mathcal{E}(\langle x,y \rangle)$ and $C\in \mathcal{L}(y)$, then create a new node $y$ 
 with $\mathcal{E}(\langle x,y\rangle)$ and $\mathcal{L}(y)=\{C\}$.
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=3cm}]
@@ -362,7 +365,8 @@ child { node []{$\mathcal{L}(x)=\{\exists r.C\}$ \\ $\mathcal{L}(y)=\{C\}$ \\ $\
 % \textit{In the $\exists$-rule, if $\exists r.C\in \mathcal{L}(x)$, a new node is added in two cases : \begin{inparaenum} \item when there exists an edge labeled with $\{r\}$ from $x$ to $y$ and 
 % $C \notin  \mathcal{L}(y)$. \item when there does not exist an edge labeled with $\{r\}$ from $x$ to any other nodes. \end{inparaenum}}
 
-\item[$\forall$-rule:] if $\forall r.C\in \mathcal{L}(x)$, $x$ is not indirectly blocked and there exists an $r$-neighbor $y$ of $x$ with $C\notin \mathcal{L}(y)$, then $ \mathcal{L}(y)\rightarrow  \mathcal{L}(y)\cup \{C\}$.
+\item[$\forall$-rule:] if $\forall r.C\in \mathcal{L}(x)$ and there exists a $y$ such that $\mathcal{E}(\langle x,y \rangle)$ and $C\notin \mathcal{L}(y)$,
+then $ \mathcal{L}(y)\rightarrow  \mathcal{L}(y)\cup \{C\}$.
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=2cm, sibling distance=3cm}]
 \node [sibling distance=12cm] {$\mathcal{L}(x)=\{\forall r.C\}$\\ $\mathcal{L}(y)=\{D\}$ \\ $\mathcal{E}(\langle x,y \rangle)=\{r\}$}
@@ -389,12 +393,14 @@ child { node []{$\boxtimes$}
 
 
 \section{Qualitative spatial reasoning}\label{sec:qsr}
-Qualitative spatial relations such as ``contains", ``left of", ``close to", ``between" can be categorized into three types: topological relations \cite{kuipers1978modeling}, 
-directional relative relations and distances \cite{freeman1975modelling}. 
+Qualitative spatial relations have been studied in different views:
+ topological relations (e.g. ``contains"), directional relative relations (e.g. ``left of" ), distances (e.g. ``close to") 
+ as well as more complex relations (e.g. ``between")~\cite{Bloch2005fuzzy,freeman1975modelling,Hudelot2008fuzzy,kuipers1978modeling}. 
 These relations are frequently used at a linguistic level by humans when describing a scene \cite{freksa1991qualitative}.
 Even though quantitative information is more precise, human cannot use it as accurately as a machine.
 Hence to qualitative representations to describe relations between spatial objects are crucial.
 The aim of our study is to apply human knowledge to the description of qualitative relationships and the reasoning tasks with spatial objects in a complex scene.
+In this thesis, we consider a part of topology (inclusion relations and adjacency), direction and distance for spatial representation in a 3D space.
 Qualitative spatial reasoning deals with the following questions, among others:
  \begin{itemize}
   \item Can we recognize an object from known objects and their spatial relations?
@@ -496,7 +502,11 @@ However, both of two representation ignore the influence of objects forms. The r
 % 
 % \cite{santos2012region,cohn1997qualitative,Hudelot2008fuzzy,hudelot2008spatial,
 % wessel2000obstacle,wessel00alcra,egenhofer1991reasoning,moratz2003qualitative}
-% \subsubsection{Distance}
+\subsubsection{Distance}
+Qualitative representation of the distance between two objects depends on the metric measures about the geometrical information and a scale system of the specific domain.
+The measure is often calculated in terms of Euclidean distance, considering two objects as two points. In a complex scene, which the form cannot be ignored,
+distance consists of minimum distance, mean distance and Hausdorff distance etc~\cite{Bloch2005fuzzy}. One useful scale system for convert numerical measures to 
+qualitative representation is that using fuzzy set for satisfaction degree of different qualitative representation~\cite{Bloch2005fuzzy}.
 
 \subsection{Qualitative spatial reasoning in $\mathcal{ALCHI_{R^+}}$}
 In this section, we give the logical formalism to represent qualitative spatial relationships as roles and  corresponding properties in terms of role axioms within a role box.
@@ -651,268 +661,270 @@ The following conditions hold:
 \item if $\exists r.C\in \mathcal{L}(x)$, then there exists some $y\in \mathbf{S}$  such that $r \in \mathcal{E}(\langle x,y\rangle)$ and $C\in\mathcal{L}(y)$.
 \item if $\forall r.C\in \mathcal{L}(x)$, then for all  $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$, $C\in\mathcal{L}(y)$.
 \item if $\forall r.C\in \mathcal{L}(x)$, for all $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$ and $r$ is a transitive role
-\footnote{When $r$ is a transitive role, a possible model can be imagined for $y$ (the successor of $x$ and $r\in\mathcal{E}(\langle x,y\rangle)$): 
-$y$ has a successor $z$, where $r\in\mathcal{E}(\langle y,z\rangle)$. In the RBox, the transitive role is defined as $r\circ r\sqsubseteq r$. If $\forall r.C\in \mathcal{L}(x)$, then 
-$\forall r\circ r.C\in \mathcal{L}(x)$. Therefore, for $x$ $r$-successor $y$, $\forall r.C\in \mathcal{L}(y)$.}, then $\forall r.C\in \mathcal{L}(y)$.
+% \footnote{When $r$ is a transitive role, a possible model can be imagined for $y$ (the successor of $x$ and $r\in\mathcal{E}(\langle x,y\rangle)$): 
+% $y$ has a successor $z$, where $r\in\mathcal{E}(\langle y,z\rangle)$. In the RBox, the transitive role is defined as $r\circ r\sqsubseteq r$. If $\forall r.C\in \mathcal{L}(x)$, then 
+% $\forall r\circ r.C\in \mathcal{L}(x)$. Therefore, for $x$ $r$-successor $y$, $\forall r.C\in \mathcal{L}(y)$.}, then $\forall r.C\in \mathcal{L}(y)$.
 % \item if $\forall r.C\in \mathcal{L}(x)$, for all $y \in \mathbf{S}$ such that $v \in \mathcal{E}(\langle x,y\rangle)$, $v\sqsubseteq r$ (or $v^-\sqsubseteq r^-$) and $v$ is a transitive role, then $\forall v.C\in \mathcal{L}(y)$.
 \item $r \in \mathcal{E}(\langle x,y\rangle)$ iff  $ r^-\in \mathcal{E}(\langle y,x\rangle)$.
 \item if $ r\in \mathcal{E}(\langle x,y\rangle)$ and $r\sqsubseteq v$ (or $r^-\sqsubseteq v^-$) then  $v \in \mathcal{E}(\langle x,y\rangle)$.
 \end{enumerate}
-
+\label{def:alchir}
 \end{mydef}
 
 
-
-To ensure the termination of tableau construction, a mechanism for detecting cyclic expansions called \textit{blocking} is used.
-To define \textit{blocking}, we first introduce the term \textit{$r$-neighbor}.
-\begin{mydef}($r$-neighbor)
-In the tableau, an edge $\langle x,y \rangle$ labeled with role $r$ relates two nodes $x$ and $y$,
-$y$ is called a successor of $x$ and $x$ is called  a predecessor of $y$. An ancestor is the transitive closure of predecessor,
-where the transitive closure refers to an indirect reachability relation constructed from a set of direct edges.
-A node $y$ is a $r$-neighbor of a node $x$ if
-\begin{itemize}
-\item $x$ is a predecessor of $y$ and $\mathcal{E}(\langle x,y\rangle)=\{r\}$.
-% \item $y$ is a predecessor of $x$ and $\mathcal{E}(\langle y,x\rangle)=r^-$.
-\end{itemize}
-\end{mydef}
-
-
-\begin{mydef}(Blocking)
-
-\begin{itemize}
-\item A node $x$ is directly blocked, which indicates that it has a unique ancestor $y$ such that $\mathcal{L}(y)=\mathcal{L}(x)$.
-\item  Otherwise, it is indirectly blocked if its predecessor $y$ is blocked by another ancestor $u$.
-\end{itemize}
-A node $x$ is blocked if for some ancestor $y$, $y$ is blocked or $\mathcal{L}(y)=\mathcal{L}(x)$. 
-\end{mydef}
+% 
+% To ensure the termination of tableau construction, a mechanism for detecting cyclic expansions called \textit{blocking} is used.
+% To define \textit{blocking}, we first introduce the term \textit{$r$-neighbor}.
+% \begin{mydef}($r$-neighbor)
+% In the tableau, an edge $\langle x,y \rangle$ labeled with role $r$ relates two nodes $x$ and $y$,
+% $y$ is called a successor of $x$ and $x$ is called  a predecessor of $y$. An ancestor is the transitive closure of predecessor,
+% where the transitive closure refers to an indirect reachability relation constructed from a set of direct edges.
+% A node $y$ is a $r$-neighbor of a node $x$ if
+% \begin{itemize}
+% \item $x$ is a predecessor of $y$ and $\mathcal{E}(\langle x,y\rangle)=\{r\}$.
+% % \item $y$ is a predecessor of $x$ and $\mathcal{E}(\langle y,x\rangle)=r^-$.
+% \end{itemize}
+% \end{mydef}
+% 
+% 
+% \begin{mydef}(Blocking)
+% 
+% \begin{itemize}
+% \item A node $x$ is directly blocked, which indicates that it has a unique ancestor $y$ such that $\mathcal{L}(y)=\mathcal{L}(x)$.
+% \item  Otherwise, it is indirectly blocked if its predecessor $y$ is blocked by another ancestor $u$.
+% \end{itemize}
+% A node $x$ is blocked if for some ancestor $y$, $y$ is blocked or $\mathcal{L}(y)=\mathcal{L}(x)$. 
+% \end{mydef}
 
 \subsection{From image to symbolic representation}
 The transformation of representation from low-level numerical data to symbolic level is first phase of the framework.
 Concretely, objects and contextual information are extracted and represented within terminologies using an ABox.
+Further, the symbolic representation can be used for  reasoning service in the logical formalism.
+% The reasoning process is modeled as concept subsumption checking.
+% The hypothesis is considered as a more specific description of the observation if the decision process returns yes, otherwise the hypothesis does not belong to the subconcept of the observed concept.
 
-In Figure \ref{fig:sub_flowchart}, the flowchart shows the general algorithm for qualitative spatial reasoning to implement. 
-The focus of this reasoning service is the concept subsumption checking between a given hypothesis and the observation concept extracted from an image.
-The hypothesis is a more specific description of the observation in the image interpretation task if it is subsumed by the observation.
-The input of the algorithm is a segmented brain image. 
-Using TIVOLI\footnote{\url{https://trac.telecom-paristech.fr/trac/project/tivoli/wiki}}
-image processing toolbox, the context information is extracted (quantification values).
-The quantification values of the spatial relationships are then transformed to qualitative spatial relations by a threshold. 
-This observation is then transformed into a structural representation for the purpose of concept subsumption checking. 
-To complete the concept subsumption checking, three elements are essential:
-\begin{inparaenum}
- \item the hypothesis which is constructed manually for expected test;
- \item a knowledge base for expert knowledge representation;
- \item an inference process is formalized for the reasoning service. We exploit tableaux methods in this context.
-\end{inparaenum}
-
-The algorithm can be divided into two parts. The first part involves evaluating qualitative spatial relationships between segmented objects.
-Segmented objects and their quantitative spatial relationships are then transformed manually as an ABox in the Description Logic formalism\footnote{I think the ABox can be built automatically
-from the observation of image. However, the concept subsumption test depends on the constructed concept. This concept should be carefully selected from the ABox to get a desired result.}.
-The second part contains the reasoning process guided by a knowledge base in a predefined logic formalism. The reasoning process is modeled as concept subsumption checking.
-The hypothesis is considered as a more specific description of the observation if the decision process returns yes, otherwise the hypothesis does not belong to the subconcept of the observed concept.
-
-The following sections will explain the details of each module.
-
-
-The first part deals with the computation of qualitative relationships in a segmented image. 
-In this module, TIVOLI image processing toolbox is used for extracting quantitative spatial relations between every two structures.
-In a segmented 3D volumetric image $\mathbf{I}$, different structures in the image are labeled.
-% with different gray level by a defined convention
-For each pair of structures, the directional relations are calculated with the function t\_fuzzyRelativePosition for six main directions: left, right, above, below, in front of, behind.
-Each direction is associated with a satisfaction degree.
-The distances are evaluated with the function t\_distance and t\_mask. Minimum distance, mean distance and Hausdorff distance are all evaluated. 
-% From the observation of test, we find out that ... (to be completed).
-
-Computation process:
-\begin{itemize}
- \item Initialization: the input of the process is a segmented image, with a known label for each structure of interest.
- \item Computation: for each pair of structures $a$ and $b$, we evaluate metric relations (directional relations and distances) of $a$ taking $b$ as the reference object 
- as well as the directional relations of  $b$ taking $a$ as the reference object. 
- \item The directional spatial relations are evaluated using t\_histoAngle by measuring between points of the two objects of interest or 
- t\_fuzzyRelativePosition by comparing the fuzzy landscape with a certain angle from reference structure and the target structure.
- \item The distances are evaluated using t\_distance and t\_mask. The minimum distance, mean distance and Hausdorff distance can be measured from the landscape propagated from the reference structure.
-\end{itemize}
-
-\subsubsection{Computation of direction between a pair of structures}
-% \begin{figure}
-%   \centering
-%   \includegraphics[scale=0.4]{figures/cana_2d_53.jpg}
-%   \caption{One slice of a brain volume with a tumor.}  \label{fig:brain}
-% \end{figure}
-
-% \begin{figure}
-%   \centering
-%   \includegraphics[scale=0.4]{figures/cana_seg_binary_53.jpg}
-%   \caption{One slice of a segmented brain volume with a tumor.}  \label{fig:segbrain}
-% \end{figure}
-Two approaches of computations have been tested to evaluate a pair of structures from an image.
-One is calculation of histogram of angles, and  the other is the morphological method by pattern matching between the structure and  the fuzzy directional landscape of the reference structure.
-We take the left caudate nucleus (target object) and the left lateral ventricle (reference object) as an example to illustrate the computation\footnote{Here we use ``left'' to represent 
-structures in the left part of image for the simplicity of visualization (i.e. the structure in the left part of image is the right part in the brain.)}.
-The structures are presented in Figure. \ref{fig:cdlvl}.
-% \begin{figure}
-%   \centering
-%         \begin{subfigure}[b]{0.3\textwidth}
-%                 \includegraphics[width=\textwidth]{figures/LVr_2d_53.jpg}
-%                 \caption{The left lateral ventricle}
-%                 \label{fig:lvl}
-%         \end{subfigure}
-%         ~ 
-%         \begin{subfigure}[b]{0.3\textwidth}
-%                 \includegraphics[width=\textwidth]{figures/CDr_2d_53.jpg}
-%                 \caption{The left caudate nucleus}
-%                 \label{fig:cdl}
-%         \end{subfigure}
-%         \caption{One slice of a 3D volume }\label{fig:cdlvl}
-% \end{figure}
-
-The histogram of angles includes the count of angles of each pair of pixels in the left caudate nucleus and the left lateral ventricle.
-The histogram is normalized and contains 256 bins as in Figure \ref{fig:histogram_angle}.
-\begin{figure}
-  \centering
-  \includegraphics[scale=0.4]{figures/LVr_CDr_histo_angle_53.pdf}
-  \caption{The normalized histogram of angles between the left caudate nucleus and the left lateral ventricle.
-  The value of x-axis ranges from 0 to 255 representing the angle between $-\pi$ to $\pi$.}  \label{fig:histogram_angle}
-\end{figure}
-
-\begin{table}[H]
-\begin{center}
-   \begin{tabular}{| c || c | c | c | c |}
-     \hline
-     & right & left & above & below\\ \hline
-     center of gravity of compatibility & 0.14  & 0.63 & 0.57  &  0.51 \\
-     \hline
-   \end{tabular}
-    \caption{ The global evaluation is taken from the center of gravity of compatibility of angle histogram and direction fuzzy set.}\label{tab:cp_lvr_cnr}
-     \end{center}
-    \end{table}
-From the figure, we observe that three peaks (greater than 0.75) appear around 30, 75, 255, which means the left caudate nucleus is strongly above and to the left of the left lateral ventricle.
-The satisfaction degree can be computed with the observed histogram and the fuzzy set of a certain direction.
-The global evaluation of a certain direction is obtained after the computation of compatibility fuzzy sets with respect to fuzzy relations.
-The evaluation is the center of gravity of the compatibility fuzzy set as shown in Table \ref{tab:cp_lvr_cnr}.
-``Left'', ``above'' and ``below'' relations are considered as the main direction between the left caudate nucleus and the left lateral ventricle.
-
-We then illustrate the morphological approach for the evaluation. In Figure \ref{fig:before_landscape}, a fuzzy landscape for the relation ``below'' is computed with the help of morphological dilation operator.
-In Table \ref{tab:direction_lvr_cnr}, the necessity, possibility and average values are computed using the fuzzy pattern matching. The necessity and possibility give an interval information of belief.
-We take the average evaluation for quantification by a threshold (0.5). Therefore, the left caudate nucleus is considered as on the ``left'', ``above'' and ``below'' the left lateral ventricle,
-which corresponds to our intuition.
-% \begin{figure}
-%   \centering
-%   \includegraphics[scale=0.4]{figures/LVr_53_before.jpg}
-%   \caption{Fuzzy landscape corresponding to the ``below'' position of the left lateral ventricle (high gray level represents the high membership values).}  \label{fig:before_landscape}
-% \end{figure}
-
-\begin{table}[H]
-\begin{center}
-   \begin{tabular}{| l || c | c | c | }
-     \hline
-     & Necessity & Possibility & Average value\\ \hline
-     right & 0.12 & 0.61 & 0.41 \\ \hline
-     left & 1.00 & 1.00 & 1.00 \\ \hline
-%       above & 0.000000 & 1.000000 & 0.610771 \\ \hline
-%       below  & 0.066667 & 1.000000 & 0.452501 \\ \hline
-     above & 0.76 & 1.00 & 0.89 \\ \hline
-     below  & 0.00 & 1.00 & 0.98 \\
-     \hline
-   \end{tabular}
-    \caption{ The evaluation of satisfaction degrees of directional relations in the form of necessity, possibility, average between two structures.}\label{tab:direction_lvr_cnr}
-     \end{center}
-    \end{table}
-
-%  
-% If the hypothesis holds under the detected facts.
 % 
-% Discussion of computational cost.
+% In Figure \ref{fig:sub_flowchart}, the flowchart shows the general algorithm for qualitative spatial reasoning to implement. 
+% The focus of this reasoning service is the concept subsumption checking between a given hypothesis and the observation concept extracted from an image.
+% The hypothesis is a more specific description of the observation in the image interpretation task if it is subsumed by the observation.
+% The input of the algorithm is a segmented brain image. 
+% Using TIVOLI\footnote{\url{https://trac.telecom-paristech.fr/trac/project/tivoli/wiki}}
+% image processing toolbox, the context information is extracted (quantification values).
+% The quantification values of the spatial relationships are then transformed to qualitative spatial relations by a threshold. 
+% This observation is then transformed into a structural representation for the purpose of concept subsumption checking. 
+% To complete the concept subsumption checking, three elements are essential:
+% \begin{inparaenum}
+%  \item the hypothesis which is constructed manually for expected test;
+%  \item a knowledge base for expert knowledge representation;
+%  \item an inference process is formalized for the reasoning service. We exploit tableaux methods in this context.
+% \end{inparaenum}
+% 
+% The algorithm can be divided into two parts. The first part involves evaluating qualitative spatial relationships between segmented objects.
+% Segmented objects and their quantitative spatial relationships are then transformed as an ABox in the Description Logic formalism.
+% The second part contains the reasoning process guided by a knowledge base in a predefined logic formalism. 
 
-\subsubsection{Computation of distances between a pair of structures}
-The distances between the left caudate nucleus and the left lateral ventricle are given in Table \ref{tab:distance_cdr_lvr}. This table shows that minimum distance and Hausdorff distance satisfy the
-symmetric property while the mean distance  does not. When we choose the minimum distance for the quantification and a threshold great than 1, the pair of structures are ``close to'' each other.
-\begin{table}[H]
-\begin{center}
-   \begin{tabular}{| l || c | c | c | c | }
-     \hline
-     & Minimum distance & Mean distance & Hausdorff distance\\ \hline
-     Ref:CNl, Tar:LVl & 1 mm & 5 mm & 99 mm\\ \hline
-     %max: 99
-     Ref:LVl, Tar:CNl & 1 mm & 30 mm & 99 mm\\ \hline
-     %max: 15
-   \end{tabular}
-    \caption{ Different distances  between a pair of structures.}\label{tab:distance_cdr_lvr}
-     \end{center}
-    \end{table}
-    
-% Initialization: Input of a segmented image, followed by a label map, each structure is assigned with a gray level. 
-% For every two structures, a target structure and a reference structure, all the directional spatial relations are computed with a satisfaction degree.
-% The distance are also evaluated. The minimum distance is the smallest distance of the target structure in the distance landscape of reference structure.
-% The mean distance is the calculated from the histogram of the distance. The Hausdorff distance is the largest of one of maximum distance if we switch the 
-% reference structure and target structure.
-% \section{Knowledge base}
-In the knowledge base, we focus on the anatomy of the brain represented with Description Logics.
-The brain structure concepts, qualitative spatial relationships and individuals of an observation are modeled as the signature of the defined Description Logic.
-The taxonomy of brain structures and spatial configuration among the brain structures are described by the TBox.
-The TBox contains a set of axioms which describes the structural hierarchies and their relational structures.
-For example, 
-Hemisphere is \textit{a part of} brain ($Hemisphere \sqsubseteq \exists isPartOf. Brain$).
-The left lateral ventricle (LVl) is \textit{to the left of} and \textit{close to} the left caudate nucleus (CNl) ($LVr \sqsubseteq \exists (leftOf \sqcap closeTo). CNl$). 
-The properties of the qualitative spatial relationships are described by the RBox.
-For example, \textit{on the right of} is an inverse role of \textit{on the left of} ($rightOf \equiv leftOf^-$), and 
-\textit{is part of} is a transitive role ($isPartOf \circ isPartOf \sqsubseteq isPartOf$).
+% The following sections will explain the details of each module.
 
-The complete knowledge base is given as follows:
-\begin{align*}
- TBox=\{ Hemisphere &\sqsubseteq \exists isPartOf. Brain\\
-	 BrainStructure &\sqsubseteq \exists isPartOf. Brain\\
-	 BrainDisease &\sqsubseteq \exists isPartOf. Brain \sqcap \neg BrainStructure\\
-	 Tumor  &\sqsubseteq BrainDisease\\
-	 LVl &\sqsubseteq BrainStructure \sqcap \sqsubseteq \exists (rightOf \sqcap closeTo). CNl\\
-	 LVr &\sqsubseteq BrainStructure \sqcap \sqsubseteq \exists (leftOf \sqcap closeTo). CNr\\
-	 CNl &\sqsubseteq BrainStructure\\
-	 CNr &\sqsubseteq BrainStructure\\
-	 WMl &\sqsubseteq BrainStructure\\
-	 WMr &\sqsubseteq BrainStructure\\
-	 PUl &\sqsubseteq BrainStructure\\
-	 PUr &\sqsubseteq BrainStructure\\
-	 THl &\sqsubseteq BrainStructure\\
-	 THr &\sqsubseteq BrainStructure\}
-\end{align*}
+% 
+% The first part deals with the computation of qualitative relationships in a segmented image. 
+% In this module, TIVOLI image processing toolbox is used for extracting quantitative spatial relations between every two structures.
+% In a segmented 3D volumetric image $\mathbf{I}$, different structures in the image are labeled.
+% % with different gray level by a defined convention
+% For each pair of structures, the directional relations are calculated with the function t\_fuzzyRelativePosition for six main directions: left, right, above, below, in front of, behind.
+% Each direction is associated with a satisfaction degree.
+% The distances are evaluated with the function t\_distance and t\_mask. Minimum distance, mean distance and Hausdorff distance are all evaluated. 
+% % From the observation of test, we find out that ... (to be completed).
+% 
+% Computation process:
+% \begin{itemize}
+%  \item Initialization: the input of the process is a segmented image, with a known label for each structure of interest.
+%  \item Computation: for each pair of structures $a$ and $b$, we evaluate metric relations (directional relations and distances) of $a$ taking $b$ as the reference object 
+%  as well as the directional relations of  $b$ taking $a$ as the reference object. 
+%  \item The directional spatial relations are evaluated using t\_histoAngle by measuring between points of the two objects of interest or 
+%  t\_fuzzyRelativePosition by comparing the fuzzy landscape with a certain angle from reference structure and the target structure.
+%  \item The distances are evaluated using t\_distance and t\_mask. The minimum distance, mean distance and Hausdorff distance can be measured from the landscape propagated from the reference structure.
+% \end{itemize}
+% 
+% \subsubsection{Computation of direction between a pair of structures}
+% % \begin{figure}
+% %   \centering
+% %   \includegraphics[scale=0.4]{figures/cana_2d_53.jpg}
+% %   \caption{One slice of a brain volume with a tumor.}  \label{fig:brain}
+% % \end{figure}
+% 
+% % \begin{figure}
+% %   \centering
+% %   \includegraphics[scale=0.4]{figures/cana_seg_binary_53.jpg}
+% %   \caption{One slice of a segmented brain volume with a tumor.}  \label{fig:segbrain}
+% % \end{figure}
+% Two approaches of computations have been tested to evaluate a pair of structures from an image.
+% One is calculation of histogram of angles, and  the other is the morphological method by pattern matching between the structure and  the fuzzy directional landscape of the reference structure.
+% We take the left caudate nucleus (target object) and the left lateral ventricle (reference object) as an example to illustrate the computation\footnote{Here we use ``left'' to represent 
+% structures in the left part of image for the simplicity of visualization (i.e. the structure in the left part of image is the right part in the brain.)}.
+% The structures are presented in Figure. \ref{fig:cdlvl}.
+% % \begin{figure}
+% %   \centering
+% %         \begin{subfigure}[b]{0.3\textwidth}
+% %                 \includegraphics[width=\textwidth]{figures/LVr_2d_53.jpg}
+% %                 \caption{The left lateral ventricle}
+% %                 \label{fig:lvl}
+% %         \end{subfigure}
+% %         ~ 
+% %         \begin{subfigure}[b]{0.3\textwidth}
+% %                 \includegraphics[width=\textwidth]{figures/CDr_2d_53.jpg}
+% %                 \caption{The left caudate nucleus}
+% %                 \label{fig:cdl}
+% %         \end{subfigure}
+% %         \caption{One slice of a 3D volume }\label{fig:cdlvl}
+% % \end{figure}
+% 
+% The histogram of angles includes the count of angles of each pair of pixels in the left caudate nucleus and the left lateral ventricle.
+% The histogram is normalized and contains 256 bins as in Figure \ref{fig:histogram_angle}.
+% \begin{figure}
+%   \centering
+%   \includegraphics[scale=0.4]{figures/LVr_CDr_histo_angle_53.pdf}
+%   \caption{The normalized histogram of angles between the left caudate nucleus and the left lateral ventricle.
+%   The value of x-axis ranges from 0 to 255 representing the angle between $-\pi$ to $\pi$.}  \label{fig:histogram_angle}
+% \end{figure}
+% 
+% \begin{table}[H]
+% \begin{center}
+%    \begin{tabular}{| c || c | c | c | c |}
+%      \hline
+%      & right & left & above & below\\ \hline
+%      center of gravity of compatibility & 0.14  & 0.63 & 0.57  &  0.51 \\
+%      \hline
+%    \end{tabular}
+%     \caption{ The global evaluation is taken from the center of gravity of compatibility of angle histogram and direction fuzzy set.}\label{tab:cp_lvr_cnr}
+%      \end{center}
+%     \end{table}
+% From the figure, we observe that three peaks (greater than 0.75) appear around 30, 75, 255, which means the left caudate nucleus is strongly above and to the left of the left lateral ventricle.
+% The satisfaction degree can be computed with the observed histogram and the fuzzy set of a certain direction.
+% The global evaluation of a certain direction is obtained after the computation of compatibility fuzzy sets with respect to fuzzy relations.
+% The evaluation is the center of gravity of the compatibility fuzzy set as shown in Table \ref{tab:cp_lvr_cnr}.
+% ``Left'', ``above'' and ``below'' relations are considered as the main direction between the left caudate nucleus and the left lateral ventricle.
+% 
+% We then illustrate the morphological approach for the evaluation. In Figure \ref{fig:before_landscape}, a fuzzy landscape for the relation ``below'' is computed with the help of morphological dilation operator.
+% In Table \ref{tab:direction_lvr_cnr}, the necessity, possibility and average values are computed using the fuzzy pattern matching. The necessity and possibility give an interval information of belief.
+% We take the average evaluation for quantification by a threshold (0.5). Therefore, the left caudate nucleus is considered as on the ``left'', ``above'' and ``below'' the left lateral ventricle,
+% which corresponds to our intuition.
+% % \begin{figure}
+% %   \centering
+% %   \includegraphics[scale=0.4]{figures/LVr_53_before.jpg}
+% %   \caption{Fuzzy landscape corresponding to the ``below'' position of the left lateral ventricle (high gray level represents the high membership values).}  \label{fig:before_landscape}
+% % \end{figure}
+% 
+% \begin{table}[H]
+% \begin{center}
+%    \begin{tabular}{| l || c | c | c | }
+%      \hline
+%      & Necessity & Possibility & Average value\\ \hline
+%      right & 0.12 & 0.61 & 0.41 \\ \hline
+%      left & 1.00 & 1.00 & 1.00 \\ \hline
+% %       above & 0.000000 & 1.000000 & 0.610771 \\ \hline
+% %       below  & 0.066667 & 1.000000 & 0.452501 \\ \hline
+%      above & 0.76 & 1.00 & 0.89 \\ \hline
+%      below  & 0.00 & 1.00 & 0.98 \\
+%      \hline
+%    \end{tabular}
+%     \caption{ The evaluation of satisfaction degrees of directional relations in the form of necessity, possibility, average between two structures.}\label{tab:direction_lvr_cnr}
+%      \end{center}
+%     \end{table}
+% 
+% %  
+% % If the hypothesis holds under the detected facts.
+% % 
+% % Discussion of computational cost.
+% 
+% \subsubsection{Computation of distances between a pair of structures}
+% The distances between the left caudate nucleus and the left lateral ventricle are given in Table \ref{tab:distance_cdr_lvr}. This table shows that minimum distance and Hausdorff distance satisfy the
+% symmetric property while the mean distance  does not. When we choose the minimum distance for the quantification and a threshold great than 1, the pair of structures are ``close to'' each other.
+% \begin{table}[H]
+% \begin{center}
+%    \begin{tabular}{| l || c | c | c | c | }
+%      \hline
+%      & Minimum distance & Mean distance & Hausdorff distance\\ \hline
+%      Ref:CNl, Tar:LVl & 1 mm & 5 mm & 99 mm\\ \hline
+%      %max: 99
+%      Ref:LVl, Tar:CNl & 1 mm & 30 mm & 99 mm\\ \hline
+%      %max: 15
+%    \end{tabular}
+%     \caption{ Different distances  between a pair of structures.}\label{tab:distance_cdr_lvr}
+%      \end{center}
+%     \end{table}
+%     
+% % Initialization: Input of a segmented image, followed by a label map, each structure is assigned with a gray level. 
+% % For every two structures, a target structure and a reference structure, all the directional spatial relations are computed with a satisfaction degree.
+% % The distance are also evaluated. The minimum distance is the smallest distance of the target structure in the distance landscape of reference structure.
+% % The mean distance is the calculated from the histogram of the distance. The Hausdorff distance is the largest of one of maximum distance if we switch the 
+% % reference structure and target structure.
+% % \section{Knowledge base}
+% In the knowledge base, we focus on the anatomy of the brain represented with Description Logics.
+% The brain structure concepts, qualitative spatial relationships and individuals of an observation are modeled as the signature of the defined Description Logic.
+% The taxonomy of brain structures and spatial configuration among the brain structures are described by the TBox.
+% The TBox contains a set of axioms which describes the structural hierarchies and their relational structures.
+% For example, 
+% Hemisphere is \textit{a part of} brain ($Hemisphere \sqsubseteq \exists isPartOf. Brain$).
+% The left lateral ventricle (LVl) is \textit{to the left of} and \textit{close to} the left caudate nucleus (CNl) ($LVr \sqsubseteq \exists (leftOf \sqcap closeTo). CNl$). 
+% The properties of the qualitative spatial relationships are described by the RBox.
+% For example, \textit{on the right of} is an inverse role of \textit{on the left of} ($rightOf \equiv leftOf^-$), and 
+% \textit{is part of} is a transitive role ($isPartOf \circ isPartOf \sqsubseteq isPartOf$).
+% 
+% The complete knowledge base is given as follows:
+% \begin{align*}
+%  TBox=\{ Hemisphere &\sqsubseteq \exists isPartOf. Brain\\
+% 	 BrainStructure &\sqsubseteq \exists isPartOf. Brain\\
+% 	 BrainDisease &\sqsubseteq \exists isPartOf. Brain \sqcap \neg BrainStructure\\
+% 	 Tumor  &\sqsubseteq BrainDisease\\
+% 	 LVl &\sqsubseteq BrainStructure \sqcap \sqsubseteq \exists (rightOf \sqcap closeTo). CNl\\
+% 	 LVr &\sqsubseteq BrainStructure \sqcap \sqsubseteq \exists (leftOf \sqcap closeTo). CNr\\
+% 	 CNl &\sqsubseteq BrainStructure\\
+% 	 CNr &\sqsubseteq BrainStructure\\
+% 	 WMl &\sqsubseteq BrainStructure\\
+% 	 WMr &\sqsubseteq BrainStructure\\
+% 	 PUl &\sqsubseteq BrainStructure\\
+% 	 PUr &\sqsubseteq BrainStructure\\
+% 	 THl &\sqsubseteq BrainStructure\\
+% 	 THr &\sqsubseteq BrainStructure\}
+% \end{align*}
+% 
+% \begin{align*}
+%  RBox=\{ rightOf &\equiv leftOf^-\\
+%          above &\equiv below^- \\
+% 	 closeTo &\equiv closeTo^- \\
+% 	 farFrom &\equiv farFrom^- \\
+% 	 isPartOf \circ isPartOf &\sqsubseteq isPartOf \\
+% 	 hasPart \circ hasPart &\sqsubseteq hasPart\}
+% \end{align*}
+% 
+% % The ABox is used for describing the observation in the image.
+% % The spatial configuration describes the relationships between different structures.
+% The ABox represents the observation of recognized structures and the relationships with others.
+% For example, a region is recognized as the left caudate nucleus (CNl), denoted by $a$.
+% The region of brain is denoted by $c$. An unknown region is segmented and their relationships are computed.  
+% Such an observation can be represented as\footnote{At first, I assume to use a threshold to convert quantification measures to qualitative representations. However, the threshold 
+% is hard to choose. If we use a fuzzy ABox, only the spatial relations are assigned with a satisfaction degree. However, I have not read the reference about reasoning service on fuzzy Description Logics yet.}:
+% \begin{align*}
+%  ABox=\{ a&: CNl \\
+% 	 b&: unknown \\
+% 	 c&: Brain \\
+% 	 \langle a,b\rangle &: rightOf, closeTo \\
+% 	 \langle b,c\rangle &: isPartOf\}
+% \end{align*}
+% % so that the TBox of the knowledge base is modeled for the arrangement of brain structures
+% % and qualitative spatial relations used for the knowledge representation.
+% % The domain knowledge is represented in terms of Description Logics
+% OWL is a family of ontology language based on Description Logics. 
+% We use OWL API to create the knowledge base which consists of the TBox, the RBox and the ABox.
+% The signature involves brain structures as atomic concepts and qualitative spatial relations as roles.
+% With OWL API, the TBox  and RBox can be represented with the class OWLAxiom.
+% % In RBox we define the corresponding properties of roles for qualitative spatial relations.
+% This kind of knowledge representation provides a description of a domain as well as the reasoning formalisms about the domain.
+% 
 
-\begin{align*}
- RBox=\{ rightOf &\equiv leftOf^-\\
-         above &\equiv below^- \\
-	 closeTo &\equiv closeTo^- \\
-	 farFrom &\equiv farFrom^- \\
-	 isPartOf \circ isPartOf &\sqsubseteq isPartOf \\
-	 hasPart \circ hasPart &\sqsubseteq hasPart\}
-\end{align*}
-
-% The ABox is used for describing the observation in the image.
-% The spatial configuration describes the relationships between different structures.
-The ABox represents the observation of recognized structures and the relationships with others.
-For example, a region is recognized as the left caudate nucleus (CNl), denoted by $a$.
-The region of brain is denoted by $c$. An unknown region is segmented and their relationships are computed.  
-Such an observation can be represented as\footnote{At first, I assume to use a threshold to convert quantification measures to qualitative representations. However, the threshold 
-is hard to choose. If we use a fuzzy ABox, only the spatial relations are assigned with a satisfaction degree. However, I have not read the reference about reasoning service on fuzzy Description Logics yet.}:
-\begin{align*}
- ABox=\{ a&: CNl \\
-	 b&: unknown \\
-	 c&: Brain \\
-	 \langle a,b\rangle &: rightOf, closeTo \\
-	 \langle b,c\rangle &: isPartOf\}
-\end{align*}
-% so that the TBox of the knowledge base is modeled for the arrangement of brain structures
-% and qualitative spatial relations used for the knowledge representation.
-% The domain knowledge is represented in terms of Description Logics
-OWL is a family of ontology language based on Description Logics. 
-We use OWL API to create the knowledge base which consists of the TBox, the RBox and the ABox.
-The signature involves brain structures as atomic concepts and qualitative spatial relations as roles.
-With OWL API, the TBox  and RBox can be represented with the class OWLAxiom.
-% In RBox we define the corresponding properties of roles for qualitative spatial relations.
-This kind of knowledge representation provides a description of a domain as well as the reasoning formalisms about the domain.
 
 
-
-
-\subsection{Spatial reasoning using tableaux method}
+% \subsection{Spatial reasoning using tableaux method}
 \subsection{Example}
  The complete knowledge base is given as follows:
 \begin{align*}
@@ -924,12 +936,6 @@ This kind of knowledge representation provides a description of a domain as well
 	 LVr &\sqsubseteq BrainStructure \sqcap \exists (leftOf \sqcap closeTo). CNr\\
 	 CNl &\sqsubseteq BrainStructure\\
 	 CNr &\sqsubseteq BrainStructure\}
-% 	 WMl &\sqsubseteq BrainStructure\\
-% 	 WMr &\sqsubseteq BrainStructure\\
-% 	 PUl &\sqsubseteq BrainStructure\\
-% 	 PUr &\sqsubseteq BrainStructure\\
-% 	 THl &\sqsubseteq BrainStructure\\
-% 	 THr &\sqsubseteq BrainStructure\}
 \end{align*}
 The role axioms are described as:
 \begin{align*}
@@ -954,7 +960,7 @@ Such an observation can be represented as
 % is hard to choose. If we use a fuzzy ABox, only the spatial relations are assigned with a satisfaction degree. However, I have not read the reference about reasoning service on fuzzy Description Logics yet.}:
 \begin{align*}
  ABox=\{ a&: CNl \\
-	 b&: unknown \\
+	 b&: Unknown~Object \\
 	 c&: Brain \\
 	 \langle a,b\rangle &: leftOf, closeTo \\
 	 \langle b,c\rangle &: isPartOf\}
@@ -967,14 +973,15 @@ A possible hypothesized description is $LVl\sqcap \exists isPartOf.Hemisphere$.
 The hypothesis can be verified by a concept subsumption checking: $\mathcal{K} \vDash H\sqsubseteq O$, where $H$ is the explained concept for the observation $O$.
 To check subsumption of two concepts $H$ and $O$, $\mathcal{K} \vDash H\sqcap \neg O \sqsubseteq \bot$ is required to prove that $H\sqcap \neg O$ is unsatisfiable.
 
-In this example, $O\equiv \exists (leftOf^-\sqcap closeTo^-). CNl\sqcap \exists isPartOf.Brain$ and $H\equiv LVl\sqcap \exists isPartOf.Hemisphere$.
+In this example, we could derive $\langle b,a\rangle:leftOf^-,closeTo^-$ from $\langle a,b\rangle:leftOf,closeTo$.
+Then most specific concept (see Definition \ref{def:msc}) of  $b$ can be formulated as $O\equiv \exists (leftOf^-\sqcap closeTo^-). CNl\sqcap \exists isPartOf.Brain$ and $H\equiv LVl\sqcap \exists isPartOf.Hemisphere$.
 Let $x$ be the interpretation element of the concept $H\sqcap \neg O$. 
 
 The tableau is initialized with $\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain\}$.
-The $\sqcap$, $\sqcup$ rules are applied and we obtain:
+According to Definition \ref{def:alchir}, $\sqcap$ and $\sqcup$ rule (rule 2 and rule 3) are applied and we obtain:
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain\}$}
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl\}$}}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
 \end{tikzpicture} 
@@ -984,17 +991,17 @@ To integrate terminological knowledge, axioms like $C\sqsubseteq D$ in the TBox 
 of demonstration, we only add the internalization of the axiom $LVl \sqsubseteq BrainStructure \sqcap  \exists (rightOf \sqcap closeTo). CNl$ for the first branch.
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).CNl\sqcup \forall isPartOf.\neg Brain\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl\}$}}
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
 \end{tikzpicture}  
 \end{center}
 
-We then apply $\sqcup$ and $\sqcap$ rules again on the first branch:
+We then apply $\sqcap$ and $\sqcup$ rule (rule 2 and rule 3) again on the first branch:
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl\}$}
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
 	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
 				  child{ node{$\boxtimes$}}}
 		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-). \neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}}}
@@ -1002,12 +1009,12 @@ We then apply $\sqcup$ and $\sqcap$ rules again on the first branch:
 \end{tikzpicture}  
 \end{center}
 
-A clash ($LVl,~\neg LVl$) is detected in the first part of the first branch (closed). We then apply $\exists$ on the second part:
+A clash ($LVl,~\neg LVl$) is detected in the first part of the first branch (closed). We then apply $\exists$ rule (rule 4) on the second part:
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
 level 3/.style={level distance=2.5cm, sibling distance=6cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl\}$}
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
 	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
 				  child{ node{$\boxtimes$}}}
 		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}
@@ -1019,12 +1026,12 @@ level 3/.style={level distance=2.5cm, sibling distance=6cm}]
 \end{tikzpicture}  
 \end{center}
 
-Because of inverse role axiom in the RBox, we can add inverse roles in $\mathcal{E}(\langle x,y \rangle)$ and apply  $\forall$ rule on the second part:
+Because of inverse role axiom in the RBox, we can add inverse roles in $\mathcal{E}(\langle x,y \rangle)$ (rule 7) and apply  $\forall$ rule (rule 5) on the second part:
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
 level 3/.style={level distance=2.5cm, sibling distance=6cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl\}$}
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
 	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
 				  child{ node{$\boxtimes$}}}
 		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}
@@ -1038,12 +1045,12 @@ level 3/.style={level distance=2.5cm, sibling distance=6cm}]
 \end{tikzpicture}  
 \end{center}
 
-The first branch of the tableau is closed because of the clash of $CNl$ and $\neg CNl$ in the second part. We then explore the second branch. At first we apply the $\exists$ rule and then $\forall$ rule:
+The first branch of the tableau is closed because of the clash of $CNl$ and $\neg CNl$ in the second part. We then explore the second branch. At first we apply the $\exists$ rule (rule 4) and then $\forall$ rule (rule 5):
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
 level 3/.style={level distance=2.5cm, sibling distance=6cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl\}$}
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup ( BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
 				  child{ node{$\boxtimes$}}}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}
 		     child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
@@ -1052,12 +1059,12 @@ level 3/.style={level distance=2.5cm, sibling distance=6cm}]
 \end{tikzpicture}  
 \end{center}
 
-The axiom $Hemisphere \sqsubseteq \exists isPartOf.Brain$ is internalized and added into $\mathcal{L}(y)$. Then we continue to extend the second branch with expansion rules:
+The axiom $Hemisphere \sqsubseteq \exists isPartOf.Brain$ is internalized and added into $\mathcal{L}(y)$. Then we continue to extend the second branch with expansion rules (rule 2,3,4,6,7):
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=7cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
-level 3/.style={level distance=3cm, sibling distance=8cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl\}$}
+level 3/.style={level distance=3cm, sibling distance=7cm}]
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap ( \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup( BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
 				  child{ node{$\boxtimes$}}}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}
 		     child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
@@ -1065,7 +1072,7 @@ level 3/.style={level distance=3cm, sibling distance=8cm}]
 				  $\neg Hemisphere \sqcup \exists isPartOf.Brain\}$\\
 				  $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$}
 				  child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
-					      $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain,$\\
+					      $\mathcal{L}(y)=\{ Hemisphere, \neg Brain,$\\$ \forall isPartOf. \neg Brain,$\\
 					      $\neg Hemisphere\}$\\
 					      $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$ }
 					      child{ node{$\boxtimes$}}}
@@ -1084,7 +1091,7 @@ level 3/.style={level distance=3cm, sibling distance=8cm}]
 \end{center}
 
 In both two parts of the second branch, we get clashes ($Hemisphere$ and $\neg Hemisphere$ in $\mathcal{L}(y)$ for the first part, $Brain$ and $\neg Brain$ in $\mathcal{L}(z)$ for the second part).
-This implies that we can not find a model for the concept $H\sqcap \neg O$. Therefore, it is unsatisfiable and we can conclude that $K\vDash H\sqsubseteq O$ and $LVl\sqcap \exists isPartOf.Hemisphere$ is a potential
+This implies that we cannot find a model for the concept $H\sqcap \neg O$. Therefore, it is unsatisfiable and we can conclude that $K\vDash H\sqsubseteq O$ and $LVl\sqcap \exists isPartOf.Hemisphere$ is a potential
 explanation of the observation.
 \section{Abductive reasoning}\label{sec:abd}
 % This part includes a short introduction of what an abductive reasoning is. Then why this is suitable for image interpretation task.
@@ -1198,7 +1205,8 @@ The concept $E$ is defined as the most specific concept of $X$ w.r.t $\mathcal{I
  \item $X \subseteq E^{\mathcal{I}}$.
  \item every defined concepts $F$ with $X \subseteq F^{\mathcal{I}}$, we have $E \sqsubseteq_{\mathcal{T}} F$.
 \end{itemize}
-\end{mydef}\label{def:msc}
+\label{def:msc}
+\end{mydef}
 
 An example ABox is given as following:
 \vspace{-0.3cm}
@@ -1231,7 +1239,8 @@ internalized concept (see Definition~\ref{def:ic}) in the tableau.
 \begin{mydef}[Internalized concept~\cite{baader2003description}]
 Let $\mathcal{T}$ be a TBox and a set of axioms formulated as $C_i \sqsubseteq D_i$. The internalized concept of the TBox is defined as follows:
 $$C_\mathcal{T} \equiv \sqcap_{(C_i \sqsubseteq D_i\in \mathcal{T})} (\neg C_i \sqcup D_i) $$
-\end{mydef}\label{def:ic}
+\label{def:ic}
+\end{mydef}
 If $C_i \sqsubseteq D_i$, then $\top \sqsubseteq \neg C_i  \sqcup D_i$ and  $C_\mathcal{T}\equiv \top$. 
 As a consequence, all interpretations of the TBox $\mathcal{T}$ is equivalent to interpretations of the internalized concept $C_\mathcal{T}$.
 Therefore, every interpretation elements belongs to  $C_\mathcal{T}^\mathcal{I}$. 
@@ -1370,18 +1379,15 @@ child { node  []{$\mathbf{T}(1)=\{\}$ \\ $\mathbf{F}(1)=\{..., \exists hasOnTop.
 };
 
 \end{tikzpicture}
-\caption{ Le tableau de l'exemple du << Grand Schtroumpf >>. On utilise une règle pour étendre le tableau dans chaque n{\oe}ud.
-Dans le premier n{\oe}ud, la règle de la conjonction est appliquée pour $\sqcup$ dans $\mathbf{F}(1)$. Le concept initial est séparé en deux. Ensuite, on applique
-la règle de la disjonction pour $\sqcap$ du premier concept dans le deuxième n{\oe}ud. Le tableau est divisé en deux branches. L'expansion est terminée s'il n'y a pas 
-de règle applicable ou s'il existe un clash.}\label{grandst}
+\caption{The process of constructing the tableau by applying expansion rules.}\label{fig:grandst}
 \end{figure}
 
-Le tableau construit pour l'exemple du << Grand Schtroumpf >> est montré dans la figure \ref{grandst}. Les branches sont étendues séquentiellement. Chaque branche représente une alternative
+The tableau of the construction is shown in Figure \ref{fig:grandst}. Les branches sont étendues séquentiellement. Chaque branche représente une alternative
 de modèles. Le symbole $ \boxtimes $ signifie qu'une branche fermée et $ \square $ qu'une branche ouverte. La deuxième branche est fermée à cause d'un clash homogène
 détecté dans le modèle 2 ($\neg Beard$ et $Beard$).
 
 Puis, nous pouvons générer un ensemble de concepts non décomposables pour chaque branche ouverte. Un concept qui ne peut subir aucune règle d'expansion est appelé non décomposable.
-Dans cet exemple, nous avons deux ensembles:\vspace{-0.2cm}
+Dans cet exemple, nous avons deux ensembles:
 \begin{align*}
 H_1&=\{SmurfLeader,~\exists hasPart.Beard\}\\
 H_2&=\{SmurfLeader,~\exists hasOnTop.(Hat \sqcap  \exists hasColor.Red)\}
@@ -1479,290 +1485,290 @@ A preference explanation depends on a minimality criterion that will be presente
 
 
 \subsection{Minimality criteria}
-\textit{Abduction as Inference to the Best Explanation.}
-filter inconsistent and redundant ones
-% \subsection{Sélection de la meilleure explication selon un critère de minimalité}
-Ce que nous obtenons dans l'étape précédente est un ensemble d'hypothèses possibles. Nous ne gardons qu'une partie des hypothèses comme la << meilleure >> explication de l'observation.
-Ce choix est défini par un critère de minimalité.
-
-
-Une hypothèse potentielle est une explication si et seulement si les exigences dans la section précédente sont vérifiées pour éviter les résultats non pertinents et les observations elles-mêmes.
-Quand on obtient un ensemble d'hypothèses potentielles, on a besoin
-d'un critère de minimalité afin de choisir la << meilleure >> \cite{aliseda1997seeking}.
-La simplicité est un critère raisonnable.
-Par exemple, $Father \sqcap \exists hasChild.Person \sqsubseteq Man$. le concept $\exists hasChild.Person$ peut être impliqué
-à partir du concept $Father$. C'est donc un concept qui porte peu d'information et qu'on peut éliminer pour ne garder que le concept plus simple $Father$. 
-La tâche d'interprétation d'une image cérébrale necessite une hypothèse plus générale.
-% (i.e. la plus faible explication).
-
-% \begin{mydef}{(La plus faible explication \cite{aliseda1997seeking})}
-% $\alpha$ est considérée comme une explication la plus faible pour $\phi$ avec les prémisses $\Theta$ si et seulement si:
+% \textit{Abduction as Inference to the Best Explanation.}
+% filter inconsistent and redundant ones
+% % \subsection{Sélection de la meilleure explication selon un critère de minimalité}
+% Ce que nous obtenons dans l'étape précédente est un ensemble d'hypothèses possibles. Nous ne gardons qu'une partie des hypothèses comme la << meilleure >> explication de l'observation.
+% Ce choix est défini par un critère de minimalité.
+% 
+% 
+% Une hypothèse potentielle est une explication si et seulement si les exigences dans la section précédente sont vérifiées pour éviter les résultats non pertinents et les observations elles-mêmes.
+% Quand on obtient un ensemble d'hypothèses potentielles, on a besoin
+% d'un critère de minimalité afin de choisir la << meilleure >> \cite{aliseda1997seeking}.
+% La simplicité est un critère raisonnable.
+% Par exemple, $Father \sqcap \exists hasChild.Person \sqsubseteq Man$. le concept $\exists hasChild.Person$ peut être impliqué
+% à partir du concept $Father$. C'est donc un concept qui porte peu d'information et qu'on peut éliminer pour ne garder que le concept plus simple $Father$. 
+% La tâche d'interprétation d'une image cérébrale necessite une hypothèse plus générale.
+% % (i.e. la plus faible explication).
+% 
+% % \begin{mydef}{(La plus faible explication \cite{aliseda1997seeking})}
+% % $\alpha$ est considérée comme une explication la plus faible pour $\phi$ avec les prémisses $\Theta$ si et seulement si:
+% % \begin{itemize}
+% % \item  $\Theta,\alpha \vDash \phi$
+% % \item  Toutes les autres hypothèses potentielles $\beta$ car $\Theta,\beta \vDash \phi$, on a $\vDash \beta \rightarrow \alpha $
+% % \end{itemize}
+% % \end{mydef}
+% 
+% Dans \cite{bienvenu-kr08}, Bienvenu a présenté cinq critères de minimalité utilisés pour l'abduction dans $\mathcal{EL}$.  
+% 
+% 
+% Un problème d'abduction est noté $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$, où $\mathcal{T}$ est une TBox, $\mathcal{H}$ est un ensemble de concepts atomiques et $\mathcal{O}$ est un
+% concept observé.
+% 
+% \begin{mydef}{(Explication~\cite{bienvenu-kr08})}
+% Soit $\{ A_1,\dots,A_n \} \subseteq \mathcal{H}$ un sous-ensemble de $\mathcal{H}$. Cet ensemble est une explication pour $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$ si et seulement si:
 % \begin{itemize}
-% \item  $\Theta,\alpha \vDash \phi$
-% \item  Toutes les autres hypothèses potentielles $\beta$ car $\Theta,\beta \vDash \phi$, on a $\vDash \beta \rightarrow \alpha $
+% \item  $A_1 \sqcap \dots \sqcap A_n$ est satisfiable dans le cadre de la TBox $\mathcal{T}$.
+% \item $\mathcal{T}  \vDash  A_1 \sqcap \dots \sqcap A_n \sqsubseteq \mathcal{O}$
 % \end{itemize}
+% 
 % \end{mydef}
-
-Dans \cite{bienvenu-kr08}, Bienvenu a présenté cinq critères de minimalité utilisés pour l'abduction dans $\mathcal{EL}$.  
-
-
-Un problème d'abduction est noté $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$, où $\mathcal{T}$ est une TBox, $\mathcal{H}$ est un ensemble de concepts atomiques et $\mathcal{O}$ est un
-concept observé.
-
-\begin{mydef}{(Explication~\cite{bienvenu-kr08})}
-Soit $\{ A_1,\dots,A_n \} \subseteq \mathcal{H}$ un sous-ensemble de $\mathcal{H}$. Cet ensemble est une explication pour $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$ si et seulement si:
-\begin{itemize}
-\item  $A_1 \sqcap \dots \sqcap A_n$ est satisfiable dans le cadre de la TBox $\mathcal{T}$.
-\item $\mathcal{T}  \vDash  A_1 \sqcap \dots \sqcap A_n \sqsubseteq \mathcal{O}$
-\end{itemize}
-
-\end{mydef}
-
-
-\begin{mydef}{(Critères de minimalité~\cite{bienvenu-kr08})}
-Soit un problème d'abduction $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$,$\mathcal{A}=\{H_1,\dots,$ $H_n \} \subseteq \mathcal{H}$ une explication du problème $\mathcal{P}$,
-$\langle H_{(1)},\dots,H_{(n)}\rangle$ un ordre de priorité sur $\mathcal{H}$,
-et $w:\mathcal{H}\rightarrow \mathbb{N}$ une fonction affectant une valeur d'importance à un concept. On peut formuler différents critères comme:
+% 
+% 
+% \begin{mydef}{(Critères de minimalité~\cite{bienvenu-kr08})}
+% Soit un problème d'abduction $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$,$\mathcal{A}=\{H_1,\dots,$ $H_n \} \subseteq \mathcal{H}$ une explication du problème $\mathcal{P}$,
+% $\langle H_{(1)},\dots,H_{(n)}\rangle$ un ordre de priorité sur $\mathcal{H}$,
+% et $w:\mathcal{H}\rightarrow \mathbb{N}$ une fonction affectant une valeur d'importance à un concept. On peut formuler différents critères comme:
+% % \begin{itemize}
+% % \item  $\mathcal{A}~$ est  $~\subseteq -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\mathcal{B} \subsetneq \mathcal{A}$,
+% % \item  $\mathcal{A}~$ est  $~\leq -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\abs{\mathcal{B}} < \abs{\mathcal{A}}$,
+% % \item  $\mathcal{A}~$ est  $~\subseteq_P -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\mathcal{B} \cap H_i \subsetneq \mathcal{A}\cap H_i$ et
+% % $\mathcal{B} \cap H_j = \mathcal{A}\cap H_j$ lorsque $1\leq j< i$,
+% % \item  $\mathcal{A}~$ est  $~\leq_P -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\abs{\mathcal{B} \cap H_i} < \abs{\mathcal{A}\cap H_i}$ et
+% % $\abs{\mathcal{B} \cap H_j} = \abs{\mathcal{A}\cap H_j}$ lorsque $1\leq j< i$,
+% % \item  $\mathcal{A}~$ est  $~\sqsubseteq_w -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\sum_{B \in \mathcal{B}}w(B) < \sum_{A \in \mathcal{A}}w(A)$.
+% % \end{itemize}
+%  \end{mydef}
+% 
+% 
+% 
+% Un autre critère spécifique est mentionné pour une application de << matchmaking >> dans~\cite{DiNoia07}.
+% Comme dans les travaux de Colucci, l'explication est alors la conjonction de concepts manquant par rapport à l'observation. Dans \cite{DiNoia07},
+% les auteurs ont proposé un critère irréductible-minimal dans leur formalisme. 
+% Une solution irréductible est un concept sous  forme  normale conjonctive lorsqu'il n'y a pas d'autre solution qui est un sous-concept de la solution irréductible.
+% 
+% En fait une explication irréductible est un sous-ensemble de concepts de l'observation. Une explication irréductible est la conjonction de concepts atomiques
+% qui n'apparaissent pas dans la contrainte mais dans l'observation. 
+% Ce modèle de l'explication est approprié pour une application de matchmaking mais c'est une explication avec peu d'information pour notre cas traditionnel.
+% 
+% Nous pouvons cependant adapter ce critère à notre problème. Nous pouvons alors calculer la cardinalité du résultat irréductible pour la comparaison.
+% On peut représenter les concepts sous forme normale conjonctive (FNC) pour les hypothèses et l'observation. Comme l'hypothèse est subsumée par l'observation, les concepts conjonctifs de l'hypothèse sont un sous-ensemble
+% de ceux de l'observation. On présente une fonction métrique $f_{ranking}$ pour évaluer la qualité cette hypothèse. Ici, on peut calculer la cardinalité de la partie différente
+% entre l'hypothèse et l'observation. Le concept avec le moins de différence par rapport aux autres hypothèses est préféré comme une explication minimale irréductible. On peut aussi
+% assigner une valeur à chaque concept et calculer la pondération pour  la partie différente.
+% 
+% 
+% \begin{mydef}{(Critère de subsomption et irréductibilité)}
+% Soit un problème d'abduction $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$, et $\{\langle P_{1},\dots,P_{n}\rangle\}$ les explications potentielles. 
+% On peut formuler différents critères comme:
+% % \begin{itemize}
+% % \item  $P_{i}$ est une explication suivant le critère de subsomption $\bm{\sqsubseteq -minimal}$ s'il n'existe pas d'explication $P_{j}$ pour $\mathcal{P}$ tel que $P_{i}\sqsubseteq P_{j}$
+% % \item  $P_{i}$ est une explication irréductible $\bm {irreductible-minimal }$ s'il n'existe pas d'explication $P_{j}$ pour $\mathcal{P}$ tel que $f_{ranking}(\mathcal{T},FNC(P_{j}),FNC(\mathcal{O})) 
+% % < f_{ranking}(\mathcal{T},FNC(P_{i}),FNC(\mathcal{O}))$
+% % \end{itemize}
+% 
+% \end{mydef}
+% 
+% 
+% Les critères introduits par Bienvenu sont utiles lorsqu'une hypothèse ne contient que les concepts atomiques. Elle considère qu'une hypothèse est construite par la conjonction de certains concepts atomiques.
+% Le critère bénéficie de la relation entre les ensembles. Dans notre problème, une hypothèse peut être composée par des concepts non atomiques. Le critère de subsomption est un bon choix dans plusieurs travaux,
+% par exemple, ceux de Colucci et al.~\cite{colucci2004uniform} et ceux de Atif et al.~\cite{jamal13}. La relation hiérarchique est prise en compte pour chercher une hypothèse plus générale.
+% Le critère d'irréductibilité est un critère combinant un critère de subsomption et un critère de cardinalité. Ce critère a l'avantage que la mesure $f_{ranking}$ est modifiable en fonction du besoin.
+% Par exemple, si on applique l'abduction dans la logique floue, un degré de possibilité peut être considéré comme une mesure pratique. Dans le cadre du stage, nous n'avons pas évaluer la coefficient de priorité
+% de concepts. Nous considérons les concepts sont équilibrés et utilisons les critères d'inclusion, de cardinalité, de subsomption et d'irréductibilité pour la suite.
+% 
+% 
+% 
+% 
+% \subsection{Résultats, évaluation et discussion}
+% Notre approche est implémentée en Java en utilisant les librairies OWL API\footnote{\url{http://owlapi.sourceforge.net/}} et Pellet\footnote{\url{http://clarkparsia.com/pellet/}}.
+% OWL est une API\footnote{application programming interface en anglais} open-source de Java sous licence de LGPL. 
+% Elle permet de créer, de manipuler l'ontologie. Une interface entre l'ontologie et la logique de description est mise en {\oe}uvre aussi.
+% Pellet est un moteur d'inférence gratuit pour fournir les services de raisonnement comme les tests de satisfiabilité et subsomption.
+% Dans notre projet,  la base de connaissances et l'observation sont codées en ontologie avec le logiciel << The Protégé >>\footnote{\url{http://protege.stanford.edu/}}.
+% Nous réalisons la méthode par tableau par la structure d'arbre qui permet de construire un tableau et la structure d'ensemble qui permet de
+% manipuler les ensembles de concepts. Les règles d'expansion et les détections de contradictions sont implémentées avec l'aide des deux librairies pour développer le tableau.
+% 
+% \subsubsection{Deux exemples d'abduction par la méthode par tableau adapté proposée}
+% \label{exemples}
+% Le premier exemple est un test de l'interprétation d'images cérébrales.
+% Pour tester la procédure proposée dans le cadre de l'interprétation d'images cérébrales, nous commençons
+% par construire un morceau de la base de connaissances et formuler l'observation manuellement.
+% Voici la TBox pour représenter la connaissance et l'observation obtenue:\vspace{-0.3cm}
+% \begin{align*}
+% \mathcal{T}=\{~SmallDeformingTumor &\sqsubseteq BrainTumor\\
+%  &~~~~~\sqcap \exists hasEnhancement. NonEnhanced \\
+% &~~~~~\sqcap \exists hasBehavior. Infiltrating  \\
+% PeripheralDeformingTumor &\sqsubseteq BrainTumor\\
+% &~~~~~ \sqcap \exists farFrom. LateralVentricle \\
+% &~~~~~ \sqcap \exists hasLocation. PeripheralCerebralHemisphere \} 
+% \end{align*}\vspace{-0.9cm}
+% \begin{align*}
+% \mathcal{O} =\{&~\exists hasEnhancement. NonEnhanced \\
+%  &\sqcap \exists farFrom. LateralVentricle \\
+% &\sqcap \exists hasLocation. PeripheralCerebralHemisphere \} 
+% \end{align*}
+% 
+% Dans ce cas, il n'y a pas de contrainte. Le n{\oe}ud initial est donc $\mathbf{T}(1)=\{\}, \mathbf{F}(1)=\{\neg C_\mathcal{T}\sqcap \mathcal{O}\}$.
+% \footnote{Les concepts et les rôles sont représentés abrégés ici.}\vspace{-0.3cm}
+% \begin{align*}
+%  \neg C_\mathcal{T}\sqcap \mathcal{O}= \{ &(SDT \sqcap \neg BT \sqcup \forall hE. \neg NE \sqcup \forall hB. \neg In) \sqcup \\
+%  &(PDT \sqcap \neg BT \sqcup \forall fF. \neg LV \sqcup \forall hL. \neg PCH) \sqcup \\
+%  &(\exists hE. NE \sqcap \exists fF. LV \sqcup \exists hL.PCH )\}
+% \end{align*}
+% % \footnote{Le tableau d'expansion est montré dans l'annexe.}
+% Par la méthode de tableau, il reste six branches ouvertes. Dans chaque branche, on a un ensemble de concepts
+% non décomposables:\vspace{-0.25cm}
+%  \begin{align*}
+%   H_1&=\{ SDT, PDT, \exists hE.NE\}\\
+%   H_2&=\{ SDT, PDT, \exists fF.LV\}\\
+%   H_3&=\{ SDT, PDT, \exists hL.PCH\}\\
+%   H_4&=\{ SDT, \neg BT, \forall fF. \neg LV, \forall hL. \neg PCH, \exists hE.NE\}\\
+%   H_5&=\{ PDT, \neg BT, \forall hE. \neg NE, \forall hB. \neg In, \exists fF.LV\}\\
+%   H_6&=\{ PDT, \neg BT, \forall hE. \neg NE, \forall hB. \neg In, \exists hL.PCH\}\\
+%  \end{align*}\vspace{-0.9cm}
+% 
+% Ensuite, on utilise l'algorithme exhaustif pour générer les hypothèses potentielles.
+% On choisit un concept de chaque ensemble. Une hypothèse est la conjonction de ces concepts.
+% En même temps, les hypothèses incohérentes sont éliminées, par exemple $SDT \sqcap \neg BT$, 
+% $PDT \sqcap \forall fF \neg LV$, etc. L'hypothèse $\exists hE. NE \sqcap \exists fF. LV \sqcup \exists hL.PCH $
+% est éliminée. Cette hypothèse est peu informative parce qu'elle est subsumée par l'observation sans la base de connaissances.
+% 
+% En appliquant le critère de subsomption, les hypothèses $SDT \sqcap \exists fF.LV \sqcap \exists hL.PCH$
+% et $PDT \sqcap \exists hE.NE$ sont considérées comme les explications. Par exemple, une hypothèse potentielle
+% $SDT \sqcap PDT$ est subsumée par ces deux explications. Ces deux résultats sont confirmés par les propriétés
+% de cohérence, d'explication et de minimalité. Nous obtenons alors deux bonne explications de cette observations:
 % \begin{itemize}
-% \item  $\mathcal{A}~$ est  $~\subseteq -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\mathcal{B} \subsetneq \mathcal{A}$,
-% \item  $\mathcal{A}~$ est  $~\leq -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\abs{\mathcal{B}} < \abs{\mathcal{A}}$,
-% \item  $\mathcal{A}~$ est  $~\subseteq_P -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\mathcal{B} \cap H_i \subsetneq \mathcal{A}\cap H_i$ et
-% $\mathcal{B} \cap H_j = \mathcal{A}\cap H_j$ lorsque $1\leq j< i$,
-% \item  $\mathcal{A}~$ est  $~\leq_P -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\abs{\mathcal{B} \cap H_i} < \abs{\mathcal{A}\cap H_i}$ et
-% $\abs{\mathcal{B} \cap H_j} = \abs{\mathcal{A}\cap H_j}$ lorsque $1\leq j< i$,
-% \item  $\mathcal{A}~$ est  $~\sqsubseteq_w -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\sum_{B \in \mathcal{B}}w(B) < \sum_{A \in \mathcal{A}}w(A)$.
+%  \item $PeripheralDeformingTumor \sqcap \exists hasEnhancement. NonEnhanced$
+%  \item $SmallDeformingTumor\sqcap \exists farFrom. LateralVentricle $\\ $\sqcap \exists hasLocation. PeripheralCerebralHemisphere$
 % \end{itemize}
- \end{mydef}
-
-
-
-Un autre critère spécifique est mentionné pour une application de << matchmaking >> dans~\cite{DiNoia07}.
-Comme dans les travaux de Colucci, l'explication est alors la conjonction de concepts manquant par rapport à l'observation. Dans \cite{DiNoia07},
-les auteurs ont proposé un critère irréductible-minimal dans leur formalisme. 
-Une solution irréductible est un concept sous  forme  normale conjonctive lorsqu'il n'y a pas d'autre solution qui est un sous-concept de la solution irréductible.
-
-En fait une explication irréductible est un sous-ensemble de concepts de l'observation. Une explication irréductible est la conjonction de concepts atomiques
-qui n'apparaissent pas dans la contrainte mais dans l'observation. 
-Ce modèle de l'explication est approprié pour une application de matchmaking mais c'est une explication avec peu d'information pour notre cas traditionnel.
-
-Nous pouvons cependant adapter ce critère à notre problème. Nous pouvons alors calculer la cardinalité du résultat irréductible pour la comparaison.
-On peut représenter les concepts sous forme normale conjonctive (FNC) pour les hypothèses et l'observation. Comme l'hypothèse est subsumée par l'observation, les concepts conjonctifs de l'hypothèse sont un sous-ensemble
-de ceux de l'observation. On présente une fonction métrique $f_{ranking}$ pour évaluer la qualité cette hypothèse. Ici, on peut calculer la cardinalité de la partie différente
-entre l'hypothèse et l'observation. Le concept avec le moins de différence par rapport aux autres hypothèses est préféré comme une explication minimale irréductible. On peut aussi
-assigner une valeur à chaque concept et calculer la pondération pour  la partie différente.
-
-
-\begin{mydef}{(Critère de subsomption et irréductibilité)}
-Soit un problème d'abduction $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$, et $\{\langle P_{1},\dots,P_{n}\rangle\}$ les explications potentielles. 
-On peut formuler différents critères comme:
+% 
+% \medskip
+% 
+% Le deuxième exemple est extrait de~\cite{klarman2011abox}:\vspace{-0.25cm}
+% \begin{align*}
+%  \mathcal{T}=\{~~&Optimist \sqcup (Nihilist\sqcap \exists owns.Dog)\sqsubseteq Happy\\
+% ~~&\forall watches.Comedy \sqsubseteq Optimist \}\\ 
+% \mathcal{A}=\{~~&Nihilist(John),~Dog(Snoopy)\}\\
+% \mathcal{O}=~~~~~&Happy(john).
+% \end{align*}
+% 
+% C'est un problème d'abduction de ABox. Nous pouvons le transformer en un problème d'abduction de concept.
+% L'observation est représentée par le concept $Happy$.
+% Les assertions dans l'ABox sont considérées comme les contraintes, 
+% alors le n{\oe}ud initial est $\mathbf{T}(1)=\{Nihilist\},\mathbf{T}(2)=\{Dog\}, \mathbf{F}(1)=\{\neg C_\mathcal{T}\sqcap Happy\}$
+% On peut construire un tableau et vérifier les clashs dans toutes les branches\footnote{Le tableau est décrit dans l'annexe \ref{C}.}. Il n'y a qu'une branche ouverte. L'ensemble des concepts non décomposables est:\vspace{-0.2cm}
+% $$H_1=\{Happy, \forall watches.Comedy, Optimist, \exists own.Dog\}$$
+% On peut prendre un concept comme une hypothèse potentielle. Mais le concept $Happy$ est éliminé parce qu'il est équivalent avec l'observation. De plus, $\forall watches.Comedy \sqsubseteq Optimist$. Le concept $\forall watches.Comedy$ ne peut pas être considéré comme une explication en prenant en compte le critère de subsomption. 
+% Les concepts $Optimist$ et $ \exists own.Dog$ sont donc deux << meilleures >> explications.
+% 
+% Les résultats de ces deux exemples montrent que notre approche permet de trouver une explication considérant 
+% le critère de minimalité. Les explications sont cohérentes et explicatives.  Notre approche est capable de
+% retrouver la présence d'une pathologie disposant une petite base de connaissances. Dans le  résultat du deuxième 
+% exemple, nous pouvons trouver les mêmes explications que dans \cite{klarman2011abox} en donnant les assertions des concepts
+% avec l'individu $John$. De plus, nous utilisons le critère de minimalité pour sélectionner la << meilleure >> explication.
+% Dans les travaux de \cite{colucci2004uniform} et \cite{EKMRMW07},  la TBox est limitée puisque la partie gauche d'un axiome ne peut contenir qu'un concept simple. Nous pouvons mettre un concept complexe  sans ajouter d'autres axiomes.
+% Notre approche est adatptée à la TBox générale du langage $\mathcal{ALC}$.
+% 
+% \subsubsection{Comparaison des critères de minimalité}
+% Dans cette section, on compare les différents critères sur l'exemple du Schtroumpf.
+% 
+% % \begin{figure}[h]
+% % \begin{center}
+% % \includegraphics[width=0.7\textwidth]{4smurf.png}
+% % \caption{Les Schtroumpfs.\label{4smurf}}
+% % \end{center}
+% % \end{figure}
+% 
+% D'après les personnages et leur habillement, on peut formuler une base de connaissances comme ci-dessous:\vspace{-0.3cm}
+% \begin{align*}
+% \mathcal{T}=\{ SmurfLeader &\sqsubseteq Smurf \sqcap \exists hasPart.Beard \sqcap \exists hasOnTop.RedHat. \\
+% SmurfFollower &\sqsubseteq Smurf \sqcap \exists hasOnTop.WhiteHat. \\
+% SmurfFemale &\sqsubseteq Smurf \sqcap \exists hasOnTop.WhiteHat \sqcap \exists hasPart.GoldenHair. \\
+% RedHat &\equiv Hat \sqcap \exists hasColor.Red. \\
+% WhiteHat &\equiv Hat \sqcap \exists hasColor.White. \\
+% GoldenHair &\equiv Hair \sqcap \exists hasColor.Golden.\}
+% \end{align*}
+% \paragraph*{Première observation}
+% 
+% Si on a une image dont un chapeau blanc est segmenté, on peut alors la représenter par un concept:\vspace{-0.1cm}
+% $$\mathcal{O}= \exists hasOnTop.(Hat \sqcap \exists hasColor.White).$$
+% 
+% En appliquant l'algorithme de tableau sémantique qu'on a proposé, on a deux branches ouvertes à la fin:
 % \begin{itemize}
-% \item  $P_{i}$ est une explication suivant le critère de subsomption $\bm{\sqsubseteq -minimal}$ s'il n'existe pas d'explication $P_{j}$ pour $\mathcal{P}$ tel que $P_{i}\sqsubseteq P_{j}$
-% \item  $P_{i}$ est une explication irréductible $\bm {irreductible-minimal }$ s'il n'existe pas d'explication $P_{j}$ pour $\mathcal{P}$ tel que $f_{ranking}(\mathcal{T},FNC(P_{j}),FNC(\mathcal{O})) 
-% < f_{ranking}(\mathcal{T},FNC(P_{i}),FNC(\mathcal{O}))$
+%  \item $\{ \exists hasOnTop.WhiteHat, SmurfLeader, SmurfFollower,SmurfFemale\}$
+%  \item $\{ \neg Smurf, \forall hasOnTop. \neg RedHat, \forall hasPart.\neg Beard, \forall hasOnTop. WhiteHat, \\ SmurfFollower,SmurfFemale\}$
 % \end{itemize}
-
-\end{mydef}
-
-
-Les critères introduits par Bienvenu sont utiles lorsqu'une hypothèse ne contient que les concepts atomiques. Elle considère qu'une hypothèse est construite par la conjonction de certains concepts atomiques.
-Le critère bénéficie de la relation entre les ensembles. Dans notre problème, une hypothèse peut être composée par des concepts non atomiques. Le critère de subsomption est un bon choix dans plusieurs travaux,
-par exemple, ceux de Colucci et al.~\cite{colucci2004uniform} et ceux de Atif et al.~\cite{jamal13}. La relation hiérarchique est prise en compte pour chercher une hypothèse plus générale.
-Le critère d'irréductibilité est un critère combinant un critère de subsomption et un critère de cardinalité. Ce critère a l'avantage que la mesure $f_{ranking}$ est modifiable en fonction du besoin.
-Par exemple, si on applique l'abduction dans la logique floue, un degré de possibilité peut être considéré comme une mesure pratique. Dans le cadre du stage, nous n'avons pas évaluer la coefficient de priorité
-de concepts. Nous considérons les concepts sont équilibrés et utilisons les critères d'inclusion, de cardinalité, de subsomption et d'irréductibilité pour la suite.
-
-
-
-
-\subsection{Résultats, évaluation et discussion}
-Notre approche est implémentée en Java en utilisant les librairies OWL API\footnote{\url{http://owlapi.sourceforge.net/}} et Pellet\footnote{\url{http://clarkparsia.com/pellet/}}.
-OWL est une API\footnote{application programming interface en anglais} open-source de Java sous licence de LGPL. 
-Elle permet de créer, de manipuler l'ontologie. Une interface entre l'ontologie et la logique de description est mise en {\oe}uvre aussi.
-Pellet est un moteur d'inférence gratuit pour fournir les services de raisonnement comme les tests de satisfiabilité et subsomption.
-Dans notre projet,  la base de connaissances et l'observation sont codées en ontologie avec le logiciel << The Protégé >>\footnote{\url{http://protege.stanford.edu/}}.
-Nous réalisons la méthode par tableau par la structure d'arbre qui permet de construire un tableau et la structure d'ensemble qui permet de
-manipuler les ensembles de concepts. Les règles d'expansion et les détections de contradictions sont implémentées avec l'aide des deux librairies pour développer le tableau.
-
-\subsubsection{Deux exemples d'abduction par la méthode par tableau adapté proposée}
-\label{exemples}
-Le premier exemple est un test de l'interprétation d'images cérébrales.
-Pour tester la procédure proposée dans le cadre de l'interprétation d'images cérébrales, nous commençons
-par construire un morceau de la base de connaissances et formuler l'observation manuellement.
-Voici la TBox pour représenter la connaissance et l'observation obtenue:\vspace{-0.3cm}
-\begin{align*}
-\mathcal{T}=\{~SmallDeformingTumor &\sqsubseteq BrainTumor\\
- &~~~~~\sqcap \exists hasEnhancement. NonEnhanced \\
-&~~~~~\sqcap \exists hasBehavior. Infiltrating  \\
-PeripheralDeformingTumor &\sqsubseteq BrainTumor\\
-&~~~~~ \sqcap \exists farFrom. LateralVentricle \\
-&~~~~~ \sqcap \exists hasLocation. PeripheralCerebralHemisphere \} 
-\end{align*}\vspace{-0.9cm}
-\begin{align*}
-\mathcal{O} =\{&~\exists hasEnhancement. NonEnhanced \\
- &\sqcap \exists farFrom. LateralVentricle \\
-&\sqcap \exists hasLocation. PeripheralCerebralHemisphere \} 
-\end{align*}
-
-Dans ce cas, il n'y a pas de contrainte. Le n{\oe}ud initial est donc $\mathbf{T}(1)=\{\}, \mathbf{F}(1)=\{\neg C_\mathcal{T}\sqcap \mathcal{O}\}$.
-\footnote{Les concepts et les rôles sont représentés abrégés ici.}\vspace{-0.3cm}
-\begin{align*}
- \neg C_\mathcal{T}\sqcap \mathcal{O}= \{ &(SDT \sqcap \neg BT \sqcup \forall hE. \neg NE \sqcup \forall hB. \neg In) \sqcup \\
- &(PDT \sqcap \neg BT \sqcup \forall fF. \neg LV \sqcup \forall hL. \neg PCH) \sqcup \\
- &(\exists hE. NE \sqcap \exists fF. LV \sqcup \exists hL.PCH )\}
-\end{align*}
-% \footnote{Le tableau d'expansion est montré dans l'annexe.}
-Par la méthode de tableau, il reste six branches ouvertes. Dans chaque branche, on a un ensemble de concepts
-non décomposables:\vspace{-0.25cm}
- \begin{align*}
-  H_1&=\{ SDT, PDT, \exists hE.NE\}\\
-  H_2&=\{ SDT, PDT, \exists fF.LV\}\\
-  H_3&=\{ SDT, PDT, \exists hL.PCH\}\\
-  H_4&=\{ SDT, \neg BT, \forall fF. \neg LV, \forall hL. \neg PCH, \exists hE.NE\}\\
-  H_5&=\{ PDT, \neg BT, \forall hE. \neg NE, \forall hB. \neg In, \exists fF.LV\}\\
-  H_6&=\{ PDT, \neg BT, \forall hE. \neg NE, \forall hB. \neg In, \exists hL.PCH\}\\
- \end{align*}\vspace{-0.9cm}
-
-Ensuite, on utilise l'algorithme exhaustif pour générer les hypothèses potentielles.
-On choisit un concept de chaque ensemble. Une hypothèse est la conjonction de ces concepts.
-En même temps, les hypothèses incohérentes sont éliminées, par exemple $SDT \sqcap \neg BT$, 
-$PDT \sqcap \forall fF \neg LV$, etc. L'hypothèse $\exists hE. NE \sqcap \exists fF. LV \sqcup \exists hL.PCH $
-est éliminée. Cette hypothèse est peu informative parce qu'elle est subsumée par l'observation sans la base de connaissances.
-
-En appliquant le critère de subsomption, les hypothèses $SDT \sqcap \exists fF.LV \sqcap \exists hL.PCH$
-et $PDT \sqcap \exists hE.NE$ sont considérées comme les explications. Par exemple, une hypothèse potentielle
-$SDT \sqcap PDT$ est subsumée par ces deux explications. Ces deux résultats sont confirmés par les propriétés
-de cohérence, d'explication et de minimalité. Nous obtenons alors deux bonne explications de cette observations:
-\begin{itemize}
- \item $PeripheralDeformingTumor \sqcap \exists hasEnhancement. NonEnhanced$
- \item $SmallDeformingTumor\sqcap \exists farFrom. LateralVentricle $\\ $\sqcap \exists hasLocation. PeripheralCerebralHemisphere$
-\end{itemize}
-
-\medskip
-
-Le deuxième exemple est extrait de~\cite{klarman2011abox}:\vspace{-0.25cm}
-\begin{align*}
- \mathcal{T}=\{~~&Optimist \sqcup (Nihilist\sqcap \exists owns.Dog)\sqsubseteq Happy\\
-~~&\forall watches.Comedy \sqsubseteq Optimist \}\\ 
-\mathcal{A}=\{~~&Nihilist(John),~Dog(Snoopy)\}\\
-\mathcal{O}=~~~~~&Happy(john).
-\end{align*}
-
-C'est un problème d'abduction de ABox. Nous pouvons le transformer en un problème d'abduction de concept.
-L'observation est représentée par le concept $Happy$.
-Les assertions dans l'ABox sont considérées comme les contraintes, 
-alors le n{\oe}ud initial est $\mathbf{T}(1)=\{Nihilist\},\mathbf{T}(2)=\{Dog\}, \mathbf{F}(1)=\{\neg C_\mathcal{T}\sqcap Happy\}$
-On peut construire un tableau et vérifier les clashs dans toutes les branches\footnote{Le tableau est décrit dans l'annexe \ref{C}.}. Il n'y a qu'une branche ouverte. L'ensemble des concepts non décomposables est:\vspace{-0.2cm}
-$$H_1=\{Happy, \forall watches.Comedy, Optimist, \exists own.Dog\}$$
-On peut prendre un concept comme une hypothèse potentielle. Mais le concept $Happy$ est éliminé parce qu'il est équivalent avec l'observation. De plus, $\forall watches.Comedy \sqsubseteq Optimist$. Le concept $\forall watches.Comedy$ ne peut pas être considéré comme une explication en prenant en compte le critère de subsomption. 
-Les concepts $Optimist$ et $ \exists own.Dog$ sont donc deux << meilleures >> explications.
-
-Les résultats de ces deux exemples montrent que notre approche permet de trouver une explication considérant 
-le critère de minimalité. Les explications sont cohérentes et explicatives.  Notre approche est capable de
-retrouver la présence d'une pathologie disposant une petite base de connaissances. Dans le  résultat du deuxième 
-exemple, nous pouvons trouver les mêmes explications que dans \cite{klarman2011abox} en donnant les assertions des concepts
-avec l'individu $John$. De plus, nous utilisons le critère de minimalité pour sélectionner la << meilleure >> explication.
-Dans les travaux de \cite{colucci2004uniform} et \cite{EKMRMW07},  la TBox est limitée puisque la partie gauche d'un axiome ne peut contenir qu'un concept simple. Nous pouvons mettre un concept complexe  sans ajouter d'autres axiomes.
-Notre approche est adatptée à la TBox générale du langage $\mathcal{ALC}$.
-
-\subsubsection{Comparaison des critères de minimalité}
-Dans cette section, on compare les différents critères sur l'exemple du Schtroumpf.
-
-% \begin{figure}[h]
-% \begin{center}
-% \includegraphics[width=0.7\textwidth]{4smurf.png}
-% \caption{Les Schtroumpfs.\label{4smurf}}
-% \end{center}
-% \end{figure}
-
-D'après les personnages et leur habillement, on peut formuler une base de connaissances comme ci-dessous:\vspace{-0.3cm}
-\begin{align*}
-\mathcal{T}=\{ SmurfLeader &\sqsubseteq Smurf \sqcap \exists hasPart.Beard \sqcap \exists hasOnTop.RedHat. \\
-SmurfFollower &\sqsubseteq Smurf \sqcap \exists hasOnTop.WhiteHat. \\
-SmurfFemale &\sqsubseteq Smurf \sqcap \exists hasOnTop.WhiteHat \sqcap \exists hasPart.GoldenHair. \\
-RedHat &\equiv Hat \sqcap \exists hasColor.Red. \\
-WhiteHat &\equiv Hat \sqcap \exists hasColor.White. \\
-GoldenHair &\equiv Hair \sqcap \exists hasColor.Golden.\}
-\end{align*}
-\paragraph*{Première observation}
-
-Si on a une image dont un chapeau blanc est segmenté, on peut alors la représenter par un concept:\vspace{-0.1cm}
-$$\mathcal{O}= \exists hasOnTop.(Hat \sqcap \exists hasColor.White).$$
-
-En appliquant l'algorithme de tableau sémantique qu'on a proposé, on a deux branches ouvertes à la fin:
-\begin{itemize}
- \item $\{ \exists hasOnTop.WhiteHat, SmurfLeader, SmurfFollower,SmurfFemale\}$
- \item $\{ \neg Smurf, \forall hasOnTop. \neg RedHat, \forall hasPart.\neg Beard, \forall hasOnTop. WhiteHat, \\ SmurfFollower,SmurfFemale\}$
-\end{itemize}
-\medskip
-
-On doit choisir un concept ou la conjonction de plusieurs concepts pour fermer les deux branches ouvertes. L'hypothèse qu'on a choisie doit 
-respecter les exigences mentionnées dans la première section.
-
-Par exemple, le concept $SmurfFollower$ existe dans les deux branches, donc c'est une hypothèse potentielle qui vérifie $\mathcal{K}\vDash \mathcal{H} \sqsubseteq \mathcal{O}$.
-De plus, c'est cohérent avec la TBox et explicatif car $\mathcal{K} \nvDash \mathcal{O}, \mathcal{H}   \nvDash \mathcal{O}$.
-
-En revanche, si on prend $SmurfLeader \sqcap \forall hasOnTop. \neg RedHat$, c'est une hypothèse incohérente donc elle n'est pas prise en compte. 
-Si on choisit $\exists hasOnTop.WhiteHat \sqcap \forall  hasOnTop.WhiteHat$, c'est une hypothèse non explicative donc elle n'est pas prise en compte non plus.
-
-Les résultats préférés sont:
-
-(Inclusion de l'ensemble): $SmurfFollower$, $SmurfFemale$
-
-(Cardinalité): $SmurfFollower$, $SmurfFemale$
-
-(Irréductibilité): $SmurfFollower$
-
-(Subsomption): $SmurfFollower$
-\paragraph*{Deuxième observation}
-
-Si on a une image du deuxième schtroumpf dans  la figure \ref{4smurf}, on peut alors segmenter son chapeau et ses lunettes avec des outils de traitement d'images.
-Le concept de l'observation est représenté comme:
-\begin{align*}
-\mathcal{O}= \exists hasOnTop.(Hat \sqcap \exists hasColor.White) \sqcap \exists hasPart.Glasses.
-\end{align*}
-
- Les résultats préférés sont:
- 
-(Inclusion de l'ensemble): $SmurfFollower \sqcap \exists hasPart.Glasses$, $SmurfFemale \sqcap \exists hasPart.Glasses$
-
-(Cardinalité): $ SmurfFollower \sqcap \exists hasPart.Glasses$ , $ SmurfFemale \sqcap \exists hasPart.Glasses$
-
-(Irréductibilité): $ SmurfFollower \sqcap \exists hasPart.Glasses$
-
-(Subsomption): $SmurfFollower \sqcap \exists hasPart.Glasses$
-
-Le critère d'inclusion et le critère de cardinalité ne sont pas suffisants pour décider la << meilleure >> explication dans ce contexte.
-La relation hiérarchique entre les concepts n'est pas prise en compte.
-En particulier, ces deux critères sont souvent utilisés quand le résultat est composé de concepts atomiques.
-\paragraph*{Troisième observation}
-Si on prend la première observation et on modifie la TBox comme ci-dessous:\vspace{-0.3cm}
-\begin{align*}
-\mathcal{T}=\{ SmurfLeader &\sqsubseteq Smurf \sqcap \exists hasPart.Beard \sqcap \exists hasOnTop.RedHat. \\
-SmurfEtudiant &\sqsubseteq Smurf \sqcap \exists hasOnTop.WhiteHat \sqcap \exists hasPart.Glasses. \sqcap \exists hasInHand.Book \\
-SmurfFemale &\sqsubseteq Smurf \sqcap \exists hasOnTop.WhiteHat \sqcap \exists hasPart.GoldenHair. \\
-RedHat &\equiv Hat \sqcap \exists hasColor.Red. \\
-WhiteHat &\equiv Hat \sqcap \exists hasColor.White. \\
-GoldenHair &\equiv Hair \sqcap \exists hasColor.Golden.\}
-\end{align*}
-
-Les résultats préférés sont:
-
-(Inclusion de l'ensemble): $SmurfEtudiant$, $SmurfFemale$
-
-(Cardinalité): $SmurfEtudiant$, $SmurfFemale$
- 
-(Irréductibilité): $SmurfFemale$
-
-(Subsomption): $SmurfEtudiant$, $SmurfFemale$
-
-Évidemment, la << meilleure >> explication est la disjonction de $SmurfEtudiant$ et $SmurfFemale$, que l'on peut associer à un concept $SmurfFollower$ mais qui n'a pas d'axiome dans
-cette base de connaissances. L'algorithme qu'on propose ne permet pas de générer une explication avec des disjonctions. C'est une limite de notre approche. 
-
-Les critères d'inclusion de l'ensemble et de la cardinalité ne sont pas assez bons par rapport aux critères de l'irréductibilité et la subsomption, puisque la relation hiérarchique entre les concepts
- n'est pas prise en compte. Ils sont adaptés aux hypothèses construites par la conjonction de certains concepts atomiques.
-Pour le problème actuel, le critère de l'irréductibilité contient la préférence de la subsomption et la préférence de la cardinalité. 
-Nous observons que les critères de subsomption et d'irréductibilité sont bien meilleurs sur notre situation.
-
+% \medskip
+% 
+% On doit choisir un concept ou la conjonction de plusieurs concepts pour fermer les deux branches ouvertes. L'hypothèse qu'on a choisie doit 
+% respecter les exigences mentionnées dans la première section.
+% 
+% Par exemple, le concept $SmurfFollower$ existe dans les deux branches, donc c'est une hypothèse potentielle qui vérifie $\mathcal{K}\vDash \mathcal{H} \sqsubseteq \mathcal{O}$.
+% De plus, c'est cohérent avec la TBox et explicatif car $\mathcal{K} \nvDash \mathcal{O}, \mathcal{H}   \nvDash \mathcal{O}$.
+% 
+% En revanche, si on prend $SmurfLeader \sqcap \forall hasOnTop. \neg RedHat$, c'est une hypothèse incohérente donc elle n'est pas prise en compte. 
+% Si on choisit $\exists hasOnTop.WhiteHat \sqcap \forall  hasOnTop.WhiteHat$, c'est une hypothèse non explicative donc elle n'est pas prise en compte non plus.
+% 
+% Les résultats préférés sont:
+% 
+% (Inclusion de l'ensemble): $SmurfFollower$, $SmurfFemale$
+% 
+% (Cardinalité): $SmurfFollower$, $SmurfFemale$
+% 
+% (Irréductibilité): $SmurfFollower$
+% 
+% (Subsomption): $SmurfFollower$
+% \paragraph*{Deuxième observation}
+% 
+% Si on a une image du deuxième schtroumpf dans  la figure \ref{4smurf}, on peut alors segmenter son chapeau et ses lunettes avec des outils de traitement d'images.
+% Le concept de l'observation est représenté comme:
+% \begin{align*}
+% \mathcal{O}= \exists hasOnTop.(Hat \sqcap \exists hasColor.White) \sqcap \exists hasPart.Glasses.
+% \end{align*}
+% 
+%  Les résultats préférés sont:
+%  
+% (Inclusion de l'ensemble): $SmurfFollower \sqcap \exists hasPart.Glasses$, $SmurfFemale \sqcap \exists hasPart.Glasses$
+% 
+% (Cardinalité): $ SmurfFollower \sqcap \exists hasPart.Glasses$ , $ SmurfFemale \sqcap \exists hasPart.Glasses$
+% 
+% (Irréductibilité): $ SmurfFollower \sqcap \exists hasPart.Glasses$
+% 
+% (Subsomption): $SmurfFollower \sqcap \exists hasPart.Glasses$
+% 
+% Le critère d'inclusion et le critère de cardinalité ne sont pas suffisants pour décider la << meilleure >> explication dans ce contexte.
+% La relation hiérarchique entre les concepts n'est pas prise en compte.
+% En particulier, ces deux critères sont souvent utilisés quand le résultat est composé de concepts atomiques.
+% \paragraph*{Troisième observation}
+% Si on prend la première observation et on modifie la TBox comme ci-dessous:\vspace{-0.3cm}
+% \begin{align*}
+% \mathcal{T}=\{ SmurfLeader &\sqsubseteq Smurf \sqcap \exists hasPart.Beard \sqcap \exists hasOnTop.RedHat. \\
+% SmurfEtudiant &\sqsubseteq Smurf \sqcap \exists hasOnTop.WhiteHat \sqcap \exists hasPart.Glasses. \sqcap \exists hasInHand.Book \\
+% SmurfFemale &\sqsubseteq Smurf \sqcap \exists hasOnTop.WhiteHat \sqcap \exists hasPart.GoldenHair. \\
+% RedHat &\equiv Hat \sqcap \exists hasColor.Red. \\
+% WhiteHat &\equiv Hat \sqcap \exists hasColor.White. \\
+% GoldenHair &\equiv Hair \sqcap \exists hasColor.Golden.\}
+% \end{align*}
+% 
+% Les résultats préférés sont:
+% 
+% (Inclusion de l'ensemble): $SmurfEtudiant$, $SmurfFemale$
+% 
+% (Cardinalité): $SmurfEtudiant$, $SmurfFemale$
+%  
+% (Irréductibilité): $SmurfFemale$
+% 
+% (Subsomption): $SmurfEtudiant$, $SmurfFemale$
+% 
+% Évidemment, la << meilleure >> explication est la disjonction de $SmurfEtudiant$ et $SmurfFemale$, que l'on peut associer à un concept $SmurfFollower$ mais qui n'a pas d'axiome dans
+% cette base de connaissances. L'algorithme qu'on propose ne permet pas de générer une explication avec des disjonctions. C'est une limite de notre approche. 
+% 
+% Les critères d'inclusion de l'ensemble et de la cardinalité ne sont pas assez bons par rapport aux critères de l'irréductibilité et la subsomption, puisque la relation hiérarchique entre les concepts
+%  n'est pas prise en compte. Ils sont adaptés aux hypothèses construites par la conjonction de certains concepts atomiques.
+% Pour le problème actuel, le critère de l'irréductibilité contient la préférence de la subsomption et la préférence de la cardinalité. 
+% Nous observons que les critères de subsomption et d'irréductibilité sont bien meilleurs sur notre situation.
+% 
 
 \section{Perspectives}\label{sec:persp}
 Several directions will be presented in this section:

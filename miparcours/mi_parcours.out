@@ -11,20 +11,15 @@
 \BOOKMARK [2][-]{subsection.3.1}{State of the art}{section.3}
 \BOOKMARK [3][-]{subsubsection.3.1.1}{Topology}{subsection.3.1}
 \BOOKMARK [3][-]{subsubsection.3.1.2}{Direction}{subsection.3.1}
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Distance}{subsection.3.1}
 \BOOKMARK [2][-]{subsection.3.2}{Qualitative spatial reasoning in ALCHIR+}{section.3}
 \BOOKMARK [3][-]{subsubsection.3.2.1}{Syntax and semantics of roles}{subsection.3.2}
 \BOOKMARK [2][-]{subsection.3.3}{From image to symbolic representation}{section.3}
-\BOOKMARK [3][-]{subsubsection.3.3.1}{Computation of direction between a pair of structures}{subsection.3.3}
-\BOOKMARK [3][-]{subsubsection.3.3.2}{Computation of distances between a pair of structures}{subsection.3.3}
-\BOOKMARK [2][-]{subsection.3.4}{Spatial reasoning using tableaux method}{section.3}
-\BOOKMARK [2][-]{subsection.3.5}{Example}{section.3}
+\BOOKMARK [2][-]{subsection.3.4}{Example}{section.3}
 \BOOKMARK [1][-]{section.4}{Abductive reasoning}{}
 \BOOKMARK [2][-]{subsection.4.1}{State of the art of abductive reasoning}{section.4}
 \BOOKMARK [2][-]{subsection.4.2}{Abductive reasoning for image interpretation}{section.4}
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Tableau closure \(minimal hitting set\)}{subsection.4.2}
 \BOOKMARK [2][-]{subsection.4.3}{Minimality criteria}{section.4}
-\BOOKMARK [2][-]{subsection.4.4}{R\351sultats, \351valuation et discussion}{section.4}
-\BOOKMARK [3][-]{subsubsection.4.4.1}{Deux exemples d'abduction par la m\351thode par tableau adapt\351 propos\351e}{subsection.4.4}
-\BOOKMARK [3][-]{subsubsection.4.4.2}{Comparaison des crit\350res de minimalit\351}{subsection.4.4}
 \BOOKMARK [1][-]{section.5}{Perspectives}{}
 \BOOKMARK [1][-]{section.6}{Activities}{}

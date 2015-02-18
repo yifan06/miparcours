@@ -2,35 +2,31 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: mi_parcours.aux
 The style file: plain.bst
 Database file #1: mi_ref.bib
-I was expecting a `,' or a `}'---line 74 of file mi_ref.bib
+I was expecting a `,' or a `}'---line 73 of file mi_ref.bib
  :   
  :   year={1980}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 190 of file mi_ref.bib
+I was expecting a `,' or a `}'---line 188 of file mi_ref.bib
  :   
  :   year={2013},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "bienvenu-kr08"
-Warning--I didn't find a database entry for "DiNoia07"
-Warning--I didn't find a database entry for "jamal13"
-Warning--I didn't find a database entry for "EKMRMW07"
 Warning--there's a number but no volume in freksa1991qualitative
 Warning--empty year in nempont2013constraint
 Warning--can't use both author and editor fields in santos2012region
 You've used 51 entries,
             2118 wiz_defined-function locations,
-            820 strings with 13961 characters,
-and the built_in function-call counts, 20242 in all, are:
-= -- 2042
+            814 strings with 13889 characters,
+and the built_in function-call counts, 20214 in all, are:
+= -- 2032
 > -- 849
 < -- 25
 + -- 354
 - -- 284
-* -- 1420
-:= -- 3153
-add.period$ -- 161
+* -- 1418
+:= -- 3147
+add.period$ -- 159
 call.type$ -- 51
 change.case$ -- 293
 chr.to.int$ -- 0
@@ -38,7 +34,7 @@ cite$ -- 54
 duplicate$ -- 812
 empty$ -- 1623
 format.name$ -- 284
-if$ -- 4388
+if$ -- 4378
 int.to.chr$ -- 0
 int.to.str$ -- 51
 missing$ -- 51
@@ -48,7 +44,7 @@ pop$ -- 305
 preamble$ -- 1
 purify$ -- 244
 quote$ -- 0
-skip$ -- 615
+skip$ -- 619
 stack$ -- 0
 substring$ -- 1509
 swap$ -- 257
@@ -59,5 +55,5 @@ type$ -- 200
 warning$ -- 3
 while$ -- 202
 width$ -- 53
-write$ -- 573
+write$ -- 571
 (There were 2 error messages)
