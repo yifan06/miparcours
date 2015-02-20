@@ -1097,19 +1097,20 @@ explanation of the observation.
 % This part includes a short introduction of what an abductive reasoning is. Then why this is suitable for image interpretation task.
 % In the end two elements of abductive is important to resolved in this thesis.
 
-Abductive reasoning is a backward-chaining inference, concerned generating hypotheses and finding the ``best'' explanation on the basis of surprising observation.
-Unlike the inference operation of standard reasoning presented in Section.\ref{sec:pre}, abductive reasoning is a non-monotonic reasoning.
+Abductive reasoning is a backward-chaining inference, which consists in generating hypotheses and finding the ``best'' explanation on the basis of observation.
+Unlike the inference operation of standard reasoning presented in Section~\ref{sec:pre}, abductive reasoning is a non-monotonic reasoning because the conclusion is not necessarily correct.
+% adding a new formula into the theory never gurantee the truth of the colusion.
 New knowledge should be added in order to positively entail the observation.
-Medical image interpretation fits abductive reasoning  mechanism.
-When facing an pathological brain imaging, an expert has to resort to his knowledge of pathological anatomy, in order to give  an explanation for observed image. 
-In this section, we will introduce how abductive is applied in image interpretation task from two aspects (generation and selection).
+Medical image interpretation can be expressed as an abductive reasoning  mechanism.
+When facing a pathological brain image, an expert has to resort to his knowledge of pathological anatomy, in order to give  an explanation of the observed image. 
+In this section, we will introduce how abduction is applied in image interpretation from two aspects (generation of hypotheses and selection).
 
 % Useful words:
 %    Inference operation.
 % abduction is not a simple exploitation in knowledge base, but a task of adding new knowledge to acquire satisfied results. 
 \subsection{State of the art of abductive reasoning}
 The term ``Abduction'' was first proposed by Charles S. Peirce in philosophy.
-Afterwards, abductive is developed in artificial intelligence and cognitive science.
+Afterwards, abduction was developed in artificial intelligence and cognitive science.
 Aliseda~\cite{aliseda1997seeking} gave a general overview of abduction in propositional logic and proposed tableaux methods for abduction.
 Further, in the context of Description Logics, four types of abduction problems  are described by Elisenbroich~\cite{elsenbroich2006case}.
 Let $\mathcal{L}$ be a DL, $\mathcal{K}=\{\mathcal{T},\mathcal{A}\}$ be a knowledge base in $\mathcal{L}$, $C,D$ two concepts in $\mathcal{L}$ and suppose that they are satisfiable
@@ -1117,51 +1118,50 @@ with respect to  $\mathcal{K}$.
 The logical formalisms of abduction in DLs are represented as follows:
 \begin{itemize}
  \item Concept abduction: given an observation concept $O$, a hypothesis is a concept $H$ such that $\mathcal{K}\vDash H \sqsubseteq O$.
- \item TBox abduction: let $C\sqsubseteq D$ is satisfiable w.r.t $\mathcal{K}$, the hypothesis is a set of axioms $S_T=\{E_i\sqsubseteq F_i \mid i\leq n\}$
+ \item TBox abduction: let $C\sqsubseteq D$ be satisfiable w.r.t $\mathcal{K}$, the hypothesis is a set of axioms $S_T=\{E_i\sqsubseteq F_i \mid i\leq n\}$
  such that $ \mathcal{K}\cup S_T\vDash C\sqsubseteq D$.
- \item ABox abduction: let $S_a$ be a set of assertions as observation, a hypothesis is a set of $S_b$ of ABox assertion such that $\mathcal{K} \cup S_b\vDash \phi(a)$.
- \item Knowledge base abduction: let $\phi$ be a consistent set of an ABox or TBox assertions w.r.t $\mathcal{K}$. A solution of knowledge base abduction, considered 
+ \item ABox abduction: let $S_a$ be a set of assertions representing the observation, a hypothesis is a set $S_b$ of ABox assertions such that $\mathcal{K} \cup S_b\vDash S_a$.
+ \item Knowledge base abduction: let $\phi$ be a consistent set of ABox or TBox assertions w.r.t. $\mathcal{K}$. A solution of knowledge base abduction, considered 
  as a combination of TBox abduction and ABox abduction, is any finite set $S=\{\psi_i \mid i\leq n\}$ such that $ \mathcal{K} \cup S \vDash \phi$.
 \end{itemize}
 
-An aggregation concept is proposed in~\cite{Espinosa07multimedia} to represent a complex event or scene concerning occurrence objects, as well as spatial and temporal constraints configuration.
-According to these defined aggregation and specific rules, a high-level interpretation is able to be inferred~\cite{neumann2008scene}.
-In addition, the results using Bayesian networks and image grammars are limited to defined descriptions.
-A complex description can also be generated when non-explicitly presented in the knowledge base~\cite{atif2014explanatory}.
+% An aggregation concept is proposed in~\cite{Espinosa07multimedia} to represent a complex event or scene concerning the occurrence of objects, as well as spatial and temporal constraints.
+% According to these defined aggregation and specific rules, a high-level interpretation can be inferred~\cite{neumann2008scene}.
+% In addition, the results using Bayesian networks and image grammars are limited to defined descriptions.
+% A complex description can also be generated when non-explicitly presented in the knowledge base~\cite{atif2014explanatory}.
 
-An image interpretation tasks is regarded as an abduction problem in \cite{atif2014explanatory,gries2010probabilistic,neumann2008scene,shanahan2005perception}.
-In \cite{neumann2008scene}, DL-safe rules are proposed to map high level concepts and occurrence objects in the scene and their relationships.
+An image interpretation tasks was regarded as an abduction problem in \cite{atif2014explanatory,gries2010probabilistic,neumann2008scene,shanahan2005perception}.
+In \cite{neumann2008scene}, DL-safe rules were proposed to map high level concepts and occurrence objects in the scene and their relationships.
 The rules ensure the expressivity and preserve the decidability of the reasoning. However, only the concept defined in the rules can be inferred using 
-the formalism. In \cite{atif2014explanatory}, the image interpretation is formulated as a concept abduction problem.
-The DL is expressed in $\mathcal{EL}$. The knowledge base of is processed using formal concept analysis and the abductive reasoning is tackled
-by a recursive erosion on the lattice based representation. Under this way, not only the defined concepts but also the undefined complex concepts  
-can be inferred.
+the formalism. In \cite{atif2014explanatory}, the image interpretation was formulated as a concept abduction problem.
+The DL is expressed in $\mathcal{EL}$. The knowledge base is processed using formal concept analysis and the abductive reasoning is tackled
+by a recursive erosion on the lattice based representation. In this way, not only defined concepts but also undefined complex concepts can be inferred.
 % \cite{shanahan2005perception} multimedia interpretation as abduction.
 % \cite{gries2010probabilistic}
 
 
 % di2009tableaux
-Tableau method is firstly adapted in Description Logics formalisms for a market matchmaking problem~\cite{colucci2004uniform}.
+The tableau method was first adapted in Description Logics formalisms for a market matchmaking problem~\cite{colucci2004uniform}.
 Colucci \textit{et al.} modeled this problem as a concept abduction in the DL $\mathcal{ALN}$ \cite{colucci2004uniform},
 where the observations are the demand and the supply is treated as the explanation for the meet of the request.
-Tableau method has also been studied by Halland \textit{et al.} in \cite{halland2014tbox} for a TBox abduction problem.
+The tableau method has also been studied by Halland \textit{et al.} in \cite{halland2014tbox} for a TBox abduction problem.
 For a TBox abduction problem, a TBox axiom in the form $\phi= C\sqsubseteq D$ is an explanation to enforce the entailment of the observation,
-which is also in the form of  a TBox subsumption form. Similar to the tableau method for the  concept abduction, if the disjunction
+which is also in the form of  a TBox subsumption form. Similar to the tableau method for the  concept abduction, if the disjunction of
 two concepts $A_1$  and $\neg A_2$ can create a clash of the tableau, then $A_2 \sqsubseteq A_1$ is considered as a potential explanation.
 
 
 Klarman \textit{et al.}~\cite{klarman2011abox} present the tableau method for the ABox abduction in $\mathcal{ALC}$.
-This method integrates logic reasoning techniques of the first order. First, knowledge and observation are
-transformed into first-order logic. Then, a table in the context of the first-order logic is built and solutions
-are selected in the open branches. The results are transformed into logic description from the first-order logic in the end.
-In \cite{du2011towards,du2014tractable}, the authors also focus on ABox abduction problem. 
-Differs from the traditional work in~\cite{klarman2011abox}, \cite{du2014tractable} propose the explanation 
+This method integrates logic reasoning techniques of the first-order logic. First, knowledge and observation are
+transformed into first-order logic. Then, a tableau in the context of the first-order logic is built and solutions
+are selected in the open branches. The results are transformed into Description Logic from the first-order logic in the end.
+In \cite{du2011towards,du2014tractable}, the authors also focus on ABox abduction problems. 
+Unlike the traditional work in~\cite{klarman2011abox}, the authors in \cite{du2014tractable} propose the explanation 
 with fresh individuals which are not suitable to use a traditional set inclusion minimality to choose a preferred explanation.
 In~\cite{du2014tractable}, Du \textit{et al.} introduced a tractable approach to ABox abduction, called the query abduction problem.
 This problem focuses on giving the explanations, which are new facts neither in the observation nor in the assertional knowledge, for an observation.
 The observation is represented by a boolean conjunctive query in the form $\exists x\Phi(x,c)$, where $\Phi(x,c)$ is a conjunction of concepts
 assertions and role assertions and $x$ represents a variable and $c$ represents an individual.
-However, the potential hypotheses are restricted as  atomic concepts and roles in the DL.
+However, the potential hypotheses are restricted to atomic concepts and roles in the DL.
 
 % A TBox is cyclic if it contains the same concept in both sides of an axiom. For example, $ \ forall hasFriend. Happy \ sqsubseteq Happy $.
 % Otherwise the TBox is acyclic.
@@ -1172,44 +1172,46 @@ However, the potential hypotheses are restricted as  atomic concepts and roles i
 
 
 We then move on the other aspect of abduction problem: the selection problem.
-As a set of syntactical candidates generated using tableau method, the selection relies on explicit restrictions for choosing the ``best'' explanation.
+As a set of syntactical candidates generated using the tableau method, the selection relies on explicit restrictions for choosing the ``best'' explanation.
 Restrictions concerns filtering out inappropriate hypotheses,
-for instance, inconsistent hypothesis ($H_1$ such that $\mathcal{K}\cup H_1\vDash \emptyset$) and inexplainable hypothesis ($H_1$ such that $H_1\vDash O$).
-These types of hypotheses needs to be removed.
+for instance, inconsistent hypothesis ($H_1$ such that $\mathcal{K}\cup H_1\vDash \emptyset$) and independent hypothesis ($H_1$ entails the observation independently without background knowledge,
+such that $H_1\vDash O$).
+These types of hypotheses need to be removed.
 In addition, minimality criteria are required to select the ``best'' among the filtered candidates.
 Though the desired candidates are selected, the solutions can be infinite.
-Therefore, minimality criteria is an important manner to find a preference among all the potential hypotheses.
+Therefore, defining minimality criteria is an important manner to find a preference among all the potential hypotheses.
 Bienvenu  discussed a set of basic minimality criteria for abductive reasoning in~\cite{bienvenu08complexity}.
 
 
 \subsection{Abductive reasoning for image interpretation}
-As introduced as above, tableau method is an effective way to find an explanation given the observation.
-In this work, we apply this general strategy to image interpretation task as a concept abduction problem.
-An observed image is represented by an ABox, which is consistent with the knowledge base. 
+As introduced above, the tableau method is an effective way to find an explanation given the observation.
+In this work, we apply this general strategy to image interpretation expressed as a concept abduction problem.
+An observed image is represented by an ABox, which is supposed to be consistent with the knowledge base. 
 In the concept abduction problem, the observation concept is constructed on the basis of the individual that selected to be explained and
 contextual information in the ABox.
 The knowledge base is in the DL $\mathcal{ALC}$, but the explanations are generated in a restricted language.
 
 
-Tableau method has proven effective for tackling abductive reasoning problem. We then consider extending and automating this approach in image interpretation.
-Under this way, the work is divided into two parts: generation of hypotheses and selection of the ``best'' explanation using a minimality criterion.
+The tableau method has proven effective for tackling abductive reasoning problems. We then consider extending and automating this approach for image interpretation.
+The work is divided into two parts: generation of hypotheses and selection of the ``best'' explanation using a minimality criterion.
 
-Following the processing step presented in Section~\ref{sec:qsr}, the given image observation is translated into an ABox.
-An unknown object or an explainable object is represented by a most specific concept (see Definition ~\ref{def:msc}).
+Following the processing steps presented in Section~\ref{sec:qsr}, the given image observation is translated into an ABox.
+An unknown object is represented by a most specific concept (see Definition ~\ref{def:msc}).
+%  or an explainable object
 This concept converts contextual information in the ABox to an appropriate concept to represent the object.
-\begin{mydef}[\textbf{The most specific concept} \cite{atif2014explanatory}]
-Given a TBox $\mathcal{T}$, an associated interpretation $\mathcal{I}=(\Delta^{\mathcal{I}}, \cdot^{\mathcal{I}})$,
-let $X\subseteq \Delta^{\mathcal{I}}$ be a subset of interpretation space and $E$ a defined concept in $\mathcal{T}$. 
-The concept $E$ is defined as the most specific concept of $X$ w.r.t $\mathcal{I}$ if:
+\begin{mydef}[\textbf{Most specific concept} \cite{atif2014explanatory}]
+Given a TBox $\mathcal{T}$ and an associated interpretation $\mathcal{I}=(\Delta^{\mathcal{I}}, \cdot^{\mathcal{I}})$,
+let $X\subseteq \Delta^{\mathcal{I}}$ be a subset of the interpretation space and $E$ a defined concept in $\mathcal{T}$. 
+The concept $E$ is defined as the most specific concept of $X$ w.r.t. $\mathcal{I}$ if:
 \begin{itemize}
  \item $X \subseteq E^{\mathcal{I}}$.
- \item every defined concepts $F$ with $X \subseteq F^{\mathcal{I}}$, we have $E \sqsubseteq_{\mathcal{T}} F$.
+ \item for every defined concept $F$ with $X \subseteq F^{\mathcal{I}}$, we have $E \sqsubseteq_{\mathcal{T}} F$.
 \end{itemize}
 \label{def:msc}
 \end{mydef}
 
-An example ABox is given as following:
-\vspace{-0.3cm}
+An example of ABox is given as follows:
+% \vspace{-0.3cm}
 \begin{align*}
 \mathcal{A}_{obs} =\{t_1&: BrainTumor\\
  e_1&: NonEnhanced\\
@@ -1228,13 +1230,13 @@ The most specific concept of the  individual $t_1$ is :\vspace{-0.3cm}
 \end{align*}
 
 As all observed objects in the ABox can be formulated by the most specific concept, our problem is modeled as a concept abduction.
-$\mathcal{K}\vDash H\sqsubseteq O$.  $H$ is an explanation of the given observation $O$ if $H$ is subsumed by $O$ w.r.t  $\mathcal{K}$. 
-The subsumption problem can be converted to a test of satisfiability which requires to prove that $H\sqcap \neg O$ is unsatisfiable.
-According to the strategy proposed by Aliseda, a potential hypothesis $H$ is the concept which makes the tableau of  $H\sqcap \neg O$ closed as a consequence.
+$\mathcal{K}\vDash H\sqsubseteq O$.  $H$ is an explanation of the given observation $O$ if $H$ is subsumed by $O$ w.r.t.  $\mathcal{K}$. 
+The subsumption problem can be converted into a test of satisfiability which requires to prove that $H\sqcap \neg O$ is unsatisfiable.
+According to the strategy proposed by Aliseda~\cite{aliseda1997seeking}, a potential hypothesis $H$ is the concept which makes the tableau of  $H\sqcap \neg O$ closed as a consequence.
 
-In the context of acyclic TBox, classic tableau method integrates axioms of the TBox using the normalization process. This optimization technique is suitable for forward-chaining inference.
+In the context of acyclic TBox, the classic tableau method integrates axioms of the TBox using the normalization process. This optimization technique is suitable for forward-chaining inference.
 For instance, a concept $D$ can be inferred by getting a concept $C$ with the axiom $C\sqsubseteq D$ in a deduction way since a model of the concept $C$ is also a model of $D$.
-However, this is not suitable for a backward-chaining inference, which intends to find a $C$ as a hypothesis for $D$. A possible solution of integration of TBox is adding 
+However, this is not suitable for a backward-chaining inference, which intends to find a concept $C$ as a hypothesis for $D$. A possible solution is to add
 internalized concept (see Definition~\ref{def:ic}) in the tableau.
 \begin{mydef}[Internalized concept~\cite{baader2003description}]
 Let $\mathcal{T}$ be a TBox and a set of axioms formulated as $C_i \sqsubseteq D_i$. The internalized concept of the TBox is defined as follows:
@@ -1247,12 +1249,13 @@ Therefore, every interpretation elements belongs to  $C_\mathcal{T}^\mathcal{I}$
 Its use has a result in $C\equiv C\sqcap C_\mathcal{T}$.
 
 
-We reformulated the subsumption in terms of satisfiability: the concept $H \sqcap \neg D$ is not satisfiable w.r.t $\mathcal{T}$, where $H$ is an explanation, $D$ is an observation,
+We reformulate the subsumption in terms of satisfiability: the concept $H \sqcap \neg D$ is not satisfiable w.r.t. $\mathcal{T}$, where $H$ is an explanation, $D$ is an observation,
 $\mathcal{T}$ is a TBox. This problem can be reduced by testing the satisfiability of a concept $ H\sqcap \neg D \sqcap C_\mathcal{T}$, where $ C_\mathcal{T}$ is the internalized concept of $\mathcal{T}$.
 The concept $H$ that causes unsatisfiability of $H\sqcap\neg D\sqcap C_\mathcal{T}$ is a potential hypothesis, i.e. the tableau built from this concept is closed.
-We follow this strategy and propose an extension work of Colucci \textit{et al.} in~\cite{colucci2004uniform}.
+We follow this strategy and propose an extension of the work by Colucci \textit{et al.} in~\cite{colucci2004uniform}.
 
-Different from the label function $\mathcal{L}(x)$ and $\mathcal{E}(x,y)$, each interpretation element in the tableau has four label function:
+% Different from the label function $\mathcal{L}(x)$ and $\mathcal{E}(x,y)$, 
+Each interpretation element in the tableau has now four label function (instead of $\mathcal{L}(x)$ and $\mathcal{E}(x,y)$ in Definition~\ref{def:tableauALC}):
 $\mathbf{T}(x)$, $\mathbf{F}(x)$, $\mathbf{T}(x,y)$, $\mathbf{F}(x,y)$,
 where  $x,y$ are interpretation elements in $\Delta^\mathcal{I}$.
 The are defined as follows:
@@ -1260,14 +1263,14 @@ The are defined as follows:
  Let $\mathcal{K}=\langle \mathcal{T},\mathcal{A}\rangle$ be a knowledge base,  $x^{\mathcal{I}}$, $y^{\mathcal{I}}$ interpretation elements, $C,D$  two concepts et $r, s$ two role in the given DL,
  we have:
  \begin{itemize}
- \item   $\mathbf{T}(x)$ represents a set of concepts that $x^\mathcal{I}$ is one of their interpretations:
+ \item   $\mathbf{T}(x)$ represents a set of concepts such that $x^\mathcal{I}$ is one of their interpretations:
    $C\in \mathbf{T}(x)$ iff $x^\mathcal{I} \in C^\mathcal{I}$.
- \item   $\mathbf{F}(x)$ represents a set of concepts that $x^\mathcal{I}$ is not one of their interpretations:
+ \item   $\mathbf{F}(x)$ represents a set of concepts such that $x^\mathcal{I}$ is not one of their interpretations:
   $D\in \mathbf{F}(x)$ iff $x^\mathcal{I} \notin D^\mathcal{I}$.
  \item   $\mathbf{T}(x,y)$ represents a set of roles between $x$ and $y$:
   $r\in \mathbf{T}(x,y)$ iff $\langle x^\mathcal{I}, y^\mathcal{I} \rangle \in r^\mathcal{I}$.
  \item   $\mathbf{F}(x,y)$ represents a set of unsatisfiable roles between $x$ and $y$:
- \item $s\in \mathbf{F}(x,y)$ iff $\langle x^\mathcal{I}, y^\mathcal{I} \rangle \notin s^\mathcal{I}$.
+  $s\in \mathbf{F}(x,y)$ iff $\langle x^\mathcal{I}, y^\mathcal{I} \rangle \notin s^\mathcal{I}$.
  \end{itemize}
  
  In the initialization step, the root node of the tableau is initialized with the concept $C_\mathcal{T}\sqcap \neg O$.
@@ -1275,7 +1278,7 @@ The are defined as follows:
  This technique avoids adding the negation before concepts selected to generate contradictions in the table.
  We can prove the equivalence between $ C\in \mathbf{T}(x) $ and $\neg C \in \mathbf {F}(x)$. Suppose that for $x^\mathcal{I} \in \Delta^\mathcal{I}$, $x^\mathcal{I}$ is an interpretation of a concept $C$,
 and $x^\mathcal{I}$ is also an interpretation of the concept of $\neg C$. So $x^\mathcal{I}$ is an interpretation of the concept $C\sqcap\neg C\equiv \bot$. There is no such interpretation.
-Thus, if $x^\mathcal{I}\in C^\mathcal{I}$, $x^\mathcal{I} \notin(\neg C)^\mathcal{I}$.
+Thus, if $x^\mathcal{I}\in C^\mathcal{I}$, then $x^\mathcal{I} \notin(\neg C)^\mathcal{I}$.
  
 We assume that the concepts are simplified in the normal form of negation. For a concept $C \in \mathcal{ALC} $, the normal form of a negated concept of $\neg C$ is denoted by $\overline{C}$.
 The expansion rules used in our work are presented here:
@@ -1301,8 +1304,8 @@ The expansion rules used in our work are presented here:
 	       \end{itemize}
 	 \item Universal restriction
 	       \begin{itemize}
- 	        \item  [$\mathbf{T)}$]  if $\forall r.C \in \mathbf{T}(x)$ and there exists a $y$ such that $r \in \mathbf{T}(x,y)$ and $C\notin\mathbf{T}(y)$, we add $C$ in  $\mathbf{T}(y)$.
-	        \item  [$\mathbf{F)}$]  if $\exists r.C \in \mathbf{F}(x)$ and there exists a $y$ such that $r \in \mathbf{T}(x,y)$ and $C\notin\mathbf{T}(y)$, we add $C$ in  $\mathbf{F}(y)$.
+ 	        \item  [$\mathbf{T)}$]  if $\forall r.C \in \mathbf{T}(x)$ and for all $y$ such that $r \in \mathbf{T}(x,y)$ and $C\notin\mathbf{T}(y)$, we add $C$ in  $\mathbf{T}(y)$.
+	        \item  [$\mathbf{F)}$]  if $\exists r.C \in \mathbf{F}(x)$ and for all $y$ such that $r \in \mathbf{T}(x,y)$ and $C\notin\mathbf{T}(y)$, we add $C$ in  $\mathbf{F}(y)$.
 	       \end{itemize}	
 
 	 \item Replacement of axioms in $\mathcal{T}$
@@ -1315,18 +1318,19 @@ The expansion rules used in our work are presented here:
 \end{enumerate}
 
 The contradiction in the adapted form is classified in two types: homogeneous clash and heterogeneous clash. 
-\begin{mydef}[\textbf{Clash} \cite{colucci2004uniform}]\label{clash}
+\begin{mydef}[\textbf{Clash} \cite{colucci2004uniform}]
 \begin{enumerate}
 	 \item A branch is defined as a homogeneous clash if:
 	       \begin{itemize}
 	        \item  $\bot \in \mathbf{T}(x)$ or $\top \in \mathbf{F}(x)$.
-	        \item  $A,\neg A \in \mathbf{T}(x)$ or $A,\neg A \in \mathbf{F}(x)$.
+	        \item  $\{A,\neg A\} \in \mathbf{T}(x)$ or $\{A,\neg A\} \in \mathbf{F}(x)$.
 		\end{itemize}
 	 \item A branch is defined as a heterogeneous clash if:
 	       \begin{itemize}
-	        \item   $A$ or $\neg A \in \mathbf{T}(x) \cap \mathbf{F}(x)$. 
+	        \item   $\{A$ or $\neg A\} \in \mathbf{T}(x) \cap \mathbf{F}(x)$. 
 	       \end{itemize}     
 \end{enumerate}
+\label{clash}
 \end{mydef}
 
 \begin{figure}[h]
@@ -1340,7 +1344,7 @@ In the TBox, we describe the background knowledge that a leader smurf has a bear
 \mathcal{T}=\{SmurfLeader &\sqsubseteq \exists hasPart.Beard \sqcap \exists hasOnTop.RedHat, \\
 RedHat &\equiv Hat \sqcap \exists hasColor.Red \} 
 \end{align*}
-Suppose that we can recognize three parts $a,b,c$ in image and the observation is encoded by the following ABox:
+Suppose that we can recognize three parts $a,b,c$ in an image and the observation is encoded by the following ABox:
 \begin{align*}
 \mathcal{A}_{obs} =\{(a,b)&: hasOnTop, \\
  (a,c)&: hasPart,\\
@@ -1386,7 +1390,7 @@ child { node  []{$\mathbf{T}(1)=\{\}$ \\ $\mathbf{F}(1)=\{..., \exists hasOnTop.
 \end{figure}
 
 By applying expansion rules, the construction process of the tableau is shown in Figure \ref{fig:grandst}. The hypotheses are generated from open branches.
-In this example, two sets of concepts are the :
+In this example, two sets of concepts are:
 % Puis, nous pouvons générer un ensemble de concepts non décomposables pour chaque branche ouverte. Un concept qui ne peut subir aucune règle d'expansion est appelé non décomposable.
 % Dans cet exemple, nous avons deux ensembles:
 \begin{align*}
@@ -1413,7 +1417,7 @@ $SmurfLeader \sqcap \exists hasOnTop.(Hat \sqcap \exists hasColor.Red)$, $SmurfL
 
 \subsubsection{Tableau closure (minimal hitting set)}
 At this stage, we conducted a construction procedure of the tree model using  the tableau method. Then we have a set of concepts for each open branch in the tableau.
-One potential hypothesis is the combination of these concepts. Concepts considered can close the table if at least one concept is selected in each branch.
+One potential hypothesis is the combination of these concepts. The considered concepts can close the table if at least one concept is selected in each branch.
 To avoid redundancy, we want to take the minimum hitting set. The definition of hitting set is introduced below.
 % 
 % A ce stade, nous avons réalisé une procédure de construction de l'arbre de la méthode par tableau. Alors on a un ensemble de concepts pour chaque branche ouverte dans le tableau.
@@ -1425,7 +1429,7 @@ To avoid redundancy, we want to take the minimum hitting set. The definition of 
 \end{mydef}
 
 Such a minimal hitting set of concepts guarantees a syntactical hypothesis in the given DL. 
-To ensure the consistence and relevance of an explanation, following properties are required to be satisfied for each potential hypothesis.
+To ensure the consistency and relevance of an explanation, the following properties are required to be satisfied for each potential hypothesis:
 % Puis, il faut choisir les hypothèses informatives en vérifiant différentes propriétés.
 % Dans notre situation, une explication est choisie si et seulement si les exigences  suivantes sont vérifiées:
 \begin{description}
@@ -1447,7 +1451,7 @@ Root initialization.\;
 \textbf{For~}( $i$ From 1 to $n$ )\textbf{~do:}\\
 ~~~~~~Create a new leaf for every  $S_i$  in each branch\;
 ~~~~~~An intermediate hypothesis $H_{j}$ is the conjunction of all the concepts in the same branch\;
-~~~~~~Delete the branch $j$ if $H_{j}$ is inconsistent w.r.t the TBox\;
+~~~~~~Delete the branch $j$ if $H_{j}$ is inconsistent w.r.t. the TBox\;
 \textbf{End}\\
 The conjunction of all concepts in each branch $j$ represents a potential hypothesis $H_j$\;
 \textbf{return:} $\mathcal{H}$\;
@@ -1479,10 +1483,10 @@ assumptions are consistent with TBox:
 % Appliquons cet algorithme, un arbre est initialisé avec une racine. Ensuite, nous construisons récursivement l'arbre en ajoutant les concepts
 % d'un ensemble $H_i$ dans tous les feuilles de l'arbre. Ici, il y a deux niveaux dans cet arbre (dans la figure \ref{arbre}). Dans ce cas, toutes les
 % hypothèses sont cohérentes avec TBox. Nous énumérons alors toutes les hypothèses potentielles:
-$H=SmurfLeader$, $H=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat\sqcap\exists hasColor.Red)$, 
-$H=SmurfLeader\sqcap\exists hasOnTop.(Hat\sqcap \exists hasColor.Red)$, $H=SmurfLeader \sqcap \exists hasPart.Beard$. 
+$H_1=SmurfLeader$, $H_2=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat\sqcap\exists hasColor.Red)$, 
+$H_3=SmurfLeader\sqcap\exists hasOnTop.(Hat\sqcap \exists hasColor.Red)$, $H_4=SmurfLeader \sqcap \exists hasPart.Beard$. 
 The second hypothesis is removed because $H=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat\sqcap\exists hasColor.Red)$ 
-is not a hypothesis explainable ($H\vDash \mathcal{O}$). 
+is not an independent explainable hypothesis ($H\vDash \mathcal{O}$). 
 
 Assumptions obtained in this algorithm is consistent and minimal syntactically. 
 A preference explanation depends on a minimality criterion that will be presented in the next subsection.

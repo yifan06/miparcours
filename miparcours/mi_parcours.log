@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  18 FEB 2015 17:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  20 FEB 2015 17:57
 entering extended mode
  %&-line parsing enabled.
 **mi_parcours.tex
@@ -3855,24 +3855,24 @@ dentifier (name{figure.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1395 \end{align*}
+l.1399 \end{align*}
                     <./figures/smurf.png>] [21pdfTeX warning (ext4): destinatio
 n with the same identifier (name{figure.4}) has been already used, duplicate ig
 nored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1435 \end{description}
+l.1439 \end{description}
                         ]
 Package hyperref Info: bookmark level for unknown algocf defaults to 0 on input
- line 1454.
+ line 1458.
 
-Underfull \hbox (badness 10000) detected at line 1455
+Underfull \hbox (badness 10000) detected at line 1459
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1441--1456
+Underfull \hbox (badness 10000) in paragraph at lines 1445--1460
 
  []
 
@@ -3890,7 +3890,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  22111 strings out of 495061
  372592 string characters out of 1182621
- 490433 words of memory out of 3000000
+ 490399 words of memory out of 3000000
  24649 multiletter control sequences out of 15000+50000
  17394 words of font info for 68 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
@@ -3914,9 +3914,9 @@ type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public
 uler/eufm10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/m
 sam10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on mi_parcours.pdf (25 pages, 893724 bytes).
+Output written on mi_parcours.pdf (25 pages, 893808 bytes).
 PDF statistics:
- 592 PDF objects out of 1000 (max. 8388607)
+ 591 PDF objects out of 1000 (max. 8388607)
  150 named destinations out of 1000 (max. 500000)
  228 words of extra memory for PDF output out of 10000 (max. 10000000)
 
