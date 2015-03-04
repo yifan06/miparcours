@@ -29,7 +29,8 @@ Jamal Atif, C{\'e}line Hudelot, Olivier Nempont, Nathalie Richard,
   Nano to Macro}, pages 205--208, 2007.
 
 \bibitem{baader2003description}
-Franz Baader.
+Franz Baader, Diego Calvanese, Deborah~L. McGuinness, Daniele Nardi, and
+  Peter~F. Patel-Schneider.
 \newblock {\em The Description Logic handbook: theory, implementation, and
   applications}.
 \newblock Cambridge university press, 2003.

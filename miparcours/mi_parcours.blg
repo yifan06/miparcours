@@ -12,37 +12,38 @@ I was expecting a `,' or a `}'---line 188 of file mi_ref.bib
  :   year={2013},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "bienvenu-kr08"
 Warning--there's a number but no volume in freksa1991qualitative
 Warning--empty year in nempont2013constraint
 Warning--can't use both author and editor fields in santos2012region
 You've used 51 entries,
             2118 wiz_defined-function locations,
-            814 strings with 13889 characters,
-and the built_in function-call counts, 20214 in all, are:
-= -- 2032
-> -- 849
+            815 strings with 13999 characters,
+and the built_in function-call counts, 20343 in all, are:
+= -- 2041
+> -- 870
 < -- 25
-+ -- 354
-- -- 284
-* -- 1418
-:= -- 3147
++ -- 362
+- -- 292
+* -- 1435
+:= -- 3171
 add.period$ -- 159
 call.type$ -- 51
-change.case$ -- 293
+change.case$ -- 297
 chr.to.int$ -- 0
 cite$ -- 54
 duplicate$ -- 812
 empty$ -- 1623
-format.name$ -- 284
-if$ -- 4378
+format.name$ -- 292
+if$ -- 4400
 int.to.chr$ -- 0
 int.to.str$ -- 51
 missing$ -- 51
 newline$ -- 258
 num.names$ -- 102
-pop$ -- 305
+pop$ -- 309
 preamble$ -- 1
-purify$ -- 244
+purify$ -- 248
 quote$ -- 0
 skip$ -- 619
 stack$ -- 0

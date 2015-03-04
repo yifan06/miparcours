@@ -30,6 +30,9 @@
 \usepackage{float}
 \restylefloat{table}
 
+\usepackage{bm}
+\newcommand\abs[1]{\left\lvert #1 \right\rvert}
+
 \title{High-level image interpretation using logical and morphological approaches}
 \author{Yifan YANG}
 
@@ -81,7 +84,7 @@ The objective of this thesis is to build a generic logic based formalism as well
    \includegraphics[scale=.8]{./figures/intro_schema.pdf}
    \caption{\label{fig:intro_schema} A general schema of image interpretation task in the thesis.}
  \end{figure} 
- I will think about it and improve this part and the schema for the next version.
+ \textit{I will think about it and improve this paragraph and the schema for the next version.}
 Figure~\ref{fig:intro_schema} shows the major components of our framework in this thesis. The given image is translated into symbolic representations in terms of logical form at the beginning.
 The image can also serve as the concrete domain in both the knowledge base and the reasoning process. 
 Concrete domain is used as a real model to represent abstract terminologies in image space.
@@ -697,28 +700,75 @@ The following conditions hold:
 % \end{mydef}
 
 \subsection{From image to symbolic representation}
-The transformation of representation from low-level numerical data to symbolic level is first phase of the framework.
-Concretely, objects and contextual information are extracted and represented within terminologies using an ABox.
-Further, the symbolic representation can be used for  reasoning service in the logical formalism.
-% The reasoning process is modeled as concept subsumption checking.
-% The hypothesis is considered as a more specific description of the observation if the decision process returns yes, otherwise the hypothesis does not belong to the subconcept of the observed concept.
+ This section deals with the computation of qualitative relationships in a segmented image and constructed a symbolic representation for the observation. 
+The transformation of representation from low-level numerical data to symbolic level is the first phase of the framework.
+Concretely, objects and spatial information are extracted and represented within terminologies using an ABox.
+Furthermore, the symbolic representation can be used for  reasoning service in the logical formalism.
 
-% 
-% In Figure \ref{fig:sub_flowchart}, the flowchart shows the general algorithm for qualitative spatial reasoning to implement. 
-% The focus of this reasoning service is the concept subsumption checking between a given hypothesis and the observation concept extracted from an image.
-% The hypothesis is a more specific description of the observation in the image interpretation task if it is subsumed by the observation.
-% The input of the algorithm is a segmented brain image. 
-% Using TIVOLI\footnote{\url{https://trac.telecom-paristech.fr/trac/project/tivoli/wiki}}
-% image processing toolbox, the context information is extracted (quantification values).
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=.3\textwidth]{./figures/mesh_all_vue_45.png}
+ \caption{\label{fig:brain3d}A segmented brain volume (structures are marked by different colors, e.g. the right lateral ventricle is in red).}
+\end{figure}
+
+
+Spatial relationships between structures in brain is an important feature for the image interpretation. 
+Several methods for computing qualitative spatial relationships were introduced in the survey~\cite{Bloch2005fuzzy}.
+Computing histogram of angles between two objects is a classical way to represent angle relations between two objects.
+A certain direction of angle can be characterized by a fuzzy set.
+After obtaining the histogram of angles between two objects, a typical way of evaluating the satisfaction degree in certain
+direction is computing intersection of the histogram and the fuzzy set of the direction.
+Using TIVOLI\footnote{\url{https://trac.telecom-paristech.fr/trac/project/tivoli/wiki}} image processing toolbox,
+In order to project to qualitative representation, the binary spatial relation can be extracted by applying a threshold.
+
+We take the left caudate nucleus (target object) and the left lateral ventricle (reference object) as an example to illustrate the computation\footnote{Here we use ``left'' to represent 
+structures in the left part of image for the simplicity of visualization (i.e. the structure in the left part of image is the right part in the brain.)}.
+The structures are presented in Figure. \ref{fig:cdlvl}.
+
+The histogram of angles includes the count of angles of each pair of pixels in the left caudate nucleus and the left lateral ventricle.
+The histogram is normalized and contains 256 bins as in Figure \ref{fig:histogram_angle}.
+
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=.3\textwidth]{./figures/right_lvl_cdl.png}
+ \caption{\label{fig:sturctpair}left lateral ventricle and left caudate nucleus from the view of right side.}
+\end{figure}
+% qualitative spatial relation is evaluated by computing histogram of angles between two objects and comparison with fuzzy set of a certain direction.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=.5\textwidth]{./figures/right_cdl_lvl.pdf}
+ \caption{\label{fig:histopair}the histogram of angles between left lateral ventricle and left caudate nucleus.}
+\end{figure}
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=.5\textwidth]{./figures/right.pdf}
+ \caption{\label{fig:right}the fuzzy set of ``right''.}
+\end{figure}
+
+intersection formula.
+
+
+Then we demonstrates how to choose a threshold.
+For choosing a threshold $t$ for every direction, we manually select all the pairs of structures which satisfy the relation and all the unsatisfied pairs.
+We take the histogram of intersection degree of the satisfied pairs and the ones of the other part.
+Then the threshold is taken by minimizing the error of mis-classification.
+$t=\min $
+
+The symbolic representation is generated in an ABox. All the detected structures and spatial relations are saved in a structural XML file.
+A simple example is given in Figure \ref{fig:owlfile}.
+% the context information is extracted (quantification values).
 % The quantification values of the spatial relationships are then transformed to qualitative spatial relations by a threshold. 
-% This observation is then transformed into a structural representation for the purpose of concept subsumption checking. 
+%  This observation is then transformed into a structural representation for the purpose of concept subsumption checking. 
+
 % To complete the concept subsumption checking, three elements are essential:
 % \begin{inparaenum}
 %  \item the hypothesis which is constructed manually for expected test;
 %  \item a knowledge base for expert knowledge representation;
 %  \item an inference process is formalized for the reasoning service. We exploit tableaux methods in this context.
 % \end{inparaenum}
-% 
+ 
 % The algorithm can be divided into two parts. The first part involves evaluating qualitative spatial relationships between segmented objects.
 % Segmented objects and their quantitative spatial relationships are then transformed as an ABox in the Description Logic formalism.
 % The second part contains the reasoning process guided by a knowledge base in a predefined logic formalism. 
@@ -1155,8 +1205,8 @@ This method integrates logic reasoning techniques of the first-order logic. Firs
 transformed into first-order logic. Then, a tableau in the context of the first-order logic is built and solutions
 are selected in the open branches. The results are transformed into Description Logic from the first-order logic in the end.
 In \cite{du2011towards,du2014tractable}, the authors also focus on ABox abduction problems. 
-Unlike the traditional work in~\cite{klarman2011abox}, the authors in \cite{du2014tractable} propose the explanation 
-with fresh individuals which are not suitable to use a traditional set inclusion minimality to choose a preferred explanation.
+% Unlike the traditional work in~\cite{klarman2011abox}, the authors in \cite{du2014tractable} propose the explanation 
+% with fresh individuals which are not suitable to use a traditional set inclusion minimality to choose a preferred explanation.
 In~\cite{du2014tractable}, Du \textit{et al.} introduced a tractable approach to ABox abduction, called the query abduction problem.
 This problem focuses on giving the explanations, which are new facts neither in the observation nor in the assertional knowledge, for an observation.
 The observation is represented by a boolean conjunctive query in the form $\exists x\Phi(x,c)$, where $\Phi(x,c)$ is a conjunction of concepts
@@ -1189,7 +1239,7 @@ In this work, we apply this general strategy to image interpretation expressed a
 An observed image is represented by an ABox, which is supposed to be consistent with the knowledge base. 
 In the concept abduction problem, the observation concept is constructed on the basis of the individual that selected to be explained and
 contextual information in the ABox.
-The knowledge base is in the DL $\mathcal{ALC}$, but the explanations are generated in a restricted language.
+The knowledge base is in the DL $\mathcal{ALC}$, but the explanations are generated in a restricted language such as $\mathcal{ALE}$.
 
 
 The tableau method has proven effective for tackling abductive reasoning problems. We then consider extending and automating this approach for image interpretation.
@@ -1319,6 +1369,7 @@ The expansion rules used in our work are presented here:
 
 The contradiction in the adapted form is classified in two types: homogeneous clash and heterogeneous clash. 
 \begin{mydef}[\textbf{Clash} \cite{colucci2004uniform}]
+A clash in a branch can be divided into two categories:
 \begin{enumerate}
 	 \item A branch is defined as a homogeneous clash if:
 	       \begin{itemize}
@@ -1426,6 +1477,7 @@ To avoid redundancy, we want to take the minimum hitting set. The definition of 
 \begin{mydef}{(Hitting set)}
  Let $\{ S_1,\dots,S_n\}$ be a collection of sets. A hitting set  $T$ is a subset $T\subseteq \cup_{i=1}^{n} S_i$ such that $T$ contains at least one element
  of each set in the collection $T \cap S_i \neq \emptyset~(1\leq i\leq n)$.
+ The minimal hitting set is a hitting set $T_m$ if  $\neg \exists T'\subset T_m$ for all other hitting sets $T'$.
 \end{mydef}
 
 Such a minimal hitting set of concepts guarantees a syntactical hypothesis in the given DL. 
@@ -1462,7 +1514,7 @@ The conjunction of all concepts in each branch $j$ represents a potential hypoth
 \begin{figure}
 \centering
 \begin{tikzpicture}[scale=0.7, transform shape, every text node part/.style={align=center},level 1/.style={level distance=2cm,sibling distance=10cm},level 2/.style={level distance=1cm, sibling distance=5cm}]
-\node [sibling distance=12cm] {}
+\node [sibling distance=12cm] {$\emptyset$}
 child { node []{$SmurfLeader$}
      child{ node []{$SmurfLeader$}}
      child{ node []{$\exists hasOnTop.(Hat \sqcap  \exists hasColor.Red)$}}
@@ -1499,62 +1551,70 @@ A preference explanation depends on a minimality criterion that will be presente
 
 \subsection{Minimality criteria}
 % \textit{Abduction as Inference to the Best Explanation.}
-% filter inconsistent and redundant ones
-% % \subsection{Sélection de la meilleure explication selon un critère de minimalité}
-% Ce que nous obtenons dans l'étape précédente est un ensemble d'hypothèses possibles. Nous ne gardons qu'une partie des hypothèses comme la << meilleure >> explication de l'observation.
-% Ce choix est défini par un critère de minimalité.
-% 
-% 
-% Une hypothèse potentielle est une explication si et seulement si les exigences dans la section précédente sont vérifiées pour éviter les résultats non pertinents et les observations elles-mêmes.
-% Quand on obtient un ensemble d'hypothèses potentielles, on a besoin
-% d'un critère de minimalité afin de choisir la << meilleure >> \cite{aliseda1997seeking}.
-% La simplicité est un critère raisonnable.
-% Par exemple, $Father \sqcap \exists hasChild.Person \sqsubseteq Man$. le concept $\exists hasChild.Person$ peut être impliqué
-% à partir du concept $Father$. C'est donc un concept qui porte peu d'information et qu'on peut éliminer pour ne garder que le concept plus simple $Father$. 
+Abduction can be also defined as inference to the best explanation.
+A set of potential hypotheses is generated based on the tableau method. However, only a part of them can be selected according to preference by filtering inconsistent and redundant ones. 
+One potential hypothesis is an explanation if and only if the requirements in the previous section are checked to avoid irrelevant results and observations themselves.
+The preferred explanations  rely on different kind of minimality criteria. 
+In~\cite{bienvenu08complexity}, Bienvenu provided five basic criteria of abduction problem.
+An abduction problem is defined as: $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$, where $\mathcal{T}$ is a TBox, $\mathcal{H}$ is a set of atomic concepts and $\mathcal{O}$ is the observed concept.
+
+\begin{mydef}{(Explanation~\cite{bienvenu-kr08})}
+$\{ A_1,\dots,A_n \} \subseteq \mathcal{H}$ is a subset of $\mathcal{H}$. This set can formulate an hypothesis $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$ only if:
+\begin{itemize}
+\item  $A_1 \sqcap \dots \sqcap A_n$ is satisfiable w.r.t. $\mathcal{T}$.
+\item $\mathcal{T}  \vDash  A_1 \sqcap \dots \sqcap A_n \sqsubseteq \mathcal{O}$
+\end{itemize}
+
+\end{mydef}
+
+
+\begin{mydef}{(Minimality criteria~\cite{bienvenu08complexity})}
+For an abduction problem $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$,$\mathcal{A}=\{H_1,\dots,$ $H_n \} \subseteq \mathcal{H}$ is an explanation of the problem $\mathcal{P}$,
+$\langle H_{(1)},\dots,H_{(n)}\rangle$ a priority order of  $\mathcal{H}$,
+et $w:\mathcal{H}\rightarrow \mathbb{N}$ is a weighted function to assign the importance of the hypotheses. The criteria can be defined as follows:
+\begin{itemize}
+\item  $\mathcal{A}~$ is  $~\subseteq -minimal$ if there does not exists an explanation $\mathcal{B}$ for $\mathcal{P}$ such that $\mathcal{B} \subsetneq \mathcal{A}$,
+\item  $\mathcal{A}~$ is  $~\leq -minimal$ if there does not exists an explanation $\mathcal{B}$ for $\mathcal{P}$ such that $\abs{\mathcal{B}} < \abs{\mathcal{A}}$,
+\item  $\mathcal{A}~$ is  $~\subseteq_P -minimal$ if there does not exists an explanation $\mathcal{B}$ for $\mathcal{P}$ such that $\mathcal{B} \cap H_i \subsetneq \mathcal{A}\cap H_i$ et
+$\mathcal{B} \cap H_j = \mathcal{A}\cap H_j$ where $1\leq j< i$,
+\item  $\mathcal{A}~$ is  $~\leq_P -minimal$ if there does not exists an explanation $\mathcal{B}$ for $\mathcal{P}$ such that $\abs{\mathcal{B} \cap H_i} < \abs{\mathcal{A}\cap H_i}$ et
+$\abs{\mathcal{B} \cap H_j} = \abs{\mathcal{A}\cap H_j}$ where $1\leq j< i$,
+\item  $\mathcal{A}~$ is  $~\sqsubseteq_w -minimal$ if there does not exists an explanation $\mathcal{B}$ for $\mathcal{P}$ such that $\sum_{B \in \mathcal{B}}w(B) < \sum_{A \in \mathcal{A}}w(A)$.
+\end{itemize}
+ \end{mydef}
+
+
+
+For example, $Father \sqcap \exists hasChild.Person \sqsubseteq Man$. The concept $\exists hasChild.Person$ can be inferred from $Father$.
+Therefore, $\exists hasChild.Person$ is the redundant part which can be eliminated. 
+ 
 % La tâche d'interprétation d'une image cérébrale necessite une hypothèse plus générale.
-% % (i.e. la plus faible explication).
-% 
-% % \begin{mydef}{(La plus faible explication \cite{aliseda1997seeking})}
-% % $\alpha$ est considérée comme une explication la plus faible pour $\phi$ avec les prémisses $\Theta$ si et seulement si:
-% % \begin{itemize}
-% % \item  $\Theta,\alpha \vDash \phi$
-% % \item  Toutes les autres hypothèses potentielles $\beta$ car $\Theta,\beta \vDash \phi$, on a $\vDash \beta \rightarrow \alpha $
-% % \end{itemize}
-% % \end{mydef}
-% 
-% Dans \cite{bienvenu-kr08}, Bienvenu a présenté cinq critères de minimalité utilisés pour l'abduction dans $\mathcal{EL}$.  
-% 
-% 
-% Un problème d'abduction est noté $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$, où $\mathcal{T}$ est une TBox, $\mathcal{H}$ est un ensemble de concepts atomiques et $\mathcal{O}$ est un
-% concept observé.
-% 
-% \begin{mydef}{(Explication~\cite{bienvenu-kr08})}
-% Soit $\{ A_1,\dots,A_n \} \subseteq \mathcal{H}$ un sous-ensemble de $\mathcal{H}$. Cet ensemble est une explication pour $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$ si et seulement si:
+% (i.e. la plus faible explication).
+
+% \begin{mydef}{(La plus faible explication \cite{aliseda1997seeking})}
+% $\alpha$ est considérée comme une explication la plus faible pour $\phi$ avec les prémisses $\Theta$ si et seulement si:
 % \begin{itemize}
-% \item  $A_1 \sqcap \dots \sqcap A_n$ est satisfiable dans le cadre de la TBox $\mathcal{T}$.
-% \item $\mathcal{T}  \vDash  A_1 \sqcap \dots \sqcap A_n \sqsubseteq \mathcal{O}$
+% \item  $\Theta,\alpha \vDash \phi$
+% \item  Toutes les autres hypothèses potentielles $\beta$ car $\Theta,\beta \vDash \phi$, on a $\vDash \beta \rightarrow \alpha $
 % \end{itemize}
-% 
 % \end{mydef}
-% 
-% 
-% \begin{mydef}{(Critères de minimalité~\cite{bienvenu-kr08})}
-% Soit un problème d'abduction $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$,$\mathcal{A}=\{H_1,\dots,$ $H_n \} \subseteq \mathcal{H}$ une explication du problème $\mathcal{P}$,
-% $\langle H_{(1)},\dots,H_{(n)}\rangle$ un ordre de priorité sur $\mathcal{H}$,
-% et $w:\mathcal{H}\rightarrow \mathbb{N}$ une fonction affectant une valeur d'importance à un concept. On peut formuler différents critères comme:
-% % \begin{itemize}
-% % \item  $\mathcal{A}~$ est  $~\subseteq -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\mathcal{B} \subsetneq \mathcal{A}$,
-% % \item  $\mathcal{A}~$ est  $~\leq -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\abs{\mathcal{B}} < \abs{\mathcal{A}}$,
-% % \item  $\mathcal{A}~$ est  $~\subseteq_P -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\mathcal{B} \cap H_i \subsetneq \mathcal{A}\cap H_i$ et
-% % $\mathcal{B} \cap H_j = \mathcal{A}\cap H_j$ lorsque $1\leq j< i$,
-% % \item  $\mathcal{A}~$ est  $~\leq_P -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\abs{\mathcal{B} \cap H_i} < \abs{\mathcal{A}\cap H_i}$ et
-% % $\abs{\mathcal{B} \cap H_j} = \abs{\mathcal{A}\cap H_j}$ lorsque $1\leq j< i$,
-% % \item  $\mathcal{A}~$ est  $~\sqsubseteq_w -minimal$ s'il n'existe pas d'explication $\mathcal{B}$ pour $\mathcal{P}$ telle que $\sum_{B \in \mathcal{B}}w(B) < \sum_{A \in \mathcal{A}}w(A)$.
-% % \end{itemize}
-%  \end{mydef}
-% 
-% 
-% 
+
+Another specific criterion mentioned for application of in matchmaking \cite{}.
+As in the work of Colucci, the explanation is then the combination of concepts missing compared to observation. In \ cite {DiNoia07}
+the authors proposed an irreducible-minimum criterion in their formalism.
+An irreducible solution is a concept in conjunctive normal form when there is no other solution which is a sub-concept of irreducible solution.
+
+In fact irreducible explanation is a subset of concepts of observation. Irreducible explanation is the conjunction of atomic concepts
+that do not appear in the constraint but in the observation.
+This model of the explanation is suitable for application matchmaking but it is an explanation with little information to our traditional cases.
+
+However, we can adapt this test to our problem. We can then calculate the cardinality of the irreducible results for comparison.
+We can represent concepts in conjunctive normal form (FNC) to the assumptions and observation. As the assumption is subsumed by the observation, connective concepts of hypothesis are a subset
+those of observation. We present a metric function $ f_ {} $ ranking to assess the quality that assumption. Here, one can calculate the cardinality of the different part
+between the hypothesis and observation. The concept with the least difference to other assumptions is preferred as an irreducible minimum explanation. Can also
+assign a value to each concept and calculate the weighting for the different part.
+
+
 % Un autre critère spécifique est mentionné pour une application de << matchmaking >> dans~\cite{DiNoia07}.
 % Comme dans les travaux de Colucci, l'explication est alors la conjonction de concepts manquant par rapport à l'observation. Dans \cite{DiNoia07},
 % les auteurs ont proposé un critère irréductible-minimal dans leur formalisme. 
@@ -1569,29 +1629,35 @@ A preference explanation depends on a minimality criterion that will be presente
 % de ceux de l'observation. On présente une fonction métrique $f_{ranking}$ pour évaluer la qualité cette hypothèse. Ici, on peut calculer la cardinalité de la partie différente
 % entre l'hypothèse et l'observation. Le concept avec le moins de différence par rapport aux autres hypothèses est préféré comme une explication minimale irréductible. On peut aussi
 % assigner une valeur à chaque concept et calculer la pondération pour  la partie différente.
-% 
-% 
-% \begin{mydef}{(Critère de subsomption et irréductibilité)}
-% Soit un problème d'abduction $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$, et $\{\langle P_{1},\dots,P_{n}\rangle\}$ les explications potentielles. 
-% On peut formuler différents critères comme:
-% % \begin{itemize}
-% % \item  $P_{i}$ est une explication suivant le critère de subsomption $\bm{\sqsubseteq -minimal}$ s'il n'existe pas d'explication $P_{j}$ pour $\mathcal{P}$ tel que $P_{i}\sqsubseteq P_{j}$
-% % \item  $P_{i}$ est une explication irréductible $\bm {irreductible-minimal }$ s'il n'existe pas d'explication $P_{j}$ pour $\mathcal{P}$ tel que $f_{ranking}(\mathcal{T},FNC(P_{j}),FNC(\mathcal{O})) 
-% % < f_{ranking}(\mathcal{T},FNC(P_{i}),FNC(\mathcal{O}))$
-% % \end{itemize}
-% 
-% \end{mydef}
-% 
-% 
+
+
+\begin{mydef}{(Subsumption criterion and irreducible criterion)}
+For an abduction problem $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$, and $\{\langle P_{1},\dots,P_{n}\rangle\}$ are potential hypotheses. 
+Irreducible explanations are:
+\begin{itemize}
+\item  $P_{i}$ is an explanation $\bm{\sqsubseteq -minimal}$ if there does not exist an explanation $P_{j}$ pour $\mathcal{P}$ such that $P_{i}\sqsubseteq P_{j}$
+\item  $P_{i}$ is an irreducible explanation $\bm{irreductible-minimal}$ if there does not exist an explanation $P_{j}$ pour $\mathcal{P}$ such that $f_{ranking}(\mathcal{T},FNC(P_{j}),FNC(\mathcal{O})) 
+< f_{ranking}(\mathcal{T},FNC(P_{i}),FNC(\mathcal{O}))$
+\end{itemize}
+\end{mydef}
+
+The criteria introduced by Bienvenu are useful when an assumption contains only atomic concepts. It considers that a hypothesis is constructed by the conjunction of certain atomic concepts.
+The criterion is given of the relationship between the sets. In our problem, a hypothesis can be made by non-atomic concepts. The subsumption test is a good choice in many works,
+for example, those of Colucci \textit{et al.} \cite{colucci2004uniform} and those of Atif \textit{et al.}  \cite{atif2014explanatory}. 
+The hierarchical relationship is considered to seek a more general hypothesis.
+The irreducibility criterion is a criterion combining a criterion of subsumption and a criterion of cardinality. This criterion has the advantage that the measure $ f_ {} $ ranking can be modified depending on need.
+For example, if we apply the abduction in fuzzy logic, a degree of possibility can be considered as a practical measure. As part of the course, we did not assess the priority coefficient
+concepts. We consider the concepts are balanced and use the inclusion criteria, cardinality, subsumption and irreducibility for the future.
+
 % Les critères introduits par Bienvenu sont utiles lorsqu'une hypothèse ne contient que les concepts atomiques. Elle considère qu'une hypothèse est construite par la conjonction de certains concepts atomiques.
 % Le critère bénéficie de la relation entre les ensembles. Dans notre problème, une hypothèse peut être composée par des concepts non atomiques. Le critère de subsomption est un bon choix dans plusieurs travaux,
 % par exemple, ceux de Colucci et al.~\cite{colucci2004uniform} et ceux de Atif et al.~\cite{jamal13}. La relation hiérarchique est prise en compte pour chercher une hypothèse plus générale.
 % Le critère d'irréductibilité est un critère combinant un critère de subsomption et un critère de cardinalité. Ce critère a l'avantage que la mesure $f_{ranking}$ est modifiable en fonction du besoin.
 % Par exemple, si on applique l'abduction dans la logique floue, un degré de possibilité peut être considéré comme une mesure pratique. Dans le cadre du stage, nous n'avons pas évaluer la coefficient de priorité
 % de concepts. Nous considérons les concepts sont équilibrés et utilisons les critères d'inclusion, de cardinalité, de subsomption et d'irréductibilité pour la suite.
-% 
-% 
-% 
+
+
+
 % 
 % \subsection{Résultats, évaluation et discussion}
 % Notre approche est implémentée en Java en utilisant les librairies OWL API\footnote{\url{http://owlapi.sourceforge.net/}} et Pellet\footnote{\url{http://clarkparsia.com/pellet/}}.
@@ -1781,26 +1847,33 @@ A preference explanation depends on a minimality criterion that will be presente
 %  n'est pas prise en compte. Ils sont adaptés aux hypothèses construites par la conjonction de certains concepts atomiques.
 % Pour le problème actuel, le critère de l'irréductibilité contient la préférence de la subsomption et la préférence de la cardinalité. 
 % Nous observons que les critères de subsomption et d'irréductibilité sont bien meilleurs sur notre situation.
-% 
+
 
 \section{Perspectives}\label{sec:persp}
+importance of concrete domain, direction semantics has the same properties in the symbolic level,
+a possible model can be built in terms of terminological knowledge.  
+However, in the image representation two inverse relation has different representation domain.
+
 Several directions will be presented in this section:
 \begin{itemize}
  \item concrete domain with fuzzy logic.
  Concrete domains are necessary when semantic truth concept has no corresponding space in concrete domain.
  \item how to generate potential hypotheses.
- \item how to select the ``best'' explanation with an appropriate minimality criterion.
+ \item how to select the ``best'' explanation with an appropriate minimality criterion, including criteria taking into account the spatial nature of information
+ \item more on spatial reasoning, by considering topological relation and their composition.
  \item perspective of publications.
 \end{itemize}
 
-\section{Activities}
+\section{Other Activities}
+During the first half of my thesis, I also participated in different activities in the TII group and TAO group 
+in LRI\footnote{Laboratoire de Recherche en Informatique}.
 \begin{itemize}
- \item project LOGIMA
- \item seminars
- \item doctoral formation
+ \item I presented my work in the meeting of ANR project LOGIMA\footnote{\url{http://logima.gforge.inria.fr/doku.php}}.
+ \item I presented my work in the seminars of the group.
+ \item I followed doctoral formations in EDITE\footnote{\url{http://edite-de-paris.fr/spip/}}
+ (Formations in french: Rendre des articles attractifs, Intelligence Economique, Brevets, Pratique de la négociation de projet à l'international).
 \end{itemize}
 
-% \nocite{*}
 \bibliographystyle{plain}
 \bibliography{mi_ref}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  20 FEB 2015 17:57
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  3 MAR 2015 18:00
 entering extended mode
  %&-line parsing enabled.
 **mi_parcours.tex
@@ -3223,27 +3223,35 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box50
 )
 \@float@every@table=\toks77
- (./mi_parcours.aux
+
+(/usr/share/texmf-texlive/tex/latex/tools/bm.sty
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 138.
+LaTeX Info: Redefining \bm on input line 204.
+) (./mi_parcours.aux
 
 LaTeX Warning: Label `tab:interpretation' multiply defined.
 
 )
 \openout1 = `mi_parcours.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
@@ -3286,9 +3294,9 @@ driver: pdftex
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-Defining \niib_print_notes: on line 36
-Defining \niib_bibliography:n on line 36
-Package hyperref Info: Link coloring OFF on input line 36.
+Defining \niib_print_notes: on line 39
+Defining \niib_bibliography:n on line 39
+Package hyperref Info: Link coloring OFF on input line 39.
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -3297,8 +3305,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count169
 )
-LaTeX Info: Redefining \ref on input line 36.
-LaTeX Info: Redefining \pageref on input line 36.
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
  (./mi_parcours.out) (./mi_parcours.out)
 \@outlinefile=\write7
 \openout7 = `mi_parcours.out'.
@@ -3317,23 +3325,23 @@ LaTeX Info: Redefining \pageref on input line 36.
 \MPnumerator=\count174
 \everyMPtoPDFconversion=\toks79
 ) ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 39.
+LaTeX Font Info:    Try loading font information for U+msa on input line 42.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 39.
+LaTeX Font Info:    Try loading font information for U+msb on input line 42.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 50.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 53.
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 50.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 53.
 
 <./figures/patho_brain.png, id=107, 640.3925pt x 494.84875pt>
 File: ./figures/patho_brain.png Graphic file (type png)
@@ -3346,7 +3354,7 @@ te ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.74 
+l.77 
       <./figures/patho_brain.png>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/intro_schema.pdf): PDF inclus
@@ -3359,22 +3367,22 @@ same identifier (name{figure.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.116  \item r
+l.119  \item r
               elating low level features to semantics (from pixels to semant...
  <./figures/intro_schema.pdf>] [3]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 196.
-LaTeX Font Info:    Try loading font information for U+euf on input line 200.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 199.
+LaTeX Font Info:    Try loading font information for U+euf on input line 203.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 )
-Overfull \hbox (86.8854pt too wide) in paragraph at lines 230--251
+Overfull \hbox (86.8854pt too wide) in paragraph at lines 233--254
 [][]
  []
 
 [4] [5]
-Overfull \hbox (21.6501pt too wide) in paragraph at lines 311--312
+Overfull \hbox (21.6501pt too wide) in paragraph at lines 314--315
 []\OT1/cmr/m/n/10 For ex-am-ple, the nega-tion nor-mal form of the con-cept $\O
 MS/cmsy/m/n/10 :\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 BrainStructure \OMS/cmsy/m/n/
 10 u 9\OML/cmm/m/it/10 leftOf:CNl\OT1/cmr/m/n/10 )$ is $\OMS/cmsy/m/n/10 :\OML/
@@ -3382,7 +3390,7 @@ cmm/m/it/10 BrainStructure \OMS/cmsy/m/n/10 t
  []
 
 [6] [7]
-Overfull \hbox (4.2484pt too wide) in paragraph at lines 448--462
+Overfull \hbox (4.2484pt too wide) in paragraph at lines 451--465
 \OT1/cmr/m/n/10 tion is based on \OT1/cmr/m/it/10 Re-gion Con-nec-tion Cal-cu-l
 us \OT1/cmr/m/n/10 (RCC) [[]]. The col-lec-tion $\OMS/cmsy/m/n/10 f\OML/cmm/m/i
 t/10 dc;  []eq;  []po;  []ec;  []tpp;  []tppi;  []ntpp;  []ntppi\OMS/cmsy/m/n/1
@@ -3390,143 +3398,78 @@ t/10 dc;  []eq;  []po;  []ec;  []tpp;  []tppi;  []ntpp;  []ntppi\OMS/cmsy/m/n/1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--467
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
 []$\OML/cmm/m/it/10 ntpp$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--467
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
 []$\OML/cmm/m/it/10 ntppi$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--467
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
 []$\OML/cmm/m/it/10 tppi$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--468
+Underfull \hbox (badness 10000) in paragraph at lines 471--471
 []$\OML/cmm/m/it/10 dc$
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 468--468
+Underfull \hbox (badness 1701) in paragraph at lines 471--471
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 468--468
+Underfull \hbox (badness 1776) in paragraph at lines 471--471
 \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--468
+Underfull \hbox (badness 10000) in paragraph at lines 471--471
 \OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--468
+Underfull \hbox (badness 10000) in paragraph at lines 471--471
 \OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--468
+Underfull \hbox (badness 10000) in paragraph at lines 471--471
 \OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 468--468
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 468--469
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 469--469
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 469--469
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
-[]$[]$
- []
-
-
-Overfull \hbox (0.56099pt too wide) in paragraph at lines 470--470
-[]$| 
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 470--470
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 470--470
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
-\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
-\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
-[]$[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
-[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
-[]$
- []
-
-
 Underfull \hbox (badness 1701) in paragraph at lines 471--471
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 471--471
+Underfull \hbox (badness 1701) in paragraph at lines 471--472
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 471--471
+Underfull \hbox (badness 1701) in paragraph at lines 472--472
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 472--472
-[]$\OML/cmm/m/it/10 eq$
+Underfull \hbox (badness 1701) in paragraph at lines 472--472
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 473--473
-[]$\OML/cmm/m/it/10 ntpp$
+[]$[]$
+ []
+
+
+Overfull \hbox (0.56099pt too wide) in paragraph at lines 473--473
+[]$| 
  []
 
 
@@ -3555,6 +3498,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 473--473
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+[]$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
+[]$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 474--474
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
 Underfull \hbox (badness 1701) in paragraph at lines 474--474
 []$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
@@ -3566,37 +3529,12 @@ Underfull \hbox (badness 1701) in paragraph at lines 474--474
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 475--475
-[]$\OML/cmm/m/it/10 tpp$
+[]$\OML/cmm/m/it/10 eq$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-[]$\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 475--475
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 475--475
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 475--475
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
-\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+Underfull \hbox (badness 10000) in paragraph at lines 476--476
+[]$\OML/cmm/m/it/10 ntpp$
  []
 
 
@@ -3605,8 +3543,23 @@ Underfull \hbox (badness 1701) in paragraph at lines 476--476
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
-[]$\OML/cmm/m/it/10 ntppi$
+Underfull \hbox (badness 1776) in paragraph at lines 476--476
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--476
+\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--476
+\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--476
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
  []
 
 
@@ -3615,63 +3568,43 @@ Underfull \hbox (badness 1701) in paragraph at lines 477--477
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 1701) in paragraph at lines 477--477
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]$\OML/cmm/m/it/10 tpp$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]$\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 478--478
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
 \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
-[]$\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+Underfull \hbox (badness 1701) in paragraph at lines 478--478
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
-[]$\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
+Underfull \hbox (badness 1776) in paragraph at lines 478--478
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
-\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
 \OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
-\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
-[]$\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 478--478
-[]$\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 478--478
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--479
-[]$\OML/cmm/m/it/10 tppi$
  []
 
 
@@ -3680,23 +3613,18 @@ Underfull \hbox (badness 1701) in paragraph at lines 479--479
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 479--479
+Underfull \hbox (badness 10000) in paragraph at lines 480--480
+[]$\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 480--480
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 480--480
 \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--479
-[]$\OML/cmm/m/it/10 ec$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--479
-\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 479--479
-[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
  []
 
 
@@ -3706,82 +3634,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 480--480
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 480--480
-[]$\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+[]$\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 481--481
-[]$\OML/cmm/m/it/10 op$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 481--481
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 481--481
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 481--481
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 481--481
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 481--481
-[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 481--481
-[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 482--482
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 482--482
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 482--482
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 482--482
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
- []
-
-
-Underfull \hbox (badness 1701) in paragraph at lines 482--482
-[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 482--482
-\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 482--482
+Underfull \hbox (badness 10000) in paragraph at lines 480--480
 \OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 482--482
+Underfull \hbox (badness 10000) in paragraph at lines 480--480
 \OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 480--480
+\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 480--480
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 480--481
+[]$\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 480--481
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 481--481
+[]$\OML/cmm/m/it/10 tppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 481--481
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
+[]$\OML/cmm/m/it/10 tppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 482--482
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
+[]$\OML/cmm/m/it/10 ec$ \OT1/cmr/m/n/10 or
  []
 
 
@@ -3790,133 +3703,300 @@ Underfull \hbox (badness 10000) in paragraph at lines 482--482
  []
 
 
-Overfull \hbox (7.85449pt too wide) in paragraph at lines 465--486
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
+[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--483
+[]$\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--483
+[]$\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
+[]$\OML/cmm/m/it/10 op$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 484--484
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 484--484
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
+[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
+[]$\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 485--485
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 485--485
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 485--485
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 485--485
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ntppi$
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 485--485
+[]$\OML/cmm/m/it/10 dc$ \OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 ec$
+ []
+
+
+Underfull \hbox (badness 1776) in paragraph at lines 485--485
+\OT1/cmr/m/n/10 or $\OML/cmm/m/it/10 eq$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 485--485
+\OML/cmm/m/it/10 ntpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 485--485
+\OML/cmm/m/it/10 tpp$ \OT1/cmr/m/n/10 or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 485--485
+\OML/cmm/m/it/10 ntppi$ \OT1/cmr/m/n/10 or
+ []
+
+
+Overfull \hbox (7.85449pt too wide) in paragraph at lines 468--489
 [][]
  []
 
 [8] [9]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 511.
+(hyperref)                removing `math shift' on input line 514.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 511.
+(hyperref)                removing `subscript' on input line 514.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 511.
+(hyperref)                removing `superscript' on input line 514.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 511.
+(hyperref)                removing `math shift' on input line 514.
 
 [10]
-Overfull \hbox (19.21284pt too wide) in paragraph at lines 595--619
+Overfull \hbox (19.21284pt too wide) in paragraph at lines 598--622
 [][]
  []
 
-[11] [12] [13]
-Overfull \hbox (2.32745pt too wide) in paragraph at lines 997--998
- [] 
- []
+[11] <./figures/mesh_all_vue_45.png, id=359, 453.19313pt x 385.44pt>
+File: ./figures/mesh_all_vue_45.png Graphic file (type png)
+
+<use ./figures/mesh_all_vue_45.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (50.26093pt too wide) in paragraph at lines 1009--1010
- [] 
- []
+LaTeX Warning: Reference `fig:cdlvl' on page 12 undefined on input line 726.
+
+[12]
+
+LaTeX Warning: Reference `fig:histogram_angle' on page 13 undefined on input li
+ne 729.
+
+<./figures/right_lvl_cdl.png, id=380, 453.19313pt x 385.44pt>
+File: ./figures/right_lvl_cdl.png Graphic file (type png)
+
+<use ./figures/right_lvl_cdl.png>
+<./figures/right_cdl_lvl.pdf, id=381, 597.23125pt x 845.1575pt>
+File: ./figures/right_cdl_lvl.pdf Graphic file (type pdf)
+
+<use ./figures/right_cdl_lvl.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./figures/right.pdf, id=382, 597.23125pt x 845.1575pt>
+File: ./figures/right.pdf Graphic file (type pdf)
+
+<use ./figures/right.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (50.26093pt too wide) in paragraph at lines 1026--1027
- [] 
- []
+LaTeX Warning: Reference `fig:owlfile' on page 13 undefined on input line 760.
 
-
-Overfull \hbox (50.26093pt too wide) in paragraph at lines 1045--1046
- [] 
- []
-
-[14]
-Overfull \hbox (29.02266pt too wide) in paragraph at lines 1059--1060
- [] 
- []
-
-
-Overfull \hbox (70.59067pt too wide) in paragraph at lines 1090--1091
- [] 
- []
-
-[15] [16] [17] [18] [19]
-<./figures/smurf.png, id=452, 980.66376pt x 424.58624pt>
-File: ./figures/smurf.png Graphic file (type png)
-
-<use ./figures/smurf.png> [20pdfTeX warning (ext4): destination with the same i
-dentifier (name{figure.3}) has been already used, duplicate ignored
+[13pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
+ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1399 \end{align*}
-                    <./figures/smurf.png>] [21pdfTeX warning (ext4): destinatio
-n with the same identifier (name{figure.4}) has been already used, duplicate ig
+l.989 \end{align*}
+                  pdfTeX warning (ext4): destination with the same identifier (
+name{figure.4}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.989 \end{align*}
+                   <./figures/mesh_all_vue_45.png (PNG copy)> <./figures/right_
+lvl_cdl.png (PNG copy)>] [14pdfTeX warning (ext4): destination with the same id
+entifier (name{figure.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.999 \end{align*}
+                   <./figures/right_cdl_lvl.pdf>] [15pdfTeX warning (ext4): des
+tination with the same identifier (name{figure.6}) has been already used, dupli
+cate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1025 
+        <./figures/right.pdf>]
+Overfull \hbox (2.32745pt too wide) in paragraph at lines 1047--1048
+ [] 
+ []
+
+
+Overfull \hbox (50.26093pt too wide) in paragraph at lines 1059--1060
+ [] 
+ []
+
+
+Overfull \hbox (50.26093pt too wide) in paragraph at lines 1076--1077
+ [] 
+ []
+
+[16]
+Overfull \hbox (50.26093pt too wide) in paragraph at lines 1095--1096
+ [] 
+ []
+
+
+Overfull \hbox (29.02266pt too wide) in paragraph at lines 1109--1110
+ [] 
+ []
+
+[17]
+Overfull \hbox (70.59067pt too wide) in paragraph at lines 1140--1141
+ [] 
+ []
+
+[18] [19] [20] [21] <./figures/smurf.png, id=478, 980.66376pt x 424.58624pt>
+File: ./figures/smurf.png Graphic file (type png)
+
+<use ./figures/smurf.png> [22pdfTeX warning (ext4): destination with the same i
+dentifier (name{figure.7}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1405 \end{align*}
+                    <./figures/smurf.png>] [23pdfTeX warning (ext4): destinatio
+n with the same identifier (name{figure.8}) has been already used, duplicate ig
 nored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1439 \end{description}
-                        ]
+l.1477 \begin{mydef}
+                    {(Hitting set)}]
 Package hyperref Info: bookmark level for unknown algocf defaults to 0 on input
- line 1458.
+ line 1510.
 
-Underfull \hbox (badness 10000) detected at line 1459
+Underfull \hbox (badness 10000) detected at line 1511
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1445--1460
+Underfull \hbox (badness 10000) in paragraph at lines 1497--1512
 
  []
 
-(./mi_parcours.bbl [22pdfTeX warning (ext4): destination with the same identifi
-er (name{figure.5}) has been already used, duplicate ignored
+[24pdfTeX warning (ext4): destination with the same identifier (name{figure.9})
+ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.9 
-    ] [23] [24]) [25] (./mi_parcours.aux)
+l.1560 
+       ]
+
+LaTeX Warning: Citation `bienvenu-kr08' on page 25 undefined on input line 1561
+.
+
+[25] (./mi_parcours.bbl [26] [27] [28]) [29] (./mi_parcours.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 22111 strings out of 495061
- 372592 string characters out of 1182621
- 490399 words of memory out of 3000000
- 24649 multiletter control sequences out of 15000+50000
- 17394 words of font info for 68 fonts, out of 3000000 for 9000
+ 22243 strings out of 495061
+ 374318 string characters out of 1182621
+ 491107 words of memory out of 3000000
+ 24748 multiletter control sequences out of 15000+50000
+ 21233 words of font info for 81 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  56i,20n,60p,420b,1898s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/publi
-c/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
-m/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
-texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texliv
-e/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1
-/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/e
-uler/eufm10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/m
-sam10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.
-pfb>
-Output written on mi_parcours.pdf (25 pages, 893808 bytes).
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/sh
+are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/font
+s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
+s/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.p
+fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></
+usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmsy5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
+ts/cm/cmsy7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.
+pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/s
+hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-texlive/f
+onts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/symbols/msbm10.pfb>
+Output written on mi_parcours.pdf (29 pages, 2848545 bytes).
 PDF statistics:
- 591 PDF objects out of 1000 (max. 8388607)
- 150 named destinations out of 1000 (max. 500000)
- 228 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 661 PDF objects out of 1000 (max. 8388607)
+ 166 named destinations out of 1000 (max. 500000)
+ 248 words of extra memory for PDF output out of 10000 (max. 10000000)
 
