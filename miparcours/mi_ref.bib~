@@ -350,7 +350,7 @@ year = {2012}
 % Description Logic
 @book{baader2003description,
   title={The Description Logic handbook: theory, implementation, and applications},
-  author={Baader, Franz},
+  author={Baader, Franz and Calvanese, Diego and McGuinness, Deborah L. and Nardi, Daniele and Patel-Schneider, Peter F.},
   year={2003},
   publisher={Cambridge university press}
 }
@@ -364,6 +364,24 @@ year = {2012}
   year={1999},
   publisher={Oxford Univ Press}
 }
+
+% concrete domains
+@article{carsten2005keys,
+  title={Keys, nominals, and concrete domains},
+  author={Carsten, Lutz and Areces, Carlos and Horrocks, Ian and Sattler, Ulrike},
+  journal={Journal of Artificial Intelligence Research},
+  volume={23},
+  pages={667--726},
+  year={2005}
+}
+@inproceedings{hudelot2008spatial,
+  title={A spatial relation ontology using mathematical morphology and description logics for spatial reasoning},
+  author={Hudelot, C{\'e}line and Atif, Jamal and Bloch, I},
+  booktitle={ECAI workshop on Spatial and Temporal Reasoning},
+  pages={21--25},
+  year={2008}
+}
+
 % tableaux method
 @article{baader2001overview,
   title={An overview of tableau algorithms for Description Logics},

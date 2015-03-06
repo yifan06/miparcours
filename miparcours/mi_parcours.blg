@@ -12,49 +12,52 @@ I was expecting a `,' or a `}'---line 188 of file mi_ref.bib
  :   year={2013},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "bienvenu-kr08"
+Repeated entry---line 377 of file mi_ref.bib
+ : @inproceedings{hudelot2008spatial
+ :                                  ,
+I'm skipping whatever remains of this entry
 Warning--there's a number but no volume in freksa1991qualitative
 Warning--empty year in nempont2013constraint
 Warning--can't use both author and editor fields in santos2012region
-You've used 51 entries,
+You've used 52 entries,
             2118 wiz_defined-function locations,
-            815 strings with 13999 characters,
-and the built_in function-call counts, 20343 in all, are:
-= -- 2041
-> -- 870
+            819 strings with 14158 characters,
+and the built_in function-call counts, 20733 in all, are:
+= -- 2080
+> -- 893
 < -- 25
-+ -- 362
-- -- 292
-* -- 1435
-:= -- 3171
-add.period$ -- 159
-call.type$ -- 51
-change.case$ -- 297
++ -- 371
+- -- 300
+* -- 1467
+:= -- 3238
+add.period$ -- 162
+call.type$ -- 52
+change.case$ -- 304
 chr.to.int$ -- 0
-cite$ -- 54
-duplicate$ -- 812
-empty$ -- 1623
-format.name$ -- 292
-if$ -- 4400
+cite$ -- 55
+duplicate$ -- 823
+empty$ -- 1649
+format.name$ -- 300
+if$ -- 4477
 int.to.chr$ -- 0
-int.to.str$ -- 51
-missing$ -- 51
-newline$ -- 258
-num.names$ -- 102
-pop$ -- 309
+int.to.str$ -- 52
+missing$ -- 52
+newline$ -- 263
+num.names$ -- 104
+pop$ -- 314
 preamble$ -- 1
-purify$ -- 248
+purify$ -- 254
 quote$ -- 0
-skip$ -- 619
+skip$ -- 626
 stack$ -- 0
-substring$ -- 1509
-swap$ -- 257
+substring$ -- 1539
+swap$ -- 258
 text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 200
+type$ -- 204
 warning$ -- 3
-while$ -- 202
-width$ -- 53
-write$ -- 571
-(There were 2 error messages)
+while$ -- 206
+width$ -- 54
+write$ -- 582
+(There were 3 error messages)

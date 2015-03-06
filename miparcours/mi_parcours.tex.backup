@@ -33,7 +33,7 @@
 \usepackage{bm}
 \newcommand\abs[1]{\left\lvert #1 \right\rvert}
 
-\title{High-level image interpretation using logical and morphological approaches}
+\title{Mid-term Thesis Report\\High-level image interpretation using logical and morphological approaches}
 \author{Yifan YANG}
 
 \begin{document}
@@ -84,23 +84,25 @@ The objective of this thesis is to build a generic logic-based formalism as well
 % Formal language is a good choice with solid math representation
 % First talk about what we need to resolve in this field, which problem, orientations we will take
 % Write a general schema here and for each part, what do we have 
-  \begin{figure}[h]
+
+\begin{figure}[h]
   \centering
-   \includegraphics[scale=.8]{./figures/intro_schema.pdf}
+   \includegraphics[scale=.8]{./figures/schemageneral.pdf}
    \caption{\label{fig:intro_schema} A general schema of image interpretation task in the thesis.}
  \end{figure} 
-%  \textit{I will think about it and improve this paragraph and the schema for the next version.}
+
+ %  \textit{I will think about it and improve this paragraph and the schema for the next version.}
 Figure~\ref{fig:intro_schema} shows the major components of our framework in this thesis. 
-The main components encompass an observation of a given image, a prior knowledge base of the application domain and the reasoning service for the purpose of image interpretation.
-Hypotheses are formulated with the help of all the elements.
-Concrete domain, considered as a real model to represent abstract terminologies in image space 
-is as well a useful part which benefits from complement information of abstract level of knowledge in the image representation. 
+The main components encompass an observation of a given image, a prior knowledge base of the application domain and the reasoning service for the purpose of image interpretation. 
 The given image is translated into symbolic representations in terms of logical formulas by segmentation and recognition of objects using image processing tools.
 Meanwhile, it can serve as instances on the concrete domain.
+Concrete domain~\cite{carsten2005keys}, considered as a real world model (e.g. image space) linking with abstract terminologies, 
+is as well a useful part which benefits from complementary information of abstract level of knowledge in the image representation.
 % A hypothesis of an description might be generated from the observation or the axioms in the knowledge base.
+During the past period, concrete domain has not been exploited and will be studied in the future.
+Hypotheses are formulated with the help of the reasoning process taking both the observation and the background knowledge into account.
 The relations between the hypothesis and reasoning are two directions, which allows validating the hypothesis with the help of standard reasoning and
 building a possible hypothesis within non-standard reasoning processes.
-During the past period, concrete domain has not been exploited and will be studied in the future.
 
 To summarize the ongoing and future work, we need to answer the following questions:
 \begin{itemize}
@@ -233,6 +235,7 @@ Let $\varPhi$ be a set of axioms, an interpretation $\mathcal{I}$ is a \textit{m
 \end{mydef}
  \begin{center}
  \begin{table}[H]
+ \scalebox{0.85}{
  \begin{tabular}{|c|c|c|c|}
 	\hline
 	Constructor & Syntax & Semantics & Example\\
@@ -252,6 +255,7 @@ Let $\varPhi$ be a set of axioms, an interpretation $\mathcal{I}$ is a \textit{m
 	Role Assertion & $(a,b):r$ & $\langle a^{\mathcal{I}},b^{\mathcal{I}}\rangle \in r^{\mathcal{I}}$ & $(John,Lea):hasChild$ \\
 	\hline
 	\end{tabular}
+	}
     \caption{Syntax and interpretations of $\mathcal{ALC}$~\cite{baader2003description}.}
     \label{tab:interpretation}
 \end{table}
@@ -300,9 +304,7 @@ The definitions of subsumption and satisfiability of a concept are introduced as
 All the reasoning problems like subsumption and classification, can be reduced to a concept satisfiability problem \cite{baader2003description}.
 
 \subsection{Tableau method reasoning}\label{sec:reasoning}
-The tableau algorithm is an efficient decision procedure for the concept satisfiability problem~\cite{baader2001overview,gore2007exptime,nguyen2009efficient}.
-This method tries to construct a model of a concept $C$ with respect to the given terminological knowledge. 
-All the concepts are required to be expressed in negation normal form (NNF). 
+We present several auxiliary definitions that will be used later.
 \begin{mydef}(Negation normal form)
 Negation normal form is a form of concept expression such that the negation constructor appears only before atomic concepts.
 The rules of transformation are described as follows:
@@ -315,12 +317,37 @@ The rules of transformation are described as follows:
 \end{itemize}
 \end{mydef}
 For example, the negation normal form of the concept $\neg (BrainStructure\sqcap \exists leftOf.CNl)$ is $\neg BrainStructure \sqcup \forall leftOf.\neg CNl$.
+
+\begin{mydef}[Subconcept~\cite{horrocks1999description}]
+ A subconcept of a concept $D$ is the concept occurring in $D$. $sub(\cdot)$ is the set of all subconcepts:
+ \begin{align*}
+ sub(A)&=\{A\}~for~concept~names~A\in N_C\\
+ sub(C\sqcap E)&=\{C\sqcap E\}\cup sub(C)\cup sub(E)\\
+ sub(C\sqcup E)&=\{C\sqcup E\}\cup sub(C)\cup sub(E)\\
+ sub(\exists r.C)&=\{\exists r.C\}\cup sub(C)\\
+ sub(\forall r.C)&=\{\forall r.C\}\cup sub(C)
+ \end{align*}
+\end{mydef}
+
+For example, 
+ \begin{align*}
+ sub(\exists leftOf.CNl \sqcap \exists closeTo.CNl)=\{&\exists leftOf.CNl \sqcap \exists closeTo.CNl,\\
+ &\exists leftOf.CNl,\\
+ &\exists closeTo.CNl,\\
+ &CNl\}
+ \end{align*}
+
+The tableau algorithm is an efficient decision procedure for the concept satisfiability problem~\cite{baader2001overview,gore2007exptime,nguyen2009efficient}.
+This method tries to construct a model of a concept $C$ with respect to the given terminological knowledge. 
+All the concepts are required to be expressed in negation normal form (NNF). 
+
 \begin{mydef}[A tableau for $\mathcal{ALC}$] \label{def:tableauALC}
 Let $D$ be an $\mathcal{ALC}$ concept in NNF and let $R_D$ be the set of roles in $\mathcal{ALC}$, a tableau $T$ for $D$ is defined as a triplet $(\mathbf{S},\mathcal{L}, \mathcal{E})$, 
 where $\mathbf{S}$ is a set of interpretation elements;
 % \footnote{In the reference \cite{horrocks1999description} $\mathbf{S}$ is defined as a set of individuals.}
-$\mathcal{L}$ relates each interpretation element to a set of concepts occurring in $D$ (from $\mathbf{S}$ to $\mathcal{P}(\mathfrak{C}$)); 
-$\mathcal{E}$ relates each pair of interpretation elements to a set of roles in $R_D$  (from $\mathbf{S}\times\mathbf{S}$ to $\mathcal{P}(R_D)$). 
+$\mathcal{L}$ relates each interpretation element to a set of concepts occurring in $D$ ($\mathcal{L}:\mathbf{S}\rightarrow\mathcal{P}(sub(D))$
+\footnote{$\mathcal{P}(sub(D))$ is the power set of $sub(D)$.});  
+$\mathcal{E}$ relates each pair of interpretation elements to a set of roles in $R_D$  ($\mathcal{E}:\mathbf{S}\times\mathbf{S}\rightarrow \mathcal{P}(R_D)$). 
 
 The decision procedure to check the satisfiability of a given concept $D$ is based on constructing a model using the tableau method. 
 Let $x$ and $y$ be two interpretation elements in $\mathbf{S}$ ($x,y\in \mathbf{S}$), $C,E$ be two concepts occurring in $D$ and $r\in R_D$.
@@ -628,56 +655,33 @@ The table of syntax and semantics of $\mathcal{ALCHI_{R_+}}$ is shown as follows
 
 % A tableaux method tries to check satisfiability of a concept $D$ by finding a model for $D$. The tableaux is constructed by applying a set of expansion rules. The model contains a set of 
 % interpretation elements and associated concepts for each interpretation element. 
-In the tableau method of $\mathcal{ALCJI_{R_+}}$, concepts in the tableau are restricted to subsets of subconcepts of $D$ ($sub(D)$). The subconcept of a concept $D$ is defined as
-follows:
-\begin{mydef}[Subconcept~\cite{horrocks1999description}]
- A subconcept of a concept $D$ is the concept occurring in $D$. $sub(\cdot)$ is the set of all subconcepts:
- \begin{align*}
- sub(A)&=\{A\}~for~concept~names~A\in N_C\\
- sub(C\sqcap E)&=\{C\sqcap E\}\cup sub(C)\cup sub(E)\\
- sub(C\sqcup E)&=\{C\sqcup E\}\cup sub(C)\cup sub(E)\\
- sub(\exists r.C)&=\{\exists r.C\}\cup sub(C)\\
- sub(\forall r.C)&=\{\forall r.C\}\cup sub(C)
- \end{align*}
-\end{mydef}
-
-For example, 
- \begin{align*}
- sub(\exists leftOf.CNl \sqcap \exists closeTo.CNl)=\{&\exists leftOf.CNl \sqcap \exists closeTo.CNl,\\
- &\exists leftOf.CNl,\\
- &\exists closeTo.CNl,\\
- &CNl\}
- \end{align*}
- 
-\begin{mydef}[$\mathcal{ALCHI_{R+}}$ tableaux~\cite{horrocks1999description}]
-Let $D$ be an $\mathcal{ALCHI_{R+}}$ concept in negation normal form (NNF) and let $R_D$ be the set of roles in $\mathcal{ALCHI_{R+}}$, a tableau $T$ for $D$ is defined as a triple 
-$(\mathbf{S},\mathcal{L}, \mathcal{E})$, where $\mathbf{S}$ is a set of interpretation elements; 
-$\mathcal{L}$ relates each interpretation element to a set of concepts occurring in $D$ ($\mathcal{L}:\mathbf{S}\rightarrow\mathcal{P}(sub(D))$
-\footnote{$\mathcal{P}(sub(D))$ is the power set of $sub(D)$.}); 
-$\mathcal{E}$ relates each pair of interpretation elements to a set of roles in $R_D$  ($\mathcal{E}:\mathbf{S}\times\mathbf{S}\rightarrow \mathcal{P}(R_D)$). 
-
-The decision procedure to check the satisfiability of a given concept $D$ is based on constructing a model using the tableau method. 
-Let $x$ and $y$ be two interpretation elements in $\mathbf{S}$ ($x,~y\in \mathbf{S}$), $C,E$ be two concepts occurring in $D$ and $r\in R_D$.
-The model is constructed as a tree structure where each node corresponds to an element of interpretation $x\in \Delta^\mathcal{I}$.
-The node is labeled with a set of concepts $\mathcal{L}(x)$.
-The edge between the nodes $x$ and $y$ is labeled with corresponding roles $r\in\mathcal{E}(\langle x,y \rangle)$.
-The following conditions hold:
+We elaborate Definition~\ref{def:tableauALC} for an $\mathcal{ALCHI_{R+}}$ tableau by adding new rules as follows.
+% \begin{mydef}[$\mathcal{ALCHI_{R+}}$ tableaux~\cite{horrocks1999description}]
+% Let $D$ be an $\mathcal{ALCHI_{R+}}$ concept in negation normal form (NNF) and let $R_D$ be the set of roles in $\mathcal{ALCHI_{R+}}$, a tableau $T$ for $D$ is defined as a triple 
+% $(\mathbf{S},\mathcal{L}, \mathcal{E})$, where $\mathbf{S}$ is a set of interpretation elements; 
+% $\mathcal{L}$ relates each interpretation element to a set of concepts occurring in $D$ ($\mathcal{L}:\mathbf{S}\rightarrow\mathcal{P}(sub(D))$
+% \footnote{$\mathcal{P}(sub(D))$ is the power set of $sub(D)$.}); 
+% $\mathcal{E}$ relates each pair of interpretation elements to a set of roles in $R_D$  ($\mathcal{E}:\mathbf{S}\times\mathbf{S}\rightarrow \mathcal{P}(R_D)$). 
+% 
+% The decision procedure to check the satisfiability of a given concept $D$ is based on constructing a model using the tableau method. 
+% Let $x$ and $y$ be two interpretation elements in $\mathbf{S}$ ($x,~y\in \mathbf{S}$), $C,E$ be two concepts occurring in $D$ and $r\in R_D$.
+% The model is constructed as a tree structure where each node corresponds to an element of interpretation $x\in \Delta^\mathcal{I}$.
+% The node is labeled with a set of concepts $\mathcal{L}(x)$.
+% The edge between the nodes $x$ and $y$ is labeled with corresponding roles $r\in\mathcal{E}(\langle x,y \rangle)$.
+% The following conditions hold:
 \begin{enumerate}
-\item if $C\in \mathcal{L}(x)$, then $\neg C\notin\mathcal{L}(x)$.
-\item if $C\sqcap E\in \mathcal{L}(x)$, then $ C\in\mathcal{L}(x)$ and $ E\in\mathcal{L}(x)$.
-\item if $C\sqcup E\in \mathcal{L}(x)$, then $ C\in\mathcal{L}(x)$ or $ E\in\mathcal{L}(x)$.
-\item if $\exists r.C\in \mathcal{L}(x)$, then there exists some $y\in \mathbf{S}$  such that $r \in \mathcal{E}(\langle x,y\rangle)$ and $C\in\mathcal{L}(y)$.
-\item if $\forall r.C\in \mathcal{L}(x)$, then for all  $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$, $C\in\mathcal{L}(y)$.
-\item if $\forall r.C\in \mathcal{L}(x)$, for all $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$ and $r$ is a transitive role
-% \footnote{When $r$ is a transitive role, a possible model can be imagined for $y$ (the successor of $x$ and $r\in\mathcal{E}(\langle x,y\rangle)$): 
-% $y$ has a successor $z$, where $r\in\mathcal{E}(\langle y,z\rangle)$. In the RBox, the transitive role is defined as $r\circ r\sqsubseteq r$. If $\forall r.C\in \mathcal{L}(x)$, then 
-% $\forall r\circ r.C\in \mathcal{L}(x)$. Therefore, for $x$ $r$-successor $y$, $\forall r.C\in \mathcal{L}(y)$.}, then $\forall r.C\in \mathcal{L}(y)$.
-% \item if $\forall r.C\in \mathcal{L}(x)$, for all $y \in \mathbf{S}$ such that $v \in \mathcal{E}(\langle x,y\rangle)$, $v\sqsubseteq r$ (or $v^-\sqsubseteq r^-$) and $v$ is a transitive role, then $\forall v.C\in \mathcal{L}(y)$.
+% \item if $C\in \mathcal{L}(x)$, then $\neg C\notin\mathcal{L}(x)$.
+% \item if $C\sqcap E\in \mathcal{L}(x)$, then $ C\in\mathcal{L}(x)$ and $ E\in\mathcal{L}(x)$.
+% \item if $C\sqcup E\in \mathcal{L}(x)$, then $ C\in\mathcal{L}(x)$ or $ E\in\mathcal{L}(x)$.
+% \item if $\exists r.C\in \mathcal{L}(x)$, then there exists some $y\in \mathbf{S}$  such that $r \in \mathcal{E}(\langle x,y\rangle)$ and $C\in\mathcal{L}(y)$.
+% \item if $\forall r.C\in \mathcal{L}(x)$, then for all  $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$, $C\in\mathcal{L}(y)$.
+\item if $\forall r.C\in \mathcal{L}(x)$ and $r$ is a transitive role, then for all $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$, 
+$\forall r.C\in\mathcal{L}(y)$.
 \item $r \in \mathcal{E}(\langle x,y\rangle)$ iff  $ r^-\in \mathcal{E}(\langle y,x\rangle)$.
 \item if $ r\in \mathcal{E}(\langle x,y\rangle)$ and $r\sqsubseteq v$ (or $r^-\sqsubseteq v^-$) then  $v \in \mathcal{E}(\langle x,y\rangle)$.
 \end{enumerate}
-\label{def:alchir}
-\end{mydef}
+% \label{def:alchir}
+% \end{mydef}
 
 
 % 
@@ -713,56 +717,73 @@ Furthermore, the symbolic representation can be used for  reasoning service in t
 \begin{figure}[h]
  \centering
  \includegraphics[width=.3\textwidth]{./figures/mesh_all_vue_45.png}
- \caption{\label{fig:brain3d}A segmented brain volume (structures are marked by different colors, e.g. the right lateral ventricle is in red).}
+ \caption{\label{fig:brain3d}A segmented brain volume (structures are marked by different colors, e.g. the left lateral ventricle is in red.).}
 \end{figure}
 
 
+A whole brain volume (structures are presented by different colors) is  shown in Figure \ref{fig:brain3d}.
 Spatial relationships between structures in brain is an important feature for the image interpretation. 
 Several methods for computing qualitative spatial relationships were introduced in the survey~\cite{Bloch2005fuzzy}.
 Computing histogram of angles between two objects is a classical way to represent angle relations between two objects.
-A certain direction of angle can be characterized by a fuzzy set.
+% A certain direction of angle can be characterized by a fuzzy set .
 After obtaining the histogram of angles between two objects, a typical way of evaluating the satisfaction degree in certain
-direction is computing intersection of the histogram and the fuzzy set of the direction.
-Using TIVOLI\footnote{\url{https://trac.telecom-paristech.fr/trac/project/tivoli/wiki}} image processing toolbox,
-In order to project to qualitative representation, the binary spatial relation can be extracted by applying a threshold.
+direction is computing intersection of the histogram and the fuzzy set of the direction (Figure~\ref{fig:right}).
+% Using TIVOLI\footnote{\url{https://trac.telecom-paristech.fr/trac/project/tivoli/wiki}} image processing toolbox,
+% In order to project to qualitative representation, the binary spatial relation can be extracted by applying a threshold.
 
-We take the left caudate nucleus (target object) and the left lateral ventricle (reference object) as an example to illustrate the computation\footnote{Here we use ``left'' to represent 
-structures in the left part of image for the simplicity of visualization (i.e. the structure in the left part of image is the right part in the brain.)}.
-The structures are presented in Figure. \ref{fig:cdlvl}.
-
-The histogram of angles includes the count of angles of each pair of pixels in the left caudate nucleus and the left lateral ventricle.
-The histogram is normalized and contains 256 bins as in Figure \ref{fig:histogram_angle}.
+We take the right caudate nucleus (target object) and the right lateral ventricle (reference object)\footnote{Here we use ``right'' to represent 
+structures in the right part of image for the simplicity of visualization (i.e. the structure in the right part of image is the left part in the brain.)} as an example to illustrate the computation.
+The structures are presented in Figure \ref{fig:sturctpair}.
+The histogram of angles includes the count of angles of each pair of voxels in the right caudate nucleus and the right lateral ventricle.
+The angle is composed by a pair $\alpha_1$ and $\alpha_2$. 
+$\alpha_1$ takes value in $[-\pi, \pi]$ for the projection of the segment between two voxels on the x-y coordinate plane and x-coordinate.
+$\alpha_2$ measures the angle between the segment and the x-y coordinate which takes value in $[-\pi/2, \pi/2]$.
+The histogram is normalized and contains 256 bins for $\alpha_1$ and 128 bins for $\alpha_2$ as shown in Figure \ref{fig:histopair}.
+For each two pairs of structures, a set of satisfaction degrees for each directions can be computed.
 
 
 \begin{figure}[h]
  \centering
  \includegraphics[width=.3\textwidth]{./figures/right_lvl_cdl.png}
- \caption{\label{fig:sturctpair}left lateral ventricle and left caudate nucleus from the view of right side.}
+ \caption{\label{fig:sturctpair}The right lateral ventricle and the right caudate nucleus from the view of right side.}
 \end{figure}
 % qualitative spatial relation is evaluated by computing histogram of angles between two objects and comparison with fuzzy set of a certain direction.
 \begin{figure}[h]
  \centering
- \includegraphics[width=.5\textwidth]{./figures/right_cdl_lvl.pdf}
- \caption{\label{fig:histopair}the histogram of angles between left lateral ventricle and left caudate nucleus.}
+ \includegraphics[width=.5\textwidth]{./figures/right_cdl_lvl_crop.pdf}
+ \caption{\label{fig:histopair}The histogram of angles between right lateral ventricle and right caudate nucleus.}
 \end{figure}
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=.5\textwidth]{./figures/right.pdf}
- \caption{\label{fig:right}the fuzzy set of ``right''.}
+ \includegraphics[width=.5\textwidth]{./figures/right_crop.pdf}
+ \caption{\label{fig:right}Fuzzy relation ``right''.}
 \end{figure}
 
-intersection formula.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=.5\textwidth]{./figures/right_nright_thresh_crop.pdf}
+ \caption{\label{fig:thresh}The histogram of intersection degree of the satisfied pairs (red bins) and the ones of the other part.}
+\end{figure}
+
+For choosing a threshold $t$ to assign appropriate directions to a given pairs
 
 
 Then we demonstrates how to choose a threshold.
 For choosing a threshold $t$ for every direction, we manually select all the pairs of structures which satisfy the relation and all the unsatisfied pairs.
-We take the histogram of intersection degree of the satisfied pairs and the ones of the other part.
-Then the threshold is taken by minimizing the error of mis-classification.
-$t=\min $
+We take the histogram of intersection degree of the satisfied pairs (red bins) and the ones of the other part (blue bins) (Figure \ref{fig:thresh}).
+Then the threshold is taken by minimizing the error of mis-classification:
+$E=\frac{\sharp(x_1>threshold)}{\sharp(x_1)}+\frac{\sharp(x_2<threshold)}{\sharp(x_2)}$ where $x_1$ (resp. $x_2$) represents unsatisfied pairs (resp. satisfied pairs) 
+and $\sharp(x_1>threshold)$ (resp. $\sharp(x_2>threshold)$) represents the number of mis-classification of unsatisfied pairs (resp. the number of mis-classification of satisfied pairs).
 
-The symbolic representation is generated in an ABox. All the detected structures and spatial relations are saved in a structural XML file.
+The symbolic representation is generated in an ABox. All the detected structures and spatial relations are saved in a structural XML file using corresponding alias.
 A simple example is given in Figure \ref{fig:owlfile}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=.5\textwidth]{./figures/xml_screenshot.png}
+ \caption{\label{fig:owlfile}A sample of the ABox.}
+\end{figure}
+
 % the context information is extracted (quantification values).
 % The quantification values of the spatial relationships are then transformed to qualitative spatial relations by a threshold. 
 %  This observation is then transformed into a structural representation for the purpose of concept subsumption checking. 
@@ -1023,131 +1044,20 @@ Such an observation can be represented as
 
 % In an image understanding application, we reason about a description which explains a given image in a certain domain.
 In this example, the ABox describes an observation of a given scene and the objective is to find a reasonable description of  the unknown object $b$.
-% This type of reasoning can be treated as an abductive reasoning.
-A possible hypothesized description is $LVl\sqcap \exists isPartOf.Hemisphere$.
-The hypothesis can be verified by a concept subsumption checking: $\mathcal{K} \vDash H\sqsubseteq O$, where $H$ is the explained concept for the observation $O$.
-To check subsumption of the two concepts $H$ and $O$, $\mathcal{K} \vDash H\sqcap \neg O \sqsubseteq \bot$ is required to prove that $H\sqcap \neg O$ is unsatisfiable.
+Therefore, the relationship between $b$ and other individuals are important for the reasoning. 
+We could derive $\langle b,a\rangle:leftOf^-,closeTo^-$ from $\langle a,b\rangle:leftOf,closeTo$ using the inverse property of roles.
+Another spatial reasoning taken into account is verifying inclusion relations by using the transitive property of transitive roles like $isPartOf$ in tableau method (Appendix A). 
+These simple spatial reasonings are not as powerful as those in the reference, however, we consider the objects as a set of pixels instead of approximating an object to a single pixel 
+(The transitivity of direction does not hold any more).
+In addition, topological relations and spatial reasoning on compositions are still an open problem.
+% % This type of reasoning can be treated as an abductive reasoning.
+% A possible hypothesized description is $LVl\sqcap \exists isPartOf.Hemisphere$.
+% The hypothesis can be verified by a concept subsumption checking: $\mathcal{K} \vDash H\sqsubseteq O$, where $H$ is the explained concept for the observation $O$.
+% To check subsumption of the two concepts $H$ and $O$, $\mathcal{K} \vDash H\sqcap \neg O \sqsubseteq \bot$ is required to prove that $H\sqcap \neg O$ is unsatisfiable.
+% 
+% Then the most specific concept (see Definition \ref{def:msc}) of  $b$ can be formulated as $O\equiv \exists (leftOf^-\sqcap closeTo^-). CNl\sqcap \exists isPartOf.Brain$ and $H\equiv LVl\sqcap \exists isPartOf.Hemisphere$.
+% Let $x$ be the interpretation element of the concept $H\sqcap \neg O$. 
 
-In this example, we could derive $\langle b,a\rangle:leftOf^-,closeTo^-$ from $\langle a,b\rangle:leftOf,closeTo$.
-Then the most specific concept (see Definition \ref{def:msc}) of  $b$ can be formulated as $O\equiv \exists (leftOf^-\sqcap closeTo^-). CNl\sqcap \exists isPartOf.Brain$ and $H\equiv LVl\sqcap \exists isPartOf.Hemisphere$.
-Let $x$ be the interpretation element of the concept $H\sqcap \neg O$. 
-
-The tableau is initialized with $\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain\}$.
-According to Definition \ref{def:alchir}, $\sqcap$ and $\sqcup$ rule (rule 2 and rule 3) are applied and we obtain:
-\begin{center}
-\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl\}$}}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
-\end{tikzpicture} 
-\end{center}
-
-To include the terminological knowledge, axioms like $C\sqsubseteq D$ in the TBox can be internalized into single concepts ($\neg C\sqcup D$) and added to $\mathcal{L}(x)$. Here, for the sake of simplicity 
-of demonstration, we only add the internalization of the axiom $LVl \sqsubseteq BrainStructure \sqcap  \exists (rightOf \sqcap closeTo). CNl$ for the first branch.
-\begin{center}
-\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
-\end{tikzpicture}  
-\end{center}
-
-We then apply $\sqcap$ and $\sqcup$ rule (rule 2 and rule 3) again on the first branch:
-\begin{center}
-\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
-	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
-				  child{ node{$\boxtimes$}}}
-		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-). \neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}}}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
-\end{tikzpicture}  
-\end{center}
-
-A clash ($LVl,~\neg LVl$) is detected in the first part of the first branch (closed). We then apply $\exists$ rule (rule 4) on the second part:
-\begin{center}
-\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
-level 3/.style={level distance=2.5cm, sibling distance=6cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
-	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
-				  child{ node{$\boxtimes$}}}
-		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}
-				  child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\
-				  $~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$\\
-				  $\mathcal{L}(y)=\{CNl\}$\\
-				  $\mathcal{E}(\langle x,y \rangle)=\{rightOf,closeTo\}$}}}}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
-\end{tikzpicture}  
-\end{center}
-
-Because of inverse role axiom in the RBox, we can add inverse roles in $\mathcal{E}(\langle x,y \rangle)$ (rule 7) and apply  $\forall$ rule (rule 5) on the second part:
-\begin{center}
-\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
-level 3/.style={level distance=2.5cm, sibling distance=6cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
-	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
-				  child{ node{$\boxtimes$}}}
-		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}
-				  child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\
-				  $~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$\\
-				  $\mathcal{L}(y)=\{CNl,~\neg CNl\}$\\
-				  $\mathcal{E}(\langle x,y \rangle)=\{rightOf,closeTo,leftOf^-,closeTo^-\}$\\
-				  $\mathcal{L}(\langle y,x\rangle)=\{rightOf^-,closeTo^-,leftOf,closeTo\}$}
-				  child{ node{$\boxtimes$}}}}}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
-\end{tikzpicture}  
-\end{center}
-
-The first branch of the tableau is closed because of the clash of $CNl$ and $\neg CNl$ in the second part. We then explore the second branch. At first we apply the $\exists$ rule (rule 4) and then $\forall$ rule (rule 5):
-\begin{center}
-\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
-level 3/.style={level distance=2.5cm, sibling distance=6cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup ( BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
-				  child{ node{$\boxtimes$}}}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}
-		     child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
-				  $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain\}$\\
-				  $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$}}};
-\end{tikzpicture}  
-\end{center}
-
-The axiom $Hemisphere \sqsubseteq \exists isPartOf.Brain$ is internalized and added into $\mathcal{L}(y)$. Then we continue to extend the second branch with expansion rules (rule 2,3,4,6,7):
-\begin{center}
-\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=7cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
-level 3/.style={level distance=3cm, sibling distance=7cm}]
-\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap ( \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup( BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
-				  child{ node{$\boxtimes$}}}
-	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}
-		     child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
-				  $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain$\\
-				  $\neg Hemisphere \sqcup \exists isPartOf.Brain\}$\\
-				  $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$}
-				  child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
-					      $\mathcal{L}(y)=\{ Hemisphere, \neg Brain,$\\$ \forall isPartOf. \neg Brain,$\\
-					      $\neg Hemisphere\}$\\
-					      $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$ }
-					      child{ node{$\boxtimes$}}}
-				  child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
-					      $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain$,\\
-					      $ \exists isPartOf.Brain\}$\\
-					      $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$ }
-					child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
-						    $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain$,\\
-						    $ \exists isPartOf.Brain\}$\\
-						    $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$\\
-						    $\mathcal{L}(z)=\{Brain,\neg Brain,\forall isPartOf.\neg Brain\}$\\
-						    $\mathcal{E}(\langle y,z\rangle)=\{isPartOf\}$}
-						    child{ node{$\boxtimes$}}}}}};
-\end{tikzpicture}  
-\end{center}
-
-In both two parts of the second branch, we get clashes ($Hemisphere$ and $\neg Hemisphere$ in $\mathcal{L}(y)$ for the first part, $Brain$ and $\neg Brain$ in $\mathcal{L}(z)$ for the second part).
-This implies that we cannot find a model for the concept $H\sqcap \neg O$. Therefore, it is unsatisfiable and we can conclude that $K\vDash H\sqsubseteq O$ and $LVl\sqcap \exists isPartOf.Hemisphere$ is a potential
-explanation of the observation.
 \section{Abductive reasoning}\label{sec:abd}
 Abductive reasoning is a backward-chaining inference, consisting in generating hypotheses and finding the ``best'' explanation of a given observation.
 %  inference operation of
@@ -1392,7 +1302,8 @@ A clash in a branch can be divided into two categories:
    \includegraphics[scale=.3]{./figures/smurf.png}
    \caption{\label{fig:smurf}The smurf and its segmentation of different elements.}
  \end{figure} 
-We illustrate this procedure with the image of the Smurf (Figure \ref{fig:smurf}).
+ 
+We illustrate this procedure with the image of the Smurf (Figure \ref{fig:smurf})\footnote{An example of abduction for interpretation of brain tumor is given in Appendix B}.
 In the TBox, we describe the background knowledge that a leader smurf has a beard and wears a red hat as follows:
 \begin{align*}
 \mathcal{T}=\{SmurfLeader &\sqsubseteq \exists hasPart.Beard \sqcap \exists hasOnTop.RedHat, \\
@@ -1561,7 +1472,7 @@ The preferred explanations  rely on different kind of minimality criteria.
 In~\cite{bienvenu08complexity}, Bienvenu provided five basic criteria of abduction problem.
 An abduction problem is defined as: $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$, where $\mathcal{T}$ is a TBox, $\mathcal{H}$ is a set of atomic concepts and $\mathcal{O}$ is the observed concept.
 
-\begin{mydef}{(Explanation~\cite{bienvenu-kr08})}
+\begin{mydef}{(Explanation~\cite{bienvenu08complexity})}
 $\{ A_1,\dots,A_n \} \subseteq \mathcal{H}$ is a subset of $\mathcal{H}$. This set can formulate an hypothesis $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$ only if:
 \begin{itemize}
 \item  $A_1 \sqcap \dots \sqcap A_n$ is satisfiable w.r.t. $\mathcal{T}$.
@@ -1853,19 +1764,37 @@ concepts. We consider the concepts are balanced and use the inclusion criteria, 
 
 
 \section{Perspectives}\label{sec:persp}
-importance of concrete domain, direction semantics has the same properties in the symbolic level,
-a possible model can be built in terms of terminological knowledge.  
-However, in the image representation two inverse relation has different representation domain.
+During the work, we have exploited Description Logics and associated tableau method for knowledge representation and reasoning in image interpretation.
+A first model of background knowledge of brain anatomy  including spatial informations is proposed.  
+At this stage, we have extended the tableau method to adapt to image interpretation by finding a preferred explanation.
 
-Several directions will be presented in this section:
-\begin{itemize}
- \item concrete domain with fuzzy logic.
- Concrete domains are necessary when semantic truth concept has no corresponding space in concrete domain.
- \item how to generate potential hypotheses.
- \item how to select the ``best'' explanation with an appropriate minimality criterion, including criteria taking into account the spatial nature of information
- \item more on spatial reasoning, by considering topological relation and their composition.
- \item perspective of publications.
-\end{itemize}
+For the future study, several directions will be considered.
+Concrete domains are necessary in image interpretation by providing an interface between abstract logical level and concrete image space.
+Because semantic truth model may not have corresponding regions in concrete domains.
+For example, a concept $CNl\sqcap \exists rightOf CNr$ could be verified to be satisfiable w.r.t to a defined TBox, however,
+this concept may not have a model in the image space.
+
+Fuzzy logic is also a useful ingredient in knowledge representation dealing with imprecision and vague information.
+This aspect has been proved to be expressive for spatial reasoning by combining fuzzy relations in the concrete domains to Description Logics for image interpretation~\cite{hudelot2008spatial}.
+Another strategy to integrate fuzzy set theory into knowledge representation is adding fuzzy value to terminological and assertional knowledge in abstract logical level.
+
+Before starting to exploit these two interesting branches, another work in the first place is to generate adaptive hypotheses iteratively.
+We have demonstrated that the tableau method produces a large amount of hypotheses, however, most of them are irrelevant or unsatisfiable.
+In order to avoid getting these hypotheses, an iterative method is considered.
+In stead of adding all internalized concepts into the tableau, we add only the ones corresponding to relative axioms.
+This part will be explored in detail and be prepared for a submission of an international conference.
+
+As we have discussed in Section \ref{sec:qsr}, we have considered spatial relations in a more complex way without approximating an object to a single point,
+Therefore, qualitative spatial reasoning remains an open problem, especially including topological relations and their compositions in abductive reasoning services for the aim of image interpretation.
+
+% Several directions will be presented in this section:
+% \begin{itemize}
+%  \item concrete domain with fuzzy logic.
+%  \item how to generate potential hypotheses.
+%  \item how to select the ``best'' explanation with an appropriate minimality criterion, including criteria taking into account the spatial nature of information
+%  \item more on spatial reasoning, by considering topological relation and their composition.
+%  \item perspective of publications.
+% \end{itemize}
 
 \section{Other Activities}
 During the first half of my thesis, I also participated in different activities in the TII group and TAO group 
@@ -1876,6 +1805,186 @@ in LRI\footnote{Laboratoire de Recherche en Informatique}.
  \item I followed doctoral formations in EDITE\footnote{\url{http://edite-de-paris.fr/spip/}}
  (Formations in French: Rendre des articles attractifs, Intelligence Economique, Brevets, Pratique de la négociation de projet à l'international).
 \end{itemize}
+
+\appendix
+\section{An illustrative example using $\mathcal{ALCHI_{R_+}}$ tableau method}
+\label{Appendix A}
+
+% This type of reasoning can be treated as an abductive reasoning.
+A possible hypothesized description is $LVl\sqcap \exists isPartOf.Hemisphere$.
+The hypothesis can be verified by a concept subsumption checking: $\mathcal{K} \vDash H\sqsubseteq O$, where $H$ is the explained concept for the observation $O$.
+To check subsumption of the two concepts $H$ and $O$, $\mathcal{K} \vDash H\sqcap \neg O \sqsubseteq \bot$ is required to prove that $H\sqcap \neg O$ is unsatisfiable.
+
+Then the most specific concept (see Definition \ref{def:msc}) of  $b$ can be formulated as $O\equiv \exists (leftOf^-\sqcap closeTo^-). CNl\sqcap \exists isPartOf.Brain$ and $H\equiv LVl\sqcap \exists isPartOf.Hemisphere$.
+Let $x$ be the interpretation element of the concept $H\sqcap \neg O$.
+
+
+The tableau is initialized with $\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain\}$.
+According to Definition \ref{def:alchir}, $\sqcap$ and $\sqcup$ rule (rule 2 and rule 3) are applied and we obtain:
+\begin{center}
+\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}]
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl\}$}}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
+\end{tikzpicture} 
+\end{center}
+
+To include the terminological knowledge, axioms like $C\sqsubseteq D$ in the TBox can be internalized into single concepts ($\neg C\sqcup D$) and added to $\mathcal{L}(x)$. Here, for the sake of simplicity 
+of demonstration, we only add the internalization of the axiom $LVl \sqsubseteq BrainStructure \sqcap  \exists (rightOf \sqcap closeTo). CNl$ for the first branch.
+\begin{center}
+\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}]
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
+\end{tikzpicture}  
+\end{center}
+
+We then apply $\sqcap$ and $\sqcup$ rule (rule 2 and rule 3) again on the first branch:
+\begin{center}
+\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm}]
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
+	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
+				  child{ node{$\boxtimes$}}}
+		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-). \neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}}}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
+\end{tikzpicture}  
+\end{center}
+
+A clash ($LVl,~\neg LVl$) is detected in the first part of the first branch (closed). We then apply $\exists$ rule (rule 4) on the second part:
+\begin{center}
+\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
+level 3/.style={level distance=2.5cm, sibling distance=6cm}]
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
+	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
+				  child{ node{$\boxtimes$}}}
+		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}
+				  child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\
+				  $~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$\\
+				  $\mathcal{L}(y)=\{CNl\}$\\
+				  $\mathcal{E}(\langle x,y \rangle)=\{rightOf,closeTo\}$}}}}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
+\end{tikzpicture}  
+\end{center}
+
+Because of inverse role axiom in the RBox, we can add inverse roles in $\mathcal{E}(\langle x,y \rangle)$ (rule 7) and apply  $\forall$ rule (rule 5) on the second part:
+\begin{center}
+\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
+level 3/.style={level distance=2.5cm, sibling distance=6cm}]
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
+	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
+				  child{ node{$\boxtimes$}}}
+		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}
+				  child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\
+				  $~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$\\
+				  $\mathcal{L}(y)=\{CNl,~\neg CNl\}$\\
+				  $\mathcal{E}(\langle x,y \rangle)=\{rightOf,closeTo,leftOf^-,closeTo^-\}$\\
+				  $\mathcal{L}(\langle y,x\rangle)=\{rightOf^-,closeTo^-,leftOf,closeTo\}$}
+				  child{ node{$\boxtimes$}}}}}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
+\end{tikzpicture}  
+\end{center}
+
+The first branch of the tableau is closed because of the clash of $CNl$ and $\neg CNl$ in the second part. We then explore the second branch. At first we apply the $\exists$ rule (rule 4) and then $\forall$ rule (rule 5):
+\begin{center}
+\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
+level 3/.style={level distance=2.5cm, sibling distance=6cm}]
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup ( BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
+				  child{ node{$\boxtimes$}}}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}
+		     child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
+				  $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain\}$\\
+				  $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$}}};
+\end{tikzpicture}  
+\end{center}
+
+The axiom $Hemisphere \sqsubseteq \exists isPartOf.Brain$ is internalized and added into $\mathcal{L}(y)$. Then we continue to extend the second branch with expansion rules (rule 2,3,4,6,7):
+\begin{center}
+\begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=7cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
+level 3/.style={level distance=3cm, sibling distance=7cm}]
+\node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap ( \forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup( BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
+				  child{ node{$\boxtimes$}}}
+	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}
+		     child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
+				  $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain$\\
+				  $\neg Hemisphere \sqcup \exists isPartOf.Brain\}$\\
+				  $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$}
+				  child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
+					      $\mathcal{L}(y)=\{ Hemisphere, \neg Brain,$\\$ \forall isPartOf. \neg Brain,$\\
+					      $\neg Hemisphere\}$\\
+					      $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$ }
+					      child{ node{$\boxtimes$}}}
+				  child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
+					      $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain$,\\
+					      $ \exists isPartOf.Brain\}$\\
+					      $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$ }
+					child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
+						    $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain$,\\
+						    $ \exists isPartOf.Brain\}$\\
+						    $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$\\
+						    $\mathcal{L}(z)=\{Brain,\neg Brain,\forall isPartOf.\neg Brain\}$\\
+						    $\mathcal{E}(\langle y,z\rangle)=\{isPartOf\}$}
+						    child{ node{$\boxtimes$}}}}}};
+\end{tikzpicture}  
+\end{center}
+
+In both two parts of the second branch, we get clashes ($Hemisphere$ and $\neg Hemisphere$ in $\mathcal{L}(y)$ for the first part, $Brain$ and $\neg Brain$ in $\mathcal{L}(z)$ for the second part).
+This implies that we cannot find a model for the concept $H\sqcap \neg O$. Therefore, it is unsatisfiable and we can conclude that $K\vDash H\sqsubseteq O$ and $LVl\sqcap \exists isPartOf.Hemisphere$ is a potential
+explanation of the observation.
+
+\section{Abduction example for brain tumor image interpretation}
+Due to the size of tableau for the example, we only give the knowledge base and the results for a brain tumor interpretation problem using tableau method.
+\begin{align*}
+\mathcal{T}=\{~SmallDeformingTumor &\sqsubseteq BrainTumor\\
+ &~~~~~\sqcap \exists hasEnhancement. NonEnhanced \\
+&~~~~~\sqcap \exists hasBehavior. Infiltrating  \\
+PeripheralDeformingTumor &\sqsubseteq BrainTumor\\
+&~~~~~ \sqcap \exists farFrom. LateralVentricle \\
+&~~~~~ \sqcap \exists hasLocation. PeripheralCerebralHemisphere \} 
+\end{align*}\vspace{-0.9cm}
+\begin{align*}
+\mathcal{O} =\{&~\exists hasEnhancement. NonEnhanced \\
+ &\sqcap \exists farFrom. LateralVentricle \\
+&\sqcap \exists hasLocation. PeripheralCerebralHemisphere \} 
+\end{align*}
+
+In the following part, all the concepts and roles are represented by an abbreviation including the first letter and capital letters.
+In this case the initial node is :$\mathbf{T}(1)=\{\}, \mathbf{F}(1)=\{\neg C_\mathcal{T}\sqcap \mathcal{O}\}$.
+\begin{align*}
+ \neg C_\mathcal{T}\sqcap \mathcal{O}= \{ &(SDT \sqcap \neg BT \sqcup \forall hE. \neg NE \sqcup \forall hB. \neg In) \sqcup \\
+ &(PDT \sqcap \neg BT \sqcup \forall fF. \neg LV \sqcup \forall hL. \neg PCH) \sqcup \\
+ &(\exists hE. NE \sqcap \exists fF. LV \sqcup \exists hL.PCH )\}
+\end{align*}
+Six branches are open in the tableau at the end. In each one, the set of concepts that incapable to be decomposed are:
+ \begin{align*}
+  H_1&=\{ SDT, PDT, \exists hE.NE\}\\
+  H_2&=\{ SDT, PDT, \exists fF.LV\}\\
+  H_3&=\{ SDT, PDT, \exists hL.PCH\}\\
+  H_4&=\{ SDT, \neg BT, \forall fF. \neg LV, \forall hL. \neg PCH, \exists hE.NE\}\\
+  H_5&=\{ PDT, \neg BT, \forall hE. \neg NE, \forall hB. \neg In, \exists fF.LV\}\\
+  H_6&=\{ PDT, \neg BT, \forall hE. \neg NE, \forall hB. \neg In, \exists hL.PCH\}\\
+ \end{align*}
+Then, using the algorithm to generate comprehensive potential hypotheses.
+Selecting a concept of each set. One hypothesis is the combination of these concepts.
+At the same time, inconsistent hypotheses are eliminated, e.g.
+ $SDT \sqcap \neg BT$, 
+$PDT \sqcap \forall fF \neg LV$, etc.
+$\exists hE. NE \sqcap \exists fF. LV \sqcup \exists hL.PCH $
+are removed since the hypothesis is irrelevant.
+
+According to subsumption criterion, $SDT \sqcap \exists fF.LV \sqcap \exists hL.PCH$
+and $PDT \sqcap \exists hE.NE$ are considered as preferred explanations. For example, 
+$SDT \sqcap PDT$ is subsumed by these two hypotheses. Ces deux résultats sont confirmés par les propriétés
+de cohérence, d'explication et de minimalité. Nous obtenons alors deux bonne explications de cette observations:
+\begin{itemize}
+ \item $PeripheralDeformingTumor \sqcap \exists hasEnhancement. NonEnhanced$
+ \item $SmallDeformingTumor\sqcap \exists farFrom. LateralVentricle $\\ $\sqcap \exists hasLocation. PeripheralCerebralHemisphere$
+\end{itemize}
+
 
 \bibliographystyle{plain}
 \bibliography{mi_ref}

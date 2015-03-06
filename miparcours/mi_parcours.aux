@@ -16,6 +16,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  A slice of a pathological brain volume (MRI acquisition), where some structures are annotated.}}{1}{figure.1}}
 \newlabel{fig:patho_brain}{{1}{1}{\label {fig:patho_brain} A slice of a pathological brain volume (MRI acquisition), where some structures are annotated}{figure.1}{}}
+\citation{carsten2005keys}
 \citation{tousch2012semantic}
 \citation{lavee2009understanding}
 \citation{atif2014explanatory}
@@ -29,6 +30,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Problem formulation}{2}{subsection.1.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  A general schema of image interpretation task in the thesis.}}{2}{figure.2}}
 \newlabel{fig:intro_schema}{{2}{2}{\label {fig:intro_schema} A general schema of image interpretation task in the thesis}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Related work}{2}{subsection.1.2}}
 \citation{Bloch2005fuzzy}
 \citation{fouquier2012sequential}
 \citation{Hudelot2008fuzzy}
@@ -53,25 +55,25 @@
 \citation{studer1998knowledge}
 \citation{horrocks1999description}
 \citation{baader2003description}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Related work}{3}{subsection.1.2}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Preliminaries}{3}{section.2}}
 \newlabel{sec:pre}{{2}{3}{Preliminaries\relax }{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Ontologies}{3}{subsection.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Description Logics}{3}{subsection.2.2}}
 \citation{baader2003description}
 \citation{baader2003description}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Description Logics}{4}{subsection.2.2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Syntax and semantics}{4}{subsubsection.2.2.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Syntax and interpretations of $\mathcal  {ALC}$\nobreakspace  {}\cite  {baader2003description}.}}{4}{table.1}}
+\newlabel{tab:interpretation}{{1}{4}{Syntax and semantics\relax }{table.1}{}}
 \citation{baader2003description}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Syntax and interpretations of $\mathcal  {ALC}$\nobreakspace  {}\cite  {baader2003description}.}}{5}{table.1}}
-\newlabel{tab:interpretation}{{1}{5}{Syntax and semantics\relax }{table.1}{}}
+\citation{baader2003description}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Reasoning services}{5}{subsubsection.2.2.2}}
-\citation{baader2003description}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Tableau method reasoning}{5}{subsection.2.3}}
+\newlabel{sec:reasoning}{{2.3}{5}{Tableau method reasoning\relax }{subsection.2.3}{}}
+\citation{horrocks1999description}
 \citation{baader2001overview}
 \citation{gore2007exptime}
 \citation{nguyen2009efficient}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Tableau method reasoning}{6}{subsection.2.3}}
-\newlabel{sec:reasoning}{{2.3}{6}{Tableau method reasoning\relax }{subsection.2.3}{}}
-\newlabel{def:tableauALC}{{6}{6}{Tableau method reasoning\relax }{mydef.6}{}}
+\newlabel{def:tableauALC}{{7}{6}{Tableau method reasoning\relax }{mydef.7}{}}
 \citation{Bloch2005fuzzy}
 \citation{freeman1975modelling}
 \citation{Hudelot2008fuzzy}
@@ -113,27 +115,28 @@
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Basic role relations}}{11}{table.4}}
 \newlabel{tab:synrole}{{4}{11}{Syntax and semantics of roles\relax }{table.4}{}}
 \citation{horrocks1999description}
-\citation{horrocks1999description}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Syntax and interpretations of $\mathcal  {ALCHI_{R_+}}$.}}{12}{table.5}}
 \newlabel{tab:interpretation}{{5}{12}{Syntax and semantics of roles\relax }{table.5}{}}
-\citation{horrocks1999description}
 \citation{Bloch2005fuzzy}
-\newlabel{def:alchir}{{12}{13}{Syntax and semantics of roles\relax }{Item.11}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}From image to symbolic representation}{13}{subsection.3.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A segmented brain volume (structures are marked by different colors, e.g. the right lateral ventricle is in red).}}{14}{figure.3}}
-\newlabel{fig:brain3d}{{3}{14}{\label {fig:brain3d}A segmented brain volume (structures are marked by different colors, e.g. the right lateral ventricle is in red)}{figure.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces left lateral ventricle and left caudate nucleus from the view of right side.}}{14}{figure.4}}
-\newlabel{fig:sturctpair}{{4}{14}{\label {fig:sturctpair}left lateral ventricle and left caudate nucleus from the view of right side}{figure.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Example}{14}{subsection.3.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces the histogram of angles between left lateral ventricle and left caudate nucleus.}}{15}{figure.5}}
-\newlabel{fig:histopair}{{5}{15}{\label {fig:histopair}the histogram of angles between left lateral ventricle and left caudate nucleus}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces the fuzzy set of ``right''.}}{16}{figure.6}}
-\newlabel{fig:right}{{6}{16}{\label {fig:right}the fuzzy set of ``right''}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A segmented brain volume (structures are marked by different colors, e.g. the left lateral ventricle is in red.).}}{13}{figure.3}}
+\newlabel{fig:brain3d}{{3}{13}{\label {fig:brain3d}A segmented brain volume (structures are marked by different colors, e.g. the left lateral ventricle is in red.)}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The right lateral ventricle and the right caudate nucleus from the view of right side.}}{13}{figure.4}}
+\newlabel{fig:sturctpair}{{4}{13}{\label {fig:sturctpair}The right lateral ventricle and the right caudate nucleus from the view of right side}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The histogram of angles between right lateral ventricle and right caudate nucleus.}}{14}{figure.5}}
+\newlabel{fig:histopair}{{5}{14}{\label {fig:histopair}The histogram of angles between right lateral ventricle and right caudate nucleus}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Fuzzy relation ``right''.}}{14}{figure.6}}
+\newlabel{fig:right}{{6}{14}{\label {fig:right}Fuzzy relation ``right''}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The histogram of intersection degree of the satisfied pairs (red bins) and the ones of the other part.}}{15}{figure.7}}
+\newlabel{fig:thresh}{{7}{15}{\label {fig:thresh}The histogram of intersection degree of the satisfied pairs (red bins) and the ones of the other part}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces A sample of the ABox.}}{15}{figure.8}}
+\newlabel{fig:owlfile}{{8}{15}{\label {fig:owlfile}A sample of the ABox}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Example}{15}{subsection.3.4}}
 \citation{aliseda1997seeking}
 \citation{elsenbroich2006case}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Abductive reasoning}{19}{section.4}}
-\newlabel{sec:abd}{{4}{19}{Abductive reasoning\relax }{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}State of the art of abductive reasoning}{19}{subsection.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Abductive reasoning}{16}{section.4}}
+\newlabel{sec:abd}{{4}{16}{Abductive reasoning\relax }{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}State of the art of abductive reasoning}{16}{subsection.4.1}}
 \citation{atif2014explanatory}
 \citation{gries2010probabilistic}
 \citation{neumann2008scene}
@@ -148,32 +151,37 @@
 \citation{du2014tractable}
 \citation{du2014tractable}
 \citation{bienvenu08complexity}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Abductive reasoning for image interpretation}{20}{subsection.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Abductive reasoning for image interpretation}{17}{subsection.4.2}}
 \citation{atif2014explanatory}
 \citation{aliseda1997seeking}
 \citation{baader2003description}
 \citation{colucci2004uniform}
-\newlabel{def:msc}{{13}{21}{Abductive reasoning for image interpretation\relax }{mydef.13}{}}
-\newlabel{def:ic}{{14}{21}{Abductive reasoning for image interpretation\relax }{mydef.14}{}}
+\newlabel{def:msc}{{12}{18}{Abductive reasoning for image interpretation\relax }{mydef.12}{}}
+\newlabel{def:ic}{{13}{18}{Abductive reasoning for image interpretation\relax }{mydef.13}{}}
 \citation{colucci2004uniform}
-\newlabel{clash}{{15}{23}{Abductive reasoning for image interpretation\relax }{Item.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The smurf and its segmentation of different elements.}}{23}{figure.7}}
-\newlabel{fig:smurf}{{7}{23}{\label {fig:smurf}The smurf and its segmentation of different elements}{figure.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The process of constructing the tableau by applying expansion rules.}}{24}{figure.8}}
-\newlabel{fig:grandst}{{8}{24}{The process of constructing the tableau by applying expansion rules}{figure.8}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Tableau closure (minimal hitting set)}{24}{subsubsection.4.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The smurf and its segmentation of different elements.}}{20}{figure.9}}
+\newlabel{fig:smurf}{{9}{20}{\label {fig:smurf}The smurf and its segmentation of different elements}{figure.9}{}}
+\newlabel{clash}{{14}{20}{Abductive reasoning for image interpretation\relax }{Item.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces The process of constructing the tableau by applying expansion rules.}}{21}{figure.10}}
+\newlabel{fig:grandst}{{10}{21}{The process of constructing the tableau by applying expansion rules}{figure.10}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Tableau closure (minimal hitting set)}{21}{subsubsection.4.2.1}}
 \citation{bienvenu08complexity}
-\citation{bienvenu-kr08}
 \citation{bienvenu08complexity}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Hitting set construction tree.}}{25}{figure.9}}
-\newlabel{fig:hittingtree}{{9}{25}{Hitting set construction tree.\label {fig:hittingtree}\relax }{figure.9}{}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Exhaustive search algorithm of selecting hitting sets.}}{25}{algocf.1}}
-\newlabel{exhaustive}{{1}{25}{Tableau closure (minimal hitting set)\relax }{algocf.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Minimality criteria}{25}{subsection.4.3}}
+\citation{bienvenu08complexity}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Hitting set construction tree.}}{22}{figure.11}}
+\newlabel{fig:hittingtree}{{11}{22}{Hitting set construction tree.\label {fig:hittingtree}\relax }{figure.11}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Exhaustive search algorithm of selecting hitting sets.}}{22}{algocf.1}}
+\newlabel{exhaustive}{{1}{22}{Tableau closure (minimal hitting set)\relax }{algocf.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Minimality criteria}{22}{subsection.4.3}}
 \citation{colucci2004uniform}
 \citation{atif2014explanatory}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Perspectives}{26}{section.5}}
-\newlabel{sec:persp}{{5}{26}{Perspectives\relax }{section.5}{}}
+\citation{hudelot2008spatial}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Perspectives}{23}{section.5}}
+\newlabel{sec:persp}{{5}{23}{Perspectives\relax }{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Other Activities}{24}{section.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}An illustrative example using $\mathcal  {ALCHI_{R_+}}$ tableau method}{24}{appendix.A}}
+\newlabel{Appendix A}{{A}{24}{An illustrative example using $\mathcal {ALCHI_{R_+}}$ tableau method\relax }{appendix.A}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Abduction example for brain tumor image interpretation}{27}{appendix.B}}
 \bibstyle{plain}
 \bibdata{mi_ref}
 \bibcite{alexander1986knowledge}{1}
@@ -185,46 +193,46 @@
 \bibcite{bannour2011towards}{7}
 \bibcite{bienvenu08complexity}{8}
 \bibcite{Bloch2005fuzzy}{9}
-\bibcite{chen2013survey}{10}
-\bibcite{cohn1997qualitative}{11}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Other Activities}{27}{section.6}}
-\bibcite{colucci2004uniform}{12}
-\bibcite{du2011towards}{13}
-\bibcite{egenhofer1991reasoning}{14}
-\bibcite{elsenbroich2006case}{15}
-\bibcite{Espinosa07multimedia}{16}
-\bibcite{forestier2012knowledge}{17}
-\bibcite{fouquier2012sequential}{18}
-\bibcite{freeman1975modelling}{19}
-\bibcite{freksa1991qualitative}{20}
-\bibcite{gore2007exptime}{21}
-\bibcite{gries2010probabilistic}{22}
-\bibcite{han2009bottom}{23}
-\bibcite{horrocks1999description}{24}
-\bibcite{hudelot2008spatial}{25}
-\bibcite{Hudelot2008fuzzy}{26}
-\bibcite{du2014tractable}{27}
-\bibcite{halland2014tbox}{28}
-\bibcite{klarman2011abox}{29}
-\bibcite{kuipers1978modeling}{30}
-\bibcite{lavee2009understanding}{31}
-\bibcite{Luo2005Bayesian}{32}
-\bibcite{lutz2007tableau}{33}
-\bibcite{nempont2013constraint}{34}
-\bibcite{neumann2008scene}{35}
-\bibcite{nguyen2009efficient}{36}
-\bibcite{Niko2009evidence}{37}
-\bibcite{randell1992spatial}{38}
-\bibcite{santos2012region}{39}
-\bibcite{shanahan2005perception}{40}
-\bibcite{Singhal2003proba}{41}
-\bibcite{studer1998knowledge}{42}
-\bibcite{tousch2012semantic}{43}
-\bibcite{town2006ontological}{44}
-\bibcite{tsotsos1992image}{45}
-\bibcite{tu2014joint}{46}
-\bibcite{vanegas2010detection}{47}
-\bibcite{wessel2000obstacle}{48}
-\bibcite{wessel00alcra}{49}
-\bibcite{wu2011numerical}{50}
-\bibcite{zhu2006stochastic}{51}
+\bibcite{carsten2005keys}{10}
+\bibcite{chen2013survey}{11}
+\bibcite{cohn1997qualitative}{12}
+\bibcite{colucci2004uniform}{13}
+\bibcite{du2011towards}{14}
+\bibcite{egenhofer1991reasoning}{15}
+\bibcite{elsenbroich2006case}{16}
+\bibcite{Espinosa07multimedia}{17}
+\bibcite{forestier2012knowledge}{18}
+\bibcite{fouquier2012sequential}{19}
+\bibcite{freeman1975modelling}{20}
+\bibcite{freksa1991qualitative}{21}
+\bibcite{gore2007exptime}{22}
+\bibcite{gries2010probabilistic}{23}
+\bibcite{han2009bottom}{24}
+\bibcite{horrocks1999description}{25}
+\bibcite{hudelot2008spatial}{26}
+\bibcite{Hudelot2008fuzzy}{27}
+\bibcite{du2014tractable}{28}
+\bibcite{halland2014tbox}{29}
+\bibcite{klarman2011abox}{30}
+\bibcite{kuipers1978modeling}{31}
+\bibcite{lavee2009understanding}{32}
+\bibcite{Luo2005Bayesian}{33}
+\bibcite{lutz2007tableau}{34}
+\bibcite{nempont2013constraint}{35}
+\bibcite{neumann2008scene}{36}
+\bibcite{nguyen2009efficient}{37}
+\bibcite{Niko2009evidence}{38}
+\bibcite{randell1992spatial}{39}
+\bibcite{santos2012region}{40}
+\bibcite{shanahan2005perception}{41}
+\bibcite{Singhal2003proba}{42}
+\bibcite{studer1998knowledge}{43}
+\bibcite{tousch2012semantic}{44}
+\bibcite{town2006ontological}{45}
+\bibcite{tsotsos1992image}{46}
+\bibcite{tu2014joint}{47}
+\bibcite{vanegas2010detection}{48}
+\bibcite{wessel2000obstacle}{49}
+\bibcite{wessel00alcra}{50}
+\bibcite{wu2011numerical}{51}
+\bibcite{zhu2006stochastic}{52}
