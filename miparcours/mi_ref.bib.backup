@@ -1,3 +1,49 @@
+%% general image interpretation
+@article{tousch2012semantic,
+  title={Semantic hierarchies for image annotation: A survey},
+  author={Tousch, Anne-Marie and Herbin, St{\'e}phane and Audibert, Jean-Yves},
+  journal={Pattern Recognition},
+  volume={45},
+  number={1},
+  pages={333--345},
+  year={2012},
+  publisher={Elsevier}
+}
+
+@article{lavee2009understanding,
+  title={Understanding video events: a survey of methods for automatic interpretation of semantic occurrences in video},
+  author={Lavee, Gal and Rivlin, Ehud and Rudzsky, Michael},
+  journal={IEEE Transactions on Systems, Man, and Cybernetics, Part C: Applications and Reviews},
+  volume={39},
+  number={5},
+  pages={489--504},
+  year={2009},
+  publisher={IEEE}
+}
+@article{forestier2012knowledge,
+  title={Knowledge-based region labeling for remote sensing image interpretation},
+  author={Forestier, Germain and Puissant, Anne and Wemmert, C{\'e}dric and Gan{\c{c}}arski, Pierre},
+  journal={Computers, Environment and Urban Systems},
+  volume={36},
+  number={5},
+  pages={470--480},
+  year={2012},
+  publisher={Elsevier}
+}
+@inproceedings{vanegas2010detection,
+  title={Detection of aligned objects for high resolution image understanding.},
+  author={Vanegas, Maria Carolina and Bloch, Isabelle and Inglada, Jordi},
+  booktitle={IGARSS},
+  pages={464--467},
+  year={2010}
+}
+@inproceedings{atif2007grafip,
+  title={GRAFIP: A framework for the representation of healthy and pathological cerebral information},
+  author={Atif, Jamal and Hudelot, C{\'e}line and Nempont, Olivier and Richard, Nathalie and Batrancourt, B{\'e}n{\'e}dicte and Angelini, E and Bloch, Isabelle},
+  booktitle={ 4th IEEE International Symposium on Biomedical Imaging: From Nano to Macro},
+  pages={205--208},
+  year={2007}
+}
 %% image interpretation
 % ontology
 @article{town2006ontological,
@@ -40,10 +86,9 @@
 @inproceedings{bannour2011towards,
   title={Towards ontologies for image interpretation and annotation},
   author={Bannour, Hichem and Hudelot, C{\'e}line},
-  booktitle={Procedding of 9th International Workshop on Content-Based Multimedia Indexing (CBMI)},
+  booktitle={9th International Workshop on Content-Based Multimedia Indexing (CBMI)},
   pages={211--216},
-  year={2011},
-  organization={IEEE}
+  year={2011}
 }
 
 @incollection{tsotsos1992image,
@@ -305,7 +350,7 @@ year = {2012}
 % Description Logic
 @book{baader2003description,
   title={The Description Logic handbook: theory, implementation, and applications},
-  author={Baader, Franz},
+  author={Baader, Franz and Calvanese, Diego and McGuinness, Deborah L. and Nardi, Daniele and Patel-Schneider, Peter F.},
   year={2003},
   publisher={Cambridge university press}
 }
@@ -319,6 +364,24 @@ year = {2012}
   year={1999},
   publisher={Oxford Univ Press}
 }
+
+% concrete domains
+@article{carsten2005keys,
+  title={Keys, nominals, and concrete domains},
+  author={Carsten, Lutz and Areces, Carlos and Horrocks, Ian and Sattler, Ulrike},
+  journal={Journal of Artificial Intelligence Research},
+  volume={23},
+  pages={667--726},
+  year={2005}
+}
+@inproceedings{hudelot2008spatial,
+  title={A spatial relation ontology using mathematical morphology and description logics for spatial reasoning},
+  author={Hudelot, C{\'e}line and Atif, Jamal and Bloch, Isabelle},
+  booktitle={ECAI workshop on Spatial and Temporal Reasoning},
+  pages={21--25},
+  year={2008}
+}
+
 % tableaux method
 @article{baader2001overview,
   title={An overview of tableau algorithms for Description Logics},

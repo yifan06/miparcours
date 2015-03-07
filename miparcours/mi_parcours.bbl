@@ -84,6 +84,12 @@ Simona Colucci, Tommaso Di~Noia, Eugenio Di~Sciascio, Francesco~M. Donini, and
 \newblock In {\em 17th International Workshop on Description Logics (DL)},
   volume 104, pages 158--167, 2004.
 
+\bibitem{di2007semantic}
+Tommaso Di~Noia, Eugenio Di~Sciascio, and Francesco~M Donini.
+\newblock Semantic matchmaking as non-monotonic reasoning: A description logic
+  approach.
+\newblock 2007.
+
 \bibitem{du2011towards}
 Jianfeng Du, Guilin Qi, Yi-Dong Shen, and Jeff~Z. Pan.
 \newblock Towards practical abox abduction in large {OWL} {DL} ontologies.

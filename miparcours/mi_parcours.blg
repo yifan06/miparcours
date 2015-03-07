@@ -16,48 +16,54 @@ Repeated entry---line 377 of file mi_ref.bib
  : @inproceedings{hudelot2008spatial
  :                                  ,
 I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 443 of file mi_ref.bib
+ :   
+ :   volume={29},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty journal in di2007semantic
 Warning--there's a number but no volume in freksa1991qualitative
 Warning--empty year in nempont2013constraint
 Warning--can't use both author and editor fields in santos2012region
-You've used 52 entries,
+You've used 53 entries,
             2118 wiz_defined-function locations,
-            819 strings with 14158 characters,
-and the built_in function-call counts, 20733 in all, are:
-= -- 2080
-> -- 893
+            822 strings with 14315 characters,
+and the built_in function-call counts, 21003 in all, are:
+= -- 2104
+> -- 911
 < -- 25
-+ -- 371
-- -- 300
-* -- 1467
-:= -- 3238
-add.period$ -- 162
-call.type$ -- 52
-change.case$ -- 304
++ -- 378
+- -- 306
+* -- 1484
+:= -- 3288
+add.period$ -- 165
+call.type$ -- 53
+change.case$ -- 310
 chr.to.int$ -- 0
-cite$ -- 55
-duplicate$ -- 823
-empty$ -- 1649
-format.name$ -- 300
-if$ -- 4477
+cite$ -- 57
+duplicate$ -- 833
+empty$ -- 1666
+format.name$ -- 306
+if$ -- 4529
 int.to.chr$ -- 0
-int.to.str$ -- 52
-missing$ -- 52
-newline$ -- 263
-num.names$ -- 104
-pop$ -- 314
+int.to.str$ -- 53
+missing$ -- 53
+newline$ -- 268
+num.names$ -- 106
+pop$ -- 322
 preamble$ -- 1
-purify$ -- 254
+purify$ -- 259
 quote$ -- 0
-skip$ -- 626
+skip$ -- 633
 stack$ -- 0
-substring$ -- 1539
+substring$ -- 1544
 swap$ -- 258
 text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 204
-warning$ -- 3
-while$ -- 206
-width$ -- 54
-write$ -- 582
-(There were 3 error messages)
+type$ -- 208
+warning$ -- 4
+while$ -- 208
+width$ -- 55
+write$ -- 591
+(There were 4 error messages)
