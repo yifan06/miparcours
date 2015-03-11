@@ -16,54 +16,47 @@ Repeated entry---line 377 of file mi_ref.bib
  : @inproceedings{hudelot2008spatial
  :                                  ,
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 443 of file mi_ref.bib
- :   
- :   volume={29},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Warning--empty journal in di2007semantic
 Warning--there's a number but no volume in freksa1991qualitative
 Warning--empty year in nempont2013constraint
-Warning--can't use both author and editor fields in santos2012region
 You've used 53 entries,
             2118 wiz_defined-function locations,
-            822 strings with 14314 characters,
-and the built_in function-call counts, 21003 in all, are:
-= -- 2104
+            822 strings with 14310 characters,
+and the built_in function-call counts, 21114 in all, are:
+= -- 2123
 > -- 911
 < -- 25
 + -- 378
 - -- 306
-* -- 1484
-:= -- 3288
-add.period$ -- 165
+* -- 1494
+:= -- 3303
+add.period$ -- 166
 call.type$ -- 53
-change.case$ -- 310
+change.case$ -- 311
 chr.to.int$ -- 0
-cite$ -- 57
-duplicate$ -- 833
-empty$ -- 1666
+cite$ -- 55
+duplicate$ -- 836
+empty$ -- 1678
 format.name$ -- 306
-if$ -- 4529
+if$ -- 4557
 int.to.chr$ -- 0
 int.to.str$ -- 53
-missing$ -- 53
+missing$ -- 52
 newline$ -- 268
 num.names$ -- 106
-pop$ -- 322
+pop$ -- 317
 preamble$ -- 1
 purify$ -- 259
 quote$ -- 0
 skip$ -- 633
 stack$ -- 0
-substring$ -- 1544
+substring$ -- 1569
 swap$ -- 258
 text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 208
-warning$ -- 4
-while$ -- 208
+type$ -- 210
+warning$ -- 2
+while$ -- 210
 width$ -- 55
-write$ -- 591
-(There were 4 error messages)
+write$ -- 594
+(There were 3 error messages)

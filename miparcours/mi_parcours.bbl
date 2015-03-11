@@ -88,7 +88,7 @@ Simona Colucci, Tommaso Di~Noia, Eugenio Di~Sciascio, Francesco~M. Donini, and
 Tommaso Di~Noia, Eugenio Di~Sciascio, and Francesco~M Donini.
 \newblock Semantic matchmaking as non-monotonic reasoning: A description logic
   approach.
-\newblock 2007.
+\newblock {\em Journal of Artificial Intelligence Research}, 29:269--307, 2007.
 
 \bibitem{du2011towards}
 Jianfeng Du, Guilin Qi, Yi-Dong Shen, and Jeff~Z. Pan.
@@ -256,9 +256,10 @@ David~A Randell, Zhan Cui, and Anthony~G Cohn.
 \bibitem{santos2012region}
 Paulo Santos, Rodolpho Freire, Danilo~N. dos Santos, Carlos Thomaz, Paulo
   Sallet, Mario Louza, and Anthony~G. Cohn.
-\newblock {\em A region-based ontology of the brain ventricular system and its
-  relation to schizophrenia}, chapter~7, pages 256--273.
-\newblock IGI Global, 2012.
+\newblock A region-based ontology of the brain ventricular system and its
+  relation to schizophrenia.
+\newblock In {\em Qualitative Spatio-temporal Representation and Reasoning:
+  Trends and Future Directions}, chapter~7, pages 256--273. IGI Global, 2012.
 
 \bibitem{shanahan2005perception}
 Murray Shanahan.

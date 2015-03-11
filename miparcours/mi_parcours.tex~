@@ -1402,7 +1402,7 @@ Similarly,
 $\exists hE. NE \sqcap \exists fF. LV \sqcup \exists hL.PCH $
 are removed since the hypothesis is irrelevant.
 
-According to subsumption criterion, $SDT \sqcap \exists fF.LV \sqcap \exists hL.PCH$
+According to the subsumption criterion, $SDT \sqcap \exists fF.LV \sqcap \exists hL.PCH$
 and $PDT \sqcap \exists hE.NE$ are considered as preferred explanations. For example, 
 $SDT \sqcap PDT$ is subsumed by these two hypotheses. 
 These two results fulfill the consistency, relevance and the minimality criteria:

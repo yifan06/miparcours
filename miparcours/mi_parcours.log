@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  11 MAR 2015 15:13
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  11 MAR 2015 15:33
 entering extended mode
  %&-line parsing enabled.
 **mi_parcours.tex
@@ -3335,81 +3335,29 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 46.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-
-LaTeX Warning: Citation `hudelot2008spatial' on page 1 undefined on input line 
-55.
-
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 61.
+
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
 
-<./figures/patho_brain.png, id=111, 640.3925pt x 494.84875pt>
+<./figures/patho_brain.png, id=112, 640.3925pt x 494.84875pt>
 File: ./figures/patho_brain.png Graphic file (type png)
 
 <use ./figures/patho_brain.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: Citation `aliseda1997seeking' on page 1 undefined on input line 
-75.
-
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<./figures/schemageneral.pdf, id=126, 306.14375pt x 175.65625pt>
+<./figures/schemageneral.pdf, id=129, 306.14375pt x 175.65625pt>
 File: ./figures/schemageneral.pdf Graphic file (type pdf)
 
-<use ./figures/schemageneral.pdf>
-
-LaTeX Warning: Citation `carsten2005keys' on page 2 undefined on input line 91.
-
-
-
-LaTeX Warning: Citation `tousch2012semantic' on page 2 undefined on input line 
-107.
-
-
-LaTeX Warning: Citation `lavee2009understanding' on page 2 undefined on input l
-ine 107.
-
-
-LaTeX Warning: Citation `atif2014explanatory' on page 2 undefined on input line
- 108.
-
-
-LaTeX Warning: Citation `atif2007grafip' on page 2 undefined on input line 108.
-
-
-
-LaTeX Warning: Citation `atif2014explanatory' on page 2 undefined on input line
- 109.
-
-
-LaTeX Warning: Citation `Bloch2005fuzzy' on page 2 undefined on input line 109.
-
-
-
-LaTeX Warning: Citation `fouquier2012sequential' on page 2 undefined on input l
-ine 109.
-
-
-LaTeX Warning: Citation `nempont2013constraint' on page 2 undefined on input li
-ne 109.
-
-
-LaTeX Warning: Citation `forestier2012knowledge' on page 2 undefined on input l
-ine 110.
-
-
-LaTeX Warning: Citation `vanegas2010detection' on page 2 undefined on input lin
-e 110.
-
-[2pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
-has been already used, duplicate ignored
+<use ./figures/schemageneral.pdf> [2pdfTeX warning (ext4): destination with the
+ same identifier (name{figure.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -3420,132 +3368,19 @@ l.111
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.111 
-       <./figures/patho_brain.png> <./figures/schemageneral.pdf>]
-
-LaTeX Warning: Citation `Bloch2005fuzzy' on page 3 undefined on input line 114.
-
-
-
-LaTeX Warning: Citation `fouquier2012sequential' on page 3 undefined on input l
-ine 114.
-
-
-LaTeX Warning: Citation `Hudelot2008fuzzy' on page 3 undefined on input line 11
-4.
-
-
-LaTeX Warning: Citation `nempont2013constraint' on page 3 undefined on input li
-ne 114.
-
-
-LaTeX Warning: Citation `atif2014explanatory' on page 3 undefined on input line
- 115.
-
-
-LaTeX Warning: Citation `Espinosa07multimedia' on page 3 undefined on input lin
-e 115.
-
-
-LaTeX Warning: Citation `tsotsos1992image' on page 3 undefined on input line 11
-8.
-
-
-LaTeX Warning: Citation `Luo2005Bayesian' on page 3 undefined on input line 121
-.
-
-
-LaTeX Warning: Citation `Niko2009evidence' on page 3 undefined on input line 12
-1.
-
-
-LaTeX Warning: Citation `Singhal2003proba' on page 3 undefined on input line 12
-1.
-
-
-LaTeX Warning: Citation `tu2014joint' on page 3 undefined on input line 124.
-
-
-LaTeX Warning: Citation `zhu2006stochastic' on page 3 undefined on input line 1
-24.
-
-
-LaTeX Warning: Citation `han2009bottom' on page 3 undefined on input line 127.
-
-
-LaTeX Warning: Citation `wu2011numerical' on page 3 undefined on input line 127
-.
-
-
-LaTeX Warning: Citation `Espinosa07multimedia' on page 3 undefined on input lin
-e 134.
-
-
-LaTeX Warning: Citation `neumann2008scene' on page 3 undefined on input line 13
-5.
-
-
-LaTeX Warning: Citation `atif2014explanatory' on page 3 undefined on input line
- 139.
-
-
-LaTeX Warning: Citation `alexander1986knowledge' on page 3 undefined on input l
-ine 149.
-
-
-LaTeX Warning: Citation `bannour2011towards' on page 3 undefined on input line 
-150.
-
-
-LaTeX Warning: Citation `Hudelot2008fuzzy' on page 3 undefined on input line 15
-0.
-
-
-LaTeX Warning: Citation `town2006ontological' on page 3 undefined on input line
- 150.
-
-
-LaTeX Warning: Citation `studer1998knowledge' on page 3 undefined on input line
- 151.
-
-[3]
-
-LaTeX Warning: Citation `horrocks1999description' on page 4 undefined on input 
-line 158.
-
-
-LaTeX Warning: Citation `baader2003description' on page 4 undefined on input li
-ne 162.
-
-
-LaTeX Warning: Citation `baader2003description' on page 4 undefined on input li
-ne 166.
-
+       <./figures/patho_brain.png> <./figures/schemageneral.pdf>] [3]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 177.
 LaTeX Font Info:    Try loading font information for U+euf on input line 181.
+
 (/usr/share/texmf-texlive/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 )
-
-LaTeX Warning: Citation `baader2003description' on page 4 undefined on input li
-ne 232.
-
-
 Overfull \hbox (8.71802pt too wide) in paragraph at lines 231--234
 [][]
  []
 
-[4]
-
-LaTeX Warning: Citation `baader2003description' on page 5 undefined on input li
-ne 272.
-
-[5]
-
-LaTeX Warning: Citation `baader2003description' on page 6 undefined on input li
-ne 277.
-
-
+[4] [5]
 Overfull \hbox (21.6501pt too wide) in paragraph at lines 292--293
 []\OT1/cmr/m/n/10 For ex-am-ple, the nega-tion nor-mal form of the con-cept $\O
 MS/cmsy/m/n/10 :\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 BrainStructure \OMS/cmsy/m/n/
@@ -3553,94 +3388,8 @@ MS/cmsy/m/n/10 :\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 BrainStructure \OMS/cmsy/m/n/
 cmm/m/it/10 BrainStructure \OMS/cmsy/m/n/10 t
  []
 
-
-LaTeX Warning: Citation `di2007semantic' on page 6 undefined on input line 294.
-
-
-
-LaTeX Warning: Citation `horrocks1999description' on page 6 undefined on input 
-line 302.
-
-
-LaTeX Warning: Citation `baader2003description' on page 6 undefined on input li
-ne 321.
-
-[6]
-
-LaTeX Warning: Citation `baader2001overview' on page 7 undefined on input line 
-329.
-
-
-LaTeX Warning: Citation `gore2007exptime' on page 7 undefined on input line 329
-.
-
-
-LaTeX Warning: Citation `nguyen2009efficient' on page 7 undefined on input line
- 329.
-
-[7]
-
-LaTeX Warning: Citation `Bloch2005fuzzy' on page 8 undefined on input line 416.
-
-
-
-LaTeX Warning: Citation `freeman1975modelling' on page 8 undefined on input lin
-e 416.
-
-
-LaTeX Warning: Citation `Hudelot2008fuzzy' on page 8 undefined on input line 41
-6.
-
-
-LaTeX Warning: Citation `kuipers1978modeling' on page 8 undefined on input line
- 416.
-
-
-LaTeX Warning: Citation `freksa1991qualitative' on page 8 undefined on input li
-ne 417.
-
-[8]
-
-LaTeX Warning: Citation `chen2013survey' on page 9 undefined on input line 443.
-
-
-
-LaTeX Warning: Citation `randell1992spatial' on page 9 undefined on input line 
-449.
-
-
-LaTeX Warning: Citation `cohn1997qualitative' on page 9 undefined on input line
- 465.
-
-
-LaTeX Warning: Citation `randell1992spatial' on page 9 undefined on input line 
-466.
-
-
-LaTeX Warning: Citation `egenhofer1991reasoning' on page 9 undefined on input l
-ine 468.
-
-
-LaTeX Warning: Citation `wessel2000obstacle' on page 9 undefined on input line 
-474.
-
-
-LaTeX Warning: Citation `wessel00alcra' on page 9 undefined on input line 474.
-
-
-LaTeX Warning: Citation `wessel2000obstacle' on page 9 undefined on input line 
-475.
-
-
-LaTeX Warning: Citation `lutz2007tableau' on page 9 undefined on input line 476
-.
-
-
-LaTeX Warning: Citation `santos2012region' on page 9 undefined on input line 47
-9.
-
-
-Overfull \hbox (22.23448pt too wide) in paragraph at lines 465--482
+[6] [7] [8]
+Overfull \hbox (26.80399pt too wide) in paragraph at lines 465--482
 \OT1/cmr/m/n/10 sen-ta-tion is based on \OT1/cmr/m/it/10 Re-gion Con-nec-tion C
 al-cu-lus \OT1/cmr/m/n/10 (RCC) [[]]. The col-lec-tion $\OMS/cmsy/m/n/10 f\OML/
 cmm/m/it/10 dc;  []eq;  []po;  []ec;  []tpp;  []tppi;  []ntpp;  []ntppi\OMS/cms
@@ -4048,56 +3797,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 501--501
  []
 
 
-LaTeX Warning: Citation `egenhofer1991reasoning' on page 9 undefined on input l
-ine 503.
-
-
-LaTeX Warning: Citation `egenhofer1991reasoning' on page 9 undefined on input l
-ine 503.
-
-
 Overfull \hbox (7.85449pt too wide) in paragraph at lines 484--505
 [][]
  []
 
-[9]
-
-LaTeX Warning: Citation `Bloch2005fuzzy' on page 10 undefined on input line 508
-.
-
-
-LaTeX Warning: Citation `fouquier2012sequential' on page 10 undefined on input 
-line 508.
-
-
-LaTeX Warning: Citation `Hudelot2008fuzzy' on page 10 undefined on input line 5
-08.
-
-
-LaTeX Warning: Citation `nempont2013constraint' on page 10 undefined on input l
-ine 508.
-
-
-LaTeX Warning: Citation `Bloch2005fuzzy' on page 10 undefined on input line 509
-.
-
-
-LaTeX Warning: Citation `Bloch2005fuzzy' on page 10 undefined on input line 511
-.
-
-
-LaTeX Warning: Citation `chen2013survey' on page 10 undefined on input line 516
-.
-
-[10]
-
-LaTeX Warning: Citation `Bloch2005fuzzy' on page 11 undefined on input line 521
-.
-
-
-LaTeX Warning: Citation `Bloch2005fuzzy' on page 11 undefined on input line 522
-.
-
+[9] [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 524.
@@ -4115,16 +3819,11 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 524.
 
 [11]
-
-LaTeX Warning: Citation `horrocks1999description' on page 12 undefined on input
- line 582.
-
-
 Overfull \hbox (19.21284pt too wide) in paragraph at lines 588--612
 [][]
  []
 
-[12] <./figures/mesh_all_vue_45.png, id=237, 453.19313pt x 385.44pt>
+[12] <./figures/mesh_all_vue_45.png, id=355, 453.19313pt x 385.44pt>
 File: ./figures/mesh_all_vue_45.png Graphic file (type png)
 
 <use ./figures/mesh_all_vue_45.png> [13pdfTeX warning (ext4): destination with 
@@ -4135,29 +3834,29 @@ the same identifier (name{figure.3}) has been already used, duplicate ignored
 l.668 W
        e take the right caudate nucleus (target object) and the right latera...
  <./figures/mesh_all_vue_45.png (PNG copy)>]
-<./figures/right_lvl_cdl.png, id=251, 453.19313pt x 385.44pt>
+<./figures/right_lvl_cdl.png, id=369, 453.19313pt x 385.44pt>
 File: ./figures/right_lvl_cdl.png Graphic file (type png)
 
 <use ./figures/right_lvl_cdl.png>
-<./figures/right_cdl_lvl_crop.pdf, id=252, 480.79625pt x 368.37625pt>
+<./figures/right_cdl_lvl_crop.pdf, id=370, 480.79625pt x 368.37625pt>
 File: ./figures/right_cdl_lvl_crop.pdf Graphic file (type pdf)
 
 <use ./figures/right_cdl_lvl_crop.pdf>
-<./figures/right_crop.pdf, id=253, 481.8pt x 368.37625pt>
+<./figures/right_crop.pdf, id=371, 481.8pt x 368.37625pt>
 File: ./figures/right_crop.pdf Graphic file (type pdf)
 
 <use ./figures/right_crop.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figures/right_nright_thresh_crop.pdf, id=254, 408.52625pt x 323.2075pt>
+<./figures/right_nright_thresh_crop.pdf, id=372, 408.52625pt x 323.2075pt>
 File: ./figures/right_nright_thresh_crop.pdf Graphic file (type pdf)
 
 <use ./figures/right_nright_thresh_crop.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figures/xml_screenshot.png, id=257, 851.18pt x 481.8pt>
+<./figures/xml_screenshot.png, id=375, 851.18pt x 481.8pt>
 File: ./figures/xml_screenshot.png Graphic file (type png)
 
 <use ./figures/xml_screenshot.png> [14pdfTeX warning (ext4): destination with t
@@ -4197,91 +3896,8 @@ igure.8}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.764 \section
               {Abductive reasoning}\label{sec:abd} <./figures/xml_screenshot.pn
-g (PNG copy)>]
-
-LaTeX Warning: Citation `aliseda1997seeking' on page 17 undefined on input line
- 774.
-
-
-LaTeX Warning: Citation `elsenbroich2006case' on page 17 undefined on input lin
-e 775.
-
-
-LaTeX Warning: Citation `atif2014explanatory' on page 17 undefined on input lin
-e 794.
-
-
-LaTeX Warning: Citation `gries2010probabilistic' on page 17 undefined on input 
-line 794.
-
-
-LaTeX Warning: Citation `neumann2008scene' on page 17 undefined on input line 7
-94.
-
-
-LaTeX Warning: Citation `shanahan2005perception' on page 17 undefined on input 
-line 794.
-
-
-LaTeX Warning: Citation `neumann2008scene' on page 17 undefined on input line 7
-95.
-
-
-LaTeX Warning: Citation `atif2014explanatory' on page 17 undefined on input lin
-e 797.
-
-
-LaTeX Warning: Citation `colucci2004uniform' on page 17 undefined on input line
- 806.
-
-
-LaTeX Warning: Citation `colucci2004uniform' on page 17 undefined on input line
- 807.
-
-
-LaTeX Warning: Citation `halland2014tbox' on page 17 undefined on input line 80
-9.
-
-[17]
-
-LaTeX Warning: Citation `klarman2011abox' on page 18 undefined on input line 81
-5.
-
-
-LaTeX Warning: Citation `du2011towards' on page 18 undefined on input line 819.
-
-
-
-LaTeX Warning: Citation `du2014tractable' on page 18 undefined on input line 81
-9.
-
-
-LaTeX Warning: Citation `du2014tractable' on page 18 undefined on input line 82
-0.
-
-
-LaTeX Warning: Citation `bienvenu08complexity' on page 18 undefined on input li
-ne 835.
-
-
-LaTeX Warning: Citation `atif2014explanatory' on page 18 undefined on input lin
-e 854.
-
-[18]
-
-LaTeX Warning: Citation `aliseda1997seeking' on page 19 undefined on input line
- 887.
-
-
-LaTeX Warning: Citation `colucci2004uniform' on page 19 undefined on input line
- 903.
-
-[19]
-
-LaTeX Warning: Citation `colucci2004uniform' on page 20 undefined on input line
- 968.
-
-<./figures/smurf.png, id=312, 980.66376pt x 424.58624pt>
+g (PNG copy)>] [17] [18] [19]
+<./figures/smurf.png, id=459, 980.66376pt x 424.58624pt>
 File: ./figures/smurf.png Graphic file (type png)
 
 <use ./figures/smurf.png>
@@ -4319,37 +3935,7 @@ l.1119
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.1119 
-       ]
-
-LaTeX Warning: Citation `bienvenu08complexity' on page 23 undefined on input li
-ne 1128.
-
-
-LaTeX Warning: Citation `bienvenu08complexity' on page 23 undefined on input li
-ne 1131.
-
-
-LaTeX Warning: Citation `bienvenu08complexity' on page 23 undefined on input li
-ne 1142.
-
-
-LaTeX Warning: Citation `di2007semantic' on page 23 undefined on input line 116
-6.
-
-[23]
-
-LaTeX Warning: Citation `colucci2004uniform' on page 24 undefined on input line
- 1191.
-
-
-LaTeX Warning: Citation `atif2014explanatory' on page 24 undefined on input lin
-e 1191.
-
-
-LaTeX Warning: Citation `hudelot2008spatial' on page 24 undefined on input line
- 1215.
-
-[24]
+       ] [23] [24]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1235.
@@ -4398,16 +3984,13 @@ Overfull \hbox (70.59067pt too wide) in paragraph at lines 1358--1359
 
 [27] [28] (./mi_parcours.bbl [29] [30] [31]) [32] (./mi_parcours.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  22310 strings out of 495061
  375678 string characters out of 1182621
- 492579 words of memory out of 3000000
+ 494689 words of memory out of 3000000
  24803 multiletter control sequences out of 15000+50000
  23676 words of font info for 90 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
@@ -4434,9 +4017,9 @@ hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-t
 exlive/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-texlive/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on mi_parcours.pdf (32 pages, 2996047 bytes).
+Output written on mi_parcours.pdf (32 pages, 3014616 bytes).
 PDF statistics:
- 577 PDF objects out of 1000 (max. 8388607)
+ 678 PDF objects out of 1000 (max. 8388607)
  175 named destinations out of 1000 (max. 500000)
  266 words of extra memory for PDF output out of 10000 (max. 10000000)
 
