@@ -104,8 +104,10 @@ To summarize the ongoing and future work, we need to answer the following questi
  \item \textit{How to define a criterion to choose a ``best'' explanation in our case? (Section~\ref{sec:abd} and Section~\ref{sec:persp})}
 \end{itemize}
  \subsection{Related work}
+% In this section, we present related work in semantic image interpretation. We are mainly interested in high-level interpretation relied on background knowledge using logic based formalism.
 Semantics extraction is important in image analysis, for various tasks such as image annotation~\cite{tousch2012semantic}, event detection~\cite{lavee2009understanding} and 
 diagnostic problems~\cite{atif2014explanatory,atif2007grafip}.
+% Semantic annotation improve searching accuracy, event detection in video surveillance. allowed the people who do not have prior knowledge in medical domain to understand medical imaging.
 In some specific domains, like medical imaging~\cite{atif2014explanatory,Bloch2005fuzzy,fouquier2012sequential,nempont2013constraint} and
 remote sensing~\cite{forestier2012knowledge,vanegas2010detection}, image interpretation combines image processing with artificial intelligence techniques to derive reasonable semantics.  
 
@@ -125,7 +127,7 @@ Further, a hierarchical representation of knowledge base is proposed, called ima
 In the And-Or graph, a global description of a scene is decomposed into parts, objects until primitive pixel patches from top to bottom.
 An And-node consists of a set of successive components and an Or-node is composed by alternative nodes.
 A parsing method is proposed as inference within a probabilistic model in each node~\cite{han2009bottom,wu2011numerical}. 
-The best-fit description is selected according to the most probable model in each Or node.
+The best-fit description is selected according to the most probable model in each Or-node.
 
 The second level consists in reasoning at the language (knowledge) level.
 For the purpose of giving an adequate explanation, the second level is a logic-based reasoning to depict the image with a deep and abstract description from the point of view of an expert.
@@ -140,8 +142,17 @@ A complex description can also be generated when non-explicitly presented in the
 The authors considered a less expressive logical formalism which is mostly used for medical knowledge representation.
 The high-level semantics in terms of a complex description within an expressive logic formalism is still an open problem for image interpretation.
 At this level, high-level semantics require both background knowledge and contextual information and can be inferred from explicit observation in an image.
-In this thesis, we are interested in proposing an adapted logical formalism for the knowledge representation as well as a specific reasoning method for image interpretation inference.
 
+After the presentation of related work for semantic image interpretation in two levels, we discuss the influence of these work on the thesis.
+In their work of recognition of objects, the graphical model (e.g. Bayesian network or And-Or graph) is a key idea to construct a semantic object probabilistic model 
+consisting in low level image features and contextual information. The graphical model has proven effectiveness of integrating knowledge base and reasoning on 
+dependence relationships incorporating with probabilistic model. However, this representation and reasoning power is restricted to explicit knowledge, since the 
+network structure is represented using conditional distribution on dependence relationship 
+where semantic object is defined by dependence nodes (alternative choices or composition elements) in the graphical model.
+In our framework, we choose logic-based formalism, which is more powerful in both knowledge expressivity and reasoning services.
+As presented in the previous paragraph, logical based image interpretation is more effective in high-level semantic interpretation.
+Instead of limiting by the dependence relationships, implicit knowledge can be inferred using more complex logic relations.
+In this thesis, we are interested in proposing an adapted logical formalism for the knowledge representation as well as a specific reasoning method for image interpretation inference.
 \section{Preliminaries}\label{sec:pre}
 \subsection{Ontologies}
 Experts' knowledge is usually expressed in terms of diverse vocabulary of a specific domain in natural language, which is difficult to be interpreted by machines.
@@ -752,15 +763,20 @@ Such an observation can be represented as
 \end{align*}
 In this example, the ABox describes an observation of a given scene and the objective is to find a reasonable description of  the unknown object $b$.
 Therefore, the relationships between $b$ and other individuals are important for the reasoning. 
-We can derive $\langle b,a\rangle:leftOf^-,closeTo^-$ from $\langle a,b\rangle:leftOf,closeTo$ using the inverse property of roles.
-Another type of spatial reasoning consists in verifying inclusion relations by using the transitive property of transitive roles like $isPartOf$ in tableau method (Appendix A). 
+We demonstrate the spatial reasoning by a concept subsumption test using the tableau method in the Appendix A.
 The subsumption test of the example in the appendix (which can be seen as an abductive reasoning) provides a tableau approach to answer the first question of the spatial reasoning
 problem (recognition of an unknown object using the background knowledge and the spatial arrangements in the observation).
-The second question can be answered in a restricted way. For a transitive role (e.g. $isPartOf$), we can check the satisfiability of the relation
-between two objects via the third one. This example is modeled as a test of satisfiability problem which can be seen as the answer for the third question.
+In the first step, we can derive $\langle b,a\rangle:leftOf^-,closeTo^-$ from $\langle a,b\rangle:leftOf,closeTo$ using the inverse property of roles.
+By the definition $rightOf\equiv leftOf^-$ and $closeTo\equiv closeTo^-$ in RBox, the spatial relationship $rightOf,closeTo$ between $b$ and $a$ can be deducted.
+Another type of spatial reasoning consists in verifying inclusion relations by using the transitive property of transitive roles like $isPartOf$ in tableau method. 
+This type of reasoning answers the second question in a restricted way. For a transitive role (e.g. $isPartOf$), we can check the satisfiability of the relation
+between two objects via the third one. The Rule 6 in the Section 3.2 provides a corresponding rule to verify the implicit transitive relation in tableau method. 
+In the example, $\exists isPartOf. Hemisphere \sqsubseteq \exists isPartOf.Brain$ is verified.
+This example is modeled as a test of satisfiability problem which can be seen as the answer for the third question.
 These simple spatial reasonings are not as powerful as those in the references, however, we consider the objects as a set of pixels instead of approximating an object by a single pixel 
 (the transitivity of direction does not hold any more).
 In addition, topological relations and spatial reasoning on compositions are still an open problem.
+
 \section{Abductive reasoning}\label{sec:abd}
 Abductive reasoning is a backward-chaining inference, consisting in generating hypotheses and finding the ``best'' explanation of a given observation.
 Unlike the standard reasoning presented in Section~\ref{sec:pre}, abductive reasoning is a non-monotonic reasoning because the conclusion is not necessarily correct.
