@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  15 MAR 2015 17:40
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.9.24)  16 MAR 2015 18:21
 entering extended mode
  %&-line parsing enabled.
 **mi_parcours.tex
@@ -3849,10 +3849,10 @@ File: ./figures/right_crop.pdf Graphic file (type pdf)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figures/right_nright_thresh_crop.pdf, id=372, 408.52625pt x 323.2075pt>
-File: ./figures/right_nright_thresh_crop.pdf Graphic file (type pdf)
 
-<use ./figures/right_nright_thresh_crop.pdf>
+<./figures/right_nright_arrowthresh_crop.pdf, id=372, 408.52625pt x 323.2075pt>
+File: ./figures/right_nright_arrowthresh_crop.pdf Graphic file (type pdf)
+<use ./figures/right_nright_arrowthresh_crop.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -3888,13 +3888,13 @@ name{figure.7}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.750 \end{align*}
-                   <./figures/right_crop.pdf> <./figures/right_nright_thresh_cr
-op.pdf>] [16pdfTeX warning (ext4): destination with the same identifier (name{f
-igure.8}) has been already used, duplicate ignored
+                   <./figures/right_crop.pdf> <./figures/right_nright_arrowthre
+sh_crop.pdf>] [16pdfTeX warning (ext4): destination with the same identifier (n
+ame{figure.8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.780 
+l.779 
        <./figures/xml_screenshot.png (PNG copy)>] [17] [18] [19]
 <./figures/smurf.png, id=459, 980.66376pt x 424.58624pt>
 File: ./figures/smurf.png Graphic file (type png)
@@ -3908,17 +3908,17 @@ e.9}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1089 \end{description}
+l.1088 \end{description}
                          <./figures/smurf.png>]
 Package hyperref Info: bookmark level for unknown algocf defaults to 0 on input
- line 1108.
+ line 1107.
 
-Underfull \hbox (badness 10000) detected at line 1109
+Underfull \hbox (badness 10000) detected at line 1108
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1095--1110
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1109
 
  []
 
@@ -3927,57 +3927,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 1095--1110
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1136 
+l.1135 
        pdfTeX warning (ext4): destination with the same identifier (name{figure
 .11}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1136 
-       ] [23] [24]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1252.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1252.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1252.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1252.
-
-
-Overfull \hbox (2.32745pt too wide) in paragraph at lines 1281--1282
- [] 
+l.1135 
+       ]
+Overfull \hbox (0.98218pt too wide) in paragraph at lines 1187--1193
+[]\OT1/cmr/m/n/10 In our ex-am-ple of the Smurf, $\OML/cmm/m/it/10 H[] \OT1/cmr
+/m/n/10 = \OML/cmm/m/it/10 SmurfLeader$ \OT1/cmr/m/n/10 is pre-ferred than $\OM
+L/cmm/m/it/10 H[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 SmurfLeader \OMS/cmsy/m/n/
+10 u 9\OML/cmm/m/it/10 hasPart:Beard$
  []
 
+[23] [24]
 
-Overfull \hbox (50.26093pt too wide) in paragraph at lines 1293--1294
- [] 
- []
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1273.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 1273.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 1273.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1273.
 
 [25]
-Overfull \hbox (50.26093pt too wide) in paragraph at lines 1310--1311
+Overfull \hbox (2.32745pt too wide) in paragraph at lines 1302--1303
  [] 
  []
 
 
-Overfull \hbox (50.26093pt too wide) in paragraph at lines 1329--1330
+Overfull \hbox (50.26093pt too wide) in paragraph at lines 1314--1315
+ [] 
+ []
+
+
+Overfull \hbox (50.26093pt too wide) in paragraph at lines 1331--1332
+ [] 
+ []
+
+
+Overfull \hbox (50.26093pt too wide) in paragraph at lines 1350--1351
  [] 
  []
 
 [26]
-Overfull \hbox (29.02266pt too wide) in paragraph at lines 1344--1345
+Overfull \hbox (29.02266pt too wide) in paragraph at lines 1365--1366
  [] 
  []
 
 
-Overfull \hbox (70.59067pt too wide) in paragraph at lines 1375--1376
+Overfull \hbox (70.59067pt too wide) in paragraph at lines 1396--1397
  [] 
  []
 
@@ -3987,10 +3995,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 22310 strings out of 495061
- 375678 string characters out of 1182621
- 494689 words of memory out of 3000000
- 24803 multiletter control sequences out of 15000+50000
+ 22311 strings out of 495061
+ 375719 string characters out of 1182621
+ 494742 words of memory out of 3000000
+ 24804 multiletter control sequences out of 15000+50000
  23676 words of font info for 90 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  56i,20n,60p,420b,1898s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -4016,9 +4024,9 @@ hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-t
 exlive/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-texlive/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on mi_parcours.pdf (32 pages, 3015915 bytes).
+Output written on mi_parcours.pdf (32 pages, 3018752 bytes).
 PDF statistics:
- 678 PDF objects out of 1000 (max. 8388607)
+ 681 PDF objects out of 1000 (max. 8388607)
  175 named destinations out of 1000 (max. 500000)
  266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

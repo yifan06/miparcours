@@ -763,13 +763,16 @@ Such an observation can be represented as
 \end{align*}
 In this example, the ABox describes an observation of a given scene and the objective is to find a reasonable description of  the unknown object $b$.
 Therefore, the relationships between $b$ and other individuals are important for the reasoning. 
-We can derive $\langle b,a\rangle:leftOf^-,closeTo^-$ from $\langle a,b\rangle:leftOf,closeTo$ using the inverse property of roles.
-By the definition $rightOf\equiv leftOf^-$ and $closeTo\equiv closeTo^-$ in RBox, the spatial relationship $rightOf,closeTo$ between $b$ and $a$ can be deducted.
-Another type of spatial reasoning consists in verifying inclusion relations by using the transitive property of transitive roles like $isPartOf$ in tableau method (Appendix A). 
+We demonstrate the spatial reasoning by a concept subsumption test using the tableau method in the Appendix A.
 The subsumption test of the example in the appendix (which can be seen as an abductive reasoning) provides a tableau approach to answer the first question of the spatial reasoning
 problem (recognition of an unknown object using the background knowledge and the spatial arrangements in the observation).
-The second question can be answered in a restricted way. For a transitive role (e.g. $isPartOf$), we can check the satisfiability of the relation
-between two objects via the third one. This example is modeled as a test of satisfiability problem which can be seen as the answer for the third question.
+In the first step, we can derive $\langle b,a\rangle:leftOf^-,closeTo^-$ from $\langle a,b\rangle:leftOf,closeTo$ using the inverse property of roles.
+By the definition $rightOf\equiv leftOf^-$ and $closeTo\equiv closeTo^-$ in RBox, the spatial relationship $rightOf,closeTo$ between $b$ and $a$ can be deducted.
+Another type of spatial reasoning consists in verifying inclusion relations by using the transitive property of transitive roles like $isPartOf$ in tableau method. 
+This type of reasoning answers the second question in a restricted way. For a transitive role (e.g. $isPartOf$), we can check the satisfiability of the relation
+between two objects via the third one. The Rule 6 in the Section 3.2 provides a corresponding rule to verify the implicit transitive relation in tableau method. 
+In the example, $\exists isPartOf. Hemisphere \sqsubseteq \exists isPartOf.Brain$ is verified.
+This example is modeled as a test of satisfiability problem which can be seen as the answer for the third question.
 These simple spatial reasonings are not as powerful as those in the references, however, we consider the objects as a set of pixels instead of approximating an object by a single pixel 
 (the transitivity of direction does not hold any more).
 In addition, topological relations and spatial reasoning on compositions are still an open problem.
@@ -1134,10 +1137,14 @@ Assumptions made in this algorithm are consistency and syntactical minimality.
 A preference explanation depends on a minimality criterion that will be presented in the next subsection.
 
 \subsection{Minimality criteria}
-Abduction can be also defined as inference to the best explanation.
-A set of potential hypotheses is generated based on the tableau method. However, only a part of them can be selected according to the defined preference by filtering inconsistent and redundant ones. 
+Abduction can be also defined as inference to the best explanation. A set of potential hypotheses is generated based on the tableau method. 
+However, not all the hypotheses are equally important and only a part of them can be selected according to the defined preference by filtering inconsistent and redundant ones. 
 One potential hypothesis is an explanation if and only if the requirements in the previous section are fulfilled to avoid irrelevant results and observations themselves.
-The preference relies on different kinds of minimality criteria. 
+The preference relies on different kinds of minimality criteria, which may be different among the application domains.
+In principle, the minimal hypothesis is the smallest additional information that we add in the knowledge base in order to entail the evidence.
+
+
+For a concept abduction problem, several minimality criteria are proposed. 
 In~\cite{bienvenu08complexity}, Bienvenu provided five basic criteria for abduction problems.
 An abduction problem is defined as: $ \langle \mathcal{T}, \mathcal{H}, \mathcal{O}\rangle$, where $\mathcal{T}$ is a TBox, $\mathcal{H}$ is a set of atomic concepts and $\mathcal{O}$ is the observed concept.
 
@@ -1147,7 +1154,6 @@ $\{ A_1,\dots,A_n \} \subseteq \mathcal{H}$ is a subset of $\mathcal{H}$. An exp
 \item  $A_1 \sqcap \dots \sqcap A_n$ is satisfiable w.r.t. $\mathcal{T}$.
 \item $\mathcal{T}  \vDash  A_1 \sqcap \dots \sqcap A_n \sqsubseteq \mathcal{O}$
 \end{itemize}
-
 \end{mydef}
 
 In this problem, an hypothesis is formulated with the conjunction of atomic concepts.
@@ -1166,6 +1172,10 @@ $\abs{\mathcal{B} \cap H_j} = \abs{\mathcal{A}\cap H_j}$ where $1\leq j< i$,
 \item  $\mathcal{A}~$ is  $~\sqsubseteq_w -minimal$ if there does not exist an explanation $\mathcal{B}$ for $\mathcal{P}$ such that $\sum_{B \in \mathcal{B}}w(B) < \sum_{A \in \mathcal{A}}w(A)$.
 \end{itemize}
  \end{mydef}
+ The author defined a particular concept abduction problem where the hypotheses are restricted to the conjunction of a given set of candidate concepts.
+ Therefore, the criteria based on set inclusion relations are suitable for choosing a minimal set as the preferred explanation. 
+ In addition, priority order and importance weight of atomic concepts can be used as a metric to evaluate the preference of different hypotheses.
+ In our context, the hypotheses are not limited with a set of atomic concepts, thereby semantic minimality based on concept subsumption is suitable for our goal.
 
  \begin{mydef}{(Subsumption criterion)}
 For an abduction problem $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$, and $\{\langle P_{1},\dots,P_{n}\rangle\}$ potential hypotheses,
@@ -1173,19 +1183,29 @@ For an abduction problem $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{
 \item  $P_{i}$ is a $\bm{\sqsubseteq -minimal}$ explanation if there does not exist an explanation $P_{j}$ for $\mathcal{P}$ such that $P_{i}\sqsubseteq P_{j}$.
 \end{itemize}
 \end{mydef}
-For example, let us consider $Father \sqcap \exists hasChild.Person \sqsubseteq Man$. The concept $\exists hasChild.Person$ can be inferred from $Father$.
-Therefore, $\exists hasChild.Person$ is the redundant part which can be eliminated. 
+In our example of the Smurf, $H_1=SmurfLeader$ is preferred than $H_4=SmurfLeader\sqcap \exists hasPart.Beard$ since $H_4\sqsubseteq H_1$.
+This example is not illustrative enough because $H_1$ is also a $\subseteq-minimal$ explanation.
+We have noted that a $\subseteq-minimal$ explanation in \cite{bienvenu08complexity} always follows $\sqsubseteq-minimal$ criterion since 
+$A_1\sqcap \cdots\sqcap A_n\sqsubseteq A_1\sqcap \cdots\sqcap A_m$ if $\{A_1, \cdots, A_m\}\subseteq \{A_1, \cdots, A_n\}$.
+Let us consider $Father \sqsubseteq Parent$ and $\exists hasChild.Person \sqsubseteq Parent$. The concept $Father$ can be inferred from $\exists hasChild.Person$.
+Therefore, $\exists hasChild.Person$ is then the $\sqsubseteq-minimal$ explanation. 
 
-Another specific criterion mentioned in \cite{di2007semantic} is dedicated to the matchmaking application,
-The authors proposed an irreducible-minimum criterion in their formalism.
-An irreducible solution is represented in conjunctive normal form where complex concepts are replaced by the conjunction of super concept
-considering GCI axioms in the TBox.
-This model of the explanation is suitable for matchmaking applications, however, it is an explanation with little information in our traditional cases.
 
-However, we can adapt this test to our problem. We can then calculate the cardinality of the irreducible results for comparison.
+Another specific criterion mentioned in \cite{di2007semantic} is dedicated to the matchmaking application, which is treated as a conditional concept abduction problem.
+A conditional concept abduction is represented as $\mathcal{T}\vDash C\sqcap H\sqsubseteq O$. 
+In the formula, $C$ is the condition concept representing the supply in the matchmaking problem and $O$ is the observation representing the request in the matchmaking problem.
+$H$ is the explanation to be found for the matching process.
+The authors proposed an irreducible-minimum solution in this formalism.
+All the concepts used in the problem are transformed into conjunctive normal form where complex concepts are replaced by the conjunction of super concept considering GCI axioms in the TBox.
+After this transformation, a hypothesis is represented in terms of corresponding atomic concepts by finding the concepts which appear in the observation concept but not in the condition concept.
+In \cite{di2007semantic}, an explanation of the matchmaking problem is the difference between the concept of supply and the concept of the request
+The solution provides an explanation of why a supply is the compatible and promising one given a request in the market.
+In contrast with a matchmaking problem, an explanation in terms of high level concepts is favored in our context. 
+An irreducible solution conform to the criteria $\sqsubseteq-minimal$ and $\leq -minimal$.
+Therefore, an irreducible criterion is proposed by combining $\sqsubseteq-minimal$ criterion and $\leq-minimal$ criterion.
 We can represent concepts in conjunctive normal form (CNF) to the assumptions and observation. As the assumption is subsumed by the observation, connective concepts of hypothesis are a subset
 those of observation. We present a metric function $ f_{ranking}$  to assess the quality that assumption. Here, one can calculate the cardinality of the different part
-between the hypothesis and observation. The concept with the least difference to other assumptions is preferred as an irreducible minimum explanation. Can also
+between the hypothesis and observation. The concept with the least difference to other assumptions is preferred as an irreducible minimum explanation. we can also
 assign a value to each concept and calculate the weighting for the different part.
 
 \begin{mydef}{(Irreducible criterion)}
@@ -1200,7 +1220,8 @@ in this section.
 
 The criteria introduced by Bienvenu are useful when an assumption contains only atomic concepts. It considers that a hypothesis is constructed by the conjunction of atomic concepts.
 The criterion concerns inclusion relations of set theory, possibly with the priority and the weight function.
-In our problem, a hypothesis can be made by non-atomic concepts. The subsumption test is a good choice in many works,
+In our problem, a hypothesis can be made by non-atomic concepts. 
+The subsumption test is a good choice in many works,
 for example those of Colucci \textit{et al.} \cite{colucci2004uniform} and those of Atif \textit{et al.}  \cite{atif2014explanatory}. 
 The hierarchical relationship is considered to seek a more general hypothesis.
 The irreducibility criterion is a criterion combining a criterion of subsumption and a criterion of cardinality. This criterion has the advantage that the measure $f_{ranking}$  can be adapted to different measures.
@@ -1228,6 +1249,9 @@ Fuzzy logic is also a useful ingredient in knowledge representation dealing with
 This aspect has been proved to be expressive for spatial reasoning by combining fuzzy relations in the concrete domains to Description Logics for image interpretation~\cite{hudelot2008spatial}.
 Another strategy to integrate fuzzy set theory into knowledge representation is to add fuzzy value to terminological and assertional knowledge in abstract logical level.
 This part of the work will allow dealing directly with satisfaction degrees of spatial relations (without thresholding them).
+
+The minimality criterion is based on semantic subsumption in this stage. Meanwhile, an adapted metric is an additional information to differ the preference of the hypotheses.
+The metric can be associated with truth degree in terms of fuzzy logic or the distance metric in the taxonomy of the knowledge base. 
 
 
 As we have discussed in Section \ref{sec:qsr}, we have considered spatial relations in a more complex way without approximating an object to a single point,
