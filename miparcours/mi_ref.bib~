@@ -30,7 +30,19 @@
   year={2012},
   publisher={Elsevier}
 }
-@inproceedings{vanegas2010detection,
+@article{vanegas2013alignment,
+author = {Vanegas, Maria Carolina and Bloch, Isabelle and Inglada, Jordi},
+title = {Alignment and parallelism for the description of high resolution remote sensing images},
+journal = {IEEE Transactions on Geoscience and Remote Sensing},
+year = 2013,
+volume = {51},
+number = {6},
+pages = {3542--3557},
+keywords = {Parallelism, alignment, fuzzy spatial relations, spatial reasoning, image interpretation, high resolution remote sensing imaging},
+annote = {category=article language=en audience=2 state=published project=tii dept=tsi group=tii id=12763}
+}
+
+@article{vanegas2010detection,
   title={Detection of aligned objects for high resolution image understanding.},
   author={Vanegas, Maria Carolina and Bloch, Isabelle and Inglada, Jordi},
   booktitle={IGARSS},
@@ -439,7 +451,7 @@ year = {1997},
   title={Semantic Matchmaking as Non-Monotonic Reasoning: A Description Logic Approach.},
   author={Di Noia, Tommaso and Di Sciascio, Eugenio and Donini, Francesco M},
   journal={Journal of Artificial Intelligence Research},
-  year={2007}
+  year={2007},
   volume={29},
   pages={269--307}
 }
@@ -450,8 +462,8 @@ year = {1997},
   year={2009}
 }
 @INPROCEEDINGS{halland2014tbox,
-  author= {Ken Halland, Arina Britz, Szymon Klarman},
-   title = {TBox abduction in $\mathcal{ALC}$ using a DL tableau},
+  author= {Ken Halland, Arina Britz and Szymon Klarman},
+   title = {TBox abduction in $\mathcal{ALC}$ using a {DL} tableau},
   booktitle = {27th International Workshop on Description Logics (DL)},
   year = {2014},
   pages={556-566}
@@ -543,10 +555,20 @@ year = {2005}
 @incollection{santos2012region,
      title = {A region-based ontology of the brain ventricular system and its relation to schizophrenia},
      author = {Paulo Santos and Rodolpho Freire and Danilo N. dos Santos and Carlos Thomaz and Paulo Sallet and Mario Louza and Anthony G. Cohn},
-     chapter = {7},
      booktitle = {Qualitative Spatio-temporal Representation and Reasoning: Trends and Future Directions},
      pages = {256-273},
      publisher = {IGI Global},
      year = {2012},
      leeds_file = {hazarika-santos.pdf}
+}
+% minimal hitting set
+@article{reiter1987theory,
+  title={A theory of diagnosis from first principles},
+  author={Reiter, Raymond},
+  journal={Artificial intelligence},
+  volume={32},
+  number={1},
+  pages={57--95},
+  year={1987},
+  publisher={Elsevier}
 }

@@ -2,61 +2,61 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: mi_parcours.aux
 The style file: plain.bst
 Database file #1: mi_ref.bib
-I was expecting a `,' or a `}'---line 73 of file mi_ref.bib
+I was expecting a `,' or a `}'---line 85 of file mi_ref.bib
  :   
  :   year={1980}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 188 of file mi_ref.bib
+I was expecting a `,' or a `}'---line 200 of file mi_ref.bib
  :   
  :   year={2013},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 377 of file mi_ref.bib
+Repeated entry---line 389 of file mi_ref.bib
  : @inproceedings{hudelot2008spatial
  :                                  ,
 I'm skipping whatever remains of this entry
 Warning--there's a number but no volume in freksa1991qualitative
 Warning--empty year in nempont2013constraint
-You've used 53 entries,
+You've used 54 entries,
             2118 wiz_defined-function locations,
-            822 strings with 14310 characters,
-and the built_in function-call counts, 21114 in all, are:
-= -- 2123
-> -- 911
-< -- 25
-+ -- 378
-- -- 306
-* -- 1494
-:= -- 3303
-add.period$ -- 166
-call.type$ -- 53
-change.case$ -- 311
+            830 strings with 14495 characters,
+and the built_in function-call counts, 21380 in all, are:
+= -- 2150
+> -- 934
+< -- 23
++ -- 388
+- -- 314
+* -- 1528
+:= -- 3364
+add.period$ -- 169
+call.type$ -- 54
+change.case$ -- 318
 chr.to.int$ -- 0
-cite$ -- 55
-duplicate$ -- 836
-empty$ -- 1678
-format.name$ -- 306
-if$ -- 4557
+cite$ -- 56
+duplicate$ -- 834
+empty$ -- 1689
+format.name$ -- 314
+if$ -- 4594
 int.to.chr$ -- 0
-int.to.str$ -- 53
-missing$ -- 52
-newline$ -- 268
-num.names$ -- 106
+int.to.str$ -- 54
+missing$ -- 53
+newline$ -- 273
+num.names$ -- 108
 pop$ -- 317
 preamble$ -- 1
-purify$ -- 259
+purify$ -- 265
 quote$ -- 0
-skip$ -- 633
+skip$ -- 626
 stack$ -- 0
-substring$ -- 1569
-swap$ -- 258
-text.length$ -- 25
+substring$ -- 1593
+swap$ -- 248
+text.length$ -- 23
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 210
+type$ -- 214
 warning$ -- 2
-while$ -- 210
-width$ -- 55
-write$ -- 594
+while$ -- 213
+width$ -- 56
+write$ -- 605
 (There were 3 error messages)

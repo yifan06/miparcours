@@ -143,21 +143,22 @@ The authors considered a less expressive logical formalism which is mostly used 
 The high-level semantics in terms of a complex description within an expressive logic formalism is still an open problem for image interpretation.
 At this level, high-level semantics require both background knowledge and contextual information and can be inferred from explicit observation in an image.
 
-After the presentation of related work for semantic image interpretation in two levels, we discuss the influence of these work on the thesis.
-In their work of recognition of objects, the graphical model (e.g. Bayesian network or And-Or graph) is a key idea to construct a semantic object probabilistic model 
-consisting in low level image features and contextual information. The graphical model has proven effectiveness of integrating knowledge base and reasoning on 
-dependence relationships incorporating with probabilistic model. However, this representation and reasoning power is restricted to explicit knowledge, since the 
-network structure is represented using conditional distribution on dependence relationship 
-where semantic object is defined by dependence nodes (alternative choices or composition elements) in the graphical model.
-In our framework, we choose logic-based formalism, which is more powerful in both knowledge expressivity and reasoning services.
-As presented in the previous paragraph, logical based image interpretation is more effective in high-level semantic interpretation.
-Instead of limiting by the dependence relationships, implicit knowledge can be inferred using more complex logic relations.
-In this thesis, we are interested in proposing an adapted logical formalism for the knowledge representation as well as a specific reasoning method for image interpretation inference.
+% After the presentation of related work for semantic image interpretation in two levels, we discuss the influence of these work on the thesis.
+Let us now discuss these works with respect to the objectives of this thesis.
+Using graphical models (e.g. Bayesian network or And-Or graph) is a key idea to represent semantic objects consisting of low level image features and contextual information. 
+Graphical models have proven their efficiency for integrating knowledge base and reasoning on dependence relationships incorporated with probabilistic models.
+However, this representation is restricted to explicit knowledge, since the network structure is represented using conditional distributions on dependence relationships 
+where a semantic object is defined by dependence nodes (alternative choices or composition elements) in the graphical model.
+The reasoning power is limited too since it relies on this representation and on probabilistic models.
+In our framework, we choose a logic-based formalism, which is more powerful in both knowledge expressivity and reasoning services.
+As presented in the previous paragraph, logic-based image interpretation is more efficient for high-level semantic interpretation.
+Instead of limiting the expressivity of knowledge hierarchy by the dependence relationships, implicit knowledge can be inferred using more complex logical relations.
+In this thesis, we are interested in proposing an adapted logical formalism for the knowledge representation as well as a specific reasoning method for image interpretation.
 \section{Preliminaries}\label{sec:pre}
 \subsection{Ontologies}
 Experts' knowledge is usually expressed in terms of diverse vocabulary of a specific domain in natural language, which is difficult to be interpreted by machines.
-In order to facilitate an automated reasoning process with a background knowledge base, a structural semantic based model is  an effective means to represent prior knowledge.
-The term ontology is derived from philosophy and then used for the purpose of expressing common sense knowledge in computer science~\cite{alexander1986knowledge}.
+In order to facilitate automated reasoning process with a background knowledge base, a structural semantic based model is  an efficient means to represent prior knowledge.
+The term ontology is derived from philosophy and then used for the purpose of expressing commonsense knowledge in computer science~\cite{alexander1986knowledge}.
 Since then, ontologies were adopted for image interpretation tasks~\cite{bannour2011towards,Hudelot2008fuzzy,town2006ontological}.
 Ontologies are defined as “\textit{a formal specification of a shared conceptualization}"~\cite{studer1998knowledge},
 which deal with modeling a universal and reusable knowledge among different applications for a specific domain.
@@ -183,10 +184,10 @@ We first recall the syntax and semantics of the basic language of Description Lo
 
 
 \begin{mydef}[Concept expression]
- The set of concept expression is recursively built from the signature as follows:
+ The set of concept expressions is recursively built from the signature as follows:
  \begin{itemize}
   \item all the concept names, as well as $\top$ (top concept) and $\bot$ (bottom concept) are concepts,
-  \item if $C$ and $D$ are two concepts in $N_C$ and $r$ is a role in $N_R$
+  \item if $C$ and $D$ are two concepts and $r$ is a role in $N_R$
   then $\neg C$ (negation), $ C\sqcap D$ (conjunction), $ C\sqcup D$ (disjunction), $ \exists r.C$ (existential quantification), $\forall r.C$ (universal quantification) are also concepts.
  \end{itemize}
  Let $\mathfrak{C}$ denotes the infinite set of all the concepts that can be defined using constructors and signature elements.
@@ -210,7 +211,7 @@ A knowledge base is a pair of TBox and ABox: $\mathcal{K}=(\mathcal{T},\mathcal{
 An interpretation $\mathcal{I}=(\Delta^\mathcal{I},\cdot^\mathcal{I})$ provides the semantics of concepts and roles. $\Delta^\mathcal{I}$ is a non-empty set which indicates the entire
 ``world" of the application domain. $\cdot^\mathcal{I}$ is an interpretation function which maps concept and individual symbols to $\Delta^\mathcal{I}$ and roles to $\Delta^\mathcal{I} \times \Delta^\mathcal{I}$.
 \begin{itemize}
- \item Every concept $C\in N_C$ is interpreted as a subset of $\Delta^\mathcal{I}$, represented by $C^\mathcal{I}\subseteq \Delta^\mathcal{I}$.
+ \item Every concept $C$ is interpreted as a subset of $\Delta^\mathcal{I}$, represented by $C^\mathcal{I}\subseteq \Delta^\mathcal{I}$.
  \item Every  role $r$ is interpreted as a subset of $\Delta^\mathcal{I}\times\Delta^\mathcal{I}$, denoted as $r^\mathcal{I}\subseteq \Delta^\mathcal{I}\times\Delta^\mathcal{I}$.
  \item Every individual $a \in N_I$ is interpreted as an element in the set $\Delta^\mathcal{I}$, denoted as $a^\mathcal{I} \in \Delta^\mathcal{I}$.
 \end{itemize}
@@ -224,29 +225,29 @@ Let $\varPhi$ be a set of axioms, an interpretation $\mathcal{I}$ is a \textit{m
 	\hline
 	Constructor & Syntax & Semantics & Example\\
 	\hline
-	Atomic Concept & $C$ & $ C^{\mathcal{I}}\subseteq \Delta^{\mathcal{I}} $ & $Human$ \\ 
+	Atomic concept & $C$ & $ C^{\mathcal{I}}\subseteq \Delta^{\mathcal{I}} $ & $Human$ \\ 
 	Negation & $ \neg C$ & $\Delta^{\mathcal{I}}\backslash C^{\mathcal{I}}$ & $\neg Human$ \\ % Content row 1
 	Top & $\top$ & $\top^{\mathcal{I}}=\Delta^{\mathcal{I}}$ & $All$ \\ % Content row 2
 	Bottom & $\bot$ & $\bot^{\mathcal{I}}=\emptyset^{\mathcal{I}}$ & $Nothing$ \\
 	Conjunction & $ (\mathit{C}\sqcap\mathit{D}) $ & $C^{\mathcal{I}}\cap D^{\mathcal{I}}$ & $Human\sqcap Male$ \\ % Content row 4
 	Disjunction & $ (\mathit{C}\sqcup\mathit{D})$  & $C^{\mathcal{I}}\cup D^{\mathcal{I}}$ & $Female \sqcup Male$ \\ % Content row 5
-	Universal Qualification & $ \forall r.\mathit{C}$ & $\{ x \in \Delta^{\mathcal{I}} \mid \forall y \in \Delta^{\mathcal{I}} :\langle x,y\rangle\in r^{\mathcal{I}} ~implies~ y \in C^{\mathcal{I}} \}$ & $\forall hasChild.Human$ \\ % Content row 6
-	Existential Restriction  & $ \exists r.\mathit{C}$ &  $\{ x \in \Delta^{\mathcal{I}} \mid \exists y \in \Delta^{\mathcal{I}} :\langle x,y\rangle\in r^{\mathcal{I}} ~and~ y \in C^{\mathcal{I}} \}$ & $\exists hasChild.Female$ \\ % Content row 7
+	Universal restriction & $ \forall r.\mathit{C}$ & $\{ x \in \Delta^{\mathcal{I}} \mid \forall y \in \Delta^{\mathcal{I}} :\langle x,y\rangle\in r^{\mathcal{I}} ~implies~ y \in C^{\mathcal{I}} \}$ & $\forall hasChild.Human$ \\ % Content row 6
+	Existential restriction  & $ \exists r.\mathit{C}$ &  $\{ x \in \Delta^{\mathcal{I}} \mid \exists y \in \Delta^{\mathcal{I}} :\langle x,y\rangle\in r^{\mathcal{I}} ~and~ y \in C^{\mathcal{I}} \}$ & $\exists hasChild.Female$ \\ % Content row 7
 	\hline
 	Subsumption & $C \sqsubseteq D$ & $C^{\mathcal{I}} \subseteq D^{\mathcal{I}}$ & $Man \sqsubseteq Human$ \\ 
 	Concept definition & $C \equiv D$ & $C^{\mathcal{I}} = D^{\mathcal{I}}$ & $Father \equiv Man \sqcap \exists hasChild.Human$ \\ 
-	Concept Assertion  & $a:C$ & $a^{\mathcal{I}} \in C^{\mathcal{I}}$ & $John:Man$\\ 
-	Role Assertion & $(a,b):r$ & $\langle a^{\mathcal{I}},b^{\mathcal{I}}\rangle \in r^{\mathcal{I}}$ & $(John,Lea):hasChild$ \\
+	Concept assertion  & $a:C$ & $a^{\mathcal{I}} \in C^{\mathcal{I}}$ & $John:Man$\\ 
+	Role assertion & $(a,b):r$ & $\langle a^{\mathcal{I}},b^{\mathcal{I}}\rangle \in r^{\mathcal{I}}$ & $(John,Lea):hasChild$ \\
 	\hline
 	\end{tabular}
 	}
-    \caption{Syntax and interpretations of $\mathcal{ALC}$~\cite{baader2003description}.}
-    \label{tab:interpretation}
+    \caption{Syntax and semantics of $\mathcal{ALC}$~\cite{baader2003description}.}
+	     \label{tab:interpretation}
 \end{table}
 \end{center} 
 
 An example of a knowledge base referring to brain anatomy is described as follows, where LVl and LVr denote left and right lateral ventricles and left and right caudate nuclei are denoted by CNl and CNr.
-The general knowledge is represented in the TBox, which describes basic axioms of the background knowledge. The ABox represents the assertions, involving the facts in the observation (ex. information
+The general knowledge is represented in the TBox, which describes basic axioms of the background knowledge. The ABox represents the assertions, involving the facts in the observation (e.g. information
 extracted from an image).
 \begin{align*}
  TBox=\{ Hemisphere &\sqsubseteq \exists isPartOf. Brain\\
@@ -277,8 +278,8 @@ The basic reasoning on concepts in Description Logics is subsumption checking (w
 concept satisfiability checking (written as $\mathcal{T}\nvDash C\equiv \bot$).
 Subsumption checking is a decision procedure to check whether a concept $D$ is more general than another concept $C$.
 Checking satisfiability of a concept $C$ is a decision procedure to determine whether $C$ has a model with respect to the TBox.
-Complex reasoning services are built based on these basic ones. For example, classification is a decision procedure amounting to find subconcept and superconcept 
-relationships between concepts in a given terminology. This allows us to find a position in terminological hierarchy.
+Complex reasoning services are built based on these basic ones. For example, classification is a decision procedure amounting to finding subconcept and superconcept 
+relationships between concepts in a given terminology. This allows us to find a position of the given concept in the terminological hierarchy.
 Therefore, classification can be reduced to subsumption checking of each pair of concepts in the given terminology.
 The definitions of subsumption and satisfiability of a concept are introduced as follows \cite{baader2003description}:
 \begin{itemize}
@@ -405,7 +406,7 @@ child { node []{$\mathcal{L}(x)=\{\forall r.C\}$ \\ $\mathcal{L}(y)=\{C, ~D\}$ \
 \end{itemize}
 
 \begin{mydef}(Clash)
-A branch contains a clash if (i.e. the branch is closed), when $\{C,\neg C\}\subseteq \mathcal{L}(x)$ for a node $x$ and a concept $C$.
+A branch contains a clash (i.e. the branch is closed), when $\{C,\neg C\}\subseteq \mathcal{L}(x)$ for a node $x$ and a concept $C$.
 \end{mydef}
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1cm, sibling distance=3cm}]
@@ -427,9 +428,9 @@ Qualitative spatial relations have been studied from different views:
  as well as more complex relations (e.g. ``between")~\cite{Bloch2005fuzzy,freeman1975modelling,Hudelot2008fuzzy,kuipers1978modeling}. 
 These relations are frequently used at a linguistic level by humans when describing a scene \cite{freksa1991qualitative}.
 Even though quantitative information could be more precise, humans cannot use it as accurately as a machine.
-Therefore, how to present qualitative information of human knowledge within the machine is a crucial research area in knowledge representation and reasoning.
+Therefore, how to represent qualitative information of human knowledge within the machine is a crucial research area in knowledge representation and reasoning.
 The aim of our study is to apply human knowledge to the description of qualitative relationships and the reasoning tasks with spatial objects in a complex scene.
-In this thesis, we consider some topological relations (inclusion and adjacency), direction and distance for spatial representation in a 3D space.
+In this thesis, we consider some topological relations (inclusion and adjacency), directions and distances for spatial representation in a 3D space.
 Qualitative spatial reasoning deals with the following questions, among others:
  \begin{itemize}
   \item Can we recognize an object from known objects and their spatial relations?
@@ -442,7 +443,7 @@ Qualitative spatial reasoning deals with the following questions, among others:
   \item Determining whether an object satisfies a spatial configuration, where an object is described by an observation of spatial arrangement and 
   a spatial configuration is defined using expert knowledge. Then the task is considered as a consistency checking  of the observed object with respect to the spatial configuration in 
   the knowledge base.
-  \item Determining the relationship between two objects from other spatial arrangements. The implicit relations between two objects can be inferred by other known spatial relations
+  \item Determining the relationships between two objects from other spatial arrangements. The implicit relations between two objects can be inferred by other known spatial relations
   in a spatial arrangement.
   \item Determining the consistency of a spatial arrangement in a given configuration of the scene with respect to a specific domain knowledge. This task verifies the consistency
   between the observation and the spatial configuration defined using expert knowledge.
@@ -461,11 +462,11 @@ Chen \textit{et al.} discussed a broad range of spatial relation representations
     dc (``disconnected from'') & left of & far from \\ 
     eq (``equal with'', ``identical'') & right of & close to \\
     po (``intersect with'', ``partially overlaps'') & above  &   \\
-    ec (``external connected with'',``touches'', ``adjacent'') & below &  \\
+    ec (``external connected with'', ``touches'', ``adjacent'') & below &  \\
     tpp (``tangential proper part of'') & in front of &  \\
-    tppi (``inversion of tpp'') &  behind  &   \\
-    ntpp (``not tangential proper part of'') &   &  \\
-    ntppi (``inversion of ntpp'') &  &  \\
+    tppi (``tangential proper part inverse of'') &  behind  &   \\
+    ntpp (``non-tangential proper part of'') &   &  \\
+    ntppi (``non-tangential proper part inverse of'') &  &  \\
     \hline
   \end{tabular}
   \caption{Basic spatial relations.}
@@ -518,17 +519,18 @@ The property of transitivity  is emphasized in this context.
 \subsubsection{Direction}
 Directional relations are seen as primarily important spatial relationships in brain anatomical images~\cite{Bloch2005fuzzy,fouquier2012sequential,Hudelot2008fuzzy,nempont2013constraint}.
 As mentioned in~\cite{Bloch2005fuzzy}, a direction is defined by a \textit{target object}, a \textit{reference object} and a \textit{reference system}.
-In an 3D space, directional relations are represented by six basic terms (e.g. right, above, behind, etc.).
+In a 3D space, directional relations are represented by six basic terms (e.g. right, above, behind, etc.).
 In order to compute directional relationships between two objects, many methods such as histograms of angles and morphological approaches are summarized in~\cite{Bloch2005fuzzy}.
 A fuzzy representation is employed in these approaches. 
 For instance, a fuzzy set (fuzzy landscape) representing the region of space where a given directional relation with respect to a reference object is satisfied 
 can be computed using a morphological dilation with an appropriate structuring element of the reference object.
 The satisfaction degree of the direction between the target object and the reference object is evaluated by comparison between the target object and the fuzzy landscape.
-In a crisp setting, two strategy are usually employed: point based and extend object based (bounding box)~\cite{chen2013survey}.
-However, both of the two representations ignore the influence of object shape. The representation is not as accurate to human intuition as a fuzzy representation.
+In a crisp setting, two strategies are usually employed: point based and extend object based (bounding box)~\cite{chen2013survey}.
+However, both representations ignore the influence of the object shape. 
+Fuzzy representations better correspond to the human intuition than crisp ones.
 \subsubsection{Distance}
 Qualitative representation of the distance between two objects depends on the metric measures about the geometrical information of the specific domain.
-The measure is often calculated in terms of Euclidean distance, considering two objects as two points. In a complex scene, which the shape cannot be ignored,
+The measure is often evaluated in terms of Euclidean distance, considering two objects as two points. In a complex scene, which the shape cannot be ignored,
 distance can benefit from minimum distance, mean distance and Hausdorff distance, etc.~\cite{Bloch2005fuzzy}. One useful scale system to convert numerical measures into 
 qualitative representations uses fuzzy sets for defining satisfaction degrees of different qualitative representations~\cite{Bloch2005fuzzy}.
 
@@ -570,7 +572,7 @@ Table \ref{tab:synrole} describes a main syntax and semantics of roles for Descr
 \end{mydef}
 \begin{mydef}(RBox)
 A role box, denoted by RBox, is a finite set
-of axioms for $N_R$  based on a set of roles $\mathbf{R}=N_R\cup\{r^-| r\in N_R\}$, where $r^-$  represents the inversion of role $r$.
+of axioms for $N_R$  based on a set of roles $\mathbf{R}=N_R\cup\{r^-| r\in N_R\}$, where $r^-$  represents the inverse of role $r$.
 Based on role inclusion and role equivalence, role axioms characterize role properties as follows:
 \begin{itemize}
  \item role composition: $u\circ v \sqsubseteq r_1\sqcup \cdots\sqcup r_n$ with $n\geqslant 1$, which is interpreted as 
@@ -582,7 +584,7 @@ Based on role inclusion and role equivalence, role axioms characterize role prop
  then $\langle x,y \rangle \in u^\mathcal{I}$ iff $\langle y,x \rangle \in v^\mathcal{I}$.
  \item symmetric role: $r \equiv r^-$, which is interpreted as $r^\mathcal{I} = r^{-\mathcal{I}}$. For all two interpretation elements  $x,y\in \Delta^\mathcal{I}$,
  then $\langle x,y \rangle \in r^\mathcal{I}$ iff $\langle y,x \rangle \in r^\mathcal{I}$.
- \item disjoint roles: $u\sqsubseteq \neg v$. which is interpreted as $u^\mathcal{I} \subseteq \Delta^\mathcal{I} \setminus v^\mathcal{I}$ or $u^\mathcal{I}\cap v^\mathcal{I}=\emptyset$. 
+ \item disjoint roles: $u\sqsubseteq \neg v$. which is interpreted as $u^\mathcal{I} \subseteq \Delta^\mathcal{I} \times \Delta^\mathcal{I} \setminus v^\mathcal{I}$ or $u^\mathcal{I}\cap v^\mathcal{I}=\emptyset$. 
  For all two interpretation elements  $x,y\in \Delta^\mathcal{I}$, 
 $\langle x,y \rangle \in u^\mathcal{I}$ implies $\langle x,y \rangle \notin v^\mathcal{I}$.
 \end{itemize}
@@ -590,7 +592,7 @@ $\langle x,y \rangle \in u^\mathcal{I}$ implies $\langle x,y \rangle \notin v^\m
 The knowledge base used for spatial reasoning in our framework is built with three blocks: terminologies (TBox), role axioms (RBox) and assertions (ABox)
 ($\mathcal{K}=\{\mathcal{T},\mathcal{R},\mathcal{A}\}$).
 
-A decidable DL language $\mathcal{ALCHI_{R_+}}$~\cite{horrocks1999description} is described in the following for the qualitative spatial reasoning, where the spatial relations are 
+A decidable DL language $\mathcal{ALCHI_{R_+}}$~\cite{horrocks1999description} is described in the following for qualitative spatial reasoning, where the spatial relations are 
 represented by roles and the properties of these spatial relations can be represented by the axioms in the RBox.
 
 The table of syntax and semantics of $\mathcal{ALCHI_{R_+}}$ is shown as follows:
@@ -614,12 +616,12 @@ The table of syntax and semantics of $\mathcal{ALCHI_{R_+}}$ is shown as follows
     Role inclusion & $r_1\sqsubseteq r_2$ &  $r_1^\mathcal{I} \subseteq r_2^\mathcal{I}$\\
     Role equivalence & $r_1\equiv r_2$ & $r_1^\mathcal{I} = r_2^\mathcal{I}$\\    \hline
     Subsumption & $C\sqsubseteq D$ & $C^\mathcal{I}\subseteq D^\mathcal{I}$ for all $\mathcal{I}$\\
-    Concept Definition & $C\equiv D$ & $C^\mathcal{I}= D^\mathcal{I}$ for all $\mathcal{I}$\\ \hline
+    Concept definition & $C\equiv D$ & $C^\mathcal{I}= D^\mathcal{I}$ for all $\mathcal{I}$\\ \hline
     Concept assertion & $a:C$ & $a^\mathcal{I}\in C^\mathcal{I}$ \\
     Role assertion & $(a,b):r$ & $(a^\mathcal{I},b^\mathcal{I})\in r^\mathcal{I}$ \\ \hline
     \end{tabular}
     \caption{Syntax and semantics of $\mathcal{ALCHI_{R_+}}$.}
-    \label{tab:interpretation}
+    \label{tab:alchir_interpretation}
 \end{table}
 \end{center} 
 We elaborate on Definition~\ref{def:tableauALC} for an $\mathcal{ALCHI_{R+}}$ tableau by adding new properties and associated rules as follows.
@@ -662,8 +664,8 @@ child { node []{$\mathcal{E}(\langle x,y \rangle)=\{r,v\}$}
 \end{enumerate}
 
 \subsection{From image to symbolic representation}
- This section deals with the computation of qualitative relationships in a segmented image and the construction of a symbolic representation for the observation. 
-The transformation of representation space from low-level numerical data to symbolic level is the first phase of the framework.
+ This section deals with the computation of qualitative relationships given a segmented image and the construction of a symbolic representation for the observation. 
+The transformation of representation space from low level numerical data to symbolic level is the first phase of the framework.
 Concretely, objects and spatial information are extracted and represented within terminologies using an ABox.
 Furthermore, the symbolic representation can be used for  reasoning service in the logical formalism.
 
@@ -672,12 +674,12 @@ Furthermore, the symbolic representation can be used for  reasoning service in t
  \includegraphics[width=.3\textwidth]{./figures/mesh_all_vue_45.png}
  \caption{\label{fig:brain3d}A segmented brain volume (structures are marked by different colors, e.g. the left lateral ventricle is in red.).}
 \end{figure}
-As  shown in Figure \ref{fig:brain3d}, spatial relationships between structures in brain is an important feature for the image interpretation. 
+As  shown in Figure \ref{fig:brain3d}, spatial relationships between structures in the brain is an important feature for the image interpretation. 
 Here we consider directional relations, computed using angle histograms.
-The satisfaction degree for a given direction is computed as the intersection of the histogram and the fuzzy set defining the semantics of direction (Figure~\ref{fig:right}).
+The satisfaction degree for a given direction is computed as the intersection of the histogram (e.g. Figure~\ref{fig:histopair}) and the fuzzy set defining the semantics of direction (e.g. Figure~\ref{fig:right}).
 
 We take the right caudate nucleus (target object) and the right lateral ventricle (reference object)\footnote{Here we use ``right'' to represent 
-structures in the right part of image for the simplicity of visualization (i.e. the structure in the right part of image is the left part in the brain.)} as an example to illustrate the computation.
+structures in the right part of image for the simplicity of visualization (i.e. the structure in the right part of image is the left part in the brain.).} as an example to illustrate the computation.
 The structures are presented in Figure \ref{fig:sturctpair}.
 The histogram of angles includes the count of angles of each pair of voxels in the right caudate nucleus and the right lateral ventricle.
 The angle is composed by a pair $\alpha_1$ and $\alpha_2$. 
@@ -707,12 +709,21 @@ For each two pair of structures, six satisfaction degrees can be computed for ea
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=.5\textwidth]{./figures/right_nright_thresh_crop.pdf}
- \caption{\label{fig:thresh}The histogram of intersection degree of the satisfied pairs (red bins) and the ones of the other part. The vertical line indicates the optimized threshold value.}
+ \includegraphics[width=.5\textwidth]{./figures/right_nright_arrowthresh_crop.pdf}
+ \caption{\label{fig:thresh}The histogram of intersection degree of the satisfied pairs (red bins) and the ones of the other part. The vertical arrow indicates the optimized threshold value.}
 \end{figure}
 
-Then we demonstrate how to choose a threshold in order to convert fuzzy relations to crisp ones and to use these relations in our logical framework.
-For choosing a threshold $t$ for every direction, we manually select all the pairs of structures which satisfy the relation and all the unsatisfied pairs.
+Then we demonstrate how to choose a threshold in order to convert fuzzy relations to crisp ones.
+The learning process is based on a database of 50 brain MRIs. All the structures in a brain image in the database are manually segmented. 
+This database is composed by 30 healthy images and 20 images presenting a brain tumor (with different localizations, types and sizes). 
+The set of healthy images consists of the IBSR database (``Internet Brain Segmentation Repository'')\footnote{The MR brain data sets and their manual
+segmentations were provided by the Center for Morphometric Analysis at Massachusetts General Hospital and are available at \url{http://www.cma.mgh.harvard.edu/ibsr/}.}
+and some images from the OASIS database (``Open Access Series of Imaging Studies’’)\footnote{\url{http://www.oasis-brains.org}, built thanks to Pubmed Central submissions: P50
+AG05681, P01 AG03991, R01 AG021910, P50 MH071616, U24 RR021382, R01MH56584.}. Manual segmentations are available for the IBSR database.
+All other images have been manually segmented and tumor segmentations have been validated by experts.
+
+These segmentations are used for choosing a threshold $t$ for every direction.
+We manually select all the pairs of segmented structures which satisfy the relation and all the unsatisfied pairs.
 We take the histogram of intersection degrees of the satisfied pairs (red bins) and the ones of the other part (blue bins) (Figure \ref{fig:thresh}).
 Then the threshold is taken by minimizing the error of mis-classification:
 $E=\frac{\sharp(x_1>threshold)}{\sharp(x_1)}+\frac{\sharp(x_2<threshold)}{\sharp(x_2)}$ where $x_1$ (resp. $x_2$) represents unsatisfied pairs (resp. satisfied pairs) 
@@ -753,7 +764,7 @@ In this example, both recognized and unrecognized structures are represented by 
 recognized structures ($a,c$) are represented by roles.
 For instance, a region is recognized as the left caudate nucleus (CNl), denoted by $a$.
 The region of brain is denoted by $c$. An unknown region is segmented and their relationships are computed.  
-Such an observation can be represented as
+Such an observation can be represented as:
 \begin{align*}
  ABox=\{ a&: CNl \\
 	 b&: Unknown~Object \\
@@ -763,19 +774,19 @@ Such an observation can be represented as
 \end{align*}
 In this example, the ABox describes an observation of a given scene and the objective is to find a reasonable description of  the unknown object $b$.
 Therefore, the relationships between $b$ and other individuals are important for the reasoning. 
-We demonstrate the spatial reasoning by a concept subsumption test using the tableau method in the Appendix A.
+We demonstrate the spatial reasoning by a concept subsumption test using the tableau method in Appendix~\ref{Appendix A}.
 The subsumption test of the example in the appendix (which can be seen as an abductive reasoning) provides a tableau approach to answer the first question of the spatial reasoning
 problem (recognition of an unknown object using the background knowledge and the spatial arrangements in the observation).
 In the first step, we can derive $\langle b,a\rangle:leftOf^-,closeTo^-$ from $\langle a,b\rangle:leftOf,closeTo$ using the inverse property of roles.
-By the definition $rightOf\equiv leftOf^-$ and $closeTo\equiv closeTo^-$ in RBox, the spatial relationship $rightOf,closeTo$ between $b$ and $a$ can be deducted.
-Another type of spatial reasoning consists in verifying inclusion relations by using the transitive property of transitive roles like $isPartOf$ in tableau method. 
+According to the definitions $rightOf\equiv leftOf^-$ and $closeTo\equiv closeTo^-$ in the RBox, the spatial relationships $rightOf$ and $closeTo$ between $b$ and $a$ can be derived.
+Another type of spatial reasoning consists in verifying inclusion relations by using the transitive property of transitive roles like $isPartOf$ in the tableau method. 
 This type of reasoning answers the second question in a restricted way. For a transitive role (e.g. $isPartOf$), we can check the satisfiability of the relation
-between two objects via the third one. The Rule 6 in the Section 3.2 provides a corresponding rule to verify the implicit transitive relation in tableau method. 
+between two objects via the third one. Rule 6 in Section 3.2 provides a corresponding rule to verify the implicit transitive relation in the tableau method. 
 In the example, $\exists isPartOf. Hemisphere \sqsubseteq \exists isPartOf.Brain$ is verified.
 This example is modeled as a test of satisfiability problem which can be seen as the answer for the third question.
 These simple spatial reasonings are not as powerful as those in the references, however, we consider the objects as a set of pixels instead of approximating an object by a single pixel 
-(the transitivity of direction does not hold any more).
-In addition, topological relations and spatial reasoning on compositions are still an open problem.
+(the transitivity of direction does not hold anymore).
+In addition, spatial reasoning on compositions of relations in particular topological ones are still an open problem.
 
 \section{Abductive reasoning}\label{sec:abd}
 Abductive reasoning is a backward-chaining inference, consisting in generating hypotheses and finding the ``best'' explanation of a given observation.
@@ -787,7 +798,7 @@ In this section, we will introduce how abduction is applied in image interpretat
 \subsection{State of the art of abductive reasoning}
 The term ``Abduction'' was first proposed by Charles S. Peirce in philosophy.
 Afterwards, abduction has been developed in artificial intelligence and cognitive science.
-Aliseda~\cite{aliseda1997seeking} gave a general overview of abduction in propositional logic and proposed tableaux methods for abduction.
+Aliseda~\cite{aliseda1997seeking} gave a general overview of abduction in propositional logic and proposed tableau methods for abduction.
 In the context of Description Logics, four types of abduction problems  are described by Elsenbroich~\cite{elsenbroich2006case}.
 Let $\mathcal{L}$ be a DL, $\mathcal{K}=\{\mathcal{T},\mathcal{A}\}$ be a knowledge base in $\mathcal{L}$, $C,D$ two concepts in $\mathcal{L}$ and suppose that they are satisfiable
 with respect to  $\mathcal{K}$.
@@ -801,24 +812,32 @@ The logical formalisms of abduction in DLs are represented as follows:
  as a combination of TBox abduction and ABox abduction, is any finite set $S=\{\psi_i \mid i\leq n\}$ such that $ \mathcal{K} \cup S \vDash \phi$.
 \end{itemize}
 
-An explanation $H$ for an abduction problem has the following properties: 
+An explanation $H$ for an abduction problem has the following properties~\cite{elsenbroich2006case}: 
 \begin{itemize}
   \item Consistency: $\mathcal{K}\cup H$ is consistent.
   \item Relevance: $\phi$ is not entailed by $H$ ($H\nvDash \phi$).
   \item Semantic minimality: there does not exist a hypothesis $H_i$ such that $H_i\vDash H$.
  \end{itemize}
 Image interpretation task was regarded as an abduction problem in \cite{atif2014explanatory,gries2010probabilistic,neumann2008scene,shanahan2005perception}.
-In \cite{neumann2008scene}, DL-safe rules were proposed to map high level concepts and occurrence objects in the scene and their relationships.
-The rules ensure the expressivity and preserve the decidability of the reasoning. However, only the concept defined in the rules can be inferred using 
-the formalism. In \cite{atif2014explanatory}, the image interpretation was formulated as a concept abduction problem.
+In \cite{neumann2008scene}, DL-safe rules were proposed to map high-level concepts and occurrence objects in the scene and their relationships.
+The rules ensure the expressivity and preserve the decidability of the reasoning. The authors extended the abductive reasoning with DL-safe rules 
+in a probabilistic reasoning engine in \cite{gries2010probabilistic}.
+Abduction was applied on a robot vision system in order to transform low level sensor data into symbolic representation in \cite{shanahan2005perception}.
+Similarly, the backward reasoning is provided by a set of defined first-order logic rules.
+The explanation is found by searching the rules when the conditions in the rules are fulfilled in the observation.
+% abduction is controlled by a probabilistic representation.
+However, only the concept defined in the rules can be inferred using these formalisms.
+In \cite{atif2014explanatory}, the image interpretation was formulated as a concept abduction problem.
 The DL is expressed in $\mathcal{EL}$. The knowledge base is processed using formal concept analysis and the abductive reasoning is tackled
 by a recursive erosion on the lattice based representation. In this way, not only defined concepts but also undefined complex concepts can be inferred.
-% \cite{shanahan2005perception} multimedia interpretation as abduction.
-% \cite{gries2010probabilistic}
-
+To the best of our knowledge, there is not much work that models image interpretation as an abduction problem.
+Most of it relies on additional rules apart from basic knowledge base which build the causal relations directly between the cause and the effect. 
+The backward reasoning is then seen as a query problem or a searching strategy to find the corresponding defined hypotheses.
+In this thesis, we attempt to construct a more expressive knowledge base in DLs, which can be reused without specific rules.
+Beyond restricting the explanation to the defined concepts in the knowledge base, a new generated hypothesis based on the background knowledge is also considered in our formalism. 
 
 % di2009tableaux
-Apart from the abduction mechanism mentioned above, the tableau method is an effective approach for solving abduction problems.
+Apart from the abduction mechanism mentioned above, the tableau method is a powerful approach for solving abduction problems.
 The tableau method was first adapted in Description Logics formalisms for a market matchmaking problem~\cite{colucci2004uniform}.
 Colucci \textit{et al.} modeled this problem as a concept abduction in the DL $\mathcal{ALN}$ \cite{colucci2004uniform},
 where the observations are the demand and the supply is treated as the explanation for the meet of the request.
@@ -826,18 +845,27 @@ The tableau method has also been studied by Halland \textit{et al.} in \cite{hal
 For a TBox abduction problem, a TBox axiom in the form $\phi= C\sqsubseteq D$ is an explanation enforcing the entailment of the observation,
 which is also in the form of  a TBox subsumption form. Similar to the tableau method for the  concept abduction, if the disjunction of
 two concepts $A_1$  and $\neg A_2$ can create a clash of the tableau, then $A_2 \sqsubseteq A_1$ is considered as a potential explanation.
-
+Their ideas are similar to ours, which are extended from the basic strategy in \cite{aliseda1997seeking,colucci2004uniform}.
+However, complex concepts are represented in a restricted form for role qualification. Only $\top$ and $\bot$ can  appear in the domain
+of the role qualification ($\exists r.\top$, $\exists r.\bot$, $\forall r.\top$ and $\forall r.\bot$). In our context, spatial relations
+are represented in terms of roles, which requires more elaborated and rich complex concepts.
 
 Klarman \textit{et al.}~\cite{klarman2011abox} present a tableau method for the ABox abduction in $\mathcal{ALC}$.
 This method integrates logic reasoning techniques of the first-order logic. First, knowledge and observation are
 transformed into first-order logic. Then, a tableau in the context of the first-order logic is built and solutions
 are selected in the open branches. The results are transformed into Description Logic from the first-order logic in the end.
+Though the transformation from Description Logic formalism to a representation in terms of first-order logic facilitate to reuse the existing tableau method
+in the developed first-order logic formalism.
+The computation of a model of first-order logic is undecidable. Infinitely models may be computed.
 In \cite{du2011towards,du2014tractable}, the authors also focus on ABox abduction problems. 
 In~\cite{du2014tractable}, Du \textit{et al.} introduced a tractable approach to ABox abduction, called the query abduction problem.
 This problem focuses on giving the explanations, which are new facts neither in the observation nor in the assertional knowledge, for an observation.
 The observation is represented by a Boolean conjunctive query in the form $\exists x\Phi(x,c)$, where $\Phi(x,c)$ is a conjunction of concepts
-assertions and role assertions and $x$ represents a variable and $c$ represents an individual.
+assertions and role assertions, $x$ represents a variable and $c$ represents an individual.
 However, the potential hypotheses are restricted to atomic concepts and roles in the TBox.
+As we have described above, the tableau method for an abduction is proposed in a general way.
+The explanations are formulated without a specific purpose.
+In image interpretation, a structural formula, which explains the spatial relationships and high-level semantics, is expected to be constructed. 
 
 We then move to the other aspect of abduction problem: the selection problem.
 As a set of syntactical candidates generated using the tableau method, the selection relies on explicit restrictions for choosing the ``best'' explanation.
@@ -849,15 +877,18 @@ In addition, minimality criteria are required to select the ``best'' among the f
 Though the desired candidates are selected, the solutions can be infinite.
 Therefore, defining minimality criteria is an important manner to find a preference among all the potential hypotheses.
 Bienvenu  discussed a set of basic minimality criteria for abductive reasoning in~\cite{bienvenu08complexity}.
-
+These minimality criteria is a general evaluation metric for selecting a preferred explanation. 
+The minimality criteria proposed by Bienvenu are satisfied for a certain type of hypotheses where a hypothesis is a conjunction of atomic concepts in a predefined candidate set.
+We attempt to find a more reasonable criterion for a specific image interpretation use.
 
 \subsection{Abductive reasoning for image interpretation}
-As introduced above, the tableau method is an effective way to find an explanation given the observation.
+As introduced above, the tableau method is a powerful way to find an explanation given the observation.
 In this work, we apply this general strategy to image interpretation expressed as a concept abduction problem.
 An observed image is represented by an ABox, which is supposed to be consistent with the knowledge base. 
 In the concept abduction problem, the observation concept is constructed on the basis of the individual that is selected to be explained and
 contextual information in the ABox.
-The knowledge base is in the DL $\mathcal{ALC}$, but the explanations are generated in a restricted language such as $\mathcal{ALE}$.
+In this part, the knowledge base is in the DL $\mathcal{ALC}$ (extension to $\mathcal{ALCHI_{R_+}}$) are planned for future work),
+but the explanations are generated in a restricted language such as $\mathcal{ALE}$.
 
 % The tableau method has proven effective for tackling abductive reasoning problems. 
 We then consider extending and automating the tableau method for image interpretation.
@@ -908,42 +939,42 @@ However, this is not suitable for a backward-chaining inference, which intends t
 internalized concept (see Definition~\ref{def:ic}) in the tableau.
 
 If $C_i \sqsubseteq D_i$, then $\top \sqsubseteq \neg C_i  \sqcup D_i$ and  $C_\mathcal{T}\equiv \top$. 
-As a consequence, all interpretations of the TBox $\mathcal{T}$ is equivalent to interpretations of the internalized concept $C_\mathcal{T}$.
+As a consequence, all interpretations of the TBox $\mathcal{T}$ are equivalent to interpretations of the internalized concept $C_\mathcal{T}$.
 Therefore, every interpretation elements belongs to  $C_\mathcal{T}^\mathcal{I}$. 
 Its use has a result in $C\equiv C\sqcap C_\mathcal{T}$.
 
 
-We reformulate the subsumption in terms of satisfiability: the concept $H \sqcap \neg D$ is not satisfiable w.r.t. $\mathcal{T}$, where $H$ is an explanation, $D$ is an observation,
-$\mathcal{T}$ is a TBox. This problem can be reduced by testing the satisfiability of a concept $ H\sqcap \neg D \sqcap C_\mathcal{T}$, where $ C_\mathcal{T}$ is the internalized concept of $\mathcal{T}$.
-The concept $H$ that causes unsatisfiability of $H\sqcap\neg D\sqcap C_\mathcal{T}$ is a potential hypothesis, i.e. the tableau built from this concept is closed.
+We reformulate the subsumption in terms of satisfiability: the concept $H \sqcap \neg O$ is not satisfiable w.r.t. $\mathcal{T}$, where $H$ is an explanation, $O$ is an observation,
+$\mathcal{T}$ is a TBox. This problem can be reduced by testing the satisfiability of a concept $ H\sqcap \neg O \sqcap C_\mathcal{T}$, where $ C_\mathcal{T}$ is the internalized concept of $\mathcal{T}$.
+The concept $H$ that causes unsatisfiability of $H\sqcap\neg O\sqcap C_\mathcal{T}$ is a potential hypothesis, i.e. the tableau built from this concept is closed.
 We follow this strategy and propose an extension of the work by Colucci \textit{et al.} in~\cite{colucci2004uniform}.
 
-Each interpretation element in the tableau has now four label function (instead of $\mathcal{L}(x)$ and $\mathcal{E}(x,y)$ in Definition~\ref{def:tableauALC}):
-$\mathbf{T}(x)$, $\mathbf{F}(x)$, $\mathbf{T}(x,y)$, $\mathbf{F}(x,y)$,
+Each interpretation element in the tableau has now four label functions (instead of $\mathcal{L}(x)$ and $\mathcal{E}(\langle x,y \rangle)$ in Definition~\ref{def:tableauALC}):
+$\mathbf{T}(x)$, $\mathbf{F}(x)$, $\mathbf{T}(\langle x,y \rangle)$, $\mathbf{F}(\langle x,y \rangle)$,
 where  $x,y$ are interpretation elements in $\Delta^\mathcal{I}$.
 They are defined as follows:
 
- Let $\mathcal{K}=\langle \mathcal{T},\mathcal{A}\rangle$ be a knowledge base,  $x^{\mathcal{I}}$, $y^{\mathcal{I}}$ interpretation elements, $C,D$  two concepts et $r, s$ two roles in the given DL,
+ Let $\mathcal{K}=\langle \mathcal{T},\mathcal{A}\rangle$ be a knowledge base,  $x,y$ interpretation elements, $C,D$  two concepts and $r, s$ two roles in the given DL,
  we have:
  \begin{itemize}
- \item   $\mathbf{T}(x)$ represents a set of concepts such that $x^\mathcal{I}$ is one of their interpretations:
-   $C\in \mathbf{T}(x)$ iff $x^\mathcal{I} \in C^\mathcal{I}$.
- \item   $\mathbf{F}(x)$ represents a set of concepts such that $x^\mathcal{I}$ is not one of their interpretations:
-  $D\in \mathbf{F}(x)$ iff $x^\mathcal{I} \notin D^\mathcal{I}$.
- \item   $\mathbf{T}(x,y)$ represents a set of roles between $x$ and $y$:
-  $r\in \mathbf{T}(x,y)$ iff $\langle x^\mathcal{I}, y^\mathcal{I} \rangle \in r^\mathcal{I}$.
- \item   $\mathbf{F}(x,y)$ represents a set of unsatisfiable roles between $x$ and $y$:
-  $s\in \mathbf{F}(x,y)$ iff $\langle x^\mathcal{I}, y^\mathcal{I} \rangle \notin s^\mathcal{I}$.
+ \item   $\mathbf{T}(x)$ represents a set of concepts such that $x$ is one of their interpretations:
+   $C\in \mathbf{T}(x)$ iff $x \in C^\mathcal{I}$.
+ \item   $\mathbf{F}(x)$ represents a set of concepts such that $x$ is not one of their interpretations:
+  $D\in \mathbf{F}(x)$ iff $x \notin D^\mathcal{I}$.
+ \item   $\mathbf{T}(\langle x,y \rangle)$ represents a set of roles between $x$ and $y$:
+  $r\in \mathbf{T}(\langle x,y \rangle)$ iff $\langle x, y \rangle \in r^\mathcal{I}$.
+ \item   $\mathbf{F}(\langle x,y \rangle)$ represents a set of unsatisfiable roles between $x$ and $y$:
+  $s\in \mathbf{F}(\langle x,y \rangle)$ iff $\langle x, y \rangle \notin s^\mathcal{I}$.
  \end{itemize}
  
  In the initialization step, the root node of the tableau is initialized with the concept $C_\mathcal{T}\sqcap \neg O$.
  As $C_\mathcal{T}\sqcap \neg O$ belongs to $\mathbf{T}(1)$, we add its negation to $\mathbf{F}(1)$.
- This technique avoids adding the negation before concepts selected to generate contradictions in the table.
- We can prove the equivalence between $ C\in \mathbf{T}(x) $ and $\neg C \in \mathbf {F}(x)$. Suppose that for $x^\mathcal{I} \in \Delta^\mathcal{I}$, $x^\mathcal{I}$ is an interpretation of a concept $C$,
-and $x^\mathcal{I}$ is also an interpretation of the concept $\neg C$. So $x^\mathcal{I}$ is an interpretation of the concept $C\sqcap\neg C\equiv \bot$. There is no such interpretation.
-Thus, if $x^\mathcal{I}\in C^\mathcal{I}$, then $x^\mathcal{I} \notin(\neg C)^\mathcal{I}$.
+ This technique avoids adding the negation before selected concepts to generate contradictions in the tableau.
+ We can prove the equivalence between $ C\in \mathbf{T}(x) $ and $\neg C \in \mathbf {F}(x)$. Suppose that for $x \in \Delta^\mathcal{I}$, $x$ is an interpretation element of a concept $C$,
+and $x$ is also an interpretation of the concept $\neg C$. As a consequence, $x$ is an interpretation of the concept $C\sqcap\neg C\equiv \bot$. There is no such interpretation.
+Thus, if $x\in C^\mathcal{I}$, then $x \notin(\neg C)^\mathcal{I}$.
  
-We assume that the concepts are simplified in the negation normal form. For a concept $C \in \mathcal{ALC} $, the normal form of a negated concept of $\neg C$ is denoted by $\overline{C}$.
+We assume that the concepts are simplified in the NNF. For a concept $C \in \mathcal{ALC} $, $\neg C$ in the NNF is denoted by $\overline{C}$.
 The expansion rules used in our work are presented here:
 \begin{enumerate}
 	 \item Conjunction
@@ -960,15 +991,15 @@ The expansion rules used in our work are presented here:
 	       \end{itemize}
 	 \item Existential restriction
 	       \begin{itemize}
-	       \item  [$\mathbf{T)}$]  if $\exists r.C \in \mathbf{T}(x)$ and there does not exist a $y$ such that $r \in \mathbf{T}(x,y)$ and $C \in \mathbf{T}(y)$, 
-	       we create a new interpretation element $y$  then add $r$ in  $\mathbf{T}(x,y)$, and $C$ in $\mathbf{T}(y)$.
-	        \item  [$\mathbf{F)}$]  if $\forall r.C \in \mathbf{F}(x)$ and there does not exist a $y$ such that $r \in \mathbf{T}(x,y)$ and $C \in \mathbf{T}(y)$, 
-	       we create a new interpretation element $y$ then add $r$ in  $\mathbf{T}(x,y)$, and $C$ in $\mathbf{F}(y)$.
+	       \item  [$\mathbf{T)}$]  if $\exists r.C \in \mathbf{T}(x)$ and there does not exist a $y$ such that $r \in \mathbf{T}(\langle x,y \rangle)$ and $C \in \mathbf{T}(y)$, 
+	       we create a new interpretation element $y$  then add $r$ in  $\mathbf{T}(\langle x,y \rangle)$, and $C$ in $\mathbf{T}(y)$.
+	        \item  [$\mathbf{F)}$]  if $\forall r.C \in \mathbf{F}(x)$ and there does not exist a $y$ such that $r \in \mathbf{T}(\langle x,y \rangle)$ and $C \in \mathbf{T}(y)$, 
+	       we create a new interpretation element $y$ then add $r$ in  $\mathbf{T}(\langle x,y \rangle)$, and $C$ in $\mathbf{F}(y)$.
 	       \end{itemize}
 	 \item Universal restriction
 	       \begin{itemize}
- 	        \item  [$\mathbf{T)}$]  if $\forall r.C \in \mathbf{T}(x)$ and for all $y$ such that $r \in \mathbf{T}(x,y)$ and $C\notin\mathbf{T}(y)$, we add $C$ in  $\mathbf{T}(y)$.
-	        \item  [$\mathbf{F)}$]  if $\exists r.C \in \mathbf{F}(x)$ and for all $y$ such that $r \in \mathbf{T}(x,y)$ and $C\notin\mathbf{T}(y)$, we add $C$ in  $\mathbf{F}(y)$.
+ 	        \item  [$\mathbf{T)}$]  if $\forall r.C \in \mathbf{T}(x)$ and for all $y$ such that $r \in \mathbf{T}(\langle x,y \rangle)$ and $C\notin\mathbf{T}(y)$, we add $C$ in  $\mathbf{T}(y)$.
+	        \item  [$\mathbf{F)}$]  if $\exists r.C \in \mathbf{F}(x)$ and for all $y$ such that $r \in \mathbf{T}(\langle x,y \rangle)$ and $C\notin\mathbf{T}(y)$, we add $C$ in  $\mathbf{F}(y)$.
 	       \end{itemize}	
 
 	 \item Replacement of axioms in $\mathcal{T}$
@@ -1003,7 +1034,7 @@ A clash in a branch can be divided into two categories:
    \caption{\label{fig:smurf}The smurf and its segmentation of different elements.}
  \end{figure} 
  
-We illustrate this procedure with the image of the Smurf (Figure \ref{fig:smurf})\footnote{An example of abduction for interpretation of brain tumor is given in Appendix B}.
+We illustrate this procedure with the image of the Smurf (Figure \ref{fig:smurf})\footnote{An example of abduction for the interpretation of a brain tumor image is given in Appendix~\ref{Appendix B}.}.
 In the TBox, we describe the background knowledge that a leader smurf has a beard and wears a red hat as follows:
 \begin{align*}
 \mathcal{T}=\{SmurfLeader &\sqsubseteq \exists hasPart.Beard \sqcap \exists hasOnTop.RedHat, \\
@@ -1017,15 +1048,14 @@ Suppose that we can recognize three parts $a,b,c$ in an image and the observatio
  b&:\exists hasColor.Red,\\
  c&:Beard\}.
 \end{align*}
-Then, the most specific concept of $a$ is constructed as:
+Then, the most specific concept of $a^\mathcal{I}$ is constructed as:
 \begin{align*}
-D=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat \sqcap  \exists hasColor.Red) 
+O=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat \sqcap  \exists hasColor.Red) 
 \end{align*}
 
 In our approach of the construction of the tableau, the initial node consists of two complex concepts.
 One concept is satisfiable in $\mathbf{T}(1)$. Here, the concept is empty because we do not specify  a constraint.
-The other is not satisfiable concept in $ \mathbf{F} (1) $. Here is the negation of the conjunction of $ C_\mathcal{T}$ and $ \neg O$. 
-
+The other is non-satisfiable concept in $\mathbf{F}(1)$ (i.e. $\neg (C_\mathcal{T}\sqcap O)\equiv \neg C_\mathcal{T} \sqcup O$). 
 \begin{figure}
 \centering
 \begin{tikzpicture}[scale=0.7, transform shape,every text node part/.style={align=center},level 1/.style={level distance=2cm},level 2/.style={level distance=2cm, sibling distance=8cm},
@@ -1070,9 +1100,9 @@ is a potential hypothesis. Apart from this case, $\exists hasPart. Beard \sqcap 
 $SmurfLeader \sqcap \exists hasOnTop.(Hat \sqcap \exists hasColor.Red)$, $SmurfLeader \sqcap \exists hasPart.Beard$ are also potential hypotheses.
 
 % \subsubsection{Tableau closure (minimal hitting set)}
-At this stage, we conducted a construction procedure of the tree model using  the tableau method. Then we have a set of concepts for each open branch in the tableau.
+At this stage, we presented a construction process of the tree model using  the tableau method. Then we have a set of concepts for each open branch in the tableau.
 One potential hypothesis is the combination of these concepts. The considered concepts can close the table if at least one concept is selected in each branch.
-To avoid redundancy, we want to take the minimum hitting set. 
+To avoid redundancy, we take the minimum hitting set as the first post-processing on constructing hypotheses from the candidate sets. 
 \begin{mydef}{(Hitting set)}
  Let $\{ S_1,\dots,S_n\}$ be a collection of sets. A hitting set  $T$ is a subset $T\subseteq \cup_{i=1}^{n} S_i$ such that $T$ contains at least one element
  of each set in the collection $T \cap S_i \neq \emptyset~(1\leq i\leq n)$.
@@ -1080,17 +1110,8 @@ To avoid redundancy, we want to take the minimum hitting set.
 \end{mydef}
 
 Such a minimal hitting set of concepts guarantees a syntactical hypothesis in the given DL. 
-To ensure the consistency and relevance of an explanation, the following properties are required to be satisfied for each potential hypothesis:
-\begin{description}
- \item[\textbf{Relevant}] $\mathcal{K}\vDash \mathcal{H} \sqsubseteq \mathcal{O}$
- \item[\textbf{Consistent}] $\mathcal{K},\mathcal{H} $ are consistent.
- \item[\textbf{Explainable}] $\mathcal{K},\nvDash \mathcal{O}, \mathcal{H}   \nvDash \mathcal{O}$
-\end{description}
-\medskip
-
-% Une approche exhaustive est proposée dans l'algorithme~\ref{exhaustive}:
-An exhaustive algorithm is proposed for selecting the minimal hitting set:
-
+The inconsistent hypotheses ($\mathcal{K} \cup H \vDash \bot$) and irrelevant hypotheses ($H \vDash O$) are also required to be removed during the construction process.
+An exhaustive algorithm is elaborated from the minimal hitting set algorithm~\cite{reiter1987theory}:
 \begin{algorithm}[H]
 \textbf{Input:} A collection of sets $\{S_1,\dots,S_n\}$\;
 \textbf{Output:} A collection of hitting sets $\mathcal{H}$\;
@@ -1133,8 +1154,8 @@ $H_3=SmurfLeader\sqcap\exists hasOnTop.(Hat\sqcap \exists hasColor.Red)$, $H_4=S
 The second hypothesis is removed because $H=\exists hasPart.Beard \sqcap \exists hasOnTop.(Hat\sqcap\exists hasColor.Red)$ 
 is not an independent explainable hypothesis ($H\vDash \mathcal{O}$). 
 
-Assumptions made in this algorithm are consistency and syntactical minimality. 
-A preference explanation depends on a minimality criterion that will be presented in the next subsection.
+The generated hypotheses from this algorithm are consistent and syntactically minimal. 
+A preference explanation depending on a minimality criterion will be presented in the next subsection.
 
 \subsection{Minimality criteria}
 Abduction can be also defined as inference to the best explanation. A set of potential hypotheses is generated based on the tableau method. 
@@ -1161,7 +1182,7 @@ Five minimality criteria are then defined as follows.
 \begin{mydef}{(Minimality criteria~\cite{bienvenu08complexity})}
 For an abduction problem $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$, $\mathcal{A}=\{H_1,\dots,$ $H_n \} \subseteq \mathcal{H}$ is an explanation of the problem $\mathcal{P}$,
 $\langle H_{(1)},\dots,H_{(n)}\rangle$ is a priority order of  $\mathcal{H}$,
-and $w:\mathcal{H}\rightarrow \mathbb{N}$ is a weighting function to defining the importance of the hypotheses. The criteria can be defined as follows:
+and $w:\mathcal{H}\rightarrow \mathbb{N}$ is a weighting function to define the importance of the hypotheses. The criteria can be defined as follows:
 \begin{itemize}
 \item  $\mathcal{A}~$ is  $~\subseteq -minimal$ if there does not exist an explanation $\mathcal{B}$ for $\mathcal{P}$ such that $\mathcal{B} \subsetneq \mathcal{A}$,
 \item  $\mathcal{A}~$ is  $~\leq -minimal$ if there does not exist an explanation $\mathcal{B}$ for $\mathcal{P}$ such that $\abs{\mathcal{B}} < \abs{\mathcal{A}}$,
@@ -1171,6 +1192,7 @@ $\mathcal{B} \cap H_j = \mathcal{A}\cap H_j$ where $1\leq j< i$,
 $\abs{\mathcal{B} \cap H_j} = \abs{\mathcal{A}\cap H_j}$ where $1\leq j< i$,
 \item  $\mathcal{A}~$ is  $~\sqsubseteq_w -minimal$ if there does not exist an explanation $\mathcal{B}$ for $\mathcal{P}$ such that $\sum_{B \in \mathcal{B}}w(B) < \sum_{A \in \mathcal{A}}w(A)$.
 \end{itemize}
+\label{def:minimality}
  \end{mydef}
  The author defined a particular concept abduction problem where the hypotheses are restricted to the conjunction of a given set of candidate concepts.
  Therefore, the criteria based on set inclusion relations are suitable for choosing a minimal set as the preferred explanation. 
@@ -1183,7 +1205,7 @@ For an abduction problem $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{
 \item  $P_{i}$ is a $\bm{\sqsubseteq -minimal}$ explanation if there does not exist an explanation $P_{j}$ for $\mathcal{P}$ such that $P_{i}\sqsubseteq P_{j}$.
 \end{itemize}
 \end{mydef}
-In our example of the Smurf, $H_1=SmurfLeader$ is preferred than $H_4=SmurfLeader\sqcap \exists hasPart.Beard$ since $H_4\sqsubseteq H_1$.
+In our example of the Smurf, $H_1=SmurfLeader$ is preferable to $H_4=SmurfLeader\sqcap \exists hasPart.Beard$ since $H_4\sqsubseteq H_1$.
 This example is not illustrative enough because $H_1$ is also a $\subseteq-minimal$ explanation.
 We have noted that a $\subseteq-minimal$ explanation in \cite{bienvenu08complexity} always follows $\sqsubseteq-minimal$ criterion since 
 $A_1\sqcap \cdots\sqcap A_n\sqsubseteq A_1\sqcap \cdots\sqcap A_m$ if $\{A_1, \cdots, A_m\}\subseteq \{A_1, \cdots, A_n\}$.
@@ -1198,16 +1220,16 @@ $H$ is the explanation to be found for the matching process.
 The authors proposed an irreducible-minimum solution in this formalism.
 All the concepts used in the problem are transformed into conjunctive normal form where complex concepts are replaced by the conjunction of super concept considering GCI axioms in the TBox.
 After this transformation, a hypothesis is represented in terms of corresponding atomic concepts by finding the concepts which appear in the observation concept but not in the condition concept.
+
 In \cite{di2007semantic}, an explanation of the matchmaking problem is the difference between the concept of supply and the concept of the request
 The solution provides an explanation of why a supply is the compatible and promising one given a request in the market.
 In contrast with a matchmaking problem, an explanation in terms of high level concepts is favored in our context. 
 An irreducible solution conform to the criteria $\sqsubseteq-minimal$ and $\leq -minimal$.
 Therefore, an irreducible criterion is proposed by combining $\sqsubseteq-minimal$ criterion and $\leq-minimal$ criterion.
-We can represent concepts in conjunctive normal form (CNF) to the assumptions and observation. As the assumption is subsumed by the observation, connective concepts of hypothesis are a subset
-those of observation. We present a metric function $ f_{ranking}$  to assess the quality that assumption. Here, one can calculate the cardinality of the different part
-between the hypothesis and observation. The concept with the least difference to other assumptions is preferred as an irreducible minimum explanation. we can also
-assign a value to each concept and calculate the weighting for the different part.
-
+The generated hypotheses and the observation are represented in conjunctive normal form (CNF).
+As the hypotheses are subsumed by the observation, the conjunct set of concepts of observation is a subset of the conjunct set of concepts of a hypothesis.
+We present a metric function $f_{ranking}$ to assess the importance of the concepts. The cardinality of the different part between the hypothesis
+and the observation is a possible $f_{ranking}$. Optionally, we can use the order priority or the weighted function proposed in Definition~\ref{def:minimality}.
 \begin{mydef}{(Irreducible criterion)}
 For an abduction problem $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{O}\rangle$, and $\{\langle P_{1},\dots,P_{n}\rangle\}$ are potential hypotheses,
 \begin{itemize}
@@ -1218,7 +1240,7 @@ For an abduction problem $\mathcal{P}=\langle \mathcal{T},\mathcal{H}, \mathcal{
 In the example of interpretation of the Smurf, the explanation $H_1=SmurfLeader$ is the ``best'' explanation according to all the criteria presented
 in this section.
 
-The criteria introduced by Bienvenu are useful when an assumption contains only atomic concepts. It considers that a hypothesis is constructed by the conjunction of atomic concepts.
+The criteria introduced by Bienvenu are useful when an assumption contains only atomic concepts. A hypothesis is constructed by the conjunction of atomic concepts.
 The criterion concerns inclusion relations of set theory, possibly with the priority and the weight function.
 In our problem, a hypothesis can be made by non-atomic concepts. 
 The subsumption test is a good choice in many works,
@@ -1400,6 +1422,7 @@ This implies that we cannot find a model for the concept $H\sqcap \neg O$. There
 explanation of the observation.
 
 \section{Abduction example for brain tumor image interpretation}
+\label{Appendix B}
 Due to the size of the tableau for this example, we only give the knowledge base and the results for a brain tumor interpretation problem using the tableau method.
 \begin{align*}
 \mathcal{T}=\{~SmallDeformingTumor &\sqsubseteq BrainTumor\\

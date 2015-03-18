@@ -96,6 +96,13 @@ Jianfeng Du, Guilin Qi, Yi-Dong Shen, and Jeff~Z. Pan.
 \newblock In {\em 25th AAAI Conference on Artificial Intelligence (AAAI-11)},
   pages 1160--1165, 2011.
 
+\bibitem{du2014tractable}
+Jianfeng Du, Kewen Wang, and Yi-Dong Shen.
+\newblock A tractable approach to {ABox} abduction over description logic
+  ontologies.
+\newblock In {\em 28th AAAI Conference on Artificial Intelligence (AAAI-14)},
+  pages 1034--1040. Springer, 2014.
+
 \bibitem{egenhofer1991reasoning}
 Max~J Egenhofer.
 \newblock Reasoning about binary topological relations.
@@ -155,6 +162,12 @@ Oliver Gries, Ralf M{\"o}ller, Anahita Nafissi, Maurice Rosenfeld, Kamil
 \newblock In {\em Web Reasoning and Rule Systems}, pages 182--194. Springer,
   2010.
 
+\bibitem{halland2014tbox}
+Ken Halland, Arina Britz, and Szymon Klarman.
+\newblock Tbox abduction in $\mathcal{ALC}$ using a {DL} tableau.
+\newblock In {\em 27th International Workshop on Description Logics (DL)},
+  pages 556--566, 2014.
+
 \bibitem{han2009bottom}
 Feng Han and Song-Chun Zhu.
 \newblock Bottom-up/top-down image parsing with attribute grammar.
@@ -178,19 +191,6 @@ C{\'e}line Hudelot, Jamal Atif, and I~Bloch.
 C{\'e}line Hudelot, Jamal Atif, and Isabelle Bloch.
 \newblock Fuzzy spatial relation ontology for image interpretation.
 \newblock {\em Fuzzy Sets and Systems}, 159(15):1929--1951, 2008.
-
-\bibitem{du2014tractable}
-Kewen~Wang Jianfeng~Du and Yi-Dong Shen.
-\newblock A tractable approach to {ABox} abduction over description logic
-  ontologies.
-\newblock In {\em 28th AAAI Conference on Artificial Intelligence (AAAI-14)},
-  pages 1034--1040. Springer, 2014.
-
-\bibitem{halland2014tbox}
-Szymon~Klarman Ken~Halland, Arina~Britz.
-\newblock Tbox abduction in $\mathcal{ALC}$ using a dl tableau.
-\newblock In {\em 27th International Workshop on Description Logics (DL)},
-  pages 556--566, 2014.
 
 \bibitem{klarman2011abox}
 Szymon Klarman, Ulle Endriss, and Stefan Schlobach.
@@ -253,13 +253,18 @@ David~A Randell, Zhan Cui, and Anthony~G Cohn.
 \newblock In {\em 3rd International Conference on Principles of Knowledge
   Representation and Reasoning (KR)}, pages 165--176, 1992.
 
+\bibitem{reiter1987theory}
+Raymond Reiter.
+\newblock A theory of diagnosis from first principles.
+\newblock {\em Artificial intelligence}, 32(1):57--95, 1987.
+
 \bibitem{santos2012region}
 Paulo Santos, Rodolpho Freire, Danilo~N. dos Santos, Carlos Thomaz, Paulo
   Sallet, Mario Louza, and Anthony~G. Cohn.
 \newblock A region-based ontology of the brain ventricular system and its
   relation to schizophrenia.
 \newblock In {\em Qualitative Spatio-temporal Representation and Reasoning:
-  Trends and Future Directions}, chapter~7, pages 256--273. IGI Global, 2012.
+  Trends and Future Directions}, pages 256--273. IGI Global, 2012.
 
 \bibitem{shanahan2005perception}
 Murray Shanahan.
@@ -300,10 +305,12 @@ Kewei Tu, Meng Meng, Mun~Wai Lee, Tae~Eun Choe, and Song-Chun Zhu.
   queries.
 \newblock {\em IEEE MultiMedia}, 21(2):42--70, 2014.
 
-\bibitem{vanegas2010detection}
+\bibitem{vanegas2013alignment}
 Maria~Carolina Vanegas, Isabelle Bloch, and Jordi Inglada.
-\newblock Detection of aligned objects for high resolution image understanding.
-\newblock In {\em IGARSS}, pages 464--467, 2010.
+\newblock Alignment and parallelism for the description of high resolution
+  remote sensing images.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
+  51(6):3542--3557, 2013.
 
 \bibitem{wessel2000obstacle}
 Michael Wessel.
