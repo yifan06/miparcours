@@ -278,7 +278,7 @@ The basic reasoning on concepts in Description Logics is subsumption checking (w
 concept satisfiability checking (written as $\mathcal{T}\nvDash C\equiv \bot$).
 Subsumption checking is a decision procedure to check whether a concept $D$ is more general than another concept $C$.
 Checking satisfiability of a concept $C$ is a decision procedure to determine whether $C$ has a model with respect to the TBox.
-Complex reasoning services are built based on these basic ones. For example, classification is a decision procedure amounting to finding subconcept and superconcept 
+Complex reasoning services are built based on these basic ones. For example, classification is a decision procedure amounting to finding subsumption 
 relationships between concepts in a given terminology. This allows us to find a position of the given concept in the terminological hierarchy.
 Therefore, classification can be reduced to subsumption checking of each pair of concepts in the given terminology.
 The definitions of subsumption and satisfiability of a concept are introduced as follows \cite{baader2003description}:
@@ -790,7 +790,7 @@ In addition, spatial reasoning on compositions of relations in particular topolo
 
 \section{Abductive reasoning}\label{sec:abd}
 Abductive reasoning is a backward-chaining inference, consisting in generating hypotheses and finding the ``best'' explanation of a given observation.
-Unlike the standard reasoning presented in Section~\ref{sec:pre}, abductive reasoning is a non-monotonic reasoning because the conclusion is not necessarily correct.
+% Unlike the standard reasoning presented in Section~\ref{sec:pre}, abductive reasoning is a non-monotonic reasoning because the conclusion is not necessarily correct.
 New knowledge should be added in order to positively entail the observation.
 Image interpretation can be expressed as an abductive reasoning  mechanism.
 When facing a pathological brain image, an expert has to resort to his knowledge of pathological anatomy, in order to give  an explanation for the observed image. 
@@ -887,8 +887,7 @@ In this work, we apply this general strategy to image interpretation expressed a
 An observed image is represented by an ABox, which is supposed to be consistent with the knowledge base. 
 In the concept abduction problem, the observation concept is constructed on the basis of the individual that is selected to be explained and
 contextual information in the ABox.
-In this part, the knowledge base is in the DL $\mathcal{ALC}$ (extension to $\mathcal{ALCHI_{R_+}}$) are planned for future work),
-but the explanations are generated in a restricted language such as $\mathcal{ALE}$.
+In this part, the knowledge base is in the DL $\mathcal{ALC}$ (extension to $\mathcal{ALCHI_{R_+}}$) are planned for future work).
 
 % The tableau method has proven effective for tackling abductive reasoning problems. 
 We then consider extending and automating the tableau method for image interpretation.
@@ -1330,7 +1329,7 @@ We then apply $\sqcap$ and $\sqcup$ rule (Rule 2 and Rule 3) again on the first 
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
 	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
 				  child{ node{$\boxtimes$}}}
-		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-). \neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}}}
+		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-). \neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl\}$}}}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
 \end{tikzpicture}  
 \end{center}
@@ -1343,9 +1342,9 @@ level 3/.style={level distance=2.5cm, sibling distance=6cm}]
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
 	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
 				  child{ node{$\boxtimes$}}}
-		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}
+		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl\}$}
 				  child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\
-				  $~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$\\
+				  $~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl\}$\\
 				  $\mathcal{L}(y)=\{CNl\}$\\
 				  $\mathcal{E}(\langle x,y \rangle)=\{rightOf,closeTo\}$}}}}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
@@ -1355,17 +1354,17 @@ level 3/.style={level distance=2.5cm, sibling distance=6cm}]
 Because of inverse role axiom in the RBox, we can add inverse roles in $\mathcal{E}(\langle x,y \rangle)$ (Rule 7) and apply  $\forall$ rule (Rule 5) on the second part:
 \begin{center}
 \begin{tikzpicture}[every text node part/.style={align=center},level 1/.style={level distance=1.5cm, sibling distance=9cm}, level 2/.style={level distance=2cm, sibling distance=6cm},
-level 3/.style={level distance=2.5cm, sibling distance=6cm}]
+level 3/.style={level distance=3cm, sibling distance=6cm}]
 \node [sibling distance=18cm] {$\mathcal{L}(x)=\{ LVl\sqcap \exists isPartOf.Hemisphere\sqcap (\forall (leftOf^-\sqcap closeTo^-).\neg CNl\sqcup \forall isPartOf.\neg Brain)\}$}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl \sqcup (BrainStructure \sqcap \exists (rightOf \sqcap closeTo).CNl)\}$}
 	      		    child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$\neg LVl\}$}
 				  child{ node{$\boxtimes$}}}
-		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$}
+		            child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl\}$}
 				  child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\
-				  $~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl$\\
+				  $~\forall (leftOf^-\sqcap closeTo^-).\neg CNl,$\\$BrainStructure,$\\$\exists (rightOf \sqcap closeTo).CNl\}$\\
 				  $\mathcal{L}(y)=\{CNl,~\neg CNl\}$\\
 				  $\mathcal{E}(\langle x,y \rangle)=\{rightOf,closeTo,leftOf^-,closeTo^-\}$\\
-				  $\mathcal{L}(\langle y,x\rangle)=\{rightOf^-,closeTo^-,leftOf,closeTo\}$}
+				  $\mathcal{E}(\langle y,x\rangle)=\{rightOf^-,closeTo^-,leftOf,closeTo\}$}
 				  child{ node{$\boxtimes$}}}}}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}};
 \end{tikzpicture}  
@@ -1395,7 +1394,7 @@ level 3/.style={level distance=3cm, sibling distance=7cm}]
 				  child{ node{$\boxtimes$}}}
 	      child{ node {$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$}
 		     child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
-				  $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain$\\
+				  $\mathcal{L}(y)=\{ Hemisphere, \neg Brain, \forall isPartOf. \neg Brain,$\\
 				  $\neg Hemisphere \sqcup \exists isPartOf.Brain\}$\\
 				  $\mathcal{E}(\langle x,y \rangle)=\{isPartOf\}$}
 				  child{ node{$\mathcal{L}(x)=\{ LVl,~\exists isPartOf.Hemisphere,$\\$~\forall isPartOf.\neg Brain\}$\\
@@ -1423,7 +1422,7 @@ explanation of the observation.
 
 \section{Abduction example for brain tumor image interpretation}
 \label{Appendix B}
-Due to the size of the tableau for this example, we only give the knowledge base and the results for a brain tumor interpretation problem using the tableau method.
+Due to the size of the tableau for this example, we only give the knowledge base and the results for a brain tumor image interpretation problem using the tableau method.
 \begin{align*}
 \mathcal{T}=\{~SmallDeformingTumor &\sqsubseteq BrainTumor\\
  &~~~~~\sqcap \exists hasEnhancement. NonEnhanced \\
@@ -1439,7 +1438,7 @@ PeripheralDeformingTumor &\sqsubseteq BrainTumor\\
 \end{align*}
 
 In the following part, all the concepts and roles are represented by an abbreviation including the first letter and capital letters.
-In this case the initial node is :$\mathbf{T}(1)=\{\}, \mathbf{F}(1)=\{\neg C_\mathcal{T}\sqcap \mathcal{O}\}$.
+In this case the initial node is composed by $\mathbf{T}(1)=\{\}$ and $\mathbf{F}(1)=\{\neg C_\mathcal{T}\sqcap \mathcal{O}\}$.
 \begin{align*}
  \neg C_\mathcal{T}\sqcap \mathcal{O}= \{ &(SDT \sqcap \neg BT \sqcup \forall hE. \neg NE \sqcup \forall hB. \neg In) \sqcup \\
  &(PDT \sqcap \neg BT \sqcup \forall fF. \neg LV \sqcup \forall hL. \neg PCH) \sqcup \\
