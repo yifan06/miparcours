@@ -592,10 +592,10 @@ $\langle x,y \rangle \in u^\mathcal{I}$ implies $\langle x,y \rangle \notin v^\m
 The knowledge base used for spatial reasoning in our framework is built with three blocks: terminologies (TBox), role axioms (RBox) and assertions (ABox)
 ($\mathcal{K}=\{\mathcal{T},\mathcal{R},\mathcal{A}\}$).
 
-A decidable DL language $\mathcal{ALCHI_{R_+}}$~\cite{horrocks1999description} is described in the following for qualitative spatial reasoning, where the spatial relations are 
+A decidable DL language $\mathcal{ALCHI_{R^+}}$~\cite{horrocks1999description} is described in the following for qualitative spatial reasoning, where the spatial relations are 
 represented by roles and the properties of these spatial relations can be represented by the axioms in the RBox.
 
-The table of syntax and semantics of $\mathcal{ALCHI_{R_+}}$ is shown as follows:
+The table of syntax and semantics of $\mathcal{ALCHI_{R^+}}$ is shown as follows:
  \begin{center}
  \begin{table}[H]
     \begin{tabular}{|p{4cm} | p{2cm} | p{10cm}| }
@@ -620,11 +620,11 @@ The table of syntax and semantics of $\mathcal{ALCHI_{R_+}}$ is shown as follows
     Concept assertion & $a:C$ & $a^\mathcal{I}\in C^\mathcal{I}$ \\
     Role assertion & $(a,b):r$ & $(a^\mathcal{I},b^\mathcal{I})\in r^\mathcal{I}$ \\ \hline
     \end{tabular}
-    \caption{Syntax and semantics of $\mathcal{ALCHI_{R_+}}$.}
+    \caption{Syntax and semantics of $\mathcal{ALCHI_{R^+}}$.}
     \label{tab:alchir_interpretation}
 \end{table}
 \end{center} 
-We elaborate on Definition~\ref{def:tableauALC} for an $\mathcal{ALCHI_{R+}}$ tableau by adding new properties and associated rules as follows.
+We elaborate on Definition~\ref{def:tableauALC} for an $\mathcal{ALCHI_{R^+}}$ tableau by adding new properties and associated rules as follows.
 \begin{enumerate}
 \setcounter{enumi}{5}
 \item if $\forall r.C\in \mathcal{L}(x)$ and $r$ is a transitive role, then for all $y \in \mathbf{S}$ such that $r \in \mathcal{E}(\langle x,y\rangle)$, 
@@ -887,7 +887,7 @@ In this work, we apply this general strategy to image interpretation expressed a
 An observed image is represented by an ABox, which is supposed to be consistent with the knowledge base. 
 In the concept abduction problem, the observation concept is constructed on the basis of the individual that is selected to be explained and
 contextual information in the ABox.
-In this part, the knowledge base is in the DL $\mathcal{ALC}$ (extension to $\mathcal{ALCHI_{R_+}}$) are planned for future work).
+In this part, the knowledge base is in the DL $\mathcal{ALC}$ (extension to $\mathcal{ALCHI_{R^+}}$) are planned for future work).
 
 % The tableau method has proven effective for tackling abductive reasoning problems. 
 We then consider extending and automating the tableau method for image interpretation.
@@ -1290,7 +1290,7 @@ in LRI\footnote{Laboratoire de Recherche en Informatique, Universit\'{e} ParisSu
 \end{itemize}
 
 \appendix
-\section{An illustrative example using $\mathcal{ALCHI_{R_+}}$ tableau method}
+\section{An illustrative example using $\mathcal{ALCHI_{R^+}}$ tableau method}
 \label{Appendix A}
 
 This example can be treated as an abductive reasoning involving qualitative spatial relations.
